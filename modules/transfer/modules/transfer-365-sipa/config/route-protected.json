@@ -1,0 +1,39 @@
+[
+  {
+    "name": "365 CA RD",
+    "path": "/transfer/365-sipa",
+    "parameter": "365:home",
+    "children": [
+      {
+        "path": "365-sipa",
+        "parameter": "s365:home",
+        "children": []
+      },
+      {
+        "path": "terms-condition",
+        "parameter": "s365:terms_condition",
+        "children": []
+      },
+      {
+        "path": "confirmation",
+        "parameter": "s365:confirmation",
+        "children": []
+      },
+      {
+        "path": "voucher",
+        "parameter": "s365:voucher",
+        "children": []
+      },
+      {
+        "path": "st/detail",
+        "parameter": "s365:st_detail",
+        "children": []
+      },
+      {
+        "path": "st/operation",
+        "parameter": "s365:st_operation",
+        "children": []
+      }
+    ]
+  }
+]

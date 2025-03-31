@@ -1,0 +1,32 @@
+{
+  "banpais": [
+    {
+      "name": "CHECKING",
+      "value": "01"
+    },
+    {
+      "name": "SAVINGS",
+      "value": "02"
+    }
+  ],
+  "bisv": [
+    {
+      "name": "bisv_cheks-UP",
+      "value": "01"
+    },
+    {
+      "name": "bisv_savings-UP",
+      "value": "02"
+    }
+  ],
+  "bipa": [
+    {
+      "name": "CHECKING",
+      "value": "01"
+    },
+    {
+      "name": "SAVINGS",
+      "value": "02"
+    }
+  ]
+}

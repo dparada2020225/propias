@@ -1,0 +1,71 @@
+<article class='tm365-modal'>
+  <button (click)='closeModal()' class='button-close'>
+    <i class='fa fa-close'></i>
+  </button>
+
+  <adf-header
+    logoUrl='assets/images/logos/SVG_BIES_TOB_UNI_Logo.svg'
+    width="61.82px"
+    height="40px"
+    subtitle='tm-ach-uni:title'
+    label='tm-ach-uni:title_transfer_bank'>
+  </adf-header>
+  <main>
+    <p class='text-helper'> {{ 'tm-ach-uni:modal-help-header' | translate }} </p>
+    <p class='text-helper-2'> {{ 'tm-ach-uni:modal-help-header2' | translate }} </p>
+
+    <section class='helper'>
+      <ul>
+        <li>
+          <span> {{ 'tm-ach-uni:modal-help-column-1-title' | translate }} </span>
+          <span> {{ 'tm-ach-uni:label_description_text_helper_1a' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm-ach-uni:modal-help-column-2-title' | translate }} </span>
+          <span> {{ 'tm-ach-uni:label_description_text_helper_2b' | translate }} </span>
+          <span class='helper-detail'> {{ 'tm-ach-uni:label_description_text_helper_21b' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm-ach-uni:modal-help-column-3-title' | translate }} </span>
+          <span> {{ 'tm-ach-uni:label_description_text_helper_3c' | translate }} </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <span> {{ 'tm-ach-uni:modal-help-column-4-title' | translate }} </span>
+          <span> {{ 'tm-ach-uni:label_description_text_helper_4d' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm-ach-uni:modal-help-column-5-title' | translate }} </span>
+          <span> {{ 'tm-ach-uni:label_description_text_helper_5e' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm-ach-uni:modal-help-column-6-title' | translate }} </span>
+          <span> {{ 'tm-ach-uni:label_description_text_helper_6f' | translate }} </span>
+        </li>
+      </ul>
+    </section>
+    <section class='images'>
+      <div>
+        <h3> {{ 'tm-ach-uni:example_title_excel' | translate }} </h3>
+        <img src='assets/images/private/ach/PNG_BIES_TOB_UNI_Carga_Excel.png' alt='excel section with config file'>
+      </div>
+      <div>
+        <h3> {{ 'tm-ach-uni:example_title_csv' | translate }} </h3>
+        <img src='assets/images/private/ach/PNG_BIES_TOB_UNI_Carga_CSV.png' alt='csv section with config file'>
+      </div>
+    </section>
+    <section class='extended'>
+      <h3> {{ 'tm-ach-uni:additional_considerations_title' | translate }} </h3>
+      <div>
+        <ul class="col-sm-12 col-md-10 col-lg-9" style="font-size: 11px;">
+          <li style="line-height: 16px;"> {{ 'tm-ach-uni:additional_considerations_1' | translate }} </li>
+          <li style="line-height: 16px;"> {{ 'tm-ach-uni:additional_considerations_2' | translate }} </li>
+        </ul>
+        <ul class="col-md-11" style="font-size: 11px;">
+          <li style="line-height: 16px;" [innerHTML]="'tm-ach-uni:additional_considerations_3' | translate" ></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</article>

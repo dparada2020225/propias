@@ -1,0 +1,117 @@
+<div class="modal-header" style="border: none; padding-bottom: 0px">
+    <div style="width: 100%">
+      <h1 class="details-reserve" data-testid="title">{{ "details-reserve" | translate }}</h1>
+      <p class="account-name text-uppercase alias-name" data-testid="sub-title">
+        {{ aliasName }} {{ nameAccount }}
+      </p>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="saldo">
+      <table aria-describedby="reservation detail" class="table table-desktop" style="table-layout: fixed">
+        <thead>
+          <tr>
+            <th id="type-reserve" class="td text-uppercase">
+              {{ "type-reserve" | translate }}
+            </th>
+            <th id="currency-title" class="td text-uppercase">
+              {{ "currency.title" | translate }}
+            </th>
+            <th id="remaining-days" class="td text-uppercase">
+              {{ "remaining-days" | translate }}
+            </th>
+            <th id="deposit-date" class="td text-uppercase">
+              {{ "deposit-date" | translate }}
+            </th>
+            <th id="check-number" class="td text-uppercase">
+              {{ "check-number" | translate }}
+            </th>
+            <th id="bank" class="td text-uppercase">{{ "bank" | translate }}</th>
+            <th id="amount" class="td text-uppercase">
+              {{ "amount" | translate }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr" *ngFor="let movement of movements">
+            <td headers="type-reserve">{{ type }}</td>
+            <td headers="currency-title">{{ currency }}</td>
+            <td headers="remaining-days">{{ movement.remainingDays }}</td>
+            <td headers="deposit-date">{{ movement.date }}</td>
+            <td headers="check-number">{{ movement.referency }}</td>
+            <td headers="bank">{{ movement.description }}</td>
+            <td headers="amount" style="text-align: right">
+              {{ movement.amount }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="total total-color">
+        {{ "total-amount" | translate }}
+        <span class="total-color-two">
+          <em>
+            {{ total }}
+          </em>
+        </span>
+      </p>
+      <hr class="hr" style="height: 1px !important; background-color: #000 !important" />
+  
+      <div *ngIf="messageError">
+        <adf-alert [receiverType]="'error'" [receiverMessage]="this.errorMessage | translate"> 
+        </adf-alert>
+      </div>
+      <div class="table-mobile">
+        <div *ngFor="let movement of movements">
+          <div class="header-container">
+            <div>
+              <p class="text-uppercase type-reserve">
+                {{ "type-reserve" | translate }}
+              </p>
+            </div>
+            <div>
+              <p class="type">{{ type }}</p>
+            </div>
+          </div>
+          <div class="type-reserve-table">
+            <div class="header">
+              <p class="text-uppercase">{{ "currency.title" | translate }}</p>
+              <p class="text-uppercase">{{ "remaining-days" | translate }}</p>
+              <p class="text-uppercase">{{ "deposit-date" | translate }}</p>
+              <p class="text-uppercase">{{ "check-number" | translate }}</p>
+              <p class="text-uppercase">{{ "bank" | translate }}</p>
+              <p class="text-uppercase">{{ "amount" | translate }}</p>
+            </div>
+            <div class="body">
+              <p>{{ currency }}</p>
+              <p>{{ movement.remainingDays }}</p>
+              <p>{{ movement.date }}</p>
+              <p>{{ movement.referency }}</p>
+              <p>{{ movement.description }}</p>
+              <p>{{ movement.amount }}</p>
+            </div>
+          </div>
+          <div class="footer">
+            <div>
+              <p class="total-color-one total-amount">
+                {{ "total-amount" | translate }}
+              </p>
+            </div>
+            <div>
+              <p class="total-color-one total-footer">
+                <em>{{ total }}</em>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer" style="border: none; padding-top: 0px">
+    <div class="botones">
+      <adf-button data-testid="close" value="{{ 'toReturn' | translate }}" type="secondary" (onClick)="activeModal.close('Close click')">
+      </adf-button>
+      <adf-button class="txt-btn-yellow" value="{{ 'print' | translate }}" (click)="downloadPdf()" style="margin-bottom: 5px">
+      </adf-button>
+    </div>
+  </div>
+  

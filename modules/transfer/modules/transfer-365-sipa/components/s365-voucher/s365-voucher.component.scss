@@ -1,0 +1,39 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.s365-voucher {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+
+  p {
+    padding-block: 2rem .5rem;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
+
+::ng-deep.s365-voucher {
+  #reading-container {
+    --padding-block-start-sm: 1.5rem;
+    --padding-block-end-sm: 1.5rem;
+    --padding-block-start-md: 1.5rem;
+    --padding-block-end-md: 2rem;
+    --padding-block-start-x: 1.5rem;
+    --padding-block-end-x: 2.5rem;
+  }
+
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+
+  byte-adf-transfer-header {
+    img {
+      width: 150px;
+    }
+  }
+}

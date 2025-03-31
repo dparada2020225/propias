@@ -1,0 +1,101 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.ach-m365-terms {
+  adf-button button.btn-default {
+    background-color: var(--text-primary-color);
+    border-color: var(--text-primary-color);
+    color: var(--primary-color);
+  }
+}
+
+.ach-m365-terms {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+
+  .card-365 {
+    display: flex;
+    flex-direction: column;
+    min-height: 302px;
+    background-image: url('../../../../../../../assets/images/private/ach/365-layer.png');
+    margin-top: 2.5rem;
+    border-radius: 24px 0;
+    padding: 2.5rem;
+    color: var(--text-primary-color);
+    box-shadow: 0 3px 6px #00000029;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__detail {
+      margin-top: 1.5rem;
+
+      @include from(m) {
+        margin-top: 0;
+      }
+    }
+
+    .text {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary-color);
+      @include from(480) {
+        font-size: 2rem;
+      }
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      color: var(--border-animated);
+      @include from(480px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    img {
+      width: 200px;
+      max-width: 100%;
+    }
+
+    .term-accept {
+      p {
+        font-size: 14px;
+        margin-bottom: 1.5rem;
+
+        span:nth-child(2) {
+          text-decoration: underline;
+        }
+      }
+
+      @include from(x) {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    @include from(m) {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 50px;
+    }
+
+    @include from(x) {
+      gap: 100px;
+    }
+  }
+}

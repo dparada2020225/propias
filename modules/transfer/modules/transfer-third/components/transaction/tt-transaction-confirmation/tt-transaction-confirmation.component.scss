@@ -1,0 +1,105 @@
+@use '../../../../../../../../assets/styles/responsive.scss' as *;
+
+.tt-transaction-confirm {
+  font-family: inherit;
+}
+
+::ng-deep.ttr-confirm adf-reading #reading-container {
+  .icon-widget {
+    color: rgb(155, 155, 155);
+  }
+
+  .icon-check.checkbox:checked + .icon-widget {
+    color: var(--primary-color);
+    background-color: transparent;
+  }
+
+}
+
+/* ---------- Estilos para el salvador ---------- */
+
+.layout-bisv::ng-deep {
+  /*Title*/
+  .heading-voucher {
+    .main-subtitle {
+      margin-top: 8px;
+      margin-bottom: 13px !important;
+
+      @include from(m) {
+        margin-top: 2px !important;
+        margin-bottom: 8px !important;
+      }
+
+      @include from(x) {
+        margin-top: 10px !important;
+        margin-bottom: 9px !important;
+      }
+
+    }
+  }
+
+  /*Content*/
+  .padding-side {
+
+    @include from(m) {
+      padding-left: 0;
+    }
+
+    @include from(x) {
+      padding-left: 100px;
+    }
+
+    .group {
+      padding-top: 8px;
+      padding-bottom: 24px;
+
+      @include from(m) {
+        row-gap: 16px;
+        padding-bottom: 115px;
+      }
+
+      @include from(x) {
+        padding-bottom: 8px;
+        row-gap: 24px;
+      }
+
+      .field-item {
+        gap: 11px;
+
+        @include from(x) {
+          gap: 1px;
+        }
+
+      }
+    }
+  }
+}
+
+/*Buttons*/
+.btn-sv::ng-deep {
+
+  @include from(m) {
+    margin-right: 0;
+  }
+
+  @include from(x) {
+    gap: 27px;
+  }
+
+  adf-button {
+    height: 50px;
+
+    @include from(m) {
+      width: 218px;
+    }
+
+    @include from(x) {
+      width: 240px;
+    }
+
+    .btn {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}

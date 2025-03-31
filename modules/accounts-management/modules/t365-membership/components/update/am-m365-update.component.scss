@@ -1,0 +1,25 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.acm365-update {
+  .create-txt {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-block: 2.5rem 0;
+    color: var(--light-text-three);
+  }
+
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+
+::ng-deep.acm365-update {
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+}

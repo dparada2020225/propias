@@ -1,0 +1,58 @@
+<ngx-spinner></ngx-spinner>
+
+<article [ngClass]='[customShow, "byte-container", "spplm-upload-container"]'>
+  <adf-alert *ngIf='messageAlert && typeAlert' [receiverMessage]='messageAlert' [receiverType]='typeAlert'></adf-alert>
+  <header class='pp-upload__header'>
+    <h1>{{ "ps:title" | translate }}</h1>
+     <p>{{ "ps:manual_subtitle" | translate }}</p>
+  </header>
+
+  <section class='sp-upload__content tooltip-sv'>
+    <div class="sub1">
+      <h4 *ngIf="registers.length > 0"> {{ 'ps:form-manual' | translate }} </h4>
+
+    </div>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+
+    <div class='form-section'>
+      <div class='ps-sub-title'>
+        <h4> {{ 'ps:title_form-manual' | translate }} </h4>
+      </div>
+    </div>
+
+    <adf-form-layout [form]='form' [setLayoutJson]='formLayout'></adf-form-layout>
+
+    <div *ngIf="registers.length === 0" class="ps-buttons-no-registers">
+      <adf-button data-testid="secondary" type="secondary" [value]='"ps:btn.back" | translate' (click)="previous()"></adf-button>
+      <adf-button data-testid="addRegister" (click)="addRegister()" [value]='"add" | translate'></adf-button>
+    </div>
+
+    <div *ngIf="registers.length > 0">
+      <div class="ps-buttons-add-register">
+        <adf-button data-testid="addRegister" (click)="addRegister()" [value]='"add" | translate'></adf-button>
+      </div>
+
+      
+    <div class='form-section'>
+      <div class='ps-sub-title'>
+        <h4> {{ 'ps:title_form-manual-detail' | translate }} </h4>
+      </div>
+    </div>
+
+      <div class='ps-table-container'>
+        <byte-psm-table [isSelectedEnabled]="true" (onLoadListItems)="getRegisters($event)" [tableHeaders]="tableHeaders" [registers]="registers"></byte-psm-table>
+      </div>
+
+      <div [ngClass]='["messages-section"]' *ngIf="registers.length > 0">
+        <p [innerHTML]='"ps:label_requirement_success_registers" | translate' *ngIf="registers.length > 0  && !isMobile"></p>
+        <p [innerHTML]='"ps:label_requirement_success_registers_mobil" | translate' *ngIf="registers.length > 0 && isMobile && isMobileTwo"></p>
+        <p [innerHTML]='"ps:label_requirement_success_registers_tablet" | translate' *ngIf="registers.length > 0 && isMobile && !isMobileTwo"></p>
+      </div>
+      
+      <div [ngClass]="[buttonContainerClassName, 'ps-buttons-container']">
+          <adf-button data-testid="secondary" type="secondary" [value]='"ps:btn.back" | translate' (click)="previous()"></adf-button>
+          <adf-button data-testid="next" *ngIf="isEnabledNextButton" [value]='"btn.continue" | translate' (click)="next()"></adf-button>
+      </div>
+    </div>
+  </section>
+</article>

@@ -1,0 +1,14 @@
+<div
+  [ngClass]="[customShow, 'container-own-transfer byte-container transfers', typeProfile == profileSV ? 'corporate-image-sv' : '', typeProfile == profilePA ? 'corporate-image-pa' : '']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate">
+  </adf-alert>
+  <adf-reading class="transfer-reading" [data]="voucherLayout"> </adf-reading>
+  <div
+    [ngClass]="['byte-container__button', typeProfile == profileSV ? 'line byte-container__button-sv-confirm' : '', typeProfile == profilePA ? 'line byte-container__button-pa-confirm' : '']">
+    <adf-button *ngIf='!isShowNextButton' id="next" class="primary" value="{{ 't.confirm' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button id="prev" class="secondary" type="secondary" value="{{ 'toReturn' | translate }}" (click)="lastStep()">
+    </adf-button>
+  </div>
+</div>

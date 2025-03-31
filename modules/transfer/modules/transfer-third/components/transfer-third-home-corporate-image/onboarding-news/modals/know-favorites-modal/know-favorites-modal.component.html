@@ -1,0 +1,18 @@
+<section class="container-know">
+
+  <article class="container-know__img">
+    <picture>
+      <source media="(min-width: 992px)" [srcset]="imgDesktop">
+      <source media="(min-width: 692px)" [srcset]="imgTablet">
+      <img [src]="imgMobile" alt="Ejemplo">
+    </picture>
+  </article>
+  <article class="container-know__favorites">
+
+    <h2 class="title"> {{'know_favorites-ttr' | translate}}</h2>
+    <p class="description description-1"> {{'know_favorites_desc1-ttr' | translate}} </p>
+    <p class="description description-2"> {{'know_favorites_desc2-ttr' | translate}} </p>
+
+  </article>
+
+</section>

@@ -1,0 +1,11 @@
+<div [ngClass]="[customShow, 'container-own-transfer byte-container transfers']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert"
+             [receiverMessage]="messageAlert | translate"></adf-alert>
+  <adf-reading class="transfer-reading" [data]="confirmationVoucher"></adf-reading>
+  <div [ngClass]="['byte-container__button', typeProfile == profile ? 'hover_button-primary-sv' : '']">
+    <adf-button id="prev" class="secondary" [type]="typePrevButton" value="{{ 'toReturn' | translate }}"
+                (click)="prevStep()"></adf-button>
+  </div>
+
+  <adf-confirmation-headband [headbandLayout]="headBand"></adf-confirmation-headband>
+</div>

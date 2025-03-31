@@ -1,0 +1,207 @@
+<div *ngIf="this.menu && this.menu.length > 0" class="navbar-container">
+    <!-- modo mobile -->
+    <nav class="navbar navbar-expand-lg navbar-light d-lg-none">
+  
+        <a class="navbar-brand" [routerLink]="[home]">
+            <img alt="logo" src="assets/images/private/{{profile}}_logo_privado_{{assetsVersion}}.png">
+        </a>
+  
+        <i class="navbar-toggler icon banca-regional-menu" (click)="firstCollapsedMenu = !firstCollapsedMenu"></i>
+  
+        <div class="collapse navbar-collapse" [ngbCollapse]="firstCollapsedMenu">
+            <div [ngClass]="{'d-none': this.secondCollapsedMenu || this.thirdCollapsedMenu}">
+                <ul class="navbar-nav" [ngClass]="{'first-collapsed-menu': corporateImageApplication()}">
+                    <li class="nav-item" *ngFor="let firstStep of this.menu" [ngClass]="{'d-none': !firstStep.show  }">
+                        <a class="nav-link" (click)="changeStateFirstStep(firstStep)">
+                            <i class="banca-regional-flecha"
+                                style="transform: rotate(270deg);display: block; float: right;"></i>
+                            {{firstStep.service | translate}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+  
+            <div *ngIf="this.secondCollapsedMenu" [ngClass]="{'primary-color': this.secondCollapsedMenu, 'd-none':this.thirdCollapsedMenu}">
+                <ul class="navbar-nav" [ngbCollapse]="!secondCollapsedMenu">
+                    <li class="nav-item sub-item" [ngClass]="{'d-none': !firstStep.show }">
+                        <div class="nav-link" (click)="this.backFirstStep()">
+                            <i class="banca-regional-flecha back"></i>
+                            <span>
+                                {{this.firstStep.service | translate}}
+                            </span>
+                        </div>
+                    </li>
+  
+                    <li class="nav-item" *ngFor="let secondStep of this.firstStep['child']"
+                        [ngClass]="{'d-none': !secondStep.show }">
+                        <div class="nav-link sub-link"
+                            (click)="changeStateSecondStep(secondStep); compareNavigateMobile(secondStep)">
+                            <i class="banca-regional-flecha" *ngIf="secondStep.child && secondStep['child'].length > 0"
+                                style="transform: rotate(270deg);display: block; float: right;"></i>
+                            {{secondStep.service | translate}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+  
+            <div *ngIf="this.thirdCollapsedMenu" [ngClass]="{'primary-color': this.thirdCollapsedMenu, 'd-none':this.fourthCollapsedMenu}">
+                <ul class="navbar-nav" [ngbCollapse]="!thirdCollapsedMenu">
+                    <li class="nav-item sub-item" [ngClass]="{'d-none': !secondStep.show }">
+                        <div class="nav-link" (click)="this.backSecondStep()">
+                            <i class="banca-regional-flecha back"></i>
+                            <span>
+                                {{this.secondStep.service | translate}}
+                            </span>
+                        </div>
+                    </li>
+  
+                    <li class="nav-item" *ngFor="let thirdStep of this.secondStep['child']"
+                        [ngClass]="{'d-none': !thirdStep.show }">
+                        <div class="nav-link sub-link"
+                            (click)="this.changeStatThirdStep(thirdStep); compareNavigateMobile(thirdStep)">
+                            <i class="banca-regional-flecha" *ngIf="thirdStep.child && thirdStep['child'].length > 0"
+                                style="transform: rotate(270deg);display: block; float: right;"></i>
+                            <span class="light-primary-text-translucent third-step-class-mobile">
+                                {{thirdStep.service | translate}}
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+  
+            <div *ngIf="this.fourthCollapsedMenu" [ngClass]="{'d-none':this.fifthCollapsedMenu}">
+                <ul class="navbar-nav" [ngbCollapse]="!fourthCollapsedMenu">
+                    <li class="nav-item sub-item" [ngClass]="{'d-none': !thirdStep.show }">
+                        <div class="nav-link" (click)="this.backThirdStep()">
+                            <i class="banca-regional-flecha back"></i>
+                            <span>
+                                {{this.thirdStep.service | translate}}
+                            </span>
+                        </div>
+                    </li>
+  
+                    <li class="nav-item" *ngFor="let fourthStep of this.thirdStep['child']"
+                        [ngClass]="{'d-none': !fourthStep.show }">
+                        <div class="nav-link sub-link"
+                            (click)="this.changeStateFourthStep(fourthStep); compareNavigateMobile(fourthStep)">
+                            <i class="banca-regional-flecha" *ngIf="fourthStep.child && fourthStep['child'].length > 0"
+                                style="transform: rotate(270deg);display: block; float: right;"></i>
+                            <span class="light-primary-text-translucent third-step-class-mobile">
+                                {{fourthStep.service | translate}}
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+  
+            <div *ngIf="this.fifthCollapsedMenu">
+                <ul class="navbar-nav" [ngbCollapse]="!fifthCollapsedMenu">
+                    <li class="nav-item sub-item" [ngClass]="{'d-none': !fourthStep.show }">
+                        <div class="nav-link" (click)="this.backfourthStep()">
+                            <i class="banca-regional-flecha back"></i>
+                            <span>
+                                {{this.fourthStep.service | translate}}
+                            </span>
+                        </div>
+                    </li>
+  
+                    <li class="nav-item" *ngFor="let fifthStep of this.fourthStep['child']"
+                        [ngClass]="{'d-none': !fifthStep.show }">
+                        <div class="nav-link sub-link">
+                            <i class="banca-regional-flecha" *ngIf="fifthStep.child && fifthStep['child'].length > 0"
+                                style="transform: rotate(270deg);display: block; float: right;"></i>
+                            <span class="light-primary-text-translucent third-step-class-mobile">
+                                {{fifthStep.service | translate}}
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+    <!-- modo normal ----------------------------------------------------------------->
+    <div class="d-none d-lg-block ">
+        <div class="navbar primary-color-select" [ngClass]="{'navbar-sticky': navbarSticky && menu.length > 5, 'primary-color-select-corporate': corporateImageApplication()}">
+            <a class="navbar-brand" *ngIf="navbarSticky" [routerLink]="[home]">
+              <img alt="logo" src="assets/images/private/{{profile}}_logo_privado_{{assetsVersion}}.png">
+            </a>
+            <ul class="navbar-nav" style="display: contents; flex-direction: row;">
+                <li class="nav-item" *ngFor="let firstStep of this.menu"
+                    [ngClass]="{'primary-color': firstStep === this.firstStepSelect, 'd-none': !firstStep.show}">
+                    <a class="nav-link menu-corporate" (click)="changeStateFirstStepLg(firstStep)">
+                        {{firstStep.service | translate}}
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="navbarSticky">
+                    <a class="nav-link" style="display: table-cell;vertical-align: middle">
+                        <i class="banca-regional-off" (click)="logout()"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse navbar-light primary-color" [ngClass]="{'primary-color-corporate': corporateImageApplication()}" [ngbCollapse]="firstCollapsedMenu">
+            <div class="row" style="padding: 10px 10% 20px" *ngIf="this.firstStep">
+                <div *ngFor="let columns of this.firstStep.childrenInColumns; let i = index;"
+                    [ngClass]="{'col-3': firstStep.child.length !== 3, 'col-4': firstStep.child.length === 3}">
+                    <div *ngFor="let secondStep of columns.children" [ngClass]="{'d-none': !secondStep.show}">
+                        <div style="padding: 10px 0px 5px;">
+                            <a class="text-primary-color parent-text" (click)="compareNavigateLg(secondStep)">
+                                • {{secondStep.service | translate}}
+                            </a>
+                        </div>
+                        <div *ngIf="secondStep['child']" style="padding-left: 10px;">
+                            <div *ngFor="let thirdStep of secondStep['child']">
+                                <div class="light-primary-text-translucent third-step-class"
+                                    (click)="compareNavigateLg(thirdStep); this.arrowThirdStep !== thirdStep.service ? this.arrowThirdStep = thirdStep.service : this.arrowThirdStep = undefined">
+                                    <div style="display: flex;">
+                                        <div>
+                                            {{thirdStep.service | translate}}
+                                        </div>
+                                        <div *ngIf="thirdStep.child && thirdStep.child.length !== 0">
+                                            <span class="icon-menu fas"
+                                                [ngClass]="{'fa-angle-down': this.arrowThirdStep === thirdStep.service, 'fa-angle-right': this.arrowThirdStep !== thirdStep.service}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="this.arrowThirdStep === thirdStep.service && thirdStep?.child?.length !== 0"
+                                    style="padding-left: 15px;">
+                                    <div *ngFor="let fourthStep of thirdStep.child">
+                                        <div class="light-primary-text-translucent third-step-class"
+                                            (click)="compareNavigateLg(fourthStep); this.arrowFourthStep !== fourthStep.service ? this.arrowFourthStep = fourthStep.service : this.arrowFourthStep = undefined">
+                                            <div>
+                                                {{fourthStep.service | translate}}
+                                            </div>
+                                            <div *ngIf="fourthStep.child && fourthStep.child.length !== 0">
+                                                <i class="icon-menu fas"
+                                                    [ngClass]="{'fa-angle-down': this.arrowFourthStep === fourthStep.service, 'fa-angle-right': this.arrowFourthStep !== fourthStep.service}"></i>
+                                            </div>
+                                        </div>
+                                        <div
+                                            *ngIf="this.arrowFourthStep === fourthStep.service && fourthStep?.child?.length !== 0">
+                                            <div *ngFor="let fifthStep of fourthStep.child"
+                                                [ngClass]="{'d-none': !fifthStep.show }">
+                                                <div class="light-primary-text-translucent"
+                                                    (click)="compareNavigateLg(fifthStep); this.arrowFifthStep !== fifthStep.service ? this.arrowFifthStep = fifthStep.service : this.arrowFifthStep = undefined">
+                                                    <div>
+                                                        {{fifthStep.service | translate}}
+                                                    </div>
+                                                    <div *ngIf="fifthStep.child.length !== 0">
+                                                        <i class="icon-menu fas"
+                                                            [ngClass]="{'fa-angle-down': this.arrowFifthStep === fifthStep.service, 'fa-angle-right': this.arrowFifthStep !== fifthStep.service}"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <adf-snack-bar></adf-snack-bar>
+  

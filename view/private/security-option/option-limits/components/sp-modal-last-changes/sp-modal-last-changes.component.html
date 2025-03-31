@@ -1,0 +1,21 @@
+<div class="modal-body modal__container" id="modal__container">
+  <div class="close__icon">
+    <button (click)="close()" ngAutofocus>
+      <i class="fa fa-times" aria-hidden="true"> </i>
+    </button>
+  </div>
+  <section class="modal__content">
+    <div class="icon">
+      <i aria-hidden="true" [ngClass]="['corporate-image banca-regional-periodo-contrasena']"> </i>
+    </div>
+    <h2 class="modal__title">{{ 'title:last_changes_modified' | translate }}</h2>
+    <p class="moda__description" [innerHTML]="message">
+    </p>
+  </section>
+
+  <div class="buttons">
+    <div  [ngClass]="['btn--primary']">
+      <adf-button [value]="'agree' | translate" type="primary" (click)="passBack()"> </adf-button>
+    </div>
+  </div>
+</div>

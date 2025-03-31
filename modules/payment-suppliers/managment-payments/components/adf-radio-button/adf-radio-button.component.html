@@ -1,0 +1,13 @@
+<div class='adf-radio'>
+  <input
+    [id]='id+1'
+    [name]='name'
+    type='radio'
+    [value]='value'
+    #checkbox
+    [checked]='isCheckedValue'
+    (change)='onModelChange()'
+  >
+  <label [for]='id+1'></label>
+  <label [for]='id+1'> {{ label | translate }} </label>
+</div>

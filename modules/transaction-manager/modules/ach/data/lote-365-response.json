@@ -1,0 +1,124 @@
+{
+  "registers": [
+    {
+      "idTransference": "5411",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "",
+      "amount": "100.00",
+      "comment": "UN COMENTARIO DE 60 CARACERES"
+    },
+    {
+      "idTransference": "5412",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "",
+      "amount": "100.00",
+      "comment": ""
+    },
+    {
+      "idTransference": "5413",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "",
+      "amount": "100.00",
+      "comment": ""
+    },
+    {
+      "idTransference": "5414",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "",
+      "amount": "100.00",
+      "comment": "UN COMENTARIO DE 60 CARACERES"
+    },
+    {
+      "idTransference": "5415",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "",
+      "amount": "100.00",
+      "comment": ""
+    },
+    {
+      "idTransference": "5416",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "",
+      "amount": "100.00",
+      "comment": ""
+    },
+    {
+      "idTransference": "5417",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "",
+      "amount": "100.00",
+      "comment": ""
+    },
+    {
+      "idTransference": "5418",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "email@test.com",
+      "amount": "100.00",
+      "comment": "UN COMENTARIO DE 60 CARACERES"
+    },
+    {
+      "idTransference": "5419",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "email@test.com",
+      "amount": "100.00",
+      "comment": ""
+    },
+    {
+      "idTransference": "5410",
+      "bankName": "BANCO INDUSTRIAL EL SALVADOR",
+      "product": "1",
+      "currency": "USD",
+      "account": "1229910224492",
+      "targetAccountName": "RONAL MACAL",
+      "typeClient": "N",
+      "email": "email@test.com",
+      "amount": "100.00",
+      "comment": ""
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<div [ngClass]="[customShow, 'crud-container byte-container transfers', classNameForm]">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert"
+             [receiverMessage]="messageAlert | translate"></adf-alert>
+
+
+  <adf-form-layout [form]="form" [setDataSelectList]="optionsList" [setLayoutJson]="formLayout"
+                   *ngIf="showNewSelects ; else oldSelect">
+
+    <adf-custom-select-form-layout
+      customLayout
+      class='grid-item credit-sv error-custom-select'
+      [useCustomPreview]='true'
+      [form]='form'
+      [setOption]='sourceAccountOptions'
+      [setLayoutAttribute]='sourceAccountAttribute'>
+      <ng-container preview *ngIf='accountAccreditSelected'>
+        <byte-target-account-preview [selectedAccount]="accountAccreditSelected"></byte-target-account-preview>
+      </ng-container>
+    </adf-custom-select-form-layout>
+
+    <adf-custom-select-form-layout
+      customLayout
+      class='grid-item debit-sv error-custom-select'
+      [useCustomPreview]='true'
+      [form]='form'
+      [setOption]='debitAccountOptions'
+      [setLayoutAttribute]='debitAccountAttribute'
+    >
+      <ng-container preview *ngIf='accountDebitedSelected'>
+        <byte-target-debit-account-preview [debitAccount]="accountDebitedSelected"></byte-target-debit-account-preview>
+      </ng-container>
+    </adf-custom-select-form-layout>
+
+  </adf-form-layout>
+
+  <ng-template #oldSelect>
+    <adf-form-layout [form]="form" [setDataSelectList]="optionsList" [setLayoutJson]="formLayout"></adf-form-layout>
+  </ng-template>
+
+
+  <div [ngClass]="['byte-container__button', classNameButton]">
+    <adf-button class="primary" id="primary" value="{{ 't.continue' | translate }}" (click)="nextStep()"></adf-button>
+    <adf-button class="secondary" id="prev" type="secondary" [value]="'toReturn' | translate"
+                (click)="prevStep()"></adf-button>
+  </div>
+</div>

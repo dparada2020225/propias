@@ -1,0 +1,33 @@
+<ngx-spinner></ngx-spinner>
+<article [ngClass]="[customShow, 'byte-container transfers tm-ach-signature']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    subtitle='tm:ach:subtitle_signatory'
+    label='tm:ach:title_home'>
+  </adf-header>
+  <section class='content'>
+    <adf-table
+      class="associate"
+      [structure]="tableLayout"
+      [isShowMessageByEmptyRegisters]='true'
+      [emptyMessageHandler]="'message'"
+      [isShowHeaders]='true'
+    >
+    </adf-table>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="next"
+      class="primary"
+      value="{{ 'print' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

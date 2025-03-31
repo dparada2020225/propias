@@ -1,0 +1,26 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.ach-365-voucher {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.ach-365-voucher {
+  #reading-container {
+    --padding-block-start-sm: 1rem;
+    --padding-block-end-sm: 1.5rem;
+    --padding-block-start-md: 1rem;
+    --padding-block-end-md: 2rem;
+    --padding-block-start-x: 1.8rem;
+    --padding-block-end-x: 2.5rem;
+  }
+
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+}

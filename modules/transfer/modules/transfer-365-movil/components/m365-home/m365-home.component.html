@@ -1,0 +1,70 @@
+<article [ngClass]="[customShow, 'byte-container transfers ach-m365-home']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    [label]='title'
+    [subtitle]='subTitle'
+    logoUrl='assets/images/private/ach/logo_transfer_m365.svg'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content tooltip-sv'>
+    <div class='base-form'>
+      <adf-form-layout
+        [setLayoutJson]="formLayout"
+        [setDataSelectList]="selectOptions"
+        [form]="form">
+        <div [formGroup]='form' *ngIf="isShowBankField" customLayout>
+          <adf-select
+            [control]='bankValueControl'
+            [label]="'ach:bisv:label_bank' | translate"
+            formControlName='bank'
+            [options]="bankFormOptions"
+            [(ngModel)]="bankValueSelect" >
+            <div class='error' error>
+            <span>
+              {{ 'payroll:field_required' | translate }}
+            </span>
+            </div>
+          </adf-select>
+        </div>
+      </adf-form-layout>
+    </div>
+
+    <div class='form-extended' *ngIf='typeLoadBeneficiary'>
+      <ng-container *ngIf='isShowEnteredForm'>
+        <adf-form-layout
+          [setLayoutJson]="formTypeLoadLayout"
+          [form]="formTypeLoad">
+        </adf-form-layout>
+      </ng-container>
+      <ng-container *ngIf='isShowRegisteredForm'>
+        <adf-form-layout
+          [setLayoutJson]="formTypeLoadLayout"
+          [setDataSelectList]="selectTypeLoadOptions"
+          [form]="formTypeLoad">
+        </adf-form-layout>
+      </ng-container>
+    </div>
+
+    <byte-adf-transfer-footer
+      title='ach:bisv:label_important'
+      descriptionEl='ach:bisv:label_ach_365_movil_footer'
+    ></byte-adf-transfer-footer>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      *ngIf='isShowNextButton'
+      id="next"
+      class="primary"
+      value="{{ 't.continue' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

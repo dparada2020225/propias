@@ -1,0 +1,57 @@
+<ngx-spinner></ngx-spinner>
+<article [ngClass]="[customShow, 'byte-container transfers am365-home']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    logoUrl='assets/images/private/ach/logo_transfer_m365.svg'
+    subtitle='am:365_subtitle_home'
+    label='ach:bisv:label_home'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content'>
+    <div class='add-content' *ngIf='isShowCreateButton'>
+      <adf-button
+        value="{{ 'add_account' | translate }}"
+        (click)="navigateToCreateAccount()"
+      ></adf-button>
+    </div>
+
+    <div class='table-content'>
+      <adf-table
+        *ngIf='isShowFavoriteTableAccount'
+        class="favorite"
+        (onLoadAccount)="getTableActionFavoriteAccounts($event)"
+        [structure]="favoriteAccountTableLayout"
+        [isOptions]="true"
+        [isShowMessageByEmptyRegisters]='true'
+        [emptyMessageHandler]="'message'"
+        [isShowHeaders]='true'
+        [useOptionsWithVirtualScroll]="userVirtualScrollInTableFavorites"
+        [useVirtualScroll]="userVirtualScrollInTableFavorites"
+      >
+      </adf-table>
+      <hr *ngIf='isShowFavoriteTableAccount'>
+      <adf-table
+        class="associate"
+        (onLoadAccount)="getTableActionAssociatedAccounts($event)"
+        [structure]="associatedAccountTableLayout"
+        [isOptions]="true"
+        [isShowMessageByEmptyRegisters]='true'
+        [emptyMessageHandler]="'message'"
+        [isShowHeaders]='true'
+        [useOptionsWithVirtualScroll]="userVirtualScrollInTableAssociated"
+        [useVirtualScroll]="userVirtualScrollInTableAssociated"
+      >
+      </adf-table>
+    </div>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

@@ -1,0 +1,32 @@
+
+<article [ngClass]='[customShow, "byte-container", "spp-container"]'>
+  <!--     <adf-alert [receiverType]='typeMessage' [receiverMessage]='message'></adf-alert>
+ -->    
+      <div >
+        <header class='pp-upload__header'>
+          <h1>{{ title | translate }}</h1>
+          <p>{{ subTitle | translate }}</p>
+        </header>
+        <div class='reading-st'>
+          <adf-reading [data]='voucherLayout'></adf-reading>
+        </div>
+      </div>
+      <div class='table-container'>
+        <hr>
+        <adf-table
+          [isShowMessageByEmptyRegxisters]='true'
+          [emptyMessageHandler]='"message"'
+          [isShowHeaders]='true'
+          [structure]='tableLayout'
+          [isScrolled]='true'></adf-table>
+      </div>
+ 
+
+  
+    <div class='ps-buttons-container'>
+        <adf-button id="prev" class="secondary" type="secondary" value="{{ 'ps:btn.back' | translate }}" (click)="lastStep()"> </adf-button>
+        <adf-button *ngIf='isShowNextButton' id="next" class="primary" value="{{ nextButtonMessage | translate }}" (click)="next()">
+        </adf-button>
+    </div>
+  </article>
+  

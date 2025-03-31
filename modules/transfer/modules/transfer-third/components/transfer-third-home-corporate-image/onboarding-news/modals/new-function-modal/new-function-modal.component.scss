@@ -1,0 +1,88 @@
+@use '../../../../../../../../../../assets/styles/responsive' as *;
+
+.container-new {
+  display: flex;
+  flex-direction: column;
+  gap: 35.7px;
+  padding-top: 28px;
+  padding-bottom: 117px;
+
+  @include from(m) {
+    flex-direction: row;
+    gap: 30.5px;
+    padding-bottom: 61.70px;
+    padding-top: 61.70px;
+  }
+
+  @include from(x) {
+    padding-top: 20.5px;
+    padding-bottom: 20.5px;
+  }
+
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 271px;
+    height: 183.31px;
+
+    @include from(m) {
+      width: 449.92px;
+      height: 304.34px;
+    }
+
+    picture {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+  }
+
+  &__info {
+    max-width: 243px;
+    width: 100%;
+
+
+    @include from(m) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      max-width: 231px;
+    }
+
+    @include from(x) {
+      margin-right: 0;
+      width: 350px;
+    }
+
+    .title {
+      font-size: 1.25rem !important;
+      padding-right: 80px;
+      color: #003865;
+
+      @include from(m) {
+        margin-right: 0;
+        padding-right: 0;
+
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+    }
+
+    .description {
+      color: #5A5A5A;
+      font-size: .875rem;
+      margin-right: 25px;
+
+      @include from(m) {
+        margin-right: 0;
+      }
+    }
+  }
+}

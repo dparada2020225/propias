@@ -1,0 +1,37 @@
+<ngx-spinner></ngx-spinner>
+<div [ngClass]="['third-container tpl-container byte-container transfers']">
+  <div class="consulting-box" [class.active]="emptyAlert">
+    <adf-form-layout [form]="filterForm" [setLayoutJson]="filterLayout"></adf-form-layout>
+    <div class="byte-container__button filter-buttons"></div>
+  </div>
+    <div class="table-owns-party-loans" *ngIf="showOwnsLoansTable">
+    <div class="title-terceros">
+      <h3 id="own-title-loans">{{ 'loans_title' | translate }}</h3>
+      <div class="spacer"></div>
+    </div>
+    <adf-table
+      [structure]="ownLoansAccountsLayout"
+      [isOptions]="true"
+      (onLoadAccount)="getActionTableOwnsLoans($event)"
+      (onScrollPerPage)='getOwnsLoans()'
+      [isScrolled]='true'
+    > </adf-table>
+  </div>
+  <div class="table-third-party-loans" *ngIf="showThirdLoansTable && !thirdAccountsIsEmpty">
+    <div class="title-terceros" *ngIf="showThirdLoansTable">
+      <h3 id="title-third-party-loans">{{ 'loans_title' | translate }}</h3>
+      <div class="spacer"></div>
+    </div>
+    <adf-table
+      (onLoadAccount)="getActionTableThirdLoans($event)"
+      [structure]="thirdLoansAccountsLayout"
+      (onScrollPerPage)='getAccounts()'
+      [isScrolled]='true'
+      [isOptions]="true"> </adf-table>
+  </div>
+   <adf-alert
+  *ngIf="emptyAlert"
+  [receiverType]="typeAlertOwnsLoansAccount"
+  [receiverMessage]="messageAlertOwnsLoansAccount | translate"
+></adf-alert>
+</div>

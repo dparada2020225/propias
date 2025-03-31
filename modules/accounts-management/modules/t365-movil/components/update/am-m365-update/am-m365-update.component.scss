@@ -1,0 +1,30 @@
+@use '../../../../../../../../assets/styles/responsive' as *;
+
+.am-365-update {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.am-365-update {
+  adf-form-layout {
+    .container-form {
+      margin: 0;
+      border: none;
+    }
+
+    adf-select {
+      select:disabled {
+        cursor: not-allowed;
+        border: 1px solid #ccd0d5 !important;
+        color: #ccd0d5 !important;
+        background-color: #f8f8f8 !important;
+      }
+      select:disabled::placeholder {
+        color: #ccd0d5 !important;
+      }
+    }
+  }
+}

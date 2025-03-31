@@ -1,0 +1,30 @@
+<!-- <p>ach-uni-voucher works!</p> -->
+<main [ngClass]="[customShow, 'byte-container transfers ach-uni-voucher']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <adf-header
+    [logoUrl]='urlUni'
+    [label]='title'
+    [subtitle]='subtitle'
+    width="61.82px"
+    height="40px">
+  </adf-header>
+
+  <section class='content'>
+    <adf-reading [data]="voucherLayout"> </adf-reading>
+  </section>
+
+  <div class="footer">
+    <byte-adf-transfer-footer
+    [title]="'ach-uni:transfer-info-title' | translate"
+    [description]="footerText | translate"
+    descriptionEl="">
+  </byte-adf-transfer-footer>
+  </div>
+
+  <div class="byte-container__button_uni">
+    <adf-button *ngIf="isShowPrintButton" class="primary" [value]="printButtonMessage | translate" (click)="print()"> </adf-button>
+    <adf-button class="secondary" [type]="typePrevButton" [value]="'toReturn' | translate" (click)="back()"> </adf-button>
+  </div>
+  <adf-confirmation-headband *ngIf="isShowHeadband" [headbandLayout]="headbandLayout"></adf-confirmation-headband>
+</main>

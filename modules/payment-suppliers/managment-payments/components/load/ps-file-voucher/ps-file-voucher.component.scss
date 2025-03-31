@@ -1,0 +1,44 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.pp-upload__header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--light-text-three);
+
+  p {
+    font: normal normal bold 18px/22px Lato, sans-serif;
+    font-size: 18px;
+    color: var(--light-text-two);
+  }
+}
+
+.pp-upload__voucher ::ng-deep{
+  @include from(x) {
+    padding-left: 100px;
+  }
+
+  adf-reading{
+    .heading-voucher {
+        display: none;
+      }
+
+  }
+
+}
+
+.ps-buttons-container {
+  margin-top: 64px;
+  @include from(m) {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+}
+
+.table-subtitle {
+  border-top: 1px solid var(--light-text-three);
+  font-size: 20px;
+  padding: 40px 0 1.5rem 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin: 0;
+}

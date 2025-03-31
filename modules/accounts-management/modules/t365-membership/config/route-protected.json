@@ -1,0 +1,39 @@
+[
+  {
+    "name": "365 MEMBERSHIP",
+    "path": "/accounts-management/365-membership",
+    "parameter": null,
+    "children": [
+      {
+        "path": "affiliate",
+        "parameter": "m365Membership:affiliate",
+        "children": []
+      },
+      {
+        "path": "affiliate/voucher",
+        "parameter": "m365Membership:affiliate_voucher",
+        "children": []
+      },
+      {
+        "path": "disaffiliate",
+        "parameter": "m365Membership:disaffiliate",
+        "children": []
+      },
+      {
+        "path": "disaffiliate/voucher",
+        "parameter": "m365Membership:disaffiliate_voucher",
+        "children": []
+      },
+      {
+        "path": "update",
+        "parameter": "m365Membership:update",
+        "children": []
+      },
+      {
+        "path": "update/voucher",
+        "parameter": "m365Membership:update_voucher",
+        "children": []
+      }
+    ]
+  }
+]

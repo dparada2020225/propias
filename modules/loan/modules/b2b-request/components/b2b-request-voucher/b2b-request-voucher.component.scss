@@ -1,0 +1,37 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+
+::ng-deep.byte-request adf-confirmation-modal adf-reading {
+  @include from(m) {
+    .field-item.list-grid {
+      gap: 3.9375rem;
+      flex-direction: row;
+    }
+    .field-item.list-grid div {
+      display: flex;
+      gap: 1rem;
+    }
+    .field-item.list-grid.general-item div {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @include from(x) {
+    .field-item:nth-child(6) > div,
+    .field-item:nth-child(3) > div,
+    .field-item:nth-child(7) > div,
+    .field-item:nth-child(8) > div {
+      p:first-child {
+        min-width: 50px;
+      }
+    }
+  }
+}
+
+::ng-deep.byte-request adf-confirmation-modal {
+  adf-confirmation-headband {
+    .headband-item:nth-child(2) {
+      gap: 0;
+    }
+  }
+}

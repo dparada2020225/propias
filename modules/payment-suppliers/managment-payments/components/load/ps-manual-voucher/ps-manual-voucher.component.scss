@@ -1,0 +1,195 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.pp-upload__header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--light-text-three);
+
+  h4 {
+    color: var(--color-subtitle-sppl);
+    font: normal normal bold 18px/22px Lato, sans-serif;
+  }
+
+  h1{
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font: normal normal bold 18px/22px Lato, sans-serif;
+    font-size: 0.938rem;
+    @include from(m){
+      font-size: 1.25rem;
+    }
+    @include from(x){
+      font-size: 1.125rem;
+    }
+    color: var(--light-text-two);
+  }
+}
+.sub1 {
+  margin-bottom: -30px;
+}
+.ps-buttons-container {
+  margin-top: 64px;
+
+  @include from(m) {
+    justify-content: flex-end;
+  }
+}
+.buttons {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: row;  
+    gap: 1rem;
+
+    @include from(m) {
+      flex-direction: row;
+      gap: 1rem; 
+      justify-content: flex-end; 
+    }
+  }
+.sppl-items {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  @include from(m) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sppl-confirm__content {
+  .title_content {
+    border-bottom: 1px solid var(--light-text-three);
+    margin-bottom: 40px;
+    h3{
+      font-size: 1rem !important;
+
+      @include from(x){
+        font-size: 1.125rem !important;
+      }
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--light-text-three);
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: #666666;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  @include from(x) {
+    padding-left: 100px;
+  }
+}
+
+.item-title {
+  color: var(--light-text-three);
+}
+
+.item-value {
+  color: var(--primary-color);
+}
+.ps-sub-title {
+    h4 {
+      color: var(--color-subtitle-sppl);
+      font: normal normal bold 18px/22px Lato, sans-serif;
+      padding-bottom: 8px;
+    }
+  
+    p {
+      margin-top: 1.5rem;
+  
+      @include from(m) {
+        margin-top: 1.125rem;
+      }
+  
+      @include from(x) {
+        margin-top: 1.5rem;
+      }
+  
+      color: var(--primary-alternative-color);
+      font-size: 14px;
+    }
+  }
+  
+  .form-section {
+    h4 {
+        color: var(--color-subtitle-sppl);
+        border-bottom: 1px solid var(--light-text-three);
+        font: normal normal bold 18px/22px Lato, sans-serif;
+        padding-bottom: 8px;
+      }
+    h3 {
+      font: normal normal bold 20px/28px Lato, sans-serif;
+      font-size: 20px;
+      color: var(--primary-color);
+      margin: 0;
+    }
+  
+    p {
+      font: normal normal normal 14px/28px Lato, sans-serif;
+      font-size: 14px;
+      color: var(--primary-alternative-color);
+    }
+  }
+.manually-container::ng-deep {
+  @include from(x) {
+    padding-left: 100px;
+  }
+
+  adf-reading{
+    .heading-voucher {
+        display: none;
+      }
+    .main-subtitle{
+
+      font: normal normal bold 18px/22px Lato, sans-serif !important;
+      font-size: 1rem !important;
+      @include from(x){
+        font-size: 1.125rem !important;
+      }
+      color: var(--color-subtitle-sppl) !important;
+    }
+  }
+
+}
+
+.table-subtitle {
+  border-top: 1px solid var(--light-text-three);
+  font-size: 20px;
+  padding: 40px 0 1.5rem 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin: 0;
+}
+.ps-buttons-container {
+  margin-top: 64px;
+  @include from(m) {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+}
+
+::ng-deep .bisv adf-button button.btn {
+
+  @media only screen and (max-width: 500px) {
+    width: 100% !important; /* Sobrescribe el ancho */
+
+  }
+
+}

@@ -1,0 +1,36 @@
+<ngx-spinner></ngx-spinner>
+<div [ngClass]="['crud-container ttpl-transfer byte-container transfers', customShow]">
+  <adf-alert
+  *ngIf="showMessageAlertUp"
+  [receiverType]="typeAlertUp"
+  [receiverMessage]="messageAlertUp | translate"
+></adf-alert>
+  <div class="consulting-box">
+    <adf-form-layout [form]="filterForm" [setLayoutJson]="filterLayout"></adf-form-layout>
+    <div class="byte-container__button dahsboard-admin-button-divider">
+      <adf-button *ngIf="showCreateButton" class="add_button" id="add" value="{{ 'add' | translate }}" (click)="next()"></adf-button>
+    </div>
+  </div>
+  <div class="table-third-party-loans">
+    <div class="title-terceros" *ngIf="showTitleTable">
+      <h3 *ngIf='!isLoading' id="title-third-party-loans">{{ 'loans_title' | translate }}</h3>
+      <div class="spacer"></div>
+    </div>
+    <adf-table
+      (onLoadAccount)="getActionTable($event)"
+      (onScrollPerPage)='getThirdPartyLoansByInfinityScroll()'
+      [structure]="thirdLoansAccountsLayout"
+      [isOptions]="true"
+      [isScrolled]='true'
+      [setIsLoading]='isLoading'
+      *ngIf="showThirdLoansTable"
+    >
+    </adf-table>
+    <adf-alert
+      *ngIf="showMessageAlert"
+      [receiverType]="typeAlert"
+      [receiverMessage]="messageAlert | translate"
+    ></adf-alert>
+  </div>
+</div>
+

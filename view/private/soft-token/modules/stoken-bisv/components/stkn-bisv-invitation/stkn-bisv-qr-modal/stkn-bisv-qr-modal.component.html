@@ -1,0 +1,47 @@
+<ngx-spinner></ngx-spinner>
+<div class="stkn-bisv-qr-modal stoken-bisv-invitation-modal">
+  <div class="modal__header">
+    <a class="modal__header-close" (click)="close()" id="btn-X-method-stoken-bisv"
+      ><span aria-hidden="true" class="fa fa-times"></span>
+      <span class="hidden-text">Close</span>
+    </a>
+  </div>
+  <div class="modal-body">
+    <div class="alert-container">
+    <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+    </div>
+    <div class="info-container">
+      <div class="info-container__icon">
+        <i aria-hidden="true" class="icon banca-regional-ingreso-token token-icon"></i>
+      </div>
+      <div class="info-container__steps">
+        <byte-stkn-bisv-step-vertical></byte-stkn-bisv-step-vertical>
+      </div>
+      <div class="info-container__descrip">
+        <h1>{{ 'stoken-new-device' | translate }}</h1>
+        <p class="info-container__descrip-subt">{{ 'stoken-scanQR-2' | translate }}</p>
+        <p class="info-container__descrip-subt2">{{ 'qr-img-descrip' | translate }}</p>
+        <p class="info-container__descrip-subt2">{{ 'qr-img-descrip2' | translate }}</p>
+      </div>
+    </div>
+    <div class="qr-container">
+      <byte-stkn-bisv-code-qr
+        [qrCode]="qrCode"
+        [qrCodeErrorLoading]="qrCodeError"
+        (updateQR)="clickOnRetryMessage($event)"
+      ></byte-stkn-bisv-code-qr>
+    </div>
+    <div class="byte-container__button">
+      <adf-button
+        value="{{ 't.continue' | translate }}"
+        id="information-stoken-btn"
+        class="primary"
+        (click)="verifyIfQRHasBeenScann()"
+        (keydown.enter)="verifyIfQRHasBeenScann()"
+      >
+      </adf-button>
+      <adf-button value="{{ textForReturnBtn | translate }}" type="secondary" action="button" id="backBtn-info-stoken" class="secondary" (click)="handlerBack()" (keydown.esc)="handlerBack()">
+      </adf-button>
+    </div>
+  </div>
+</div>

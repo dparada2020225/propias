@@ -1,0 +1,23 @@
+<adf-alert *ngIf="validationAlert()" [receiverType]="typeAlert!" [receiverMessage]="messageAlert! | translate">
+</adf-alert>
+
+<main class="container">
+  <article class="buttons-container">
+    <button [ngClass]="{'button-selected': view === 'information'}"
+            (click)="selectView('information')">
+      <i aria-hidden="true"
+         [ngClass]="['sprint2-icon-documento', view === 'information'? 'icon-documento-dis' : 'icon-documento-ac']"></i> {{"ttr-quees" | translate}}
+    </button>
+    <button [ngClass]="{'button-selected': view === 'question'}"
+            (click)="selectView('question')">
+      <i aria-hidden="true" class="banca-regional-pregunta icon"></i> {{"frequent-question-ttr" | translate}}
+    </button>
+  </article>
+
+  <article class="content">
+    <byte-information [showButton]="showButtonGoToTransfer" (requestNavigation)="navigateToTransferThird()"
+                      *ngIf="view == 'information'"></byte-information>
+    <byte-frequent-question [showButton]="showButtonGoToTransfer" (requestNavigation)="navigateToTransferThird()"
+                            *ngIf="view == 'question'"></byte-frequent-question>
+  </article>
+</main>

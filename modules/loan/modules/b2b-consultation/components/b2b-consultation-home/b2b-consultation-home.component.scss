@@ -1,0 +1,280 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.container-b2b-consultation adf-form-layout {
+  .grid-container {
+    padding-block-end: calc(40px - 24px);
+  }
+}
+
+::ng-deep.container-b2b-consultation adf-reading {
+  .content-fields {
+    padding-block-start: 0;
+  }
+
+  .field-item:nth-child(9) {
+    margin-block-start: calc(2rem - 1rem);
+  }
+
+  .group {
+    padding-block-end: calc(24px - 15px);
+    border-block-end: 1px solid var(--light-text-three);
+  }
+
+  .field-item:nth-child(10) {
+    & > div {
+      display: grid !important ;
+      gap: 0 !important;
+      grid-template-columns: 40px 1fr;
+    }
+  }
+
+  @include from(m) {
+    .content-fields {
+      padding-block-end: 4.0625rem;
+    }
+
+    .field-item.list-grid {
+      gap: 3.9375rem;
+      flex-direction: row;
+    }
+    .field-item.list-grid div {
+      display: flex;
+      gap: 2.5rem;
+    }
+    .field-item.list-grid.general-item div {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+::ng-deep.byte-consultation adf-confirmation-modal adf-reading {
+  .group:not(:last-child) {
+    border-block-end: 1px solid var(--light-text-three);
+  }
+
+  .group:nth-child(2) {
+    .field-item {
+      display: grid;
+      grid-template-columns: 140px auto;
+    }
+
+    .field-item:nth-child(6) {
+      & > div {
+        gap: 0.0625rem;
+      }
+    }
+
+    @include from(375px) {
+      .field-item {
+        gap: 1.5rem;
+      }
+
+      .field-item:nth-child(6) {
+        & > div {
+          gap: 1rem;
+        }
+      }
+    }
+
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        'product product'
+        'status subState'
+        'currency amountGranted'
+        'term nominal-rate'
+        'warranty rate-effective'
+        'concession nextPaymentDate'
+        'dueDate dueDate';
+
+      .content-voucher:first-child {
+        outline: 1px solid red;
+        grid-column: span 2;
+      }
+
+      .b2b-product {
+        grid-area: product;
+      }
+      .status {
+        grid-area: status;
+      }
+      .subState {
+        grid-area: subState;
+      }
+      .currency {
+        grid-area: currency;
+      }
+      .amountGranted {
+        grid-area: amountGranted;
+        & > div {
+          display: flex;
+        }
+      }
+      .time {
+        grid-area: time;
+      }
+      .nominal-rate {
+        grid-area: nominal-rate;
+      }
+      .warranty {
+        grid-area: warranty;
+      }
+      .rate-effective {
+        grid-area: rate-effective;
+      }
+      .concession {
+        grid-area: concession;
+      }
+      .nextPaymentDate {
+        grid-area: nextPaymentDate;
+      }
+      .dueDate {
+        grid-area: dueDate;
+      }
+    }
+
+    @include from(x) {
+      grid-template-columns: 1fr 350px;
+    }
+  }
+
+  .group:nth-child(1) {
+    @include from(m) {
+      .field-item {
+        display: grid;
+        grid-template-columns: 140px auto;
+        gap: 2.5rem;
+      }
+    }
+  }
+
+  .group:nth-child(3) {
+    .field-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @include from(375px) {
+      .field-item {
+        grid-template-columns: 150px 1fr;
+      }
+
+      .field-item > div {
+        display: grid;
+        grid-template-columns: 40px auto;
+      }
+
+      .field-item > div .field-description:last-child {
+        justify-self: flex-start;
+      }
+    }
+
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .head-columns {
+        grid-column: span 2;
+      }
+
+      .field-item > div {
+        display: grid;
+        grid-template-columns: 40px 120px;
+      }
+
+      .field-item > div .field-description:last-child {
+        justify-self: flex-end;
+      }
+
+      .field-item:nth-child(n + 8) {
+        grid-column: span 2;
+      }
+    }
+
+    @include from(x) {
+      .field-item {
+        grid-template-columns: 175px 1fr;
+      }
+    }
+  }
+}
+
+::ng-deep.byte-consultation adf-confirmation-modal {
+  adf-confirmation-headband {
+    .headband-item:nth-child(2) {
+      gap: 0;
+    }
+  }
+}
+
+.container-b2b-consultation .byte-container__button {
+  padding-block-start: 2.5rem;
+}
+
+.with-currency {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span:first-child {
+    min-width: 50px;
+  }
+  span:last-child {
+    min-width: 100px;
+    text-align: end;
+  }
+}
+
+@include from(m) {
+  .amount {
+    color: var(--light-text-two) !important;
+  }
+}
+.amount {
+  color: var(--primary-color) !important;
+}
+
+@include from(l) {
+  table.table.custom-table tbody tr:last-child {
+    height: 0px !important;
+  }
+}
+
+.content-total-desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span:first-child {
+    min-width: 50px;
+  }
+  span:last-child {
+    min-width: 100px;
+    text-align: end;
+  }
+}
+
+@include from(s) {
+  table.table.custom-table tbody tr td {
+    padding: 8px;
+    div {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .content-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  table.table.custom-table tbody tr:last-child {
+    height: 22px;
+  }
+  table.table.custom-table tfoot span.total {
+    margin: 0 0 7px 0;
+  }
+}
+::ng-deep.custom_show {
+  padding-block-start: 1.875rem !important;
+  adf-alert > div {
+    margin-block-end: 1.625rem;
+  }
+}

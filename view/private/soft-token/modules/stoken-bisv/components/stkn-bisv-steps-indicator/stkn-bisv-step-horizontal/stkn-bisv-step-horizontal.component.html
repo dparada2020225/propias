@@ -1,0 +1,38 @@
+<div
+  [ngClass]="{
+    'stkn-bisv-step-1': !secondStepOn,
+    'stkn-bisv-step-2': secondStepOn
+  }"
+>
+  <div
+    [ngClass]="{
+    'divider1': !secondStepOn,
+    'divider1-step2': secondStepOn
+  }"
+  ></div>
+  <div [ngClass]="{
+    'divider2': !secondStepOn,
+    'divider2-step2': secondStepOn
+  }"></div>
+  <div *ngIf="!secondStepOn" class="divider3"></div>
+  <div
+    [ngClass]="{
+      'icon1': !secondStepOn,
+      'icon1-step2': secondStepOn
+    }"
+  >
+    <i *ngIf="!secondStepOn" class="icon-soft-token-Paso1-Activado"></i>
+    <i *ngIf="secondStepOn" class="icon-soft-token-Paso1-Realizado"></i>
+  </div>
+
+  <div
+    class="icon2"
+    [ngClass]="{
+      'icon2': !secondStepOn,
+      'icon2-step2': secondStepOn
+    }"
+  >
+    <i *ngIf="!secondStepOn" class="icon-soft-token-Paso2-Desactivado"></i>
+    <i *ngIf="secondStepOn" class="icon-soft-token-Paso2-Activado"></i>
+  </div>
+</div>

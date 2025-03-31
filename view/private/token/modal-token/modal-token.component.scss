@@ -1,0 +1,196 @@
+$breakpoints: (
+  s: 320px,
+  sm: 480px,
+  m: 834px,
+  l: 1024px,
+  x: 1366px,
+  xl: 1920px,
+);
+
+@mixin from($bp) {
+  @if (map-has-key($breakpoints, $bp)) {
+    @media screen and (min-width: map-get($breakpoints, $bp)) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $bp) {
+      @content;
+    }
+  }
+}
+
+.modal__body {
+  position: relative;
+  padding-block: 2rem;
+  padding-inline: 1.375rem;
+
+  @include from(m) {
+    padding-inline: 3rem 2.875rem;
+    padding-block: 1.5625rem 1.5625rem;
+  }
+
+  @include from(x) {
+    padding-inline: 3rem 2.875rem;
+    padding-block: 1.5625rem 1.5625rem;
+  }
+}
+
+i {
+  color: var(--light-text-two);
+}
+
+.modal__title {
+  margin-block-end: 0.875rem;
+  font: normal normal bold 20px var(--font-family) !important;
+  letter-spacing: 0px;
+  color: var(--primary-color);
+
+  @include from(x) {
+    font: normal normal bold 27px var(--font-family) !important;
+  }
+}
+
+.modal__description {
+  margin-block: 0.875rem 0.8612rem;
+  @include from(x) {
+    font: normal normal normal 14px/20px var(--font-family) !important;
+  }
+}
+
+.label-token {
+  font: normal normal normal 14px/17px var(--font-family) !important;
+  margin-block-end: 0.4375rem;
+}
+
+hr {
+  background-color: var(--light-text-three);
+  height: 0px;
+  margin: 0;
+}
+
+:host ::ng-deep {
+  adf-button.new-token > button {
+    width: -webkit-fill-available;
+  }
+
+  adf-button {
+    flex-grow: 1;
+  }
+}
+
+.token-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  @include from(576px) {
+    flex-direction: row;
+    gap: 1.6875rem;
+
+    .token-buttons {
+      display: flex;
+      flex-direction: column;
+      @include from(576px) {
+        flex-direction: row;
+        gap: 1.6875rem;
+
+        adf-button button.btn {
+          margin: 0 !important;
+          inline-size: 100% !important;
+        }
+      }
+    }
+  }
+}
+
+span {
+  width: 113px;
+  height: 20px;
+  float: right;
+  font: normal normal normal 12px/15px var(--font-family) !important;
+  color: #ffffff;
+  background-color: #f23752;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 576px) {
+  .modal-body {
+    padding: 25px 27px 40px;
+  }
+
+  .token--buttons {
+    flex-direction: column;
+    order: 1;
+  }
+
+  .token-buttons adf-button.btn-secondary > button {
+    position: relative;
+  }
+
+  adf-button[type='primary'] {
+    order: 1;
+  }
+
+  adf-button[type='secondary'] {
+    padding-right: 0px;
+    padding-bottom: 5px;
+    order: 2;
+  }
+
+  adf-input {
+    margin-left: 10px !important;
+
+    .input-wrapper {
+      margin: 0;
+    }
+  }
+}
+
+.icon__close {
+  position: absolute;
+  inset-block-start: 19px;
+  inset-inline-end: 2.1875rem;
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+}
+
+.icon__close button {
+  border-color: transparent;
+  background-color: unset;
+  inline-size: 100%;
+  justify-content: center;
+  display: flex;
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+::ng-deep .token-buttons {
+  gap: 1rem;
+
+  adf-button button.btn {
+    inline-size: 100% !important;
+  }
+}
+
+::ng-deep byte-modal-token adf-alert > div {
+  margin-block-start: 1.375rem;
+}
+
+::ng-deep.third-button {
+  margin-block-start: 1rem;
+
+  button.btn {
+    inline-size: 100% !important;
+  }
+}
+
+
+adf-input::ng-deep {
+  .input-wrapper {
+    margin-bottom: 0;
+  }
+}
+

@@ -1,0 +1,8 @@
+<main [ngClass]="[customShow, 'byte-container transfers ach-form-container']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-reading (onIsFavorite)="handleChangeIsFavoriteTransaction()" [data]="voucherConfirmation"> </adf-reading>
+  <div class="byte-container-ci__button">
+    <adf-button *ngIf="!isGeneralSettingsError" class="primary" [value]="'t.confirm' | translate" (click)="nextStep()"> </adf-button>
+    <adf-button class="secondary" type="secondary" [value]="'toReturn' | translate" (click)="lastStep()"> </adf-button>
+  </div>
+</main>

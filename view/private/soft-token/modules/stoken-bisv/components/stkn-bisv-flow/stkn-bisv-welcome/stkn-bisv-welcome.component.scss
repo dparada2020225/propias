@@ -1,0 +1,212 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+.stkn-bisv-welcome-container {
+  width: 100%;
+  padding: 0;
+
+}
+
+.stkn-bisv-welcome-container .stkn-bisv-welcomebody-container {
+  display: grid;
+
+  @include from(m) {
+    padding-top: 7px;
+  }
+
+  @include from(1366px) {
+    padding-top: 3.9px;
+    margin-right: 77px;
+  }
+}
+
+.stkn-bisv-welcomebody-container .icon-top-container {
+  // text-align: end;
+  // margin-top: -56px;
+  // margin-right: -25px;
+
+  margin-top: 0px;
+  max-width: 194px;
+  width: 100%;
+  /* text-align: end; */
+  justify-self: end;
+  position: relative;
+
+  @include from(m) {
+    grid-area: 1 / 1 / 3 / 2;
+  }
+
+  @include from(x) {
+  }
+}
+
+.icon-top1 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  bottom: 7%;
+
+  @include from(m) {
+    width: 197px;
+    height: 172px;
+    bottom: 3.5%;
+  }
+
+  @include from(1366px) {
+    width: 270px;
+    height: 237px;
+    bottom: 4.7%;
+  }
+
+}
+
+.icon-button1 {
+  width: 100%;
+  margin-top: 12px;
+
+  @include from(m) {
+    width: 197px;
+    height: 172px;
+    margin-top: 0;
+  }
+
+  @include from(1366px) {
+    width: 270px;
+    height: 237px;
+  }
+
+}
+
+.icon-logo1 {
+  width: 100%;
+  @include from(m) {
+    max-width: 210px;
+  }
+
+}
+
+.stkn-bisv-welcomebody-container .description-container {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 25px;
+
+  @include from(m) {
+    margin-bottom: 36px;
+    grid-area: 1 / 1 / 3 / 2;
+    padding-top: 270px;
+  }
+  @include from(1366px) {
+    padding-top: 110px;
+  }
+
+
+  .description-container__icon {
+    width: 100%;
+    max-width: 210px;
+    margin: 0 auto;
+
+    @include from(m) {
+      margin: 33px 0 40px 0;
+      max-width: none;
+
+    }
+  }
+
+  .description-container__title {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+    padding-bottom: 16px;
+    margin-top: 24px;
+
+    h1 {
+      font-size: 20px !important;
+    }
+
+    @include from(m) {
+      margin-bottom: 25px;
+      h1 {
+        font-size: 25px !important;
+      }
+
+      max-width: none;
+      padding-bottom: 0;
+    }
+
+    @include from(x) {
+      h1 {
+        font-size: 27px !important;
+      }
+
+      max-width: none;
+      padding-bottom: 0;
+    }
+
+
+  }
+
+  .description-container__description {
+    width: 100%;
+
+    p {
+      font-size: 15px !important;
+    }
+
+    @include from(m) {
+      max-width: 576px;
+      margin: 0 auto;
+    }
+
+    @include from(x) {
+      p {
+        font-size: 16px !important;
+      }
+    }
+
+  }
+
+
+}
+
+.stkn-bisv-welcomebody-container .byte-container__button {
+  border-bottom: 0;
+  text-align: center;
+  padding: 0 10px 0 18px;
+
+  @include from(m) {
+    justify-content: center;
+    z-index: 2;
+    text-align: center;
+    grid-area: 3 / 1 / 4 / 2;
+    margin-top: 16px;
+  }
+
+  @include from(x) {
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+}
+
+::ng-deep.stkn-bisv-welcomebody-container .byte-container__button adf-button .btn {
+ max-width: 325px;
+  @include from(m) {
+    max-width: 240px;
+    height: 50px;
+  }
+}
+
+.stkn-bisv-welcomebody-container .icon-bottom-container {
+  text-align: start;
+  width: 100%;
+  max-width: 173px;
+
+  @include from(m) {
+    margin-top: 239px;
+    z-index: 1;
+    grid-area: 3 / 1 / 4 / 2;
+  }
+
+  @include from(1366px) {
+    margin-top: 25px;
+  }
+}

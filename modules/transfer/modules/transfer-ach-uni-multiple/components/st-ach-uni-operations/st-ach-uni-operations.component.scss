@@ -1,0 +1,45 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.ach-uni-m-st {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+
+}
+
+::ng-deep.ach-uni-m-st {
+  #reading-container {
+    --padding-block-start-sm: 0;
+    --padding-block-end-sm: 1rem;
+    --padding-block-start-md: 0;
+    --padding-block-end-md: 1rem;
+    --padding-block-start-x: 0;
+    --padding-block-end-x: 1rem;
+  }
+
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+
+  adf-table {
+    #table-container {
+      --row-size: 1fr 150px 100px 1fr 90px 1fr;
+    }
+
+    .content {
+      padding-block: 0;
+    }
+
+    .email span {
+      word-break: break-all;
+    }
+  }
+
+  byte-adf-transfer-footer .alert-box {
+    margin-top: 4rem;
+  }
+}

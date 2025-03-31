@@ -1,0 +1,55 @@
+<ngx-spinner></ngx-spinner>
+
+<main [ngClass]="[customShow, 'container-bulk-transfer byte-container transfers']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate">
+  </adf-alert>
+  <section>
+    <adf-form-layout [setDataSelectList]='optionList' [form]="bulkTransferForm" [setLayoutJson]="bulkTransferLayout">
+       <div class="upload-item" customLayoutType>
+         <div class="tooltip-modal__content">
+           <span> {{'select_file' | translate}} </span>
+           <adf-tooltip (click)="handleClick()" icon="banca-regional-pregunta"></adf-tooltip>
+         </div>
+
+         <div [ngClass]="[isLoadingSkeleton, 'widgets-container']">
+           <adf-upload
+             *ngIf='!isLoadingFile'
+             [isShowUploadButton]='true'
+             (errorMessage)='getErrorMessage($event)'
+             (removeFiles)='handleRemovedFiles()'
+             (getFile)="getCurrentFile($event)"
+             [fileAllowed]='allowedFileTypes'
+             [onLoadFile]='onLoadFile.bind(this)'
+             buttonIcon='sprint2-icon-cargar-archivo'
+           >
+             <div class="description" extendedLabel>
+               <i class="sprint2-icon-carpeta"></i>
+               <p> {{'drop_file_here' | translate}} <span> {{'select' | translate}} </span> {{'up_file_option'|translate}}
+               </p>
+             </div>
+           </adf-upload>
+
+           <div *ngIf='isLoadingFile'>
+             <div class='file-box'>
+               <p class='file-name'>
+                 <i class='sprint2-icon-documento'></i>
+                 <span>
+                  {{ fileUploaded?.name }}
+                 </span>
+               </p>
+               <button (click)='backToUploadSection()' class='btn-delete-file'>
+                 <i class='sprint2-icon-trash'></i>
+               </button>
+             </div>
+           </div>
+         </div>
+      </div>
+    </adf-form-layout>
+  </section>
+  <div [ngClass]="['byte-container-ci__button']">
+    <adf-button (click)='nextStep()'  class="primary" [value]="'t.continue' | translate">
+    </adf-button>
+    <adf-button (click)='prevStep()' class="secondary" type="secondary" [value]="'toReturn' | translate">
+    </adf-button>
+  </div>
+</main>

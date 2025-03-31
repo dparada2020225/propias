@@ -1,0 +1,122 @@
+<h2 class="highlight" *ngIf="!singleProduct">{{product.name | translate}}</h2>
+
+<!-- dekstop-->
+
+<table aria-describedby="credit card section" class="table custom-table table-striped" *ngIf="!isMobile">
+    <thead>
+        <tr>
+            <th id="card_number" class="text-uppercase">{{ 'card_number' | translate }}</th>
+            <th id="home_name" class="text-uppercase">{{ 'label.home.name' | translate }}</th>
+            <th id="cutting_date" class="text-uppercase">{{ 'cutting_date' | translate }}</th>
+            <th id="pay_day" class="text-uppercase">{{ 'pay_day' | translate}}</th>
+            <th id="amount" class="text-uppercase">{{ 'amount.' | translate }}</th>
+            <th id="available" class="text-uppercase">{{ 'label.home.available' | translate }}</th>
+            <th id="account_balance" class="text-uppercase">{{ 'account-balance' | translate }}</th>
+            <th id="minimun_payment" class="text-uppercase">{{ 'minimun_payment' | translate }}</th>
+            <th id="cash_payment" class="text-uppercase">{{ 'cash_payment'| translate }}</th>
+            <th id="options" class="text-uppercase">{{ 'label.home.options' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let account of product.accounts">
+            <td headers="card_number" class="text-uppercase">
+                <a (click)="goToBalance(account)">{{account.number}}</a>
+            </td>
+            <td headers="home_name" >{{account.name}}</td>b 
+            <td headers="cutting_date" >{{account.cutoffDate}}</td>
+            <td headers="pay_day" >{{account.paymentDate}}</td>
+            <td headers="amount" class="text-uppercase amount">{{account.currency}}</td>
+            <td headers="available" class="text-uppercase amount">{{account.currency}}
+                <span>{{account.availableAmount | customNumber }}</span>
+            </td>
+            <td headers="account_balance" class="text-uppercase amount">{{account.currency}}
+                <span>{{account.totalAmount | customNumber }}</span>
+            </td>
+            <td headers="minimun_payment" class="text-uppercase amount">{{account.currency}}
+                <span>{{account.minimumPayment | customNumber }}</span>
+            </td>
+            <td headers="cash_payment" class="text-uppercase amount">{{account.currency}}
+                <span>{{account.totalPayment | customNumber }}</span>
+            </td>
+            <td headers="options" class="overflow-hidden">
+                <div ngbDropdown container="body" placement="left-top">
+                    <span ngbDropdownToggle style="cursor: pointer;"><i aria-hidden="true" class="icon banca-regional-opciones"></i></span>
+                    <ul ngbDropdownMenu class="account-options">
+                        <li>{{ 'label.home.options' | translate }}</li>
+                        <li ngbDropdownItem (click)="goToPayment(account)">
+                            {{ 'label.home.payment' | translate }}</li>
+                        <li ngbDropdownItem (click)="goToStatements(account)">
+                            {{ 'label.home.account-statement' | translate }}</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- mobile -->
+
+<table aria-describedby="credit card section mobile" class="table custom-table" *ngIf="isMobile">
+
+    <ng-container *ngFor="let account of product.accounts; let index = index">
+        <thead>
+            <tr>
+                <th id="key" class="text-uppercase">{{ 'card_number' | translate }}</th>
+                <th id="value" class="text-uppercase"><a (click)="goToBalance(account)">{{account.number}}</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'label.home.name' | translate }}</td>
+                <td headers="value" >{{account.name}}</td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'cutting_date' | translate }}</td>
+                <td headers="value" class="text-uppercase">{{account.cutoffDate }}</td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'pay_day' | translate}}</td>
+                <td headers="value" class="text-uppercase">{{account.paymentDate | customNumber }}</td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'amount.' | translate }}</td>
+                <td headers="value" >{{account.currency}}</td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'label.home.available' | translate }}</td>
+                <td headers="value" >{{account.currency}} <span class="float-right">{{account.availableAmount | customNumber }}</span>
+                </td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'account-balance' | translate }</td>
+                <td headers="value" >{{account.currency}} <span class="float-right">{{account.totalAmount | customNumber }}</span></td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'minimun_payment' | translate }}</td>
+                <td headers="value" >{{account.currency}} <span class="float-right">{{account.minimumPayment | customNumber }}</span>
+                </td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'cash_payment'| translate }}</td>
+                <td headers="value" >{{account.currency}} <span class="float-right">{{account.totalPayment | customNumber }}</span></td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="key" class="text-uppercase">{{ 'label.home.options' | translate }}</td>
+                <td headers="value" class="overflow-hidden text-right">
+                    <div ngbDropdown container="body" placement="left-top">
+                        <span ngbDropdownToggle style="cursor: pointer;"><i
+                            aria-hidden="true" class="icon banca-regional-opciones"></i></span>
+                        <ul ngbDropdownMenu class="account-options">
+                            <li>{{ 'label.home.options' | translate }}</li>
+                            <li ngbDropdownItem (click)="goToPayment(account)">
+                                {{ 'label.home.payment' | translate }}</li>
+                            <li ngbDropdownItem (click)="goToStatements(account)">
+                                {{ 'label.home.account-statement' | translate }}</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </ng-container>
+
+</table>

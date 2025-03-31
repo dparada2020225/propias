@@ -1,0 +1,18 @@
+@use '../../../../../../../../assets/styles/responsive' as *;
+
+.am-365-create {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.am-365-create {
+  adf-form-layout {
+    .container-form {
+      margin: 0;
+      border: none;
+    }
+  }
+}

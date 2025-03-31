@@ -1,0 +1,13 @@
+<div [ngClass]="[customShow, 'crud-container byte-container transfers']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert"
+             [receiverMessage]="messageAlert | translate"></adf-alert>
+
+  <adf-form-layout [ngClass]="classNameLayout" [form]="form" [setLayoutJson]="formLayout"></adf-form-layout>
+
+  <div [ngClass]="['byte-container__button', classNameButtons]">
+    <adf-button [disabled]="!formModified()" class="primary" id="primary" value="{{ 'update-data-sv' | translate }}"
+                (click)="nextStep()"></adf-button>
+    <adf-button class="secondary" id="prev" type="secondary" [value]="'toReturn' | translate"
+                (click)="backStep()"></adf-button>
+  </div>
+</div>

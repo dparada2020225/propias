@@ -1,0 +1,33 @@
+<article [ngClass]="[customShow, 'byte-container transfers ach-m365-terms']">
+  <adf-header
+    logoUrl='assets/images/private/ach/logo_transfer_m365.svg'
+    label='ach:bisv:label_home'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content'>
+    <div class='card-365'>
+      <img src='assets/images/private/ach/logo_transfer_m365_white.svg' alt='logo 365 transference'>
+      <div>
+        <div>
+          <h2> {{ 'ach:label_new_service' | translate }} </h2>
+          <h3> {{ 'title-card-transfer-365-movil' | translate }} </h3>
+        </div>
+        <p> {{ 'ach:label_terms_condition_m365' | translate }} </p>
+        <div class='term-accept'>
+          <p>
+            <span> {{ 'ach:label_text_helper_url1' | translate }} </span>
+            <span> {{ 'ach:label_text_helper_url2' | translate }} </span>
+          </p>
+
+          <adf-button
+            id="next"
+            class="third"
+            value="{{ 'ach:label_active' | translate }}"
+            (click)="nextStep()">
+          </adf-button>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>

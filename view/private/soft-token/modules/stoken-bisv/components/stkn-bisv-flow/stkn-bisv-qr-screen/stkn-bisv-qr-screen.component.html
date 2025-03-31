@@ -1,0 +1,40 @@
+<div [ngClass]="['byte-container container-qr-softToken']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <div class="qr-title-container">
+    <h2 id="qr-title">{{'stkn-bisv-new-device-assig' | translate}}</h2>
+  </div>
+  <div class="qr-container-body">
+    <div class="container-left">
+      <div class="steps-qr-container steps-icon">
+        <byte-stkn-bisv-step-horizontal></byte-stkn-bisv-step-horizontal>
+      </div>
+      <div class="steps-qr-container2 steps-icon">
+        <byte-stkn-bisv-step-vertical></byte-stkn-bisv-step-vertical>
+      </div>
+      <div class="qr-subtitle-container">
+        <div class="icon-container">
+          <i class="icon banca-regional-ingreso-token token-icon"></i>
+        </div>
+        <h1 id="qr-subt" class="title-qr">{{'stoken-new-device' | translate}}</h1>
+      </div>
+      <div class="qr-img-container icon-qr">
+        <byte-stkn-bisv-code-qr
+        [qrCode]="qrCode"
+        [qrCodeErrorLoading]="qrCodeError"
+        (updateQR)="clickOnRetryMessage($event)"
+      ></byte-stkn-bisv-code-qr>
+      </div>
+      <div class="qr-descrip-container description">
+        <p class="info-container__descrip-subt">{{ 'stoken-scanQR-2' | translate }}</p>
+        <p class="info-container__descrip-subt2">{{ 'qr-img-descrip' | translate }}</p>
+        <p class="info-container__descrip-subt2" id="qr-img-descrip2">{{ 'qr-img-descrip2' | translate }}</p>
+      </div>
+    </div>
+    <div class="container-right"></div>
+  </div>
+  <div class="buttons">
+    <adf-button value="{{ 'stoken-logout' | translate }}" type="secondary" action="button" class="btn-qr-stoken"  id="logOut-btn" (click)="back()"> </adf-button>
+    <adf-button value="{{ 't.continue' | translate }}" class="btn-qr-stoken"  id="continue-btn" (click)="verifyIfQRHasBeenScann()"> </adf-button>
+  </div>
+</div>
+

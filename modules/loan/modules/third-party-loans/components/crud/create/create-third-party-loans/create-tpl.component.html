@@ -1,0 +1,11 @@
+<div [ngClass]="['crud-container tpl-create-container byte-container transfers']">
+  <div class="consulting-box">
+    <div class="formTest">
+      <adf-form-layout [form]="createForm" [setLayoutJson]="createLayout"></adf-form-layout>
+    </div>
+    <div class="byte-container__button button-divider">
+      <adf-button class="primary" id="primary" value="{{ 'add' | translate }}" (click)="addNumberLoan()"></adf-button>
+      <adf-button class="secondary" id="prev" type="secondary" [value]="'toReturn' | translate" (click)="backTo()"> </adf-button>
+    </div>
+  </div>
+</div>

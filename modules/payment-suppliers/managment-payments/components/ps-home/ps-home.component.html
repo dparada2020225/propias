@@ -1,0 +1,11 @@
+<main class='byte-container spp-home'>
+    <div class='ps-title'>
+      <h1> {{ 'ps:title' | translate }} </h1>
+    </div>
+  
+    <div class='ps-buttons-container--home'>
+      <adf-button data-testid="secondary" type='secondary' [value]='"ps:load-button" | translate' (click)='loadSupplier()' ></adf-button>
+      <adf-button data-testid="next" [value]='"ps:payment-button" | translate' (click)='paymentSupplier()'></adf-button>
+    </div>
+  </main>
+  

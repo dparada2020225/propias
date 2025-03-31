@@ -1,0 +1,17 @@
+@use '../../../../../../../../assets/styles/responsive' as *;
+
+.am365-delete {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.am365-delete {
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+}

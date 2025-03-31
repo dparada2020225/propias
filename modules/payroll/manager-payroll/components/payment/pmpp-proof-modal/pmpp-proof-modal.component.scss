@@ -1,0 +1,30 @@
+::ng-deep.payroll-modal {
+
+  hr:last-child {
+    display: none;
+  }
+  adf-reading {
+    .content-fields > div {
+      border: none !important;
+      padding-bottom: 0 !important;
+    }
+
+    .field-item {
+      .field-title {
+        min-width: 230px !important;
+      }
+      gap: 1.5rem;
+    }
+
+    .heading-voucher {
+      border: none !important;
+    }
+  }
+
+  adf-table {
+    .main-container {
+      border-bottom: 1px solid var(--light-text-three);
+      padding-bottom: 3rem;
+    }
+  }
+}

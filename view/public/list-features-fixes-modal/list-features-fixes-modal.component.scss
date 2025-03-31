@@ -1,0 +1,94 @@
+.modal-header {
+  padding-bottom: 0px;
+}
+
+.modal-body i {
+  color: var(--primary-color);
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.header-policies {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+}
+
+.modal-body {
+  padding: 0px 13% 80px;
+}
+
+.modal-body h1 {
+  font-size: 40px;
+  color: var(--primary-color);
+  font-weight: bold;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+.modal-body h2 {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+.modal-body h4 {
+  margin-top: 17px;
+  margin-bottom: 7px;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 3%;
+}
+
+@media only screen and (max-width: 766px) {
+  .modal-body {
+    padding: 19px 6% 45px;
+  }
+
+  .modal-body h1 {
+    font-size: 25px !important;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .modal-body h4 {
+    margin-top: 20px;
+    margin-bottom: 7px;
+  }
+
+  ul {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 3%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .modal-body {
+    padding: 35px 7% 80px;
+  }
+
+  .modal-body h1 {
+    font-size: 40px;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .modal-body h4 {
+    margin-top: 17px;
+    margin-bottom: 7px;
+  }
+
+  ul {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 3%;
+  }
+}

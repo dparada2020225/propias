@@ -1,0 +1,404 @@
+$statement-container-padding-side: 140px;
+
+* {
+  font-family: var(--font-family);
+}
+
+mat-divider {
+  border-color: var(--light-text-three) !important;
+}
+
+.value-text {
+  color: var(--primary-color);
+}
+
+.summary-header {
+  margin-top: 12px;
+}
+
+tr {
+  border-radius: 3px;
+}
+
+.last-movement {
+  text-align: center;
+  font-size: 14px;
+}
+
+.last-movement-value {
+  text-align: center;
+  font-size: 14px;
+  color: var(--primary-light-two);
+}
+
+.amount {
+  color: var(--primary-light-two) !important;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.sub-container {
+  padding: 69px $statement-container-padding-side;
+  max-width: calc(1606px + 2 * #{$statement-container-padding-side});
+  margin: 0 auto;
+}
+
+.background {
+  background: #ffffff;
+  height: 100%;
+}
+
+label.key {
+  text-align: left;
+  font: normal normal normal 14px/24px var(--font-family);
+  letter-spacing: 0px;
+  color: var(--light-text-three);
+  margin-bottom: 17px;
+  min-width: 250px;
+}
+
+.value {
+  text-align: left;
+  font: normal normal normal 14px/24px var(--font-family);
+  letter-spacing: 0px;
+  color: var(--primary-light-two);
+  text-transform: uppercase;
+  //margin-left: 30px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.total-value {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+
+.txt-btn-yellow {
+  margin-top: 15px !important;
+}
+
+.enlace {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.selector {
+  width: 100%;
+  max-width: 628px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.title {
+  // font-size: 20px;
+  // font-weight: bold;
+  padding-bottom: 3px;
+  color: var(--title-text);
+  margin-bottom: 9px;
+  font: var(--title-sprint1)  !important;
+}
+
+.subtitle {
+  // font-size: 18px;
+  // font-weight: bold;
+  margin-bottom: 9px;
+  font: normal normal bold 18px/27px var(--font-family) !important;
+}
+
+.space {
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+.buttons {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  text-align: end;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.main-content {
+  padding-left: 100px;
+}
+
+.balance-divider {
+  margin-top: 20px;
+}
+
+.value-amount {
+  display: inline-block;
+  min-width: 150px;
+  text-align: right;
+}
+
+table.custom-table td.with-currency {
+  span {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  div {
+    width: 50%;
+    max-width: 220px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+::ng-deep .custom-modal.modal-account-balance .modal-dialog {
+  max-width: 1000px !important;
+}
+
+::ng-deep .custom-modal.modal-average-balance .modal-dialog {
+  max-width: 818px;
+}
+
+.display {
+  display: flex;
+}
+
+.total-table-rows {
+  border-radius: 3px;
+}
+
+.divider-mobile {
+  margin-bottom: 8px;
+  border-color: #e9e9e9 !important;
+}
+
+.underline {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media only screen and (min-width: 992px) {
+  .selector {
+    width: 500px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .title {
+    font: normal normal bold 25px/30px var(--font-family) !important;
+    margin-bottom: 0px;
+  }
+
+  .subtitle {
+    font: normal normal bold 20px/27px var(--font-family) !important;
+    margin-bottom: 8px;
+  }
+
+  .main-content {
+    padding-left: 0;
+  }
+
+  .sub-container {
+    padding: 42px 20px;
+  }
+
+  .selector {
+    max-width: 503px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  table.table.custom-table {
+    thead tr th {
+      font-size: 12px;
+      line-height: 12px;
+    }
+
+    tbody tr {
+      height: 39px !important;
+
+      td {
+        padding: 0px 8px;
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+
+    tfoot {
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .amount {
+    color: var(--light-text-two) !important;
+  }
+
+  .balance-divider {
+    margin-top: 0px;
+  }
+
+  ::ng-deep .custom-modal.modal-account-balance .modal-dialog {
+    max-width: 764px;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .title {
+    font-size: 25px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  label.key {
+    margin-bottom: 17px !important;
+  }
+
+  .bookings {
+    font-size: 25px;
+    margin: 15px 0px 25px 0px !important;
+  }
+
+  .locks-detail {
+    font-size: 25px;
+    margin: 30px 0px 10px 0px !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sub-container {
+    padding: 19px 10px;
+  }
+
+  .foot {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  :host ::ng-deep adf-button button {
+    width: 185px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .title {
+    font: normal normal bold 20px/24px var(--font-family) !important;
+  }
+
+  .subtitle {
+    font: normal normal bold 15px/27px var(--font-family) !important;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  div.space {
+    padding-left: 0px;
+  }
+
+  :host ::ng-deep adf-button button {
+    width: 100% !important;
+  }
+
+  .foot {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .last-movement {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .last-movement-value {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .col-12 {
+    font-size: 15px;
+  }
+
+  .display {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .buttons {
+    display: block !important;
+    text-align: center !important;
+    padding-top: 0px !important;
+    margin-left: 0% !important;
+    padding-right: 0px;
+    padding-bottom: 16px;
+  }
+
+  .title {
+    font-size: 20px;
+    padding-bottom: 0px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .foot {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .space ::ng-deep {
+    adf-button > button {
+      width: 100%;
+    }
+  }
+
+  .last-movement {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .last-movement-value {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .sub-container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 74px !important;
+  }
+
+  .divider {
+    margin-bottom: 23px;
+  }
+
+  .account-balance {
+    margin: 0px 0px 0px 0px !important;
+  }
+
+  .total-amount {
+    font-size: 14px !important;
+  }
+
+  .value-text {
+    padding-top: 10px;
+    padding-bottom: 19px;
+  }
+}

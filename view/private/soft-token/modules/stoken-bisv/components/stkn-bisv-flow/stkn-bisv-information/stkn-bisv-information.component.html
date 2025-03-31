@@ -1,0 +1,59 @@
+<ngx-spinner></ngx-spinner>
+<div [ngClass]="['byte-container ']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <div class="container-softToken">
+    <div class="not-allowed" *ngIf="!allowedAccess"></div>
+    <div class="container-left" *ngIf="allowedAccess">
+      <div class="container-left-icon-container">
+        <i aria-hidden="true" class="icon banca-regional-ingreso-token token-icon"></i>
+      </div>
+      <div class="container-left-descrip-container">
+        <h1 class="container-left__title" *ngIf="this.path !== 'change-device'">{{ 'update-stoken-method' | translate }}</h1>
+        <p class="container-softToken-p" *ngIf="this.path !== 'change-device'">{{ 'stkn-bisv-info-descrip' | translate }}</p>
+        <h1 class="container-left__title" *ngIf="this.path === 'change-device'">{{ 'stoken-method' | translate }}</h1>
+        <p class="container-left__subt" *ngIf="this.path === 'change-device'">{{ 'stoken-what' | translate }}</p>
+        <p class="container-softToken-p" *ngIf="this.path === 'change-device'">{{ 'stoken-what-des' | translate }}</p>
+        <p class="container-softToken-p" *ngIf="this.path === 'change-device'">{{ 'stoken-what-des2' | translate }}</p>
+        <p class="container-left__subt" *ngIf="this.path === 'change-device'">{{ 'stoken-what-des3-title' | translate }}</p>
+        <p class="container-softToken-p" *ngIf="this.path === 'change-device'">{{ 'stoken-what-des3' | translate }}</p>
+      </div>
+    </div>
+    <div class="container-right" *ngIf="allowedAccess">
+      <p class="container-right__title">{{ 'stoken-how-work' | translate }}</p>
+      <p class="container-right__sub">{{ 'stkn-how-work-des' | translate }}</p>
+      <div class="steps-container">
+        <div class="step-information" *ngFor="let step of steps" id="step-information-id-{{step.id}}">
+          <div class="step-information__icon">
+            <span class="{{ step.icon }}">
+            </span>
+          </div>
+          <div class="step-information__description">
+            <h1 *ngIf="step.title && step.id !== 4" class = "step-id">{{ step.title | translate }} {{ step.id }}</h1>
+            <h1 *ngIf="step.title && step.id === 4" class = "step-id">{{ step.title | translate }}</h1>
+            <p [innerHTML]="step.description | translate" [ngClass]="{ 'step-description-5': !step.title }" id="step-description-{{step.id}}"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="byte-container__button" *ngIf="allowedAccess">
+      <adf-button
+      value="{{ 't.continue' | translate }}"
+      (click)="openModal()"
+      id="information-stoken-btn"
+      class="primary"
+      *ngIf="!typeUserError"
+    >
+    </adf-button>
+      <adf-button
+        value="{{ 't.return' | translate }}"
+        type="secondary"
+        action="button"
+        (click)="back()"
+        id="backBtn-info-stoken"
+        class="secondary"
+        *ngIf="!showBtnBack()"
+      >
+      </adf-button>
+    </div>
+  </div>
+</div>

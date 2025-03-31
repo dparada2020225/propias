@@ -1,0 +1,158 @@
+@use '../../../../assets/styles/responsive.scss' as *;
+
+.container {
+  height: auto;
+  padding-right: 30px;
+  padding-left: 30px;
+  @include from(m) {
+    height: auto;
+    width: 685px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.modal-title {
+  font-size: 24px !important;
+  color: var(--primary-color);
+  width: max-content;
+  @include from(m) {
+    font-size: 27px !important;
+    color: var(--primary-color);
+    margin-bottom: 21px;
+  }
+}
+
+.label_link {
+  color: var(--primary-color);
+  width: 260px;
+  padding: 10px;
+  font-size: 14px !important;
+  text-align: center;
+  margin-bottom: 41px;
+  @include from(m) {
+    color: var(--primary-color);
+    width: auto;
+    margin-bottom: 0;
+  }
+}
+
+.modal-body {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0;
+  padding-top: 50px;
+  @include from(m) {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0;
+    padding-top: 50px;
+    margin-top: 4px;
+  }
+}
+
+.modal-header {
+  border-bottom: none !important;
+  padding-top: 10px;
+  padding-bottom: 0;
+  height: 30px;
+  width: auto;
+  position: absolute;
+  right: 0;
+  @include from(m) {
+    border-bottom: none !important;
+    padding-top: 0;
+    margin-top: 10px;
+    padding-bottom: 0;
+    height: 30px;
+    padding-right: 10px;
+    position: absolute;
+    right: 25px;
+    z-index: 1500;
+    button {
+      padding-right: 0;
+    }
+  }
+}
+
+.description {
+  font-size: 16px !important;
+  width: 250px;
+  text-align: center;
+  margin-bottom: 25px;
+  @include from(m) {
+    font-size: 14px !important;
+    width: auto;
+    margin-bottom: 15px;
+  }
+}
+
+.description-longer {
+  font-size: 16px !important;
+  width: 250px;
+  text-align: justify;
+  margin-bottom: 25px;
+  @include from(m) {
+    font-size: 14px !important;
+    width: auto;
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+}
+
+.modal-footer {
+  border-top: none;
+  text-align: center;
+  justify-content: center;
+  padding-top: 2px;
+  padding-bottom: 13px;
+  @include from(m) {
+    border-top: none;
+    text-align: center;
+    justify-content: center;
+    margin-top: 40px;
+    // width: 40.5rem;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+.link_description {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.link_description:hover {
+  background-color: transparent !important;
+}
+
+::ng-deep.modal-footer adf-button button {
+  width: 100% !important;
+  @include from(m) {
+    width: 240px !important;
+    height: 50px !important;
+  }
+}
+
+.modal-onboarding {
+  width: 90%;
+  margin-bottom: 32px;
+}
+
+.close {
+  // color: #c4c4c4;
+  font-size: 1rem;
+}
+
+::ng-deep.modal-content {
+  @include from(m) {
+    width: 744px;
+    height: auto;
+  }
+}

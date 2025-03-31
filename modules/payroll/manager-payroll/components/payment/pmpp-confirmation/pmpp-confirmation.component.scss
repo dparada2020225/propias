@@ -1,0 +1,60 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.spp-container {
+  adf-table {
+    .status {
+      text-transform: uppercase;
+    }
+
+    .status.error,
+    .status.inactive,
+    .status.inactiva,
+    .status.blocked,
+    .status.bloqueada,
+    .status.cancelled,
+    .status.cancelada {
+      color: var(--warn-color) !important;
+    }
+
+    .status.activa,
+    .status.active {
+      color: var(--alert-success-color) !important;
+    }
+
+    .email{
+      word-break: break-all;
+      overflow: initial;
+    }
+
+    .scrolled-table{
+      max-block-size: 650px !important;
+    }
+  }
+}
+
+::ng-deep.confirmation_pp {
+  adf-reading {
+    .content-fields {
+      @include from(x) {
+        padding-left: 100px;
+      }
+    }
+  }
+}
+
+.payroll-buttons-container.payment-home {
+  justify-content: flex-end;
+  margin: 64px 0;
+}
+
+hr {
+  border-color: var(--light-text-three);
+}
+
+
+.confirm-payment-content {
+  @include from(x) {
+    padding-left: 100px;
+  }
+
+}

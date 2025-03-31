@@ -1,0 +1,116 @@
+<div class="modal-body">
+    <div class="float-right">
+        <a (click)="close()"><i class="fa fa-times" aria-hidden="true"></i></a>
+    </div>
+
+    <div class="content">
+        <div class="images">
+            <img alt="{{profile}}_logo"  src="assets/images/logos/{{profile}}_logo_{{assetsVersion}}.png" class="secondary_logo">
+            <img alt="{{profile}}_bp_logo" src="assets/images/logos/{{profile}}_bp_logo_{{assetsVersion}}.png" class="main_logo">
+        </div>
+
+        <h2 class="reference">No. {{operation?.ref}}</h2>
+        <h2>{{'label.statements.deposit-detail' | translate}} {{information?.type}}</h2>
+
+        <hr />
+
+        <div class="row information-detail">
+            <div class="col-12">
+                <label>{{'label.statements.agency' | translate}}</label>
+                <span class="value">{{information?.agency}}</span>
+            </div>
+            <div class="col-12">
+                <label>{{'label.statements.date-modal' | translate}} </label>
+                <span class="value">{{operation?.operationDate}} {{operation?.operationTime}}</span>
+            </div>
+            <div class="col-12">
+                <label>{{'label.statements.value' | translate}} </label>
+                <span class="value">{{generalInformation?.currency}}
+                    {{operation?.value ? (operation?.value | customNumber) : "0.00"}}</span>
+            </div>
+            <div class="col-12">
+                <label>{{'label.statements.account' | translate}}</label>
+                <span class="value">{{generalInformation?.account}}</span>
+            </div>
+
+            <ng-container *ngIf="information">
+              <div class="col-12">
+                <label>{{ 'title:document_number' | translate }}</label>
+                <span class="value">{{ documentNumber }}</span>
+              </div>
+                <div class="col-12" *ngFor="let detail of information.detail">
+                    <label>{{detail.description | translate}}</label>
+                    <span class="value">{{detail.amount | customNumber}}</span>
+                </div>
+            </ng-container>
+
+            <div *ngIf="profile == 'banpais'" class="col-12">
+                <label>{{'label.statements.deposit' | translate}}</label>
+                <span class="value">{{information?.deposit == null ? '' : information?.deposit}}</span>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="d-flex justify-content-center documentation-section">
+            <div>
+                <div class="documentation-info">
+                    <span>{{'label.statements.document' | translate}}: {{operation?.ref}}</span>
+                </div>
+                <div class="documentation-detail">
+                    <p class="no-margins"><span>{{ 'label.statements.document.note' | translate}}:</span>
+                        {{ 'label.statements.document.note-1' | translate}}</p>
+                    <p class="no-margins">{{'label.statements.document.note-2' | translate}}</p>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+
+            <!-- default -->
+            <div class="col-12 d-none d-lg-block">
+                <table aria-describedby="table1" class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th id="issue-date" class="no-borders" style="width: 33%;">{{ 'label.term-deposit.issue-date' | translate}}:
+                                {{issueDate}}</th>
+                            <th id="copy-by" class="no-borders" style="width: 33%;">{{'label.statements.copy-by' | translate}} <span
+                                    style="text-transform: uppercase;">{{issueUser}}</span></th>
+                            <th id="authorization" class="no-borders" style="width: 33%;">{{'authorization'| translate}} {{information?.ref}}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <!-- mobile -->
+            <div class="col-12 d-lg-none">
+                <table aria-describedby="table2" class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th id="issue-date-mobile" class="no-borders text-center">{{ 'label.term-deposit.issue-date' | translate}}:
+                                {{issueDate}}</th>
+                        </tr>
+                        <tr>
+                            <th id="copy-by-mobile" class="no-borders text-center">{{'label.statements.copy-by' | translate}} <span
+                                    style="text-transform: uppercase;">{{issueUser}}</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th id="authorization-mobile" class="no-borders text-center">
+                                {{'authorization'| translate}} {{information?.ref}}
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-right">
+                <adf-button value="{{'print' | translate}}" type="secondary" (onClick)="download()"></adf-button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div [ngClass]="[customShow, 'container-own-transfer byte-container transfers container-own-corporate', classNameProfile]">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <adf-form-layout [setLayoutJson]="layoutOwnTransfer" [setDataSelectList]="optionsList" [form]="ownTransferForm"> </adf-form-layout>
+
+  <div [ngClass]="['byte-container__button', typeProfile == profileSV ? 'line byte-container__button-sv' : '', typeProfile == profilePA ? 'line byte-container__button-pa' : '']">
+    <adf-button id="next" class="primary" value="{{ 't.continue' | translate }}" (click)="nextStep()">
+    </adf-button>
+    <adf-button id="prev" class="secondary" type="secondary" value="{{ 'toReturn' | translate }}" (click)="lastStep()"> </adf-button>
+  </div>
+</div>

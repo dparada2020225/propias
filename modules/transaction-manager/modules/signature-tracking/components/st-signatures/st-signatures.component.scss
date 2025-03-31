@@ -1,0 +1,41 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+
+.heading {
+  border-block-end: 1px solid #5a5a5a;
+  padding-block-end: 0.5625rem;
+  .main-title {
+    color: var(--primary-color);
+  }
+
+  @include from(m) {
+    .subtitle,
+    .main-title {
+      font-weight: bold;
+    }
+    .subtitle {
+      font-size: 1.125rem !important;
+      margin-block-start: 12px;
+    }
+    .main-title {
+      font-size: 20px !important;
+    }
+  }
+}
+
+h2,
+h3 {
+  margin: 0;
+}
+
+.table-content {
+  @include from(m) {
+    padding-left: 6.25rem;
+  }
+}
+
+::ng-deep.crud-signature adf-table {
+  .td-empty {
+    color: var(--primary-color);
+  }
+}

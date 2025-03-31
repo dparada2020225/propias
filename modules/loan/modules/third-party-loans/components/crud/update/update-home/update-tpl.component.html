@@ -1,0 +1,12 @@
+<div [ngClass]="['crud-container tpl-crud-update byte-container transfers']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <div class="consulting-box">
+    <div class="formTest">
+      <adf-form-layout [form]="updateForm" [setLayoutJson]="updateLayout"></adf-form-layout>
+    </div>
+    <div class="byte-container__button button-divider">
+      <adf-button class="primary" id="primary" value="{{ 'update_third_party_loan' | translate }}" (click)="updateButton()"></adf-button>
+      <adf-button class="secondary" id="prev" type="secondary" [value]="'toReturn' | translate" (click)="backTo()"> </adf-button>
+    </div>
+  </div>
+</div>

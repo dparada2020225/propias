@@ -1,0 +1,147 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+img {
+  max-inline-size: 100%;
+}
+ul {
+  margin: 0;
+}
+
+article.modal-body {
+  padding: 2.0625rem 40px;
+}
+.icon {
+  color: var(--light-text-three);
+}
+.modal__title {
+  color: var(--primary-color);
+  margin: 0;
+  font: bold 1rem/1.1875rem;
+  font-family: Lato, sans-serif;
+  @include from(x) {
+    position: absolute;
+    margin-block-start: 0.75rem;
+    font: bold 1.25rem/1.5rem;
+    font-family: Lato, sans-serif;
+    z-index: 100;
+  }
+}
+
+.detail-title,
+.heading-title {
+  color: var(--primary-color);
+  margin-block-end: 10px;
+  font: bold 0.875rem/1.0625rem;
+  font-family: Lato, sans-serif;
+  @include from(m) {
+    font: bold 0.875rem/1.0625rem;
+    font-family: Lato, sans-serif;
+  }
+}
+
+.detail-item,
+.heading-item {
+  color: var(--light-text-three);
+  padding-block: 0.1875rem;
+  font: normal 11px/13px;
+  font-family: Lato, sans-serif;
+  @include from(m) {
+    font: normal 11px/13px;
+    font-family: Lato, sans-serif;
+  }
+}
+
+.grid-content {
+  display: grid;
+  row-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'image image' 'detail heading' 'format format';
+
+  img {
+    justify-self: center;
+  }
+
+  @include from(m) {
+    column-gap: 1rem;
+  }
+
+  @include from(x) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 2rem;
+    row-gap: 1rem;
+    column-gap: 0;
+    grid-template-areas: 'image image image heading' 'detail detail format format';
+
+  }
+}
+
+.picture {
+  grid-area: image;
+  margin-top: 2.5rem;
+  @include from(x) {
+    margin-top: 0;
+  }
+}
+.picture__mobile {
+  max-height: 13.75rem;
+}
+.heading {
+  grid-area: heading;
+
+
+  @include from(x) {
+    margin-left: -90px;
+    margin-top: 40px;
+  }
+}
+
+.detail {
+  grid-area: detail;
+
+}
+.formats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  grid-area: format;
+  margin-top: 1.875rem;
+  @include from(x) {
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+  p {
+    margin: 0;
+    margin-inline-end: 0.5rem;
+    font: bold 0.875rem/1.0625rem;
+    font-family: Lato, sans-serif;
+  }
+}
+
+.heading,
+.detail {
+  padding: 0;
+  list-style-type: none;
+  @include from(m) {
+    padding: 0;
+  }
+}
+
+.modal__footer {
+  margin-top: 1rem;
+  background-color: #e9e9e9;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+  padding: 2rem;
+  font: normal 11px/16px;
+  font-family: Lato, sans-serif;
+  @include from(x) {
+    padding: 1rem 4rem 1rem 2rem;
+  }
+}
+
+.formats i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}

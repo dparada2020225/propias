@@ -1,0 +1,112 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.modal__container {
+  --icon-color: #ffd800;
+  --headline-color: #014d6a;
+  --text-color: #5a5a5a;
+  --icon-close-position: end;
+  --padding-inline: 2.1875rem;
+  --padding-block: 2rem;
+  --text-position: center;
+  --gutter-buttons: 1.6875rem;
+  --icon-font-size: 2.5rem;
+  --icon-inline-size: 50px;
+  --icon-block-size: 50px;
+  --font-size-desktop-headline: bold 1.6875rem / 0.75rem Lato;
+  --font-size-desktop-description: normal 0.875rem / 0.875rem Lato;
+  --font-size-mobile-headline: bold 1.25rem / 1.5rem Lato;
+  --font-size-mobile-description: normal 0.875rem / 1.25rem Lato;
+  --modal__content-margin-block-start: 0.5rem;
+  --modal__content-margin-block-bottom: 1.75rem;
+  --gutter-modal__content: 0.5rem;
+}
+
+.modal-body {
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.close__icon {
+  display: inline-block;
+  align-self: end;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.875rem;
+  button {
+    border: none;
+    background: unset;
+    font-size: 1rem !important;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6875rem;
+
+
+  @include from(m) {
+    flex-direction: row;
+    align-items: center;
+    .btn--primary {
+      order: 2;
+    }
+    .btn-secondary {
+      order: 1;
+    }
+  }
+}
+
+.icon {
+  font-size: var(--icon-font-size);
+  width: var(--icon-inline-size);
+  height: var(--icon-block-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    color: darken(#2c8b9e, 2%);
+  }
+}
+
+.modal__content {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gutter-modal__content);
+  margin-top: var(--modal__content-margin-block-start);
+  margin-bottom: var(--modal__content-margin-block-bottom);
+  h2,
+  p {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.modal__content h2.modal__title {
+  color: var(--headline-color);
+  font: var(--font-size-mobile-headline);
+  @include from(m) {
+    font: var(--font-size-desktop-headline);
+  }
+}
+
+.modal__content p.modal__description {
+  color: var(--text-color);
+  font: var(--font-size-mobile-description);
+  @include from(m) {
+    font: var(--font-size-desktop-description);
+  }
+}
+
+
+#modal__container {
+  @include from(m) {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}

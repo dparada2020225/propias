@@ -1,0 +1,33 @@
+<article [ngClass]='["byte-container", "sppl-confirm-container", customShow]'>
+
+    <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate">
+    </adf-alert>
+  
+    <header class='pp-upload__header'>
+      <h1>{{ "ps:title" | translate }}</h1>
+      <p>{{ "ps:subtitle" | translate }}</p>
+    </header>
+  
+    <section *ngIf='isLoadFileView' class='sppl-confirm__content'>
+     
+      <p> {{ 'ps:label_confirm_upload_file' | translate }} </p>
+      <div class='sppl-items'>
+        <div>
+          <span class='item-title'> {{ 'ps:total_amount_label' | translate }} </span>
+          <span class='item-value'> {{ totalAmount }} </span>
+        </div>
+  
+        <div>
+          <span class='item-title'> {{ 'ps:total_accounts_accredit' | translate }} </span>
+          <span class='item-value'> {{ credits }} </span>
+        </div>
+      </div>
+    </section>
+
+  
+    <div class='ps-buttons-container'>
+      <adf-button data-testid="secondary" type='secondary' [value]='"ps:btn.back" | translate' (click)='previous()' ></adf-button>
+      <adf-button data-testid="next" [value]='"t.continue" | translate' (click)='nextStep()'></adf-button>
+    </div>
+  </article>
+  

@@ -1,0 +1,23 @@
+<div [ngClass]="[customShow, 'ach-detail-container byte-container transfers']">
+  <adf-alert *ngIf='typeAlert && messageAlert' [receiverMessage]='messageAlert' [receiverType]='typeAlert' ></adf-alert>
+  <adf-reading [data]='detailTransactionLayout' ></adf-reading>
+
+  <div class="table-contents">
+    <div class="achc-widgets">
+      <span>{{ 'export' | translate }}</span>
+      <div>
+        <span (click)='generateXlsFile()'><i title='excel' aria-hidden="true" class="icon banca-regional-xls"></i></span>
+        <span (click)='openModal()'><i aria-hidden="true" class="icon banca-regional-printer"></i></span>
+      </div>
+    </div>
+    <adf-table
+      [setIsLoading]='isLoadingTable'
+      [structure]="tableLayout"
+      (onLoadAccount)="getTableActions($event)">
+    </adf-table>
+  </div>
+
+  <div class="byte-container-ci__button">
+    <adf-button class="secondary" value="{{ 'toReturn' | translate }}" (click)="backStep()"></adf-button>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div [ngClass]='[isCorporateImageApplication]'>
+    <nav  [ngClass]="['navbar navbar-expand-lg navbar-light fixed-top, public-navbar']">
+    <a class="navbar-brand" routerLink="." (click)="open()">
+        <div class="">
+            <img alt="{{profile}}_logo_{{versionAssets}}" src="assets/images/public/{{profile}}_logo_{{versionAssets}}.png" ngbTooltip="{{appVersion}}">
+        </div>
+    </a>
+
+    <i aria-hidden="true" class="navbar-toggler icon login banca-regional-menu" (click)="isMenuCollapsed = !isMenuCollapsed"></i>
+
+    <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+        <ul class="navbar-nav login">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="login" (click)="navigate('login')"
+                    routerLinkActive="active">{{'login' | translate}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="help" (click)="navigate('help')" routerLinkActive="active">
+                            {{'help' | translate}}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="schedule" (click)="navigate('schedule')"
+                    routerLinkActive="active">{{'schedule' | translate}}</a>
+            </li>
+            <div>
+                <byte-product-list (closeMainMenu)='handleCloseMainMenu($event)' [receiverProductList]="this.productList">
+                </byte-product-list>
+            </div>
+            <li class="nav-item">
+                <adf-language-selector class="nav-link"></adf-language-selector>
+            </li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+</div>

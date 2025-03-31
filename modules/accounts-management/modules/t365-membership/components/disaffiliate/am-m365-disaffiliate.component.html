@@ -1,0 +1,29 @@
+<article [ngClass]="[customShow, 'byte-container transfers acm365-remove']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    label='ach:bisv:label_home'
+    subtitle='ac:m365_subtitle_disaffiliate_account_confirm'
+    logoUrl='assets/images/private/ach/logo_transfer_m365.svg'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content'>
+    <p class='create-txt'> {{ 'ac:m365_text_confirm_disaffiliate' | translate }} </p>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="next"
+      class="primary"
+      value="{{ 't.confirm' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

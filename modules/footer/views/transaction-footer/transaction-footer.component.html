@@ -1,0 +1,13 @@
+<div class="row header foot colum" style="margin-left: 0; margin-right: 0">
+  <span class="col-md-3">
+    {{ this.businessName }}
+  </span>
+
+  <span class="col-md-3" style="text-transform: capitalize"> {{ day + ' - ' }} {{ 'month-' + month | translate }} {{ ' - ' + year }} </span>
+
+  <span class="col-md-3">
+    {{ today | date : 'HH:mm:ss a' | lowercase }}
+  </span>
+
+  <span class="col-md-3"> {{ 'authorization' | translate }} {{ id }} </span>
+</div>

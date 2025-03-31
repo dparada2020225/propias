@@ -1,0 +1,137 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+::ng-deep adf-form-layout .third-edit-layout,
+::ng-deep adf-form-layout .third-crate-layout {
+  @include from(m) {
+    .input-form-layout {
+      display: grid;
+      grid-template-columns: 200px 19.375rem;
+    }
+  }
+}
+
+::ng-deep adf-form-layout .disable {
+  @include from(m) {
+    .form_label {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+    }
+  }
+}
+
+/*ESTILOS EL SALVADOR */
+
+.layout_sv::ng-deep {
+  /*Titulo*/
+  .form-heading {
+    .form-subtitle {
+      margin: 8px 0 13px 0;
+
+      @include from(m) {
+        margin: 1px 0 -2px 0;
+      }
+
+      @include from(x) {
+        margin: 10px 0 -1px 0;
+      }
+
+    }
+  }
+
+  /*Formulario*/
+  .container-form {
+    form {
+      padding-top: 14px;
+      padding-bottom: 40px;
+      row-gap: 18px;
+
+      @include from(m) {
+        padding-top: 32px;
+        padding-bottom: 90px;
+        row-gap: 26px;
+      }
+
+      @include from(x) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        row-gap: 20px;
+      }
+
+
+      .alias-edit, .email-edit {
+
+        .input-form-layout {
+
+          @include from(m) {
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr;
+          }
+
+          @include from(x) {
+            grid-template-columns: 200px 1fr;
+          }
+
+          adf-input {
+
+            height: 55px;
+
+
+            @include from(x) {
+              height: 40px;
+              width: 307px;
+            }
+
+            .input-wrapper, .custom-input, input {
+              height: 100% !important;
+              width: 100% !important;
+            }
+
+          }
+
+        }
+
+
+      }
+
+    }
+  }
+}
+
+.btn-sv::ng-deep {
+  gap: 12px;
+
+  @include from(x) {
+    gap: 27px;
+  }
+
+  adf-button {
+    height: 50px;
+
+    @include from(m) {
+      width: 218px;
+    }
+
+    @include from(x) {
+      width: 240px;
+    }
+
+    .btn {
+      width: 100% !important;
+      height: 100% !important;
+
+      /*Estilos para boton desabilitado*/
+      &:disabled {
+        background-color: #909090;
+        border-color: #909090;
+        cursor: default;
+      }
+
+      &:disabled:hover {
+        background-color: #909090 !important;
+      }
+
+    }
+  }
+
+
+}

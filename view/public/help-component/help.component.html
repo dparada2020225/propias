@@ -1,0 +1,314 @@
+<div class="container-fluid contenedor" [ngClass]="{'contenedor-alto': this.help === 'banpais', 'contenedor-corporate': corporateImageApplication()}">
+    <div class="header" [ngClass]="{'header-bipa': help === 'bipa'}" >
+        <!-- TITLES -->
+        <h4 class="" *ngIf="help === 'banpais'"> <em>{{ "How-can-we-help-you" | translate }}</em></h4>
+        <h4 class="bisv" *ngIf="help === 'bisv'"> <span>{{ "How-can-we-help-you" | translate }}</span></h4>
+        <h4 class="bisv" *ngIf="help === 'bipa'"> <span>{{ "How-can-we-help-you" | translate }}</span></h4>
+        <h4 class="" *ngIf="help === 'byte'"> <em>{{ "What-is-p-Online" | translate }}</em></h4>
+    </div>
+
+    <div class="description">
+        <!-- DESCRIPTION -->
+        <h4 *ngIf="help === 'banpais'"><em>{{ "What-is-BP-Online" | translate }}</em></h4>
+        <h4 *ngIf="help === 'bisv'"><em>{{ "What-is-BI-Online" | translate }}</em></h4>
+        <span class="h4-bipa" *ngIf="help === 'bipa'">{{ "What-is-BI-Online" | translate }}</span>
+        <p  class="text-center">{{ "description-bank" | translate }}
+            <a [ngClass]="{'more-bipa': help === 'bipa'}" [href]="this.linkList.ConoceMas">{{ "more" | translate }}</a></p>
+
+        <a [href]="this.linkList.frequentlyQuestions" target="_blank">
+        <button [ngClass]="help === 'bipa' ? 'btn-pregunta-bipa' : 'btn-pregunta'"><i aria-hidden="true" prefix
+                class="icon banca-regional-pregunta icono-pregunta mr-1 mt-1"></i>
+            {{ "Frequently-Questions" | translate }}</button></a>
+    </div>
+
+
+    <!-- MENU BANPAIS -->
+    <div class="menu" *ngIf="help === 'banpais' || help === 'byte'">
+        <div class="row no-margins">
+            <!-- BANCA BANPAIS -->
+            <div class="col-12 col-lg-3 descarga-flex">
+                <a [href]="this.linkList.welcomeKit" target="_blank">
+                    <i aria-hidden="true" prefix class="icon banca-regional-descargar icono-descarga"></i>
+                    <h4>{{ "Welcome-kit" | translate }}</h4>
+                </a>
+            </div>
+
+            <div class="col-12 col-lg-9">
+                <div class="row">
+                    <div class="col-6 col-md-4 menu-flex color-uno">
+                        <a [href]="this.linkList.newService" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-moneda icono-menu"></i>
+                            <h4>{{ "New-services" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-dos">
+                        <a [href]="this.linkList.news" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-revista icono-menu"></i>
+                            <h4>{{ "News" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-tres">
+                        <a [href]="this.linkList.tutorials" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-computadora icono-menu"></i>
+                            <h4>{{ "Tutorials" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-cuatro">
+                        <a [href]="this.linkList.security" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-politica icono-menu"></i>
+                            <h4>{{ "Security" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-cinco">
+                        <a [href]="this.linkList.enterpriseSolutions" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-edificio icono-menu"></i>
+                            <h4>{{ "Enterprise-Solutions" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-seis">
+                        <a [href]="this.linkList.regionalConnection" target="_blank">
+                            <i aria-hidden="true" prefix id="central-america-icon" class="icon banca-regional-conexion-regional icono-menu"></i>
+                            <h4 class="text-regional-conection">{{ "Regional-connection" | translate }}</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENU BISV -->
+    <div class="menu" *ngIf="help === 'bisv'">
+        <div class="row no-margins">
+            <div class="col-12 col-lg-3 descarga-flex">
+                <a [href]="this.linkList.RequestYourOnlineBanking" target="_blank">
+                    <i aria-hidden="true" prefix class="icon banca-regional-planillas icono-descarga"></i>
+                    <h4>{{ "Request-your-online-banking" | translate }}</h4>
+                </a>
+            </div>
+
+            <div class="col-12 col-lg-7">
+                <div class="row">
+                    <div class="col-6 col-md-4 menu-flex color-uno">
+                        <a [href]="this.linkList.PersonalBanking" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-moneda icono-menu"></i>
+                            <h4>{{ "Personal-banking" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-dos">
+                        <!-- BISV -->
+                        <a [href]="this.linkList.CorporateBanking" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-edificio icono-menu"></i>
+                            <h4>{{ "Corporate-banking" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-tres">
+                        <!-- BISV -->
+                        <a [href]="this.linkList.UniBankToBank" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-transferencias icono-menu"></i>
+                            <h4>{{ "Uni-bank-to-bank" | translate }}</h4>
+                        </a>
+
+
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-cuatro">
+                        <a [href]="this.linkList.SecurityTips" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-politica icono-menu"></i>
+                            <h4>{{ "Security-tips" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-cinco">
+                        <!-- BISV -->
+                        <a [href]="this.linkList.biMobile" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-mensaje-texto icono-menu"></i>
+                            <h4>{{ "Bi-mobile" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-seis">
+                        <a [href]="this.linkList.regionalConnection" target="_blank">
+                            <i aria-hidden="true" prefix id="central-america-icon" class="icon banca-regional-conexion-regional icono-menu"></i>
+                            <h4 class="text-regional-conection">{{ "Regional-connection" | translate }}</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 video-flex video-siete">
+                <a [href]="getVideUrl()" target="_blank">
+                <i aria-hidden="true" prefix  class="icon icon2-Video-icono-BIES icono-video"></i>
+                <h4>{{ "Video-tutorial" | translate }}</h4>
+            </a>
+        </div>
+        </div>
+    </div>
+
+    <!-- MENU BIPA -->
+    <div class="menu" *ngIf="help === 'bipa'">
+        <div class="row no-margins">
+            <div class="col-12 col-lg-3 descarga-flex">
+                <a [href]="this.linkList.welcomeKit" target="_blank">
+                    <i aria-hidden="true" prefix class="icon banca-regional-descargar icono-descarga"></i>
+                    <h4>{{ "Welcome-kit" | translate }}</h4>
+                </a>
+            </div>
+
+            <div class="col-12 col-lg-9">
+                <div class="row">
+                    <div class="col-6 col-md-4 menu-flex color-uno">
+                        <a [href]="this.linkList.newService" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-moneda icono-menu"></i>
+                            <h4>{{ "New-services" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-dos">
+                        <a [href]="this.linkList.enterpriseSolutions" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-edificio icono-menu"></i>
+                            <h4>{{ "Enterprise-Solutions" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-tres">
+                        <a [href]="this.linkList.regionalConnection" target="_blank">
+                            <i aria-hidden="true" prefix id="central-america-icon" class="icon banca-regional-conexion-regional icono-menu"></i>
+                            <h4 class="text-regional-conection">{{ "Regional-connection" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-cuatro">
+                        <a [href]="this.linkList.tutorials" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-computadora icono-menu"></i>
+                            <h4>{{ "Tutorials" | translate }}</h4>
+                        </a>
+
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-cinco">
+                        <a [href]="this.linkList.SecurityTips" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-politica icono-menu"></i>
+                            <h4>{{ "Security-tips-two" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 menu-flex color-seis">
+                        <a [href]="this.linkList.NewsReleases" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-revista icono-menu"></i>
+                            <h4>{{ "News-releases" | translate }}</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- MENU PARTE BAJA  BANPAIS Y BIPA-->
+    <div class="" *ngIf="help === 'banpais' || help === 'bipa'">
+        <div class="row no-margins">
+            <div class="col-12 col-lg-3 menu-dos-flex menu-planillas" *ngIf="help === 'banpais'">
+                <a [href]="this.linkList.templates" target="_blank" class="margen">
+                    <i aria-hidden="true" prefix class="icon banca-regional-planillas icono-menu-dos mr-2 margen"></i>
+                    <h4>{{ "Plans" | translate }}</h4>
+                </a>
+            </div>
+
+
+            <div class="col-12 col-lg-3 menu-dos-flex formularios-bipa" *ngIf="help === 'bipa'">
+                <a [href]="this.linkList.forms" class="margen formularios-bipa" target="_blank">
+                    <i aria-hidden="true" prefix class="icon banca-regional-planillas icono-menu-dos mr-2 margen"></i>
+                    <h4>{{ "Forms" | translate }}</h4>
+                </a>
+            </div>
+
+            <div class="col-12 col-lg-9">
+                <div class="row">
+                    <div class="col-12 col-lg-6 menu-dos-flex color-seis">
+                        <a [href]="this.linkList.multipayments" target="_blank">
+                            <i aria-hidden="true" prefix id="multipayment-icon" class="icon banca-regional-pagos-tarjeta icono-menu-dos mr-2"></i>
+                            <h4 *ngIf="help === 'banpais'">{{ "Multipayments" | translate }}</h4>
+                            <h4 *ngIf="help !== 'banpais'">{{ "Payment-of-services" | translate }}</h4>
+                        </a>
+                    </div>
+                    <div class="col-12 col-lg-6 menu-dos-flex color-manual">
+                        <a [href]="this.linkList.ACHManual" target="_blank">
+                            <i aria-hidden="true" prefix class="icon banca-regional-libreta icono-menu-dos mr-2"></i>
+                            <h4>{{ "Ach-manual" | translate }}</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MENU PARTE BAJA  BISV-->
+    <div class="" *ngIf="help === 'bisv' || help === 'byte'">
+        <div class="row no-margins ">
+            <div class="col-12 menu-bisv ">
+                <a [href]="this.linkList.internationalTransfers" target="_blank">
+                    <i aria-hidden="true" prefix class="icon banca-regional-mundo iconos-redes mr-2 "></i>
+                    <h4 class="titulo-blanco margen-texto-icono">{{ "International-transfers" | translate }}</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER MENU -->
+    <div class="">
+        <div class="row no-margins">
+            <div class="col-12 col-lg-4 menu-redes color-ocho color-btn-ingreso">
+                <a [href]="this.linkList.webPage" target="_blank">
+                    <i aria-hidden="true" prefix id="icon-ingreso" class="icon banca-regional-ingreso iconos-redes mr-2"></i>
+                    <h4 class="">{{ "enter_portal_bank_help" | translate }}</h4>
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 menu-redes color-siete color-btn-ingreso">
+                <h4 class="mr-2 encabezado-blanco">{{ "Follow-us" | translate }}</h4>
+                <div class="redes" *ngIf="help === 'banpais'">
+                    <a [href]="this.linkList.facebook" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-facebook iconos-redes"></i>
+                    </a>
+                    <a [href]="this.linkList.instagram" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-instagram iconos-redes"></i>
+                    </a>
+                    <a [href]="this.linkList.twitter" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-twitter iconos-redes"></i>
+                    </a>
+                    <a [href]="this.linkList.youtube" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-youtube iconos-redes"></i>
+                    </a>
+                    <a [href]="this.linkList.linkedin" target="_blank" class="botones">
+                        <i aria-hidden="true" prefix class="icon banca-regional-in iconos-redes"></i>
+                    </a>
+                </div>
+
+                <div class="redes" *ngIf="help === 'bisv'">
+                    <a [href]="this.linkList.facebook" target="_blank" class="botones mr-2 ">
+                        <i aria-hidden="true" prefix class="icon banca-regional-facebook iconos-redes bisv-link"></i>
+                    </a>
+                    <a [href]="this.linkList.instagram" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-instagram iconos-redes bisv-link"></i>
+                    </a>
+                    <a [href]="this.linkList.twitter" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-twitter iconos-redes bisv-link"></i>
+                    </a>
+                    <a [href]="linkedin" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-linkedIn iconos-redes bisv-link"></i>
+                    </a>
+                </div>
+
+                <div class="redes" *ngIf="help === 'bipa'">
+                    <a [href]="this.linkList.facebook" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-facebook iconos-redes"></i>
+                    </a>
+                    <a [href]="this.linkList.instagram" target="_blank" class="botones mr-2">
+                        <i aria-hidden="true" prefix class="icon banca-regional-instagram iconos-redes"></i>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-4 menu-redes color-ocho color-btn-ingreso">
+                <a [href]="this.linkList.app" target="_blank">
+                    <i aria-hidden="true" prefix class="icon banca-regional-celular iconos-redes mr-2"></i>
+                    <h4 class="titulo-blanco margen-texto-icono">{{ "Get-to-know-our-mobile-app" | translate }}</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

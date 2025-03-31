@@ -1,0 +1,9 @@
+<div [ngClass]="[profile, 'alert-box', 'no-tooltip']">
+  <div class='alert-box-head no-tooltip'>
+    <i [ngClass]='icon'></i>
+    <span> {{ title | translate }} </span>
+  </div>
+
+  <p *ngIf='descriptionEl' [innerHTML]='descriptionEl | translate'></p>
+  <p *ngIf='description'> {{ description | translate }} </p>
+</div>

@@ -1,0 +1,187 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+.stkn-bisv-validate-token-modal .modal-body {
+
+  @include from(m) {
+    display: grid;
+    grid-template-columns: minmax(min-content, 380px) minmax(min-content, 335px);
+    padding-top: 0;
+  }
+
+  @include from(x){
+    grid-template-columns: minmax(min-content, 400px) minmax(min-content, 430px);
+  }
+
+}
+
+.stkn-bisv-validate-token-modal .alert-container{
+
+  @include from(m){
+    grid-area: 1 / 1 / 2 / 3
+  }
+}
+
+.stkn-bisv-validate-token-modal .info-container {
+  display: grid;
+  grid-template-columns: 57px 1fr;
+  grid-template-rows: 65px 1fr;
+  column-gap: 10px;
+  border-bottom: 1px solid #E9E9E9;
+  padding-bottom: 32px;
+  margin-bottom: 24px;
+
+  @include from(m) {
+    border-bottom: 0;
+    border-right: 1px solid #E9E9E9;
+    margin-bottom: 22px;
+    padding: 98px 0 39px 0;
+    column-gap: 41px;
+  }
+
+  @include from(x) {
+    margin-bottom: 28px;
+    padding: 121px 0 39px 0;
+  }
+}
+
+
+
+.stkn-bisv-validate-token-modal .info-container__icon {
+  font-size: 110px !important;
+  color: var(--primary-light-two) !important;
+  position: relative;
+  bottom: 50%;
+
+  @include from(m) {
+    bottom: 0;
+  }
+
+  @include from(x) {
+    bottom: 0;
+  }
+}
+
+.stkn-bisv-validate-token-modal .info-container__steps {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.stkn-bisv-validate-token-modal .info-container__descrip {
+
+  @include from(m) {
+    padding: 30px 26px 0 0;
+  }
+
+  @include from(x) {
+    padding: 13px 26px 0 0;
+  }
+
+  h1 {
+    font-size: 20px !important;
+    line-height: 35px !important;
+    margin-bottom: 16px;
+
+    @include from(m) {
+      font-size: 25px !important;
+      margin-bottom: 16px;
+      padding-top: 10px
+    }
+
+    @include from(x){
+      font-size: 27px !important;
+      margin-bottom: 25px;
+      padding-top: 23px;
+    }
+  }
+
+  .info-container__descrip-subt {
+    font-size: 18px !important;
+    font-weight: bold;
+  }
+
+  .info-container__descrip-p {
+    font-size: 15px !important;
+    font-weight: bold;
+
+
+    @include from(x){
+      font-size: 16px !important;
+      font-weight: bold;
+    }
+  }
+
+  .info-container__descrip-p2 {
+    font-size: 15px !important;
+
+
+    @include from(x){
+      font-size: 16px !important;
+    }
+  }
+
+}
+
+.stkn-bisv-validate-token-modal .input-token-container {
+
+  @include from(m) {
+    padding: 209px 0 0 18px;
+  }
+
+  @include from(x) {
+    padding: 233px 17px 181px 37px;
+  }
+
+}
+
+.stkn-bisv-validate-token-modal .input-container__label {
+  display: grid;
+  grid-template-columns: minmax(min-content, 80px) minmax(min-content, 30px);
+
+  p {
+    margin-bottom: 0;
+    font-size: 15px !important;
+
+
+    @include from(x){
+      font-size: 16px !important;
+    }
+  }
+}
+
+.stkn-bisv-validate-token-modal .modal-question {
+  font-size: 16px;
+  color: var(--primary-light-two);
+  cursor: pointer;
+  position: relative;
+  top: 5%;
+}
+
+::ng-deep.stkn-bisv-validate-token-modal .input-token-container__form adf-input {
+
+  input {
+
+    height: 55px;
+
+    @include from(m) {
+      height: 50px;
+    }
+
+    @include from(x){
+      height: 40px;
+    }
+  }
+}
+
+
+.stkn-bisv-validate-token-modal .byte-container__button {
+  margin-top: 64px;
+  border-bottom: 0;
+  padding-bottom: 47px;
+  gap: 20px;
+
+  @include from(m) {
+    padding-bottom: 24px;
+    grid-area: 3 / 1 / 4 / 3;
+    margin: 0 0 0 203px;
+    gap: 32px;
+  }
+}

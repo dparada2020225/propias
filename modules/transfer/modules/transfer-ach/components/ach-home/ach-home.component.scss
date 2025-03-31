@@ -1,0 +1,191 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.heading {
+  border-block-end: 1px solid #5a5a5a;
+  padding-block-end: 0.5625rem;
+  .main__title {
+    color: var(--primary-color);
+  }
+
+  .sub__title {
+    color: var(--light-text-two);
+  }
+
+  @include from(m) {
+    .sub__title,
+    .main__title {
+      font-weight: bold;
+    }
+    .sub__title {
+      font-size: 1.125rem !important;
+      margin-block-start: 12px;
+    }
+    .main__title {
+      font-size: 20px !important;
+    }
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+::ng-deep.add-box adf-button {
+  button.btn {
+    inline-size: 100%;
+    margin: 0;
+  }
+
+  @include from(m) {
+    button.btn {
+      inline-size: 240px;
+    }
+  }
+}
+
+.filter-box {
+  margin: 1.5rem 0 0 0;
+
+  @include from(m) {
+    margin-block: 2rem 0;
+    padding-inline: 4rem;
+    .add-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block-end: 2rem;
+    }
+  }
+}
+
+::ng-deep.filter-box {
+
+
+    adf-tooltip {
+
+      label.label {
+        min-inline-size: 150px;
+        white-space: break-spaces;
+      }
+    }
+
+}
+
+::ng-deep.ach-modal adf-form-modal {
+  .iconE i {
+    color: var(--alert-warning-color);
+  }
+
+  h2 {
+    font-size: 27px !important;
+    color: var(--primary-color) !important;
+  }
+
+  p {
+    max-width: 380px;
+    text-align: center;
+    color: var(--light-text-three);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+  .modal-body {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+
+    @include from(m) {
+      padding-left: 50px !important;
+      padding-right: 50px !important;
+    }
+  }
+
+  adf-button {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    button.btn {
+      width: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  .buttons {
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include from(m) {
+      flex-direction: row;
+      padding-top: 42px;
+    }
+  }
+
+}
+
+.ach-container {
+  hr {
+    border-color: var(--light-text-three);
+  }
+}
+
+
+.table-contents {
+  @include from(x) {
+    margin-top: 63px;
+  }
+}
+
+::ng-deep.ach-container {
+  adf-table {
+    .table-body-row__mobile td .bankName {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+    }
+
+    .table-head__mobile th:nth-child(5) {
+      padding-top: .7rem;
+      padding-bottom: .7rem;
+    }
+
+    .table-content__mobile {
+      .selected-cell {
+        color: var(--primary-color);
+      }
+
+      .active-cell span {
+        color: #fff;
+      }
+    }
+
+    .table-body-row__mobile td:first-child {
+      align-self: baseline;
+    }
+
+    .table-head__mobile th:nth-child(1) {
+      align-self: baseline;
+    }
+
+    .table-body-row__mobile td  span {
+      word-break: break-all;
+    }
+  }
+
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-x: 0;
+      --padding-block-start-md: 0;
+      --padding-block-end-x: 0;
+    }
+
+    .container-form {
+      border-top: none;
+    }
+  }
+}

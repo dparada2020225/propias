@@ -1,0 +1,61 @@
+@use '../../../../../assets/styles/responsive.scss' as *;
+
+.adf-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--light-text-three);
+
+  &.no-logo {
+    display: block;
+  }
+
+  img {
+    justify-self: end;
+    align-self: end;
+  }
+
+  .heading-box {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  h3 {
+    margin: 0;
+    color: var(--light-text-two);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  @include from(m) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--light-text-three);
+
+    .heading-box {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    h3 {
+      margin: 0;
+      color: var(--light-text-two);
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}
+
+

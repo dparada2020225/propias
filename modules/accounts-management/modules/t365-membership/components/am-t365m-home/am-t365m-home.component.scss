@@ -1,0 +1,129 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.m365-home {
+  .button-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 4rem;
+
+    @include from(m) {
+      justify-content: space-between;
+      flex-direction: row;
+
+      &:not(.show) {
+        justify-content: flex-end;
+      }
+    }
+
+    @include from(x) {
+      margin-top: 4rem;
+      padding-left: 100px;
+    }
+
+    & > div {
+      display: flex;
+      justify-content: center;
+
+      @include from(m) {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .btn_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include from(600px) {
+      gap: 1.5rem;
+      flex-direction: row-reverse;
+    }
+  }
+
+  .remove-btn {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: var(--primary-color);
+
+    i:before {
+      color: var(--primary-color);
+    }
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  .instructions {
+    margin-block: 2.5rem 1rem;
+
+    h4 {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.btn_container {
+  adf-button {
+    width: 100%;
+  }
+
+  adf-button button.btn {
+    width: 100%;
+  }
+
+  @include from(600px) {
+    adf-button {
+      width: 240px;
+    }
+
+    adf-button button.btn {
+      width: 240px;
+    }
+  }
+}
+
+::ng-deep.m365-home {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-sm: 0;
+      --padding-block-end-sm: 0;
+      --padding-block-start-md: 0;
+      --padding-block-end-md: 0;
+      --padding-block-start-x: 0;
+      --padding-block-end-x: 0;
+    }
+
+    adf-select select {
+      height: 42px !important;
+    }
+
+    .container-form {
+      margin: 0;
+      border: none;
+    }
+  }
+}

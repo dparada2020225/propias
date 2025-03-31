@@ -1,0 +1,14 @@
+<div [ngClass]="[customShow, 'ttr-confirm crud-container byte-container transfers']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert"
+             [receiverMessage]="messageAlert | translate"></adf-alert>
+
+  <adf-reading [ngClass]="classNameLayout" (onIsFavorite)="handleChangeIsFavoriteTransaction()"
+               [data]="confirmationLayout"></adf-reading>
+
+  <div [ngClass]="['byte-container__button', classNameButtons]">
+    <adf-button class="primary" id="primary" value="{{ 't.confirm' | translate }}" (click)="nextStep()"></adf-button>
+    <adf-button class="secondary" id="prev" type="secondary" [value]="'toReturn' | translate"
+                (click)="prevStep()"></adf-button>
+
+  </div>
+</div>

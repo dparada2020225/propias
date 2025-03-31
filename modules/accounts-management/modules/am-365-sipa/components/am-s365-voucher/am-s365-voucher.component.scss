@@ -1,0 +1,17 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.ams365-voucher {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.ams365-voucher {
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+}

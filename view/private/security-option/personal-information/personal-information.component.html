@@ -1,0 +1,146 @@
+<div class="personal-information-container">
+    <ngx-spinner></ngx-spinner>
+    <div>
+        <span class="title-personal-information">
+            {{'title_personal_information'| translate}}
+        </span>
+    </div>
+
+    <div class="row form-container" [formGroup]="personalInformation">
+        <div class="text-personal-information">
+            <span>
+                {{'text_personal_information'| translate}}
+            </span>
+        </div>
+        <div class="col-lg-6 tooltip-sv tooltip-help" *ngIf="this.deploymentProfile === 'bipa' || 'bisv'">
+
+            <span class="subtitle-name">
+                {{'areaCode'| translate}}
+            </span>
+            <span class="alert-error"
+                *ngIf="personalInformation.controls['areaCode'].errors?.['required'] && personalInformation.controls['areaCode'].touched">
+                {{'required' |translate}}
+            </span>
+                  <adf-tooltip  icon="banca-regional-pregunta" label="code_area_tooltip"></adf-tooltip>
+                
+            <adf-select [options]="this.areaCodeList" (onChangeValue)="this.selectedAreaCode($event)"
+                formControlName="areaCode" [control]="areaCodeControl" [id]="'areaCode'">
+                <div error
+                    *ngIf="personalInformation.controls['areaCode'].errors && !personalInformation.controls['areaCode'].errors['required']">
+                </div>
+            </adf-select>
+        </div>
+        <div class="col-lg-6" *ngIf="this.deploymentProfile === 'bipa'">
+            <span class="subtitle-name">
+                {{'phone'| translate}}
+            </span>
+            <span class="alert-error"
+                *ngIf="personalInformation.controls['phone'].errors?.['required'] && personalInformation.controls['phone'].touched">
+                {{'required' |translate}}
+            </span>
+            <adf-input [id]="'phone'"
+                placeholder="{{(this.deploymentProfile === 'bipa' ? 'so_insert_phone_number' : this.placeholderPhone)| translate}}"
+                formControlName="phone"
+                [imaskOptions]="this.deploymentProfile === 'bipa' ? this.imaskNumber : this.regexImask"
+                [imaskUnmask]="true" [control]="phoneControl">
+                <div error
+                    *ngIf="personalInformation.controls['phone'].errors && !personalInformation.controls['phone'].errors['required']">
+                    <span>{{ this.errorToShow(personalInformation.controls['phone'].errors) | translate}}</span>
+                </div>
+            </adf-input>
+        </div>
+        <div class="col-lg-6" *ngIf="this.deploymentProfile ===  'bisv'">
+            <span class="subtitle-name">
+                {{'phone'| translate}}
+            </span>
+            <span class="alert-error"
+                *ngIf="personalInformation.controls['phone'].errors?.['required'] && personalInformation.controls['phone'].touched">
+                {{'required' |translate}}
+            </span>
+            <adf-input [id]="'phone'"
+                placeholder="{{(this.areaCodeSV === 'Otro' ? 'so_insert_phone_number' : this.placeholderPhone)| translate}}"
+                formControlName="phone"
+                [imaskOptions]="this.areaCodeSV === 'Otro' ? this.imaskNumberSV : this.regexImaskSV"
+                [imaskUnmask]="true" [control]="phoneControl">
+                <div error
+                    *ngIf="personalInformation.controls['phone'].errors && !personalInformation.controls['phone'].errors['required']">
+                    <span>{{ this.errorToShow(personalInformation.controls['phone'].errors) | translate}}</span>
+                </div>
+            </adf-input>
+        </div>
+        <div [ngClass]="{'col-lg-6': this.deploymentProfile !== 'bipa', 'col-lg-12': this.deploymentProfile === 'bipa'}"
+            *ngIf="!this.disable">
+            <span class="subtitle-name">
+                {{'phone_company'| translate}}
+            </span>
+            <span class="alert-error"
+                *ngIf="personalInformation.controls['phoneCompany'].errors?.['required'] && personalInformation.controls['phoneCompany'].touched">
+                {{'required' |translate}}
+            </span>
+            <adf-select [options]="this.optionList" (onChangeValue)="this.selectedCompany($event)"
+                formControlName="phoneCompany" [control]="phoneCompanyControl" [id]="'phoneCompany'">
+                <div error
+                    *ngIf="personalInformation.controls['phoneCompany'].errors && !personalInformation.controls['phoneCompany'].errors['required']">
+                </div>
+            </adf-select>
+        </div>
+        <div class="col-lg-12" *ngIf="this.disable">
+            <span class="subtitle-name">
+                {{'phone_company'| translate}}
+            </span>
+            <adf-input formControlName="phoneCompanyInput" [id]="'phoneCompanyInput'"
+                [control]="phoneCompanyInputControl">
+            </adf-input>
+        </div>
+        <div class="col-12" style="margin-top: 8px;">
+            <span class="subtitle-name">
+                {{'mail'| translate}}
+            </span>
+            <span class="alert-error"
+                *ngIf="personalInformation.controls['mail'].errors?.['required'] && personalInformation.controls['mail'].touched">
+                {{'required' |translate}}
+            </span>
+            <adf-input placeholder="{{'mail_placeholder' | translate}}" formControlName="mail" [id]="'mail'"
+                [maxlength]="lenghtEmail" [control]="mailControl">
+                <div error
+                    *ngIf="personalInformation.controls['mail'].errors && !personalInformation.controls['mail'].errors['required']">
+                    <span>{{ this.errorToShow(personalInformation.controls['mail'].errors) | translate}}</span>
+                </div>
+            </adf-input>
+        </div>
+        <div class="col-12" style="margin-top: 12px">
+            <span class="subtitle-name">
+                {{'mail_confirmation'| translate}}
+            </span>
+            <span class="alert-error"
+                *ngIf="personalInformation.controls['mailConfirmation'].errors?.['required'] && personalInformation.controls['mailConfirmation'].touched">
+                {{'required' |translate}}
+            </span>
+            <adf-input placeholder="{{'mail_confirmation_placeholder' | translate}}" formControlName="mailConfirmation"
+                [id]="'mailConfirmation'" [maxlength]="lenghtEmail" [control]="mailConfirmationControl">
+                <div error
+                    *ngIf="personalInformation.controls['mailConfirmation'].errors && !personalInformation.controls['mailConfirmation'].errors['required']">
+                    <span>{{ this.errorToShow(personalInformation.controls['mailConfirmation'].errors) |
+                        translate}}</span>
+                </div>
+            </adf-input>
+        </div>
+
+      <div [ngClass]="['buttons', deploymentProfile != hnProfile ? 'btn_sv' : '']">
+        <adf-button value="{{'omit_information'| translate}}" (click)="clearInfo()" type="secondary" class="secondary"></adf-button>
+        <adf-button value="{{'configure_information'| translate}}" (click)="sendInfo()" class="primary"></adf-button>
+      </div>
+
+        <div class="col-12" style="margin-top: 15px"
+            *ngIf="this.showAlert && deploymentProfile !== 'bipa' && adminProfiles.userType !== 'A' && !settingsData.notAdminProfiles.includes(adminProfiles.profile); else admin">
+            <adf-alert receiverType="warning" [receiverMessage]="'changes-pending' | translate"></adf-alert>
+        </div>
+
+        <ng-template #admin>
+            <div class="col-12" style="margin-top: 15px" *ngIf="this.showAlert">
+                <adf-alert [receiverType]="this.typeAlert"
+                    [receiverMessage]="this.messageAlert | translate"></adf-alert>
+            </div>
+        </ng-template>
+    </div>
+</div>

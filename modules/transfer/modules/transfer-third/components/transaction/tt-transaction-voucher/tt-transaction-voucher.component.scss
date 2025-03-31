@@ -1,0 +1,107 @@
+@use '../../../../../../../../assets/styles/responsive.scss' as *;
+
+.transaction-voucher {
+  font-family: inherit;
+}
+
+/*--- Estilos el salvador ---*/
+
+.layout_sv::ng-deep {
+
+  .heading-voucher {
+    .main-title {
+      margin-bottom: 9px !important;
+    }
+
+    .main-subtitle {
+      //display: none !important;
+    }
+  }
+
+  .content-fields {
+    padding-bottom: 17px;
+
+    @include from(m) {
+      padding-left: 0;
+      padding-bottom: 25px;
+    }
+
+    @include from(x) {
+      padding-left: 100px;
+      padding-bottom: 34px;
+    }
+
+    .group {
+      padding-top: 8px;
+      padding-bottom: 0;
+
+      @include from(m) {
+        gap: 10px
+      }
+
+      @include from(x) {
+        column-gap: 0;
+        row-gap: 24px;
+      }
+
+      .field-item {
+        row-gap: 11px;
+
+        @include from(x) {
+          row-gap: 1px;
+        }
+      }
+    }
+  }
+
+}
+
+.container-sv::ng-deep {
+
+  padding-top: 42px;
+
+  @include from(m) {
+    padding-top: 93px;
+    margin: 0;
+  }
+
+  @include from(x) {
+    padding-top: 43px;
+    margin-left: 100px;
+    gap: 27px;
+  }
+
+  adf-button {
+    height: 50px;
+
+    @include from(m) {
+      width: 218px;
+    }
+
+    @include from(x) {
+      width: 240px;
+    }
+
+    .btn {
+      height: 100% !important;
+      width: 100% !important;
+    }
+  }
+}
+
+.headBand-sv::ng-deep {
+
+  .headband {
+    padding-top: 25px !important;
+
+    @include from(m) {
+      padding-top: 40px !important;
+    }
+
+    @include from(x) {
+      padding-top: 62px !important;
+    }
+
+  }
+
+}

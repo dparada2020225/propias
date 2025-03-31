@@ -1,0 +1,67 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.spp-container {
+  adf-table {
+    .status {
+      text-transform: uppercase;
+    }
+
+    .status.error,
+    .status.inactive,
+    .status.inactiva,
+    .status.blocked,
+    .status.bloqueada,
+    .status.cancelled,
+    .status.cancelada {
+      color: var(--warn-color) !important;
+    }
+
+    .status.activa,
+    .status.active {
+      color: var(--alert-success-color) !important;
+    }
+
+    .email{
+      word-break: break-all;
+      overflow: initial;
+    }
+
+    .scrolled-table{
+      max-block-size: 650px !important;
+    }
+
+  }
+
+  adf-form-layout {
+    .source-account_selector {
+      margin-top: calc(40px - 0.9375rem);
+    }
+
+    .grid-container {
+      @include from(x) {
+        padding-left: 100px;
+      }
+    }
+
+    .form_label{
+      gap: 0 !important;
+    }
+
+  }
+
+  .table-container {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+.payroll-buttons-container.payment-home {
+  justify-content: flex-end;
+  margin: 64px 0;
+}
+
+hr {
+  border-color: var(--light-text-three);
+}
+

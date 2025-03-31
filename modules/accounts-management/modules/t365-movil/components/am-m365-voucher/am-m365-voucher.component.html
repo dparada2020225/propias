@@ -1,0 +1,40 @@
+<article [ngClass]="[customShow, 'byte-container transfers am365-voucher']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    [subtitle]='subtitle'
+    label='ach:bisv:label_home'
+    logoUrl='assets/images/private/ach/logo_transfer_m365.svg'
+    width='140px'
+    height='40px'
+  ></adf-header>
+
+  <section class='content'>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+    <byte-adf-favorites-management
+      *ngIf='isShowFavoriteWidget'
+      (changeInfo)='changeInfoAndShowAlert($event)'
+      [isFavorite]='isFavorite'
+      [loaderHideService]='loaderHideService'
+      [loaderShowService]='loaderShowService'
+      [addToFavoriteService]='addToFavoriteService'
+      [removeToFavoriteService]='removeToFavoriteService'
+    ></byte-adf-favorites-management>
+
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2']">
+    <adf-button
+      id="next"
+      class="primary"
+      value="{{ 'print' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+  <adf-confirmation-headband [headbandLayout]='headbandLayout'></adf-confirmation-headband>
+</article>

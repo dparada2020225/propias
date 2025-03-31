@@ -1,0 +1,50 @@
+[
+  {
+    "code": "002",
+    "product":"01",
+    "currency":"USD",
+    "account":"12345678901234567",
+    "amount":"2500",
+    "comment":"comentario ejemplo"
+  },
+  {
+    "code": "003",
+    "product":"02",
+    "currency":"USD",
+    "account":"23456789012345678",
+    "amount":"2500",
+    "comment":"comentario ejemplo"
+  },
+  {
+    "code": "005",
+    "product":"02",
+    "currency":"USD",
+    "account":"34567890123456789",
+    "amount":"2500",
+    "comment":"comentario ejemplo"
+  },
+  {
+    "code": "006",
+    "product":"02",
+    "currency":"USD",
+    "account":"45678901234567890",
+    "amount":"2500",
+    "comment":"comentario ejemplo"
+  },
+  {
+    "code": "009",
+    "product":"02",
+    "currency":"USD",
+    "account":"56789012345678901",
+    "amount":"2500",
+    "comment":"comentario ejemplo"
+  },
+  {
+    "code": "011",
+    "product":"02",
+    "currency":"USD",
+    "account":"67890123456789012",
+    "amount":"2500",
+    "comment":"comentario ejemplo"
+  }
+]

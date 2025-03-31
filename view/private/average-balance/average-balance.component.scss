@@ -1,0 +1,278 @@
+.datos {
+  display: flex;
+  width: 100%;
+}
+
+.margen-derecho {
+  padding-right: 200px !important;
+}
+
+.modal-header {
+  padding: 70px 80px 0px;
+}
+
+.modal-footer {
+  padding-top: 0px;
+  padding-bottom: 80px;
+}
+
+.modal-body {
+  padding: 10px 80px 38px;
+}
+
+.caja {
+  width: 50%;
+}
+
+.margin-eje-y {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+p {
+  font: normal normal normal 14px/16px var(--font-family);
+  color: var(--light-text-three);
+}
+
+p span {
+  font: normal normal normal 14px/16px var(--font-family);
+  color: var(--label-color-login) !important;
+}
+
+.style-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+
+  p {
+    margin-bottom: 0px;
+  }
+  span {
+    font: normal normal normal 14px/16px var(--font-family);
+    color: var(--label-color-login);
+  }
+}
+
+.saldo {
+  width: 100%;
+}
+
+.saldo p {
+  font: normal normal bold 18px/27px var(--font-family);
+  color: var(--light-text-two)!important;
+}
+
+.table {
+  width: 100%;
+  padding: 0;
+  font-size: 11px;
+
+  thead {
+    background-color: #9b9b9b;
+    text-align: center;
+    color: #fff;
+
+    td {
+      width: 50%;
+      text-align: center;
+      padding: 20px !important;
+    }
+  }
+  tbody td {
+    height: 52px;
+  }
+}
+
+.td {
+  border-right: 1px solid #fff;
+}
+
+.tr {
+  background: #f9f9f9 !important;
+}
+
+.tr:nth-child(odd) {
+  background-color: #eaeaea !important;
+}
+
+.table-mobile {
+  display: none;
+}
+
+.botones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  adf-button {
+    margin-right: 2%;
+  }
+}
+
+#table-mobile td {
+  width: 50% !important;
+}
+
+@media only screen and (max-width: 1090px) {
+  .margen-derecho {
+    padding-right: 190px !important;
+  }
+}
+
+@media only screen and (max-width: 1089px) {
+  .margen-derecho {
+    padding-right: 170px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .text-value {
+    color: var(--light-text-three) !important;
+  }
+
+  .text-amount {
+    color: var(--label-color-login) !important;
+  }
+
+  th {
+    padding-left: 14px !important;
+  }
+
+  td {
+    padding: 0px !important;
+    padding-left: 14px !important;
+    background-color: #e9e9e9 !important;
+  }
+
+  .padding-second {
+    padding-left: 35px !important;
+  }
+
+  tr:first-child {
+    height: 30px !important;
+  }
+
+  .datos {
+    flex-direction: column;
+  }
+
+  .caja {
+    width: 100%;
+  }
+
+  .caja p span.text {
+    font: normal normal normal 16px var(--font-family) !important;
+  }
+
+  .saldo p {
+    font: normal normal bold 20px/27px var(--font-family);
+  }
+
+  .style-title {
+    margin-bottom: 10px;
+  }
+
+  .modal-header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .modal-body {
+    padding: 20px 30px 38px 30px;
+    font: normal normal normal 16px var(--font-family) !important;
+  }
+
+  .modal-footer {
+    padding-top: 0px;
+    padding-bottom: 50px;
+    justify-content: center;
+
+    .modal-body {
+      padding: 20px 30px 30px 30px;
+    }
+
+    .modal-footer {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .modal-content {
+      width: 601px !important;
+    }
+
+    .botones {
+      padding-left: 0%;
+      margin-right: 0%;
+    }
+
+    .botones ::ng-deep {
+      adf-button > button {
+        margin-left: 0% !important;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .datos {
+    flex-direction: column;
+  }
+
+  .caja {
+    width: 100%;
+  }
+
+  p {
+    font: normal normal normal 15px/16px var(--font-family);
+
+    span {
+      font: normal normal normal 15px/16px var(--font-family);
+    }
+  }
+
+  .style-title {
+    margin-bottom: 8px;
+    span {
+      font: normal normal normal 15px/16px var(--font-family);
+    }
+  }
+
+  .saldo p {
+    font: normal normal bold 20px/27px var(--font-family);
+  }
+
+  .buttons {
+    display: block !important;
+  }
+
+  .modal-header {
+    padding: 50px 20px 0px;
+  }
+
+  .modal-body {
+    padding: 20px 20px 38px;
+  }
+
+  .modal-footer {
+    padding: 0px 20px 50px;
+
+    .botones {
+      flex-direction: column-reverse;
+      margin-right: 0px;
+
+      ::ng-deep adf-button {
+        width: 100%;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .table2 {
+    display: block;
+  }
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "365 SIPA",
+    "path": "/accounts-management/365-sipa",
+    "parameter": null,
+    "children": [
+      {
+        "path": "add",
+        "parameter": "amS365:create",
+        "children": []
+      },
+      {
+        "path": "add/confirmation",
+        "parameter": "amS365:create_confirm",
+        "children": []
+      },
+      {
+        "path": "add/voucher",
+        "parameter": "amS365:create_voucher",
+        "children": []
+      },
+      {
+        "path": "update",
+        "parameter": "amS365:update",
+        "children": []
+      },
+      {
+        "path": "update/confirmation",
+        "parameter": "amS365:update_confirm",
+        "children": []
+      },
+      {
+        "path": "update/voucher",
+        "parameter": "amS365:update_voucher",
+        "children": []
+      },
+      {
+        "path": "remove",
+        "parameter": "amS365:delete",
+        "children": []
+      },
+      {
+        "path": "remove/confirmation",
+        "parameter": "amS365:delete_confirm",
+        "children": []
+      },
+      {
+        "path": "remove/voucher",
+        "parameter": "amS365:delete_voucher",
+        "children": []
+      }
+    ]
+  }
+]

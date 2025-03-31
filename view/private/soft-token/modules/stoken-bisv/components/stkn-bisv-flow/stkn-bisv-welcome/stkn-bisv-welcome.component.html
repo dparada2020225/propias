@@ -1,0 +1,30 @@
+<div [ngClass]="['stkn-bisv-welcome-container']" >
+    <div class="stkn-bisv-welcomebody-container">
+      <div class="icon-top-container">
+        <img src="{{iconTopMobile}}" alt="" id="bisv_logo" class="icon-top1">
+      </div>
+      <div class="description-container">
+        <div class="description-container__icon">
+          <img src="{{logoBISV}}" alt="" id="bisv_logo" class="icon-logo1">
+        </div>
+        <div class="description-container__title">
+          <h1 class="modal-title-st">{{'stkn-welcome-new-user' | translate}}</h1>
+        </div>
+        <div class="description-container__description">
+          <p class="modal-desc-st" [innerHTML]="'stoken-welcome-descr' | translate"></p>
+        </div>
+      </div>
+      <div class="byte-container__button">
+        <adf-button
+        value="{{ 'agree' | translate }}"
+        (click)="next()"
+        id="information-stoken-btn"
+        class="primary"
+      ></adf-button>
+      </div>
+      <div class="icon-bottom-container">
+        <img src="{{iconBottomMobile}}" alt="" id="bisv_logo"  class="icon-button1">
+      </div>
+    </div>
+  </div>
+  

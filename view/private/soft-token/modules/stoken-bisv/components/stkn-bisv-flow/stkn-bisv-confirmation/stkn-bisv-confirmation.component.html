@@ -1,0 +1,26 @@
+<div [ngClass]="['container-confirmation-stoken']">
+  <div class="container-confirmation-stoken1">
+    <div *ngFor="let image of topImages" class="icons-top-container">
+      <img [src]="image.path" alt="Top Icon" id="{{image.idName}}" class="icon-top1">
+    </div>
+  </div>
+  <div class="confirmation-stoken-body">
+    <div class="icon">
+      <i class="icon-soft-token-success"></i>
+    </div>
+    <h1 id="confirmation-title">{{ 'stoken-confirm-title' | translate}}</h1>
+    <div class="confirmation-descrip">
+      <p>{{ 'stoken-confirm-descrip' | translate}}</p>
+    </div>
+    <div class="buttons-confirmation">
+      <adf-button value="{{ this.textButton | translate }}"  action="button" class="btn-confirmation" (click)="goTo()"> </adf-button>
+    </div>
+  </div>
+  <div class="container-confirmation-stoken1">
+      <div *ngFor="let image of bottomImages" class="icons-bottom-container">
+      <img [src]="image.path" alt="Bottom Icon" id="{{image.idName}}" class="icon-bottom1">
+    </div>
+  </div>
+</div>
+
+  

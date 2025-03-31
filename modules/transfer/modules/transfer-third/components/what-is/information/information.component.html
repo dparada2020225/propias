@@ -1,0 +1,35 @@
+<section class="container-information-ttr">
+
+  <header class="container-information-ttr__constainer-title">
+    <p class="title">
+      <b>{{"transfers-third-title_WhatIs1" | translate}}</b> {{"transfers-third-title_WhatIs2" | translate}}
+      <span class="line"></span>
+    </p>
+  </header>
+
+  <article class="container-information-ttr__constainer-information">
+    <p class="information_text">
+      {{"information-ttr" | translate}}
+    </p>
+  </article>
+
+  <article class="container-information-ttr__constainer-image">
+
+    <picture>
+
+      <source [srcset]="imgDesktop" media="(min-width: 1200px)">
+      <source [srcset]="imgTablet" media="(min-width: 768px)">
+      <img class="image" [src]="imgMobile" alt="file upload example"/>
+    </picture>
+
+
+    <div class="button-container">
+      <button *ngIf="showButton" class="information_image_btn" (click)="navigateToTransferThird()">{{"Go-to-ttr"
+        |
+        translate}}</button>
+    </div>
+
+  </article>
+
+
+</section>

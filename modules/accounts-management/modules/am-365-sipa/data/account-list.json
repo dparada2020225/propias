@@ -1,0 +1,44 @@
+[
+  {
+    "account": "339269120011210",
+    "name": "EDGAR PAUL RABANALES",
+    "bank": 2,
+    "bankName": "BANCO INDUSTRIAL, S.A.",
+    "countryName": "GUATEMALA",
+    "typeClient": "N",
+    "documentNumber": "02333356664",
+    "address": "STREET 12",
+    "city": "CIUDAD DE GUATEMALA",
+    "country": "GTM",
+    "type": 1,
+    "status": "A"
+  },
+  {
+    "account": "539269120011210",
+    "name": "EDGAR PAUL RABANALES",
+    "bank": 2,
+    "bankName": "BANCO INDUSTRIAL, S.A.",
+    "countryName": "GUATEMALA",
+    "typeClient": "N",
+    "documentNumber": "02333356664",
+    "address": "STREET 12",
+    "city": "CIUDAD DE GUATEMALA",
+    "country": "GTM",
+    "status": "A",
+    "type": 2
+  },
+  {
+    "account": "339269120011219",
+    "name": "EDGAR PAUL RABANALES",
+    "bank": 2,
+    "bankName": "BANCO INDUSTRIAL, S.A.",
+    "countryName": "GUATEMALA",
+    "typeClient": "N",
+    "documentNumber": "02333356664",
+    "address": "STREET 12",
+    "city": "CIUDAD DE GUATEMALA",
+    "country": "GTM",
+    "type": 2,
+    "status": "I"
+  }
+]

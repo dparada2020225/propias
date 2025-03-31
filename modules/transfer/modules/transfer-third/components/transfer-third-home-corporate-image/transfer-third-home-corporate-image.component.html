@@ -1,0 +1,79 @@
+<ngx-spinner></ngx-spinner>
+<div [ngClass]="[customShow, 'third-container byte-container transfers']">
+  <adf-alert *ngIf="validationAlert()" [receiverType]="typeAlert!" [receiverMessage]="messageAlert! | translate">
+  </adf-alert>
+
+
+  <section class="form-sv tooltip-sv">
+    <header class="form-sv__heading">
+      <h1 class="main__title">{{ 'transfers-third-title' | translate }}</h1>
+    </header>
+    <div [ngClass]="['form-sv__filter-box', !isShowCreateButton ? 'new_tooltip' : '']">
+      <adf-form-layout class="filter" [setDataSelectList]="optionsList" [form]="form" [setLayoutJson]="formLayout">
+
+        <adf-custom-select-form-layout
+          customLayout
+          class='grid-item credit-sv'
+          [useCustomPreview]='false'
+          [form]='form'
+          [setOption]='optionsListPers'
+          [setLayoutAttribute]="filterAttribute"
+        >
+        </adf-custom-select-form-layout>
+
+      </adf-form-layout>
+      <div *ngIf='isShowCreateButton' class="button hover_button-primary-sv">
+        <adf-button class="add" [value]="'add_third_party_account' | translate"
+                    (click)="goToCreateAccountFlow()"></adf-button>
+      </div>
+    </div>
+  </section>
+
+
+  <div [ngClass]="'table-contents-bisv'">
+
+    <adf-alert *ngIf="validationAlertFavoriteAccount() && validationAlertAccount()" [receiverType]="'info'"
+               [receiverMessage]="'no_matches_found' | translate">
+    </adf-alert>
+
+    <adf-table
+      *ngIf="validationTableFavoriteAccount()"
+      class="favorites-sv"
+      [isShowMessageByEmptyRegisters]='true'
+      [emptyMessageHandler]='"message"'
+      [isShowHeaders]='true'
+      (onLoadAccount)="getActionTable($event)"
+      [structure]="favoriteAccountsLayout"
+      [isOptions]="true"
+      [isScrolled]='true'
+    >
+    </adf-table>
+    <adf-alert *ngIf="validationAlertFavoriteAccount() && !validationAlertAccount()"
+               [receiverType]="typeAlertFavoriteAccount ?? ''"
+               [receiverMessage]="messageAlertFavoriteAccount ?? '' | translate">
+    </adf-alert>
+
+    <hr class="table_line-sv" *ngIf="!showDivideLine">
+
+    <adf-table
+      *ngIf="validationTableAccount()"
+      class="third-sv"
+      [isShowMessageByEmptyRegisters]='true'
+      [emptyMessageHandler]='"message"'
+      [isShowHeaders]='true'
+      (onLoadAccount)="getActionTable($event)"
+      [structure]="thirdAccountsLayout"
+      [isOptions]="true"
+      [isScrolled]='true'
+    >
+    </adf-table>
+    <adf-alert *ngIf="validationAlertAccount() && !validationAlertFavoriteAccount()"
+               [receiverType]="typeAlertThirdAccounts"
+               [receiverMessage]="messageAlertThirdAccounts | translate">
+    </adf-alert>
+
+
+  </div>
+
+</div>
+

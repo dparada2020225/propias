@@ -1,0 +1,10 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.tm-ach-signature {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+

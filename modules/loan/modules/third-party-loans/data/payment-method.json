@@ -1,0 +1,13 @@
+{
+  "controlName": "paymentOption",
+  "data": [
+    {
+      "name": "quotas_paymentTPL",
+      "value": "C"
+    },
+    {
+      "name": "payment_partialTPL",
+      "value": "P"
+    }
+  ]
+}

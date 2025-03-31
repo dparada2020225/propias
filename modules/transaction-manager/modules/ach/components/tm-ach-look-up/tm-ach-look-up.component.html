@@ -1,0 +1,59 @@
+<ngx-spinner></ngx-spinner>
+<article [ngClass]="[customShow, 'byte-container transfers tm365-consult']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    [subtitle]='subTitile'
+    label='tm:ach:title_home'>
+  </adf-header>
+  <section class='content'>
+    <div [ngClass]="[tableClassName, 'table-content']">
+      <adf-table
+        *ngIf='isShowAtomicTransferenceTable'
+        class="atomic"
+        (onLoadAccount)="getTableActionsForAtomicTransference($event)"
+        [structure]="transactionListAtomicTableLayout"
+        [isShowMessageByEmptyRegisters]='true'
+        [emptyMessageHandler]="'message'"
+        [isShowHeaders]='true'
+        [useOptionsWithVirtualScroll]="userVirtualScrollInTableAssociated"
+        [useVirtualScroll]="userVirtualScrollInTableAssociated"
+      >
+      </adf-table>
+
+      <adf-table
+        *ngIf='isShowMultipleUNITransferenceTable'
+        class="multiple"
+        (onLoadAccount)="getTableActionsForMultipleTransference($event)"
+        [structure]="transactionListMultipleTableLayout"
+        [isShowMessageByEmptyRegisters]='true'
+        [emptyMessageHandler]="'message'"
+        [isShowHeaders]='true'
+        [useOptionsWithVirtualScroll]="userVirtualScrollInTableMultiple"
+        [useVirtualScroll]="userVirtualScrollInTableMultiple"
+      >
+      </adf-table>
+
+      <adf-table
+        *ngIf='isShowMultiple365TransferenceTable'
+        class="multiple365"
+        (onLoadAccount)="getTableActionsForMultiple365Transference($event)"
+        [structure]="transactionListMultiple365TableLayout"
+        [isShowMessageByEmptyRegisters]='true'
+        [emptyMessageHandler]="'message'"
+        [isShowHeaders]='true'
+        [useOptionsWithVirtualScroll]="userVirtualScrollInTableMultiple365"
+        [useVirtualScroll]="userVirtualScrollInTableMultiple365"
+      >
+      </adf-table>
+    </div>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

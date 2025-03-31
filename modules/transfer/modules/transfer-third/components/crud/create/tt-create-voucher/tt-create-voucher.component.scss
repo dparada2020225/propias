@@ -1,0 +1,161 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+.tt-create-voucher {
+  font-family: inherit;
+}
+
+/* - Estilos Bisv - */
+
+.layout-bisv::ng-deep {
+  /*Titulos y margenes*/
+  .main-title {
+    padding-bottom: 10px;
+  }
+
+  .main-subtitle {
+    display: none;
+  }
+
+  /*FORM*/
+  .padding-side {
+    padding-top: 14px;
+    padding-bottom: 25px;
+
+    @include from(m) {
+      padding-top: 32px;
+      padding-bottom: 33px;
+      padding-left: 0;
+    }
+
+    @include from(x) {
+      padding-top: 40px;
+      padding-bottom: 24px;
+      padding-left: 100px;
+    }
+
+
+    /*Simpre dejar paddind en 0*/
+    .group {
+      padding-top: 0;
+      padding-bottom: 0;
+      gap: 18px;
+
+      @include to(x) {
+        $orders: 0, 4, 1, 5, 2, 6, 3, 10;
+
+        @for $i from 1 through length($orders) {
+          & div:nth-child(#{$i}) {
+            order: nth($orders, $i);
+          }
+        }
+      }
+
+      @include from(m) {
+        gap: 26px;
+      }
+
+      @include from(x) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 22px;
+        column-gap: 150px;
+      }
+
+      .no-padding {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        @include from(x) {
+          max-width: 100%;
+          flex-grow: 1;
+        }
+
+        @include from(m) {
+          display: grid;
+          grid-template-columns: 122px 19.375rem;
+          gap: 34px
+        }
+
+        @include from(x) {
+          display: flex;
+          flex-direction: column;
+          gap: 1px;
+        }
+
+        div {
+          @include from(x) {
+            max-width: 100%;
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+/*Botones*/
+
+.btn-sv::ng-deep {
+
+  gap: 12px;
+  padding-bottom: 29px;
+  padding-top: 43px;
+
+  @include from(m) {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 100px;
+    padding-bottom: 60px;
+    padding-top: 90px;
+  }
+
+  @include from(x) {
+    padding-left: 0;
+    margin-left: 100px;
+    padding-bottom: 61px;
+    padding-top: 56px;
+    gap: 27px;
+  }
+
+  adf-button {
+    height: 50px;
+
+    @include from(m) {
+      width: 218px;
+    }
+
+    @include from(x) {
+      width: 240px;
+    }
+
+
+    button {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+  }
+
+}
+
+/*Cintillo*/
+
+.headband-sv::ng-deep {
+
+  .headband {
+    padding-top: 24.54px !important;
+
+    @include from(m) {
+      padding-top: 40px !important;
+    }
+
+    @include from(x) {
+      padding-top: 62px !important;
+    }
+
+  }
+
+}

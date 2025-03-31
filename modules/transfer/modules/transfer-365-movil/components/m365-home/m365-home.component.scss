@@ -1,0 +1,121 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.ach-m365-home {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.ach-m365-home {
+  byte-adf-transfer-footer .alert-box {
+    margin-top: 2rem;
+  }
+}
+
+::ng-deep.ach-m365-home .base-form {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-md: 1.5rem;
+      --padding-block-start-sm: 1.5rem;
+      --padding-block-start-x: 1.5rem;
+      --padding-block-end-md: 0;
+      --padding-block-end-sm: 0;
+      --padding-block-end-x: 0;
+    }
+
+    .form-heading {
+      display: none;
+    }
+
+    adf-select select.custom-select {
+      height: 40px !important;
+    }
+
+    .container-form {
+      border: none;
+    }
+
+    .checkbox-365 .checkbox-form-layout {
+      padding-block: 12px;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      justify-content: flex-end;
+
+      label {
+        margin: 0;
+      }
+    }
+
+    .custom-grid {
+      grid-row: 3;
+
+      .select-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .select-wrapper label {
+        display: block;
+        margin-block-end: 12px;
+      }
+
+      @include from(m) {
+        grid-column: 7 / 13;
+        grid-row: 2;
+      }
+
+      & > div {
+        grid-column: span 12;
+      }
+    }
+  }
+
+}
+
+::ng-deep.form-extended {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-md: 10px;
+      --padding-block-start-sm: 10px;
+      --padding-block-start-x: 10px;
+      --padding-block-end-md: 0;
+      --padding-block-end-sm: 0;
+      --padding-block-end-x: 0;
+    }
+
+    .email-registered .attribute-value {
+      text-transform: none !important;
+    }
+
+    .custom-grid {
+      display: none;
+    }
+
+    .form-heading {
+      display: none;
+    }
+
+    adf-select select.custom-select {
+      height: 40px !important;
+    }
+
+    .container-form {
+      border: none;
+    }
+
+    .checkbox-365 .checkbox-form-layout {
+      padding-block: 12px;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      justify-content: flex-end;
+
+      label {
+        margin: 0;
+      }
+    }
+
+
+  }
+}

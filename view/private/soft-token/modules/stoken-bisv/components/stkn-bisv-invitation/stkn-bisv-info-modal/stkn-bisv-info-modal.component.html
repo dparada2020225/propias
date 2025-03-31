@@ -1,0 +1,40 @@
+<div class="stkn-bisv-info-modal stoken-bisv-invitation-modal">
+    <div class="modal__header">
+      <a class="modal__header-close" (click)="close()" id="btn-X-method-stoken-bisv"
+        ><span aria-hidden="true" class="fa fa-times"></span>
+        <span class="hidden-text">Close</span>
+      </a>
+    </div>
+    <div class="modal-body">
+      <div class="info-container">
+        <div class="info-container__icon">
+          <i aria-hidden="true" class="icon banca-regional-ingreso-token token-icon"></i>
+        </div>
+        <h1>{{'stkn-bisv-info-title' | translate}}</h1>
+        <p>{{'stkn-bisv-info-descrip' | translate}}</p>
+      </div>
+      <div class="steps-container">
+        <p class="steps-container__title">{{'stoken-how-work' | translate}}</p>
+        <p class="steps-container__descrip">{{'stkn-how-work-des' | translate}}</p>
+        <div class="steps-container__step" *ngFor="let step of dataSteps" >
+            <div class="steps-container__step-icon-container">
+              <span class="{{ step.icon }}">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+              </span>
+            </div>
+            <p class="steps-container__step-title"
+            *ngIf="step.title && step.id !== 4" >{{step.title | translate}} {{step.id}}</p>
+            <p class="steps-container__step-title steps-container__step-title-step3"
+            *ngIf="step.title && step.id === 4" >{{step.title | translate}} </p>
+            <p class="steps-container__step-descrip" [ngClass]="{ 'steps-container__step-descrip': step.title, 'steps-container__step-descrip-blue': !step.title  }" [innerHTML]="step.description | translate"></p>
+        </div>
+      </div>
+      <div class="byte-container__button" [ngClass]="{'only-afiliate-btn': !showRememberLaterBtn,
+        'two-buttons': showRememberLaterBtn}">
+        <adf-button value="{{ 'stkn-bisv-afiliate' | translate }}" id="information-stoken-btn" class="primary"  (click)="next()"  (keydown.enter)="next()"> </adf-button>
+        <adf-button value="{{ 'stkn-bisv-later' | translate }}" type="secondary" action="button" id="backBtn-info-stoken" class="secondary" *ngIf="showRememberLaterBtn" (click)="back()" (keydown.esc)="back()" >
+        </adf-button>
+      </div>
+    </div>
+  </div>
+  

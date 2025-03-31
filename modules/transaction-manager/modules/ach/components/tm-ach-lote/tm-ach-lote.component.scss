@@ -1,0 +1,50 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.tm-ach-lote {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.tm-ach-lote {
+  adf-reading {
+    #reading-container {
+      --padding-block-start-sm: 1.5rem;
+      --padding-block-end-sm: 0;
+      --padding-block-start-md: 1.5rem;
+      --padding-block-end-md: 0;
+      --padding-block-start-x: 1.5rem;
+      --padding-block-end-x: 0;
+    }
+
+    .heading-voucher {
+      display: none;
+    }
+  }
+
+  adf-table {
+    .content {
+      padding: 0 !important;
+    }
+
+    .email span {
+      word-break: break-all;
+    }
+  }
+
+  adf-table.transfer365 {
+    #table-container {
+      --row-size: 1fr 1fr 80px 70px 100px 1fr 80px 80px 1fr 1fr;
+    }
+
+    .main-headers .table-td {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+  }
+}
+

@@ -1,0 +1,34 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.ach-365-confirm {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+
+  p {
+    padding-block: 2rem .5rem;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+}
+
+::ng-deep.ach-365-confirm {
+  #reading-container {
+    --padding-block-start-sm: 0;
+    --padding-block-end-sm: 1.5rem;
+    --padding-block-start-md: 0;
+    --padding-block-end-md: 2rem;
+    --padding-block-start-x: 0;
+    --padding-block-end-x: 2.5rem;
+  }
+
+   adf-reading {
+     .heading-voucher {
+       display: none;
+     }
+   }
+}

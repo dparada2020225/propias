@@ -1,0 +1,140 @@
+@use '../../../../../../../../../../assets/styles/responsive' as *;
+
+.container-add {
+
+  display: flex;
+  flex-direction: column;
+  gap: 39.5px;
+  padding-top: 23px;
+  padding-bottom: 16px;
+
+  @include from(m) {
+    flex-direction: row;
+    gap: 62px;
+    padding-top: 65.8px;
+    padding-bottom: 65.8px;
+  }
+
+  @include from(x) {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 271px;
+    height: 183.31px;
+
+    @include from(m) {
+      width: 320px;
+      height: 304.34px;
+    }
+
+    @include from(x) {
+      width: 412px;
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  &__account {
+
+    @include from(x) {
+      padding-top: 16px;
+    }
+
+    .information {
+      max-width: 243px;
+      width: 100%;
+
+
+      @include from(m) {
+        max-width: 231px;
+      }
+
+      .title {
+        font-size: 1.25rem !important;
+        padding-right: 50px;
+        color: #003865;
+
+        @include from(m) {
+          font-size: 1.5rem !important;
+          line-height: 1.2 !important;
+          padding-right: 0;
+        }
+      }
+
+      .description {
+
+        &-1 {
+          padding-right: 10px;
+
+          @include from(m) {
+            padding-right: 35px;
+          }
+
+        }
+
+        &-2 {
+          padding-right: 0;
+
+          @include from(m) {
+            padding-right: 45px;
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+.container-add__button::ng-deep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 4px;
+  padding-bottom: 16.5px;
+
+  @include from(m) {
+    justify-content: flex-start;
+  }
+
+  @include from(x) {
+    justify-content: normal;
+  }
+
+  adf-button {
+    width: 100%;
+    height: 50px;
+
+    @include from(m) {
+      width: 218px;
+    }
+
+    @include from(x) {
+      width: 240px;
+    }
+
+    button {
+      width: 100%;
+      height: 100%;
+
+      @include from(x) {
+        margin-left: 0;
+      }
+
+    }
+
+  }
+
+}

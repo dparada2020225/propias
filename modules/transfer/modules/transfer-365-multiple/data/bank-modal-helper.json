@@ -1,0 +1,32 @@
+[
+  {
+    "code": "002",
+    "name": "Banco Agrícola, S.A.",
+    "shortName": "BANCO AGRÍCOLA"
+  },
+  {
+    "code": "003",
+    "name": "Banco de América Central, S.A.",
+    "shortName": "BANCO DE AMERICA CENTRAL"
+  },
+  {
+    "code": "005",
+    "name": "Banco Cuscatlán, S.A.",
+    "shortName": "BANCO CUSCATLÁN"
+  },
+  {
+    "code": "006",
+    "name": "Banco Davivienda, S.A.",
+    "shortName": "BANCO DAVIVIENDA"
+  },
+  {
+    "code": "009",
+    "name": "Banco Hipotecario, S.A.",
+    "shortName": "BANCO HIPOTECARIO"
+  },
+  {
+    "code": "011",
+    "name": "Sociedad de ahorro y Crédito Multimoney, S.A.",
+    "shortName": "MULTIMONEY"
+  }
+]

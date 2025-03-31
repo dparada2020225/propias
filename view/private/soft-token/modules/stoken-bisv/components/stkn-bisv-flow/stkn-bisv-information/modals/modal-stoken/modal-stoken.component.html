@@ -1,0 +1,40 @@
+<ngx-spinner></ngx-spinner>
+<div class="container-stoken">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true" class="fa fa-times">
+      </span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+    <div class="icon-modal">
+      <div class="icon-container">
+        <i class="icon-soft-token-success"></i>
+      </div>
+    </div>
+    <h1 class="modal-title">{{'stoken-modal-title' | translate}}</h1>
+    <p class="description">{{'stoken-modal-descr' | translate}}</p>
+    <div class="input-token">
+      <form [formGroup]="inputTokenForm" (ngSubmit)="goTo()">
+        <adf-input
+        placeholder="Token"
+        formControlName="inputToken"
+        [control]="controlForInputToken"
+        [maxlength]="maxLength"
+        [imaskOptions]="regexImask"
+        >
+        <div error>
+         <span *ngIf="inputHasError">{{ this.inputTokenError() | translate}}</span>
+       </div>
+       </adf-input>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <adf-button class="modal-onboarding" id="prev" [value]="'t.continue' | translate" (click)="goTo()"> </adf-button>
+  </div>
+</div>
+
+

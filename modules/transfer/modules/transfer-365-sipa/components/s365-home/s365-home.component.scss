@@ -1,0 +1,95 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.s365-home {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+
+  p {
+    margin: 2rem 0 0 0;
+    font-size: 1rem;
+    color: var(--primary-alternative-color);
+  }
+
+  .extended-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: 1rem;
+    grid-column: span 12;
+  }
+
+  .l-total {
+    color: var(--primary-color);
+  }
+}
+
+
+::ng-deep.s365-home {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-md: 1rem;
+      --padding-block-start-sm: 1rem;
+      --padding-block-start-x: 1rem;
+      --padding-block-end-md: 0;
+      --padding-block-end-sm: 0;
+      --padding-block-end-x: 0;
+    }
+
+    .form-heading {
+      display: none;
+    }
+
+    adf-select select.custom-select {
+      height: 40px !important;
+    }
+
+    .container-form {
+      border: none;
+    }
+
+    .checkbox-365 .checkbox-form-layout {
+      padding-block: 12px;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      justify-content: flex-end;
+
+      label {
+        margin: 0;
+      }
+    }
+
+    .custom-grid {
+      grid-row: 5;
+    }
+  }
+
+  adf-header {
+    img {
+      width: 150px;
+    }
+  }
+
+  byte-adf-transfer-footer .alert-box {
+    margin-top: 2rem;
+  }
+
+}
+
+::ng-deep.schedule-content {
+  #form-layout-container {
+    --padding-block-start-md: 0;
+    --padding-block-start-sm: 0;
+    --padding-block-start-x: 0;
+    --padding-block-end-md: 0;
+    --padding-block-end-sm: 0;
+    --padding-block-end-x: 0;
+  }
+
+  .form-heading {
+    display: none;
+  }
+}
+

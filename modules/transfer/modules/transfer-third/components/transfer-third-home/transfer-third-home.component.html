@@ -1,0 +1,34 @@
+<ngx-spinner></ngx-spinner>
+<div [ngClass]="[customShow, 'third-container byte-container transfers']">
+  <adf-alert *ngIf="validationAlert()" [receiverType]="typeAlert!" [receiverMessage]="messageAlert! | translate">
+  </adf-alert>
+
+
+  <div class="consulting-box">
+    <adf-form-layout [form]="form" [setLayoutJson]="formLayout">
+    </adf-form-layout>
+    <div *ngIf='isShowCreateButton' class="byte-container__button filter-buttons">
+      <adf-button id="add" value="{{ 'add' | translate }}" (click)="goToCreateAccountFlow()"></adf-button>
+    </div>
+  </div>
+
+
+  <div [ngClass]="'table-contents'">
+    <adf-table *ngIf="validationTableFavoriteAccount()" class="favorites"
+               (onLoadAccount)="getActionFavoriteTable($event)" [structure]="favoriteAccountsLayout"
+               [isOptions]="true">
+    </adf-table>
+    <adf-alert *ngIf="validationAlertFavoriteAccount()" [receiverType]="typeAlertFavoriteAccount ?? ''"
+               [receiverMessage]="messageAlertFavoriteAccount ?? '' | translate">
+    </adf-alert>
+    <hr class="table_line" *ngIf='isShowDividerTable'>
+    <adf-table *ngIf="validationTableAccount()" class="third" (onLoadAccount)="getActionTable($event)"
+               [structure]="thirdAccountsLayout" [isOptions]="true">
+    </adf-table>
+    <adf-alert *ngIf="validationAlertAccount()" [receiverType]="typeAlertThirdAccounts"
+               [receiverMessage]="messageAlertThirdAccounts | translate">
+    </adf-alert>
+
+  </div>
+</div>
+

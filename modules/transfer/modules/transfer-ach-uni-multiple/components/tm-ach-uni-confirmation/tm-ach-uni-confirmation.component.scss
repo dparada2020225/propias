@@ -1,0 +1,52 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.ach-tm365-confirm {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+
+  p {
+    padding-block: 2rem .5rem;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+}
+
+::ng-deep.ach-tm365-confirm {
+  #reading-container {
+    --padding-block-start-sm: 0;
+    --padding-block-end-sm: 1rem;
+    --padding-block-start-md: 0;
+    --padding-block-end-md: 1rem;
+    --padding-block-start-x: 0;
+    --padding-block-end-x: 1rem;
+  }
+
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+
+  adf-table {
+    #table-container {
+      --row-size: 1fr 100px 1fr 1fr 1fr 1fr;
+    }
+
+    .content {
+      padding-block: 0;
+    }
+
+    .email span {
+      word-break: break-all;
+    }
+  }
+
+  byte-adf-transfer-footer .alert-box {
+    margin-top: 4rem;
+  }
+}

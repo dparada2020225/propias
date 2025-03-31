@@ -1,0 +1,58 @@
+@use '../../../../../../../../../assets/styles/responsive' as *;
+
+//Container form
+::ng-deep.tpl-crud-update adf-form-layout {
+  .third-loans-form .input-form-layout {
+    display: block !important;
+    @include from(692px) {
+      display: grid !important;
+      grid-template-columns: 220px 19.375rem;
+    }
+    @include from(x) {
+      display: grid !important;
+      grid-template-columns: 200px 19.375rem;
+      gap: 3.5rem;
+    }
+  }
+
+  .form_label {
+    span {
+      color: var(--primary-color);
+    }
+
+    @include from(m) {
+      display: grid !important;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+    }
+
+    @include from(x) {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3.5rem;
+    }
+  }
+}
+
+//Container buttons
+::ng-deep.tpl-crud-update {
+  .button-divider {
+    border-block-start: 1px solid var(--light-text-three);
+    padding-block-start: 1.875rem;
+    border-block-end: none;
+    padding-block-end: 0;
+
+    @include from(692px) {
+      padding-block-end: 1.875rem;
+      border-block-end: 1px solid var(--light-text-three);
+      border-block-start: none;
+      padding-block-start: 0;
+    }
+  }
+}
+
+::ng-deep.autocomplete-text adf-input {
+  input:-webkit-autofill {
+    -webkit-text-fill-color: var(--primary-color) !important;
+  }
+}

@@ -1,0 +1,36 @@
+<div class="container-onboarding">
+
+    <section class="container-onboarding-news">
+        <aside class="container-onboarding-news__rows container-onboarding-news__row-left" aria-label="back">
+            <button (click)="back()" [disabled]="buttonLeftDisabled">
+                <i aria-hidden="true" class="icon icon-corporate banca-regional-flecha-izquierda"></i>
+            </button>
+        </aside>
+
+        <main class="container-onboarding-news__content">
+            <ng-container *ngIf="view === 'NewFunction'">
+                <byte-new-function-modal></byte-new-function-modal>
+            </ng-container>
+            <ng-container *ngIf="view === 'knowFavorites'">
+                <byte-know-favorites-modal></byte-know-favorites-modal>
+            </ng-container>
+            <ng-container *ngIf="view === 'AddAccount' ">
+                <byte-add-accounts-modal></byte-add-accounts-modal>
+            </ng-container>
+        </main>
+
+        <aside class="container-onboarding-news__rows container-onboarding-news__row-righ" aria-label="next">
+            <button (click)="next()" [disabled]="buttonRightDisabled">
+                <i aria-hidden="true" class="icon icon-corporate banca-regional-flecha-derecha"></i>
+            </button>
+        </aside>
+
+    </section>
+
+    <footer class="container-onboarding-dots">
+        <span [ngClass]="{'active': view === 'NewFunction'}"></span>
+        <span [ngClass]="{'active': view === 'knowFavorites'}"></span>
+        <span [ngClass]="{'active': view === 'AddAccount'}"></span>
+    </footer>
+
+</div>

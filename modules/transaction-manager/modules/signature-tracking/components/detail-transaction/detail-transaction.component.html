@@ -1,0 +1,15 @@
+<div class="detail-content">
+    <button class="icon-close" (click)="closeModal()">
+      <i aria-hidden="true" class="fa fa-times"></i>
+    </button>
+
+    <div class="heading">
+      <h2 class="main-title">{{ 'signature_tracking' | translate }}</h2>
+      <h3 class="subtitle" *ngIf='!isShowDetailStatusTransaction'>{{ 'subtitle.failed_transaction' | translate }}</h3>
+      <h3 class="subtitle" *ngIf='isShowDetailStatusTransaction'>{{ subtitleText | translate }}</h3>
+    </div>
+
+    <adf-table [structure]="tableStructured"></adf-table>
+
+    <adf-button id="primary" class="primary" (click)="closeModal()" [value]="'agree' | translate"></adf-button>
+</div>

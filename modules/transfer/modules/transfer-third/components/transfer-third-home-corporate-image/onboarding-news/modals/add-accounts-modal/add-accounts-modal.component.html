@@ -1,0 +1,26 @@
+<section class="container-add">
+
+  <article class="container-add__img">
+    <picture>
+      <source media="(min-width: 992px)" [srcset]="imgDesktop">
+      <source media="(min-width: 692px)" [srcset]="imgTablet">
+      <img [src]="imgMobile" alt="Ejemplo">
+    </picture>
+  </article>
+
+  <article class="container-add__account">
+
+    <div class="information">
+      <h2 class="title"> {{'add_account-ttr' | translate}}</h2>
+      <p class="description description-1"> {{'add_account_desc1-ttr' | translate}} </p>
+      <p class="description description-2"> {{'add_account_desc2-ttr' | translate}} </p>
+    </div>
+    <div class="container-add__button">
+      <adf-button [value]="'understood' | translate" type="primary" (onClick)="closeModal()"></adf-button>
+    </div>
+
+  </article>
+
+</section>
+
+

@@ -1,0 +1,166 @@
+@use '../../../../../assets/styles/responsive' as *;
+
+.corporate-image {
+  :host ::ng-deep adf-button>button.btn-default:hover {
+    background-color: var(--secondary-button-background-color) !important;
+    color: var(--color-navbar) !important;
+    border-color: var(--secondary-button-background-color);
+  }
+}
+
+.title-personal-information {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--light-text-three);
+}
+
+.personal-information-container {
+  padding: 55px 115px 50px 6px;
+}
+
+.text-personal-information {
+  padding-left: 15px;
+  padding-right: 15px;
+  color: var(--light-text-two);
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.form-container {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.alert-error {
+  margin-left: 7px;
+  color: red;
+  font-size: 11px;
+}
+
+.subtitle-name {
+  font-size: 16px;
+}
+
+
+::ng-deep.btn_sv {
+  @include from(s) {
+
+    .primary {
+      .btn-default {
+        margin: 0px !important;
+      }
+    }
+  }
+
+  display: flex;
+  gap: 15px;
+
+}
+
+.buttons {
+  padding-top: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media only screen and (max-width: 640px) {
+
+  .personal-information-container {
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-right: 0px;
+  }
+
+  .text-personal-information {
+    padding-top: 0px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .buttons {
+    flex-direction: column-reverse;
+    display: flex;
+    width: 100% !important;
+  }
+
+  :host ::ng-deep adf-button button {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  :host ::ng-deep adf-button button {
+    width: 240px;
+    margin-right: 13px;
+    margin-bottom: 13px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  :host ::ng-deep adf-button button {
+    width: 240px;
+    margin-right: 13px;
+    margin-bottom: 13px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .input {
+    height: 48px;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1455px) {
+  .buttons {
+    flex-direction: row;
+  }
+
+  :host ::ng-deep adf-button button {
+    width: 230px !important;
+  }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 992px) {
+  //#mobile-personal-button {
+  //  display: none;
+  //}
+
+  .personal-information-container {
+    padding-top: 35px;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-bottom: 20px;
+  }
+
+  .text-personal-information {
+    padding-top: 0px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .title-personal-information {
+    font-size: 18px;
+  }
+
+  .adf-alert {
+    width: 90% !important;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .buttons {
+    width: 100% !important;
+    padding-left: 15px;
+  }
+}
+::ng-deep.tooltip-help adf-tooltip{
+  label{
+    min-width: 200px !important;
+  }
+  .label{
+    white-space: normal !important;
+  }
+}

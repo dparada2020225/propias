@@ -1,0 +1,16 @@
+<div class='modal-box-container'>
+    <h2> {{ 'title:bt-modal-validations' | translate }} </h2>
+    <h3> {{ 'subtitle:bt-modal-validations' | translate }} </h3>
+  
+    <div class='modal-box'>
+      <div class='box__error-description'>
+        <div *ngFor='let errorDescription of listOfErrors' >
+          <p class='bt-error' [innerHTML]='errorDescription'></p>
+        </div>
+  
+      </div>
+  
+      <adf-button (click)='closeModal()' [value]='"t.continue" | translate'></adf-button>
+    </div>
+</div>
+  

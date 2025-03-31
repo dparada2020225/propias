@@ -1,0 +1,55 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.ams65-home {
+  .add-content {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2.5rem;
+  }
+
+  .table-content {
+    margin-top: 12px;
+  }
+
+  @include from(x) {
+    .content {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.ams65-home {
+  adf-header {
+    img {
+      width: 150px;
+    }
+  }
+
+  byte-adf-transfer-footer .alert-box {
+    margin-top: 2rem;
+  }
+
+  adf-table {
+    .td-empty {
+      color: var(--primary-color);
+    }
+
+    .iconInTable span.loading {
+      animation: pulse 1s infinite alternate !important;
+    }
+
+    .iconInTable span.active {
+      color: var(--primary-color) !important;
+    }
+  }
+}
+
+
+@keyframes pulse {
+  0%, 100% {
+    color: var(--light-text-three);
+  }
+  50% {
+    color: var(--primary-color);
+  }
+}

@@ -1,0 +1,20 @@
+<article [ngClass]='[customShow, "byte-container"]'>
+  <adf-alert *ngIf='message && typeMessage' [receiverType]='typeMessage' [receiverMessage]='message'></adf-alert>
+
+  <header class='pp-upload__header'>
+    <h1>{{ "payroll:title" | translate }}</h1>
+    <p>{{ "payroll:label_confirmation" | translate }}</p>
+  </header>
+
+  <section class='pp-upload__voucher'>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+    <ng-container *ngIf='!isLoadFileView'>
+      <h4 class='table-subtitle'> {{ 'payroll:label_table_title' | translate }} </h4>
+      <byte-pmp-table [tableHeaders]='tableHeaders' [registers]='registers'></byte-pmp-table>
+    </ng-container>
+
+    <div [ngClass]='["payroll-buttons-container"]'>
+      <adf-button type='secondary' [value]='"btn.back" | translate' (click)='previous()' ></adf-button>
+    </div>
+  </section>
+</article>

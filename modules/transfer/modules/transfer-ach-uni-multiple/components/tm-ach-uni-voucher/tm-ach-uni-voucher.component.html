@@ -1,0 +1,46 @@
+<ngx-spinner></ngx-spinner>
+<article [ngClass]="[customShow, 'byte-container transfers ach-tm365-voucher']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    logoUrl='assets/images/logos/SVG_BIES_TOB_UNI_Logo.svg'
+    width="61.82px"
+    height="40px"
+    subtitle='tm-ach-uni:confirmation-title'
+    label='tm-ach-uni:title_transfer_bank'></adf-header>
+  <section class='content'>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+    <adf-table [useVirtualScroll]="userVirtualScrollInTable" [structure]='tableStructure'></adf-table>
+    <byte-tm-ach-uni-footer
+    label1='tm-ach-uni:confirmation_amount_total'
+    label2='tm-ach-uni:confirmation_credits_number'
+    label3='tm-ach-uni:confirmation_amount_total'
+      [value1]='total'
+      [value2]='credits'
+      [currency]='currency'
+    ></byte-tm-ach-uni-footer>
+
+    <byte-adf-transfer-footer
+    [title]="'ach-uni:transfer-info-title' | translate"
+    [description]="'ach-uni:transfer-info' | translate"
+    descriptionEl="">
+  </byte-adf-transfer-footer>
+
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      *ngIf='isShowNextButton'
+      id="next"
+      class="primary"
+      value="{{ nextButtonMessage | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+  <adf-confirmation-headband *ngIf="isShowHeadBand" [headbandLayout]="headbandLayout"></adf-confirmation-headband>
+</article>

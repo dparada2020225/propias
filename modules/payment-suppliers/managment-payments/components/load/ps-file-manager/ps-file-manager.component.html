@@ -1,0 +1,71 @@
+<ngx-spinner></ngx-spinner>
+<article [ngClass]='["byte-container", "sppl-upload-container", "helper-upload"]'>
+  <header class='pp-upload__header'>
+    <h1>{{ "ps:title" | translate }}</h1>
+    <p>{{ "ps:subtitle" | translate }}</p>
+
+  </header>
+  <section class='pp-upload__voucher'>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+
+    <adf-form-layout [form]='form' [setLayoutJson]='formLayout' [useCustomLayout]='true'>
+      <ng-container customLayout>
+        <div class='upload-section'>
+          <div class='file-uploaded' *ngIf='fileResponse'>
+            <p> {{ fileResponse.file?.name }} </p>
+            <button (click)='handleRemovedFiles()'>
+              <i>
+                <img [src]="imgUrlDelete" alt="delete:file">
+              </i>
+            </button>
+          </div>
+          <adf-upload
+            *ngIf='!fileResponse'
+            (errorMessage)='getErrorMessage($event)'
+            (removeFiles)='handleRemovedFiles()'
+            (getFile)="getCurrentFile($event)"
+            [fileAllowed]='allowedFileTypes'
+            [onLoadFile]='onLoadFile.bind(this)'
+          >
+            <div class="description" extendedLabel>
+              <i>
+                <img [src]="imgUrlLoad" alt="load:ps">
+              </i>
+              <p class='txt-desktop'> {{ 'ps:upload-file-label' | translate }} </p>
+              <p class='txt-mobile'> {{ 'ps:upload_file_label_mobile' | translate }} </p>
+            </div>
+          </adf-upload>
+          <adf-button *ngIf="showButton" (click)='validateFile()' [value]='"ps:upload-file" | translate'></adf-button>
+        </div>
+        <div [ngClass]='[statusMessageClassName, "messages-section"]' *ngIf='message && typeMessage'>
+          <p class='strong'> {{ titleMessage | translate }} </p>
+          <p> {{ message | translate }} </p>
+        </div>
+
+    
+        
+      </ng-container>
+    </adf-form-layout>
+
+
+<!--     <div [ngClass]='["messages-section"]' *ngIf='!message || !typeMessage || !isSuccessFileUpload'>
+      <p [innerHTML]='"ps:label_requirement_success_file_tablet" | translate' *ngIf='(!message || !typeMessage) && !isSuccessFileUpload && isMobile && !isMobileTwo'></p>
+    <p [innerHTML]='"ps:label_requirement_success_file_mobil" | translate' *ngIf='(!message || !typeMessage) && !isSuccessFileUpload && isMobile && isMobileTwo'></p>
+    <p [innerHTML]='"ps:label_requirement_success_file" | translate' *ngIf='(!message || !typeMessage) && !isSuccessFileUpload && !isMobile'></p>
+    <div [ngClass]='[buttonContainerClassName, "ps-buttons-container"]'>
+      <adf-button data-testid="back" type='secondary' [value]='"ps:btn.back" | translate' (click)='previous()' ></adf-button>
+      <adf-button data-testid="next" *ngIf='isSuccessFileUpload' [value]='"btn.next" | translate' (click)='next()'></adf-button>
+  </div>
+  </div> -->
+
+  <div [ngClass]='[buttonContainerClassName, "ps-buttons-container"]'>
+    <p [innerHTML]='"ps:label_requirement_success_file_tablet" | translate' *ngIf='!isSuccessFileUpload && isMobile && !isMobileTwo'></p>
+    <p [innerHTML]='"ps:label_requirement_success_file_mobil" | translate' *ngIf=' !isSuccessFileUpload && isMobile && isMobileTwo'></p>
+    <p [innerHTML]='"ps:label_requirement_success_file" | translate' *ngIf='!isSuccessFileUpload && !isMobile'></p>
+    <div class='buttons'>
+      <adf-button class="btn_success" data-testid="next" *ngIf='isSuccessFileUpload' [value]='"btn.next" | translate' (click)='next()'></adf-button>
+      <adf-button data-testid="back" type='secondary' [value]='"btn.back" | translate' (click)='previous()' ></adf-button>
+    </div>
+  </div>
+  </section>
+</article>

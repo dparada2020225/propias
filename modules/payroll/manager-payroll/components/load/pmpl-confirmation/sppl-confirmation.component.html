@@ -1,0 +1,39 @@
+<article [ngClass]='["byte-container", "sppl-confirm-container", customShow]'>
+
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate">
+  </adf-alert>
+
+  <header class='pp-upload__header'>
+    <h1>{{ "payroll:title" | translate }}</h1>
+    <p>{{ "payroll:label_confirmation" | translate }}</p>
+  </header>
+
+  <section *ngIf='isLoadFileView' class='sppl-confirm__content'>
+    <div class='title_content'>
+      <h3> {{ 'payroll:label_upload_file' | translate }} </h3>
+    </div>
+    <p> {{ 'payroll:label_confirm_upload_file' | translate }} </p>
+    <div class='sppl-items'>
+      <div>
+        <span class='item-title'> {{ 'total_amount' | translate }} </span>
+        <span class='item-value'> {{ totalAmount }} </span>
+      </div>
+
+      <div>
+        <span class='item-title'> {{ 'payroll:total_accounts_accredit' | translate }} </span>
+        <span class='item-value'> {{ credits }} </span>
+      </div>
+    </div>
+  </section>
+
+  <section class='manually-container' *ngIf='!isLoadFileView'>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+    <h4 class='table-subtitle'> {{ 'payroll:label_table_title' | translate }} </h4>
+    <byte-pmp-table [tableHeaders]='tableHeaders' [registers]='registers'></byte-pmp-table>
+  </section>
+
+  <div class='payroll-buttons-container'>
+    <adf-button data-testid="next" [value]='"t.confirm" | translate' (click)='next()'></adf-button>
+    <adf-button data-testid="secondary" type='secondary' [value]='"btn.back" | translate' (click)='previous()' ></adf-button>
+  </div>
+</article>

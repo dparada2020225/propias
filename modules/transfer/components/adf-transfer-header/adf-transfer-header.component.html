@@ -1,0 +1,7 @@
+<header [ngClass]="[headerWithoutLogoClassName, 'adf-header']">
+  <div class='heading-box'>
+    <h1 *ngIf='title'> {{ title | translate }} </h1>
+    <h3 *ngIf='subtitle'> {{ subtitle | translate }} </h3>
+  </div>
+  <img [ngStyle]="getWidthStyle()" *ngIf='logoUrl' [src]='logoUrl' [alt]="'logo'+ title | translate">
+</header>

@@ -1,0 +1,46 @@
+<main @inOut [ngClass]="[customShow, 'byte-container transfers ach-container']">
+  <adf-alert receiverType='info' [receiverMessage]='receiverMessage()' ></adf-alert>
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <section class="container-ach-table">
+    <div>
+      <div class="heading">
+        <h1 class="main__title">{{ 'transfers_other_banks' | translate }}</h1>
+        <h2 class="sub__title">{{ 'support_accounts' | translate }}</h2>
+      </div>
+      <div class="filter-box">
+        <div *ngIf='isShowCreateButton' class="add-box">
+          <h3>{{ 'add_account' | translate }}</h3>
+          <adf-button [value]="'add' | translate" (click)="goToAddAccountFlow()"> </adf-button>
+        </div>
+        <adf-form-layout [setDataSelectList]="filterOptions" [form]="filterForm" [setLayoutJson]="filterLayout"> </adf-form-layout>
+      </div>
+    </div>
+    <div class='table-contents'>
+      <adf-table
+        *ngIf="isShowFavoriteTableAccounts"
+        class="favorite"
+        (onLoadAccount)="getTableActionFavoriteAccounts($event)"
+        [structure]="favoriteAccountTableLayout"
+        [isOptions]="true"
+      >
+      </adf-table>
+      <adf-alert
+        *ngIf='validationAlertTable'
+        [receiverType]='typeAlertTable'
+        [receiverMessage]='messageAlertTable'
+      ></adf-alert>
+      <hr *ngIf='isShowDividerTable'>
+      <adf-table
+        *ngIf='isShowAssociatedTableAccounts'
+        class="associate"
+        (onLoadAccount)="getTableActionAssociatedAccounts($event)"
+        [structure]="associatedAccountTableLayout"
+        [isOptions]="true"
+      >
+      </adf-table>
+    </div>
+  </section>
+
+</main>
+

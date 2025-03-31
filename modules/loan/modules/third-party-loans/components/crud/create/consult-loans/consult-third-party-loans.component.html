@@ -1,0 +1,12 @@
+<div [ngClass]="['third-container byte-container transfers']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <div class="consulting-box">
+    <adf-form-layout [form]="filterForm" [setLayoutJson]="filterLayout"></adf-form-layout>
+    
+    <div class="byte-container__button button-divider">
+      <adf-button class="primary" id="primary" value="{{ 'consult_loans' | translate }}" (click)="consultNumberLoan()"> </adf-button>
+      <adf-button class="secondary" id="prev" type="secondary" [value]="'toReturn' | translate" (click)="backTo()"> </adf-button>
+    </div>
+  </div>
+</div>

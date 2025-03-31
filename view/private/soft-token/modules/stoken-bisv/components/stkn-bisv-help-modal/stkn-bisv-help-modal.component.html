@@ -1,0 +1,25 @@
+<div class="stoken-bisv-container-Help-modal stoken-bisv-invitation-modal">
+    <div class="modal__header">
+      <a class="modal__header-close" (click)="close()" id="btn-X-method-stoken-bisv"
+        ><span aria-hidden="true" class="fa fa-times"></span>
+        <span class="hidden-text">Close</span>
+      </a>
+    </div>
+    <div class="modal-body">
+      <div class="device-descrip1">
+        <h1 class="modal-title">{{ 'stoken-helpmodal-title' | translate }}</h1>
+        <p id="title-descrip">{{ 'stoken-helpmodal-title-descrip' | translate }}</p>
+        <p id="descrip" [innerHTML]="'stoken-helpmodal-descrip' | translate"></p>
+      </div>
+      <div class="device-container" >
+        <div>
+          <img [src]="cellphone.path" alt="HELP MODAL" id="{{cellphone.idName}}" width="{{cellphone.width}}" height="{{cellphone.height}}" *ngFor="let cellphone of modalImages" >
+        </div>
+      </div>
+      <div class="device-descrip2">
+        <p id="title-descrip">{{ 'stoken-helpmodal-title-descrip2' | translate }}</p>
+        <p id="descrip">{{ 'stoken-helpmodal-descrip2' | translate }}</p>
+      </div>
+    </div>
+  </div>
+  

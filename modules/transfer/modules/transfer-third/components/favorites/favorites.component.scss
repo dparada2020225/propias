@@ -1,0 +1,53 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.widgets-fav {
+
+  display: flex;
+  gap: 7px;
+
+  @include from(m) {
+    gap: 12px;
+  }
+
+  @include from(x) {
+    padding-left: 100px;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  i {
+    font-size: 22px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+}
+
+@keyframes fade {
+
+  0% {
+    color: hsla(0, 0%, 77%, 1.00);
+  }
+
+  50% {
+    color: hsla(0, 0%, 77%, 1.00);
+  }
+
+  100% {
+    color: hsla(207, 100%, 17%, 1.00);
+  }
+}
+
+.fav-loading {
+  animation: fade infinite 1.5s ease;
+}
+
+.fav-success {
+  color: hsla(207, 100%, 17%, 1.00);
+}
+
+.fav-nofavorite {
+  color: hsla(0, 0%, 80%, 1.0)
+}

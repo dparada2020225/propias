@@ -1,0 +1,20 @@
+<div class="modal-header" style="border: none">
+    <button type="button" class="close" aria-label="Close" (click)="skip(1)"><i aria-hidden="true" class="fas fa-times" style="color: #9B9B9B;"></i></button>
+</div>
+<div class="modal-body" style="border: none">
+    <i aria-hidden="true" [ngClass]="{'icon-corporate': corporateImageApplication()}" class="icon banca-regional-configuracion-seguridad security-icon"></i>
+    <h1 [ngClass]="{'icon-corporate': corporateImageApplication()}">{{'so_title_modal'| translate}}</h1>
+    <p [ngClass]="{'text-error-profile': this.descriptionError}">{{ this.descriptionError ? this.descriptionError :
+        'so_text_modal'| translate}}</p>
+</div>
+<div class="alert-show">
+    <adf-alert *ngIf="showAlert" receiverType="error" [receiverMessage]="this.messageAlert | translate"></adf-alert>
+</div>
+<div class="modal-footer" style="border: none">
+    <div class="button-modal" *ngIf="!this.descriptionError">
+        <adf-button value="{{'so_remember_button'| translate}}" (onClick)="skip(1)" type="secondary">
+        </adf-button>
+        <adf-button value="{{'so_configure_button'| translate}}" (onClick)="skip(2)">
+        </adf-button>
+    </div>
+</div>

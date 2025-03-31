@@ -1,0 +1,55 @@
+<article [ngClass]="[customShow, 'byte-container transfers s365-home']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    logoUrl='assets/images/private/ach/logo_365card.svg'
+    label='s365:label_home'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content tooltip-sv'>
+    <adf-form-layout
+      [setLayoutJson]="formLayout"
+      [setDataSelectList]="selectOptions"
+      [form]="form">
+      <div *ngIf='isShowNextButton' class='extended-form' customLayout>
+        <div>
+          <span> {{ 'sp365:label_commission' | translate }} </span>
+          <span class='l-total'> {{ commissionValue }} </span>
+        </div>
+        <div>
+          <span> {{ 'sp365:total_to_debit' | translate }} </span>
+          <span class='l-total'> {{ totalToDebit }} </span>
+        </div>
+      </div>
+    </adf-form-layout>
+
+    <div class='schedule-content' *ngIf='isShowScheduleForm'>
+      <adf-form-layout
+        [form]='scheduleForm'
+        [setLayoutJson]='scheduleFormLayout'
+      >
+      </adf-form-layout>
+    </div>
+
+    <byte-adf-transfer-footer
+      title='ach:bisv:label_important'
+      descriptionEl='s365:label_footer_info'
+    ></byte-adf-transfer-footer>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      *ngIf='isShowNextButton'
+      id="next"
+      class="primary"
+      value="{{ 't.continue' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

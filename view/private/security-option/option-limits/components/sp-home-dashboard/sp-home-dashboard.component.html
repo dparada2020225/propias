@@ -1,0 +1,19 @@
+<main [ngClass]='["byte-container"]'>
+  <adf-alert *ngIf='typeAlert && messageAlert' [receiverMessage]='messageAlert' [receiverType]='typeAlert'></adf-alert>
+  <h1 class='sp-title'>{{ 'title:security-profile-home' | translate }}</h1>
+  <section class='sp-content'>
+    <p class='sp-home-description'>{{ 'description:security-profile-home' | translate }}</p>
+    <div class='sp-item admon'>
+      <i class='corporate-image banca-regional-persona'></i>
+      <h3>{{ 'title:security-profile-admon' | translate }}</h3>
+      <p>{{ 'description:admon-profile' | translate }}</p>
+      <adf-button data-testid="securityProfile" (click)='goToSecurityProfileDefault()' [value]='"title:config" | translate' ></adf-button>
+    </div>
+    <div class='sp-item limit'>
+      <i class='corporate-image banca-regional-configracion'></i>
+      <h3>{{ 'title:security-profile-limits' | translate }}</h3>
+      <p>{{ 'description:limits-profile' | translate }}</p>
+      <adf-button data-testid="handleValidate" (click)='handleValidateOpenTokenModal()' [value]='"title:admon" | translate' ></adf-button>
+    </div>
+  </section>
+</main>

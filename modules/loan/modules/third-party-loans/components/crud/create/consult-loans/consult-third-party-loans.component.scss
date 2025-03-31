@@ -1,0 +1,24 @@
+@use '../../../../../../../../../assets/styles/responsive' as *;
+
+//Container buttons
+::ng-deep.banpais {
+  .button-divider {
+    border-block-start: 1px solid var(--light-text-three);
+    padding-block-start: 1.875rem;
+    border-block-end: none;
+    padding-block-end: 0rem;
+
+    @include from(692px) {
+      padding-block-end: 1.875rem;
+      border-block-end: 1px solid var(--light-text-three);
+      border-block-start: none;
+      padding-block-start: 0rem;
+    }
+  }
+}
+
+::ng-deep.third-party-loans-tooltip {
+  .icon {
+    color: var(--primary-light-two) !important;
+  }
+}

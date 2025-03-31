@@ -1,0 +1,125 @@
+<div class="container-fluid container-private">
+    <div class="sub-container">
+      <h2 class="title">{{ title | translate }}</h2>
+      <h2 class="subtitle" *ngIf="!this.availableDownload">{{ 'label.statements' | translate }}</h2>
+      <h2 class="subtitle" *ngIf="this.availableDownload">{{ 'label.statements.' + this.formatType | translate }}</h2>
+      <hr />
+
+      <form role="form" [formGroup]="form">
+        <div class="row form-general" *ngIf="availableDownload">
+          <div class="col-12">
+            <label class="key">{{ 'label.statements.account-number' | translate }}</label>
+            <span class="value">{{ information?.account }}</span>
+          </div>
+          <div class="col-12">
+            <label class="key">{{ 'label.statements.account-name' | translate }}</label>
+            <span class="value">{{ information?.accountName }}</span>
+          </div>
+        </div>
+
+        <div class="row form-general" *ngIf="!availableDownload">
+          <div class="col-lg-6">
+            <account-selector
+              [(isLoading)]="isLoading"
+              [control]="accountForm"
+              [entryType]="entryType"
+              [account]="account"
+              [product]="this.product"
+              [service]="service"
+              (onChangeAccount)="onChangeAccount()"
+            >
+            </account-selector>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- formulario -->
+
+        <ng-container *ngIf="!availableDownload">
+          <div class="row form-filters">
+            <div class="col-lg-6 margin-selector">
+              <adf-select
+                label="{{ 'label.movement-type' | translate }}:"
+                placeholder="{{ 'label.movement-type' | translate }}"
+                [options]="movementTypes"
+                formControlName="movementType"
+                [control]="movementTypeForm"
+              >
+                <div error>
+                  <span *ngIf="form.controls['movementType'].errors?.['required']">{{ 'required' | translate }}</span>
+                </div>
+              </adf-select>
+            </div>
+            <div class="col-lg-6 margin-selector-two">
+              <adf-select
+                label="{{ 'label.visualization' | translate }}:"
+                placeholder="{{ 'label.visualization' | translate }}"
+                [options]="visualizations"
+                formControlName="visualization"
+                [control]="visualizationForm"
+              >
+                <div error>
+                  <span *ngIf="form.controls['visualization'].errors?.['required']">{{ 'required' | translate }}</span>
+                </div>
+              </adf-select>
+            </div>
+          </div>
+          <div class="row form-dates">
+            <div class="col-12">
+              <label>{{ 'label.date-filter' | translate }}:</label>
+            </div>
+            <div class="col-sm-4">
+              <adf-button
+                class="filters"
+                [value]="'label.statements.filter-by-day' | translate"
+                type="secondary"
+                (onClick)="openFilterModal('day')"
+                [disabled]="isLoading"
+              >
+              </adf-button>
+            </div>
+            <div class="col-sm-4">
+              <adf-button
+                class="filters"
+                [value]="'label.statements.filter-by-month' | translate"
+                type="secondary"
+                (onClick)="openFilterModal('month')"
+                [disabled]="isLoading"
+              >
+              </adf-button>
+            </div>
+            <div class="col-sm-4">
+              <adf-button
+                class="filters"
+                [value]="'label.statements.filter-custom' | translate"
+                type="secondary"
+                (onClick)="openFilterModal('custom')"
+                [disabled]="isLoading"
+              >
+              </adf-button>
+            </div>
+          </div>
+          <div class="row justify-content-end form-buttons">
+            <div class="col-sm-4" [ngClass]="{ 'button-separation': this.profile !== 'banpais' }">
+              <adf-button [value]="'btn.back' | translate" type="secondary" (onClick)="return(true)"> </adf-button>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- descargar documento -->
+      </form>
+      <ng-container *ngIf="availableDownload">
+        <div class="row form-download-buttons">
+          <div class="col-12 no-paddings text-right">
+            <adf-button [value]="'btn.back' | translate" type="secondary" (onClick)="return()"> </adf-button>
+            <adf-button [value]="'btn.download' | translate" (onClick)="download()"> </adf-button>
+          </div>
+        </div>
+
+        <hr />
+
+        <byte-transaction-footer [id]="this.information.authorizationNumber"></byte-transaction-footer>
+      </ng-container>
+    </div>
+</div>

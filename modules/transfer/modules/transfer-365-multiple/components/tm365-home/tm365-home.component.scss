@@ -1,0 +1,173 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.ach-tm365-home {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+
+  .txt-desktop {
+    display: none;
+
+    @include from(x) {
+      display: block;
+    }
+  }
+
+  .txt-select {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--total-table-rows);
+    border-bottom: 1px solid var(--light-text-three);
+    padding-bottom: 8px;
+  }
+
+  .txt-file-helper {
+    color: var(--primary-color);
+    font-size: 1rem;
+    line-height: 1.5;
+    padding-block: 1.2rem 1.2rem;
+
+    button {
+      border: none;
+      background-color: unset;
+      font-size: 1rem;
+      text-decoration: underline;
+      color: var(--primary-color);
+    }
+
+    @include from(m) {
+      max-width: 50%;
+    }
+  }
+
+
+
+  .txt-mobile {
+    @include from(x) {
+      display: none;
+    }
+  }
+
+  .icon-upload {
+    width: 20px;
+  }
+
+  .upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .messages-section {
+    @include helperTextStatus;
+  }
+
+  .upload-section {
+    @include helperUploadSection;
+  }
+
+  .byte-container__button_v2 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .container-buttons {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include from(m) {
+      gap: 4rem;
+      flex-direction: row;
+    }
+
+    p {
+      max-width: 400px;
+      margin: 0;
+      align-self: center;
+    }
+
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+
+  .file-uploaded {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #C4C4C4;
+    width: 100%;
+    padding: 12px 14px;
+    color: var(--primary-color);
+    border-radius: 4px;
+    height: 45px;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-color: transparent;
+      background-color: transparent;
+
+      svg {
+        width: 25px;
+      }
+    }
+  }
+}
+
+
+
+::ng-deep.ach-tm365-home {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-md: 1rem;
+      --padding-block-start-sm: 1rem;
+      --padding-block-start-x: 1rem;
+      --padding-block-end-md: 3rem;
+      --padding-block-end-sm: 3rem;
+      --padding-block-end-x: 3rem;
+    }
+
+    .form-heading {
+      display: none;
+    }
+
+    adf-select select.custom-select {
+      height: 40px !important;
+    }
+
+
+
+    .container-form {
+      border: none;
+    }
+
+  }
+
+  adf-upload {
+    width: 100%;
+
+    .dropzone-container {
+      min-block-size: 100%;
+    }
+  }
+
+  ngx-dropzone {
+    @include helperBisvDropZoneStyles;
+  }
+
+  ngx-dropzone.expandable {
+    @include helperBisvNgxDropZoneExpandableStyles;
+  }
+}

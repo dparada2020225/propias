@@ -1,0 +1,138 @@
+{
+  "general": {
+    "formatRegister": "PPD",
+    "idHeader": "H",
+    "idDetail": "T",
+    "idAddendum": "A",
+    "fileName": "Paycorp.",
+    "listDocuments": [
+      {
+        "identificationId": "D",
+        "description": "DOCUMENTO UNICO DE IDENTIDAD",
+        "mask": "NNNNNNNN-N"
+      },
+      {
+        "identificationId": "O",
+        "description": "PARTIDA DE NACIMIENTO",
+        "mask": "@@@@@@@@@@@@"
+      }
+    ]
+  },
+  "currencies": [
+    {
+      "code": "USD",
+      "name": "DOLARES",
+      "institutionId": 32,
+      "lowerNaturalLimit": 0.01,
+      "upperNaturaLimit": 20000000000,
+      "loweLegalLimit": 0.01,
+      "upperLegalLimit": 500000000000,
+      "lowerT365MovilLimit": 0.05,
+      "upperT365MovilLimit": 1000,
+      "lowerBusinessLimit": 1000000.01,
+      "upperBusinessLimit": 10000000
+    }
+  ],
+  "products": [
+    {
+      "code": 1,
+      "description": "CUENTA DE CHEQUES",
+      "transactionCode": 22,
+      "nemonic": "CC"
+    },
+    {
+      "code": 2,
+      "description": "CUENTAS DE AHORRO",
+      "transactionCode": 32,
+      "nemonic": "CA"
+    },
+    {
+      "code": 3,
+      "description": "DEPOSITOS A PLAZO",
+      "transactionCode": 0,
+      "nemonic": ""
+    },
+    {
+      "code": 4,
+      "description": "PRESTAMOS - CARTERA NORMAL",
+      "transactionCode": 52,
+      "nemonic": "PM"
+    },
+    {
+      "code": 6,
+      "description": "TARJETAS DE CREDITO",
+      "transactionCode": 52,
+      "nemonic": "TC"
+    }
+  ],
+  "banks": [
+    {
+      "code": 2,
+      "description": "BANCO ATLANTIDA",
+      "isAccountUseAccountAlphanumeric": "N",
+      "participant": "NSS",
+      "routes": [
+        {
+          "currency": "USD",
+          "code": 2001020
+        }
+      ],
+      "products": [
+        {
+          "code": 1,
+          "lowerAccountLimit": 10,
+          "maxAccountLimit": 12
+        },
+        {
+          "code": 2,
+          "lowerAccountLimit": 10,
+          "maxAccountLimit": 12
+        },
+        {
+          "code": 4,
+          "lowerAccountLimit": 10,
+          "maxAccountLimit": 12
+        },
+        {
+          "code": 6,
+          "lowerAccountLimit": 16,
+          "maxAccountLimit": 16
+        }
+      ]
+    },
+    {
+      "code": 3,
+      "description": "BANCO AZTECA",
+      "isAccountUseAccountAlphanumeric": "N",
+      "participant": "NSS",
+      "routes": [
+        {
+          "currency": "USD",
+          "code": 2001020
+        }
+      ],
+      "products": [
+        {
+          "code": 1,
+          "lowerAccountLimit": 10,
+          "maxAccountLimit": 12
+        },
+        {
+          "code": 2,
+          "lowerAccountLimit": 10,
+          "maxAccountLimit": 12
+        },
+        {
+          "code": 4,
+          "lowerAccountLimit": 10,
+          "maxAccountLimit": 12
+        },
+        {
+          "code": 6,
+          "lowerAccountLimit": 16,
+          "maxAccountLimit": 16
+        }
+      ]
+    }
+  ]
+}

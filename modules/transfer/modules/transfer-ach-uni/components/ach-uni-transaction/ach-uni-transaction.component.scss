@@ -1,0 +1,229 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.ach-form-container adf-form-layout {
+
+  .container-form {
+    border: none;
+  }
+
+  border-top: none;
+  @include from(m) {
+    .checkbox-form-layout {
+      position: relative;
+      display: grid;
+    }
+
+    .checkbox-form-layout::before {
+      display: grid;
+      position: absolute;
+      right: -3px;
+      top: 2px;
+      content: '';
+      display: block;
+      height: 50px;
+      width: 1px;
+      background-color: #ccd0d5;
+      margin: 1rem 0;
+    }
+  }
+
+  @include from(x) {
+    .checkbox-form-layout::before {
+      right: 10px;
+    }
+  }
+
+  adf-datepicker-form-layout .disabled-input {
+    input {
+      cursor: not-allowed;
+      border: 1px solid #ccd0d5 !important;
+      color: #ccd0d5 !important;
+      background-color: #f8f8f8 !important;
+    }
+
+    input:hover {
+      color: var(--primary-color) !important;
+      border: 1px solid var(--primary-color);
+    }
+
+    input::placeholder,
+    .icon {
+      color: #ccd0d5 !important;
+    }
+    .icon {
+      cursor: pointer !important;
+
+    }
+  }
+
+  adf-tooltip .custom-tooltip .icon {
+    color: #003865;
+    padding: 0px;
+    border: 0.1px solid #003865;
+    border-radius: 50%;
+
+    &::before {
+      margin-left: 0px;
+      margin-bottom: 100px;
+    }
+  }
+
+
+  adf-tooltip label {
+    @include from(m) {
+      min-width: auto;
+      width: 200px;
+      white-space: normal;
+      margin-top: 5px;
+    }
+
+    @include to(m) {
+      min-width: auto;
+      width: 150px;
+      transform: translateX(-120px);
+      white-space: normal;
+
+      span.triangle {
+        left: 85%;
+      }
+    }
+
+  }
+
+  adf-select {
+    select:disabled {
+      cursor: not-allowed;
+      border: 1px solid #ccd0d5 !important;
+      color: #ccd0d5 !important;
+      background-color: #f8f8f8 !important;
+    }
+    select:disabled::placeholder {
+      color: #ccd0d5 !important;
+    }
+  }
+
+  adf-select.ng-untouched select:hover {
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color);
+  }
+
+  adf-checkbox-form-layout .checkbox-form-layout {
+    .input-title {
+      align-self: start;
+      margin-left: 5px;
+      color: var(--primary-color);
+    }
+
+    adf-checkbox {
+      justify-content: start;
+    }
+
+    @include from(m) {
+      adf-checkbox {
+        justify-content: center;
+      }
+
+      .input-title {
+        align-self: center;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+::ng-deep adf-form-layout .transfers-ach {
+  .modify-mode div.select {
+    display: flex;
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  .modify-mode div.select:hover {
+    display: flex;
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  .has-border {
+    margin: 0 !important;
+  }
+
+  .disable .form_label {
+    gap: 0.5625rem !important;
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  .disable .commission {
+    gap: 0.5625rem !important;
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+    }
+  }
+
+  @include from(x) {
+    .has-border {
+      margin-block: calc(40px - 15px) 0 !important;
+      padding-block-start: 2.5rem;
+    }
+  }
+}
+
+::ng-deep.ach-form-container {
+  .custom-grid {
+    grid-row: 5;
+
+    .select-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .select-wrapper label {
+      display: block;
+      margin-block-end: 12px;
+    }
+
+    @include from(m) {
+      grid-row: 4;
+    }
+
+    & > div {
+      grid-column: span 12;
+    }
+  }
+  .footer {
+    padding-bottom: 25px;
+
+    @include from(m) {
+      padding-bottom: 33px;
+      padding-left: 0;
+    }
+
+    @include from(x) {
+      padding-bottom: 24px;
+      padding-left: 100px;
+    }
+  }
+}
+
+
+.transfer_banks_header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  margin-bottom: -15px;
+
+  .img-uni {
+    width: 61.82px;
+    height: 40px;
+    margin-bottom: 10px;
+    float: right;
+  }
+}

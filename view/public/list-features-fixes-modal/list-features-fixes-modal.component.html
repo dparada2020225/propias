@@ -1,0 +1,22 @@
+<div class="modal-header" style="border: none">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"><i
+         aria-hidden="true" class="fas fa-times" style="color: #9B9B9B;"></i></button>
+</div>
+<div class="modal-body" style="border: none">
+    <div class="header-policies">
+        <i aria-hidden="true" prefix class="icon banca-regional-politica" style="font-size: 103px;"></i>
+        <h1>Features & Fixes</h1>
+        <h2 text-center>Versión {{version}}</h2>
+    </div>
+    <h4>Features</h4>
+    <ul>
+        <li *ngFor="let item of fixAndFeatureList">{{item.features}}</li>
+    </ul>
+    <h4>Fixes</h4>
+    <ul>
+        <div *ngFor="let item of fixAndFeatureList">
+        <li *ngFor="let fixes of item.fixes">{{fixes}}</li>
+    </div>
+    </ul>
+
+</div>

@@ -1,0 +1,59 @@
+[
+  {
+    "name": "ACH",
+    "path": "/accounts-management/ach",
+    "parameter": null,
+    "children": [
+      {
+        "path": "detail",
+        "parameter": "ach:detail",
+        "children": []
+      },
+      {
+        "path": "create",
+        "parameter": "ach:create",
+        "children": []
+      },
+      {
+        "path": "create/confirmation",
+        "parameter": "ach:create_confirm",
+        "children": []
+      },
+      {
+        "path": "create/voucher",
+        "parameter": "ach:create_voucher",
+        "children": []
+      },
+      {
+        "path": "update",
+        "parameter": "ach:update",
+        "children": []
+      },
+      {
+        "path": "update/confirmation",
+        "parameter": "ach:update_confirm",
+        "children": []
+      },
+      {
+        "path": "update/voucher",
+        "parameter": "ach:update_voucher",
+        "children": []
+      },
+      {
+        "path": "delete",
+        "parameter": "ach:delete",
+        "children": []
+      },
+      {
+        "path": "delete/confirmation",
+        "parameter": "ach:delete_confirm",
+        "children": []
+      },
+      {
+        "path": "delete/voucher",
+        "parameter": "ach:delete_voucher",
+        "children": []
+      }
+    ]
+  }
+]

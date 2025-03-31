@@ -1,0 +1,49 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.modal-box-container {
+
+  padding: 42px 50px 32px 50px;
+
+
+  h2 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+
+  h3 {
+    color: var(--light-text-two);
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+  }
+
+
+}
+
+::ng-deep.bt-error {
+  span {
+    color: var(--primary-color);
+  }
+}
+
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--light-text-three);
+  margin-top: 8px;
+  padding-top: 1rem;
+
+  adf-button {
+    align-self: flex-end;
+  }
+}
+
+.box__error-description {
+  margin-bottom: 28px;
+
+  @include from(x) {
+    padding-left: calc(64px - 50px);
+  }
+}

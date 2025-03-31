@@ -1,0 +1,59 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+
+::ng-deep.payment-container adf-reading {
+  .group:first-child {
+    padding-block-end: 0;
+    .field-item > div {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  .group:nth-child(2) {
+    padding-block-start: 0;
+  }
+
+  @include from(m) {
+    .group:nth-child(2) {
+      padding-block-start: 1.75rem;
+    }
+  }
+}
+
+::ng-deep.byte-payment adf-confirmation-modal adf-reading {
+  .group:first-child {
+    border-block-end: 1px solid var(--light-text-three);
+  }
+
+  .group:last-child {
+    .field-item.list-grid div {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 1rem;
+    }
+
+    .field-item span  {
+      max-width: 200px;
+    }
+  }
+
+  @include from(m) {
+    .field-item.list-grid {
+      gap: 0.5rem;
+      flex-direction: row;
+    }
+
+    .field-item.list-grid.general-item div {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+::ng-deep.byte-payment adf-confirmation-modal {
+  adf-confirmation-headband {
+    .headband-item:nth-child(2) {
+      gap: 0;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.spp-container {
+    adf-table {
+        .estadoCuenta {
+        }
+    
+        .estadoCuenta.error,
+        .estadoCuenta.inactive,
+        .estadoCuenta.inactiva,
+        .estadoCuenta.blocked,
+        .estadoCuenta.bloqueada,
+        .estadoCuenta.cancelled,
+        .estadoCuenta.cancelada {
+          color: var(--warn-color) !important;
+        }
+    
+        .estadoCuenta.active,
+        .estadoCuenta.activa,
+        .estadoCuenta.ACTIVA {
+          color: var(--alert-success-color) !important;
+          text-transform: uppercase;
+        }
+    
+        .correo{
+          word-break: break-all;
+          overflow: initial;
+        }
+
+        .detalle{
+           // word-break: break-all;
+            overflow: initial;
+          }
+      
+    
+        .scrolled-table{
+          max-block-size: 650px !important;
+        }
+    
+      }
+
+  adf-form-layout {
+    .source-account_selector {
+      margin-top: calc(40px - 0.9375rem);
+    }
+
+    .grid-container {
+      @include from(x) {
+        padding-left: 100px;
+      }
+    }
+
+    .form_label{
+      gap: 0 !important;
+    }
+
+  }
+
+  .table-container {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+.ps-buttons-container.payment-home {
+  justify-content: flex-end;
+  margin: 64px 0;
+}
+
+hr {
+  border-color: var(--light-text-three);
+}
+::ng-deep .ps-buttons-container adf-button button.btn {
+  @media only screen and (max-width: 500px) {
+    width: 100% !important;
+    height: 60px !important; 
+  }
+}
+
+::ng-deep .ps-buttons-container {
+  margin-top: 8% !important;
+
+  @include from(m) {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 100px;
+    gap: 32px;
+  }
+
+  @include to(sm) {
+    display: flex;
+    flex-direction: column; /* Botones en vertical */
+    gap: 16px; /* Espacio entre los botones */
+    width: 100%; /* Los botones abarcan el 100% del ancho */
+
+    /* Invertir el orden de los botones */
+    adf-button[data-testid="next"] {
+      order: 1; /* El botón "next" va primero */
+    }
+
+    adf-button[data-testid="secondary"] {
+      order: 2; /* El botón "back" va después */
+    }
+
+    adf-button {
+      width: 100%; /* Cada botón se ajusta al 100% del contenedor */
+
+      button.btn {
+        height: 60px;
+        width: 100% !important;
+      }
+    }
+  }
+}

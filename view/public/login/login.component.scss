@@ -1,0 +1,474 @@
+@use '../../../../assets/styles/responsive.scss' as *;
+
+.container-public-corporate {
+  margin: 0;
+  padding: 0;
+
+  //height: 100%;
+  @include from(m) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include from(x) {
+    flex-direction: row;
+    flex-basis: auto;
+  }
+}
+
+.card-bp {
+  border-radius: 8px !important;
+  background: none;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 8px;
+    background: var(--primary-color) 0 0 no-repeat padding-box;
+  }
+}
+
+.sub-container {
+  @include from(x) {
+    width: 368px !important;
+  }
+}
+
+
+
+.fixed {
+  height: 77px !important;
+}
+
+.public-carousel-container {
+  display: none;
+
+  @include from(m) {
+    display: block;
+    height: 100%;
+  }
+}
+
+.card-login-container {
+  display: flex;
+  justify-content: center;
+
+  @include from(x) {
+    height: 100%;
+  }
+}
+
+.form-card {
+  padding: 1.5rem 0;
+
+  @include from(380px) {
+    min-width: 367px;
+    max-width: 367px;
+  }
+
+  @include from(x) {
+    padding: 86px 0 1.5rem;
+
+  }
+}
+
+::ng-deep ngb-carousel {
+  height: 100%;
+
+  .carousel-item.active,
+  .carousel-item-next,
+  .carousel-item-prev {
+    display: inline-grid;
+    flex: 1;
+    height: 100%;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include from(m) {
+    img {
+      height: 350px;
+      width: 100%;
+    }
+  }
+
+  @include from(x) {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include from(1550px) {
+    img {
+      //height: calc(100vh - 19px - 38px);
+    }
+  }
+}
+
+.bisv_logo--login {
+  display: none;
+
+  img {
+    width: 155px;
+    height: 122px;
+  }
+
+  @include from(x) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.title-profile {
+  text-align: center;
+  border-top-left-radius: 40px;
+}
+
+.text-title-bisv,
+.text-title-bipa {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
+  color: var(--label-color-login);
+  display: inline-block;
+  font-weight: bold !important;
+  position: relative;
+  padding: 18px 8px 18px 8px;
+  border: 1px solid var(--primary-color);
+  border-radius: 40px 0px;
+}
+
+.text-title-bipa {
+  color: var(--primary-color);
+}
+
+.login-container,
+.card-network {
+  background-color: var(--primary-color);
+}
+
+.login-container {
+  border-radius: 40px 0px;
+  margin-top: 14px;
+}
+
+.card-login {
+  padding: 1.5rem 30px;
+}
+
+.card-body-bp {
+  position: relative;
+  padding: 27px 30px 24px 29px;
+}
+
+.sub-card-bp {
+
+  position: relative;
+  text-align: center;
+
+  i {
+    color: white;
+    margin: 6px 10px 0;
+    font-size: 15px;
+  }
+}
+
+.bp-container-public {
+  position: absolute;
+  top: 0;
+}
+
+.card-bp.networks {
+  @include from(s) {
+
+    .sub-card-bp {
+      height: 48px;
+      display: flex;
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      div {
+        display: flex;
+        align-items: center;
+
+        i {
+          margin: 6px 10px 0px;
+          font-size: 15px;
+          color: var(--text-primary-color);
+        }
+      }
+    }
+  }
+}
+
+.sub-container-bp {
+  @include from(s) {
+    padding-top: 90px;
+  }
+  @include from(x) {
+    padding-top: 0px;
+  }
+}
+
+
+.login-bp-opacity>div {
+  &::before {
+    mix-blend-mode: multiply;
+  }
+}
+
+:host ::ng-deep adf-button>button.btn-default:hover {
+  background-color: var(--accent-lighter-color-two) !important;
+  color: var(--text-hover-default) !important;
+}
+
+:host ::ng-deep adf-button>button.btn-default:active {
+  background-color: var(--default-background-color-hover) !important;
+  color: var(--text-hover-default) !important;
+}
+
+::ng-deep.main-corporate-image {
+  adf-button {
+    button.btn.btn-default {
+      border-color: var(--color-navbar);
+      background-color: var(--box-color-login) !important;
+    }
+  }
+
+  adf-button>button.btn-default:hover {
+    background-color: var(--login-button-background-color) !important;
+    border-color: var(--login-button-background-color) !important;
+
+    color: var(--color-navbar) !important;
+
+    .banca-regional-login::before {
+      color: var(--color-navbar);
+    }
+  }
+
+  .carousel-indicators {
+    gap: 14px;
+  }
+
+  .carousel-indicators li {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+  }
+}
+
+:host ::ng-deep adf-button>button {
+  margin-left: 0;
+  margin-top: 8px;
+  width: 100% !important;
+  color: var(--text-hover-default) !important;
+}
+
+:host ::ng-deep adf-button>button.btn {
+  height: 54px;
+}
+
+:host ::ng-deep adf-input {
+  label {
+    font: normal normal bold 16px/19px var(--font-family);
+  }
+
+  i {
+    font-size: 16px !important;
+    color: var(--icon-color) !important;
+  }
+
+  input.custom-input {
+    height: 50px; // With icons
+    font: normal normal normal 16px/19px var(--font-family);
+  }
+}
+
+.footer-login {
+  text-align: left;
+  letter-spacing: 0px;
+}
+
+.forgot-password-section {
+  text-align: center;
+  margin-top: 15px;
+
+  a {
+    color: var(--text-primary-color);
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.card-network {
+  padding: 15px 0 15px 0;
+  margin-top: 9px;
+  border-radius: 20px 0;
+
+  .footer-login {
+    font-size: 13px;
+  }
+
+  .footer-login-tips {
+    color: var(--color-navbar);
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .login-tips {
+    color: var(--color-navbar);
+    font-size: 13px;
+    padding-left: 15px;
+  }
+
+  i {
+    margin: 0 10px;
+  }
+
+  text-align: center;
+
+  & > div {
+    text-align: start;
+  }
+}
+
+hr {
+  background-color: #ffffff;
+}
+
+.icon-corporate {
+  color: var(--label-color-login) !important;
+}
+
+::ng-deep.corporate-image {
+  .banca-regional-login::before {
+    color: var(--color-navbar);
+  }
+
+  adf-input {
+    i::before {
+      color: var(--primary-color);
+    }
+  }
+}
+
+::ng-deep.login-container {
+  .input-wrapper label {
+    color: var(--color-navbar);
+  }
+}
+
+a.animated-border-corporate {
+  position: relative;
+
+  &:after {
+    background: var(--color-navbar) !important;
+  }
+}
+
+adf-button {
+  width: 100%;
+}
+
+#mmenu_screen>.row {
+  min-height: calc(100vh - 80px);
+
+  //@include from(1500px) {
+  //  min-height: calc(100vh - 100px);
+  //}
+
+  @media screen and (max-width: 4000px) and (min-width: 1500px) {
+    min-height: calc(100vh - 80px);
+  }
+
+  //@include to(x) {
+  //}
+
+  //min-height: calc(100vh - 64px);
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+.main-carousel {
+  display: none;
+
+  @include from(m) {
+    display: block;
+  }
+}
+
+::ng-deep.bisv {
+  .main-corporate-image {
+    @media screen and (max-width: 4000px) and (min-width: 1500px) {
+      .carousel-indicators {
+        margin-bottom: 120px !important;
+      }
+    }
+  }
+}
+
+::ng-deep byte-main-frame>div {
+  height: 100%;
+}
+
+.main-corporate-image {
+  @media screen and (max-width: 4000px) and (min-width: 1500px) {
+    max-height: calc(100vh - 63px);
+    overflow: hidden;
+  }
+}
+
+::ng-deep a.a-tips-content {
+  text-align: initial;
+
+  :hover {
+    color: var(--color-navbar) !important;
+  }
+}
+
+.tips-content {
+  padding: 14px 0 0 15px;
+  border-top: 1px solid #fff;
+  margin-top: 15px;
+
+  @include from(380px) {
+    padding-left: 44px;
+  }
+}
+
+.content-bp {
+  max-width: 316px;
+
+  @include from(x) {
+    max-width: 368px;
+  }
+
+  .alertMessage {
+    word-break: break-all;
+  }
+}
+
+.phone-content {
+  font-size: 12px;
+
+  @include from(m) {
+    font-size: 13px;
+  }
+}
+

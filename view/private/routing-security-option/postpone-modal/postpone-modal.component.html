@@ -1,0 +1,15 @@
+<div class="modal-header" style="border: none">
+  <button type="button" class="close" aria-label="Close" (click)="goSecurityProfile()">
+    <i aria-hidden="true" class="fas fa-times" style="color: #9b9b9b"></i>
+  </button>
+</div>
+<div class="modal-body" style="border: none">
+  <i aria-hidden="true" class="icon banca-regional-configuracion-seguridad security-icon"></i>
+  <h1 data-testid="title" >{{ 'so_title_postpone-modal' | translate }}</h1>
+  <p>{{ 'so_text_postpone-modal' | translate }}</p>
+</div>
+<div class="modal-footer" style="border: none">
+  <div class="button-modal">
+    <adf-button value="{{ 'so_configure_button' | translate }}" (click)="goSecurityProfile()"> </adf-button>
+  </div>
+</div>

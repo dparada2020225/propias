@@ -1,0 +1,94 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.tm-ach-detail {
+  .under_section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 4rem;
+
+    @include from(m) {
+      margin-top: 4rem;
+      padding-left: 100px;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    > div {
+      display: flex;
+      justify-content: center;
+
+      @include from(m) {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .button_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include from(m) {
+      gap: 1.5rem;
+      flex-direction: row-reverse;
+    }
+  }
+
+  .sing-btn {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: var(--primary-color);
+
+    i:before {
+      color: var(--primary-color);
+    }
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.tm-ach-detail {
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+
+  adf-button button.btn {
+    width: 100%;
+
+    @include from(m) {
+      width: 240px;
+    }
+  }
+}
+
+
+::ng-deep.tm-ach {
+  adf-confirmation-modal {
+    adf-reading {
+      .head-title {
+        font-weight: bold;
+      }
+
+      .group:last-child {
+        border-top: 1px solid var(--light-text-three);
+      }
+    }
+  }
+}
+

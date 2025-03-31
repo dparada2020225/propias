@@ -1,0 +1,9 @@
+<main [ngClass]="[customShow, 'byte-container transfers ach-form-container']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-reading [data]="voucherLayout"> </adf-reading>
+  <div class="byte-container__button">
+    <adf-button *ngIf="isShowPrintButton" class="primary" [value]="printButtonMessage | translate" (click)="print()"> </adf-button>
+    <adf-button class="secondary" [type]="typePrevButton" [value]="'toReturn' | translate" (click)="back()"> </adf-button>
+  </div>
+  <adf-confirmation-headband *ngIf="isShowHeadband" [headbandLayout]="headbandLayout"></adf-confirmation-headband>
+</main>

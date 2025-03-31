@@ -1,0 +1,102 @@
+.text-danger-corporate {
+  color: var(--danger-text-table) !important;
+}
+
+ul:before {
+  display: block;
+  transform: rotate(90deg);
+  position: absolute;
+  top: -5px;
+  right: -9px;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid var(--text-primary-color);
+  border-left: 7px solid transparent;
+  content: '';
+}
+.account-options {
+  margin-top: -14px;
+}
+
+.h2-banpais {
+  color: var(--label-color-login);
+}
+
+h2 {
+  color: var(--label-color-login);
+}
+
+table td.amount.with-currency {
+  padding: 8px;
+  text-align: right;
+  max-width: 280px;
+
+  span {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  div {
+    width: 65%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.color-title {
+  color: var(--light-text-two);
+}
+
+table.table.custom-table tbody td.amount {
+  color: var(--primary-light-two);
+}
+
+table.table.custom-table tfoot td {
+  color: var(--total-table-corporate) !important;
+}
+
+.banca-regional-opciones {
+  font-size: 26px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.highlight {
+  color: va(--label-color-login) !important;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  table td.amount.with-currency {
+    div {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .subtitle {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .banca-regional-opciones {
+    font-size: 25px;
+  }
+
+  .table-mobile {
+    .float-right {
+      font-size: 14px;
+    }
+  }
+
+  h2 {
+    margin-bottom: 5px;
+  }
+}

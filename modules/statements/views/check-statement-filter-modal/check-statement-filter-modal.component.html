@@ -1,0 +1,132 @@
+<div class="modal-body">
+    <div class="float-right">
+        <button type="button" class="close" aria-label="Close" (click)="close()"><i class="fas fa-times" aria-hidden="true"
+                style="color: #9B9B9B;"></i></button>
+    </div>
+    <div class="content" *ngIf="type === 'day'">
+        <h1 class="byDay">
+            {{ 'label.statements.filter-by-day' | translate }}
+        </h1>
+        <div class="form-group">
+            <adf-datepicker [(ngModel)]="dateByDay" #dateByDayPicker="ngModel"
+                [label]="'label.statements.date' | translate" [labelToday]="'today' | translate"
+                placeholder="dd/mm/aaaa" [control]="dateByDayPickerForm" [required]="true">
+            </adf-datepicker>
+
+            <div class="error-message" error *ngIf="dateByDayPicker.invalid">
+                <span *ngIf="dateByDayPicker.errors?.['required']">{{ 'message.error.required-2' |
+                    translate }}</span>
+                <span *ngIf="!dateByDayPicker.errors?.['required'] && dateByDayPicker.errors?.['ngbDate']?.invalid">{{
+                    'message.error.date' | translate }}</span>
+            </div>
+        </div>
+        <adf-alert [receiverType]="'error'" [receiverMessage]="messageError | translate"></adf-alert>
+        <adf-button [value]="'label.statements.search' | translate" (onClick)="search()" [isLoading]="isLoading">
+        </adf-button>
+    </div>
+    <div class="content by-month" *ngIf="type === 'month'">
+        <h1>
+            {{ 'label.statements.filter-by-month' | translate }}
+        </h1>
+
+        <div class="container-btn-month">
+          <adf-button *ngFor="let month of months" [value]="month.text" type="secondary" (onClick)="selectMonth(month)"
+          [ngClass]="{'active': month === selectedMonth}"></adf-button>
+        </div>
+
+
+        <adf-alert [receiverType]="'error'" [receiverMessage]="messageError | translate"></adf-alert>
+
+        <div class="container-btn-search">
+          <adf-button class="btn-search-modal" [value]="'label.statements.search' | translate" (onClick)="search()" [disabled]="!selectedMonth"
+          [isLoading]="isLoading">
+      </adf-button>
+        </div>
+
+
+    </div>
+    <div class="custom-filter" *ngIf="type === 'custom'">
+        <h1>
+            {{ 'label.statements.filter-custom' | translate }}
+        </h1>
+        <form role="form" [formGroup]="form">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <adf-datepicker formControlName="startDate" [label]="'label.statements.start-date' | translate"
+                            [labelToday]="'today' | translate" placeholder="dd/mm/aaaa" [submitted]="submitted"
+                            [control]="startDateForm" [maxDate]="form.controls['endDate'].value">
+                            <div error *ngIf="form.controls['startDate'].invalid">
+                                <span
+                                    *ngIf="!form.controls['startDate'].errors?.['required'] && form.controls['startDate'].errors?.['ngbDate']?.invalid">
+                                    {{ 'message.error.date' | translate }}
+                                </span>
+                                <span *ngIf="form.controls['startDate'].errors?.['required']">{{ 'message.error.required-2' |
+                                    translate }}</span>
+                                <span *ngIf="form.controls['startDate'].errors?.['ngbDate']?.requiredAfter">
+                                    <!-- {{ 'message.error.date-required-after' | translate }} -->
+                                    {{ 'message.error.date' | translate }}
+                                </span>
+                            </div>
+
+                        </adf-datepicker>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <adf-datepicker formControlName="endDate" [label]="'label.statements.final-date' | translate"
+                            [labelToday]="'today' | translate" placeholder="dd/mm/aaaa" [submitted]="submitted"
+                            [control]="endDateForm" [minDate]="form.controls['startDate'].value">
+                            <div error *ngIf="form.controls['endDate'].invalid">
+                                <span *ngIf="!form.controls['endDate'].errors?.['required'] && form.controls['endDate'].errors?.['ngbDate'].invalid">
+                                    {{ 'message.error.date' | translate }}
+                                </span>
+                                <span *ngIf="form.controls['endDate'].errors?.['required']">{{ 'message.error.required-2' |
+                                    translate }}</span>
+                                <span *ngIf="form.controls['endDate'].errors?.['ngbDate']?.requiredBefore">
+                                    <!-- {{ 'message.error.date-required-before' | translate }} -->
+                                    {{ 'message.error.date' | translate }}
+                                </span>
+                            </div>
+                        </adf-datepicker>
+                    </div>
+                </div>
+
+                <div class="col-12 text-left">
+                    <label>{{ 'label.statements.value-range' | translate }}</label>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <adf-input formControlName="minValue" [type]=typeNumber [imaskOptions]="imaskOption"
+                            [placeholder]="'label.statements.minimum' | translate">
+
+                            <!-- Error en el rango de valor -->
+                        </adf-input>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <adf-input formControlName="maxValue" [type]=typeNumber [imaskOptions]="imaskOption"
+                            [placeholder]="'label.statements.maximum' | translate">
+                        </adf-input>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <adf-alert [receiverType]="'error'" [receiverMessage]="messageError | translate" ></adf-alert>
+                    <!-- Información de fecha seleccionada no disponible. -->
+                    <!-- Error en el formato de fecha. El formato debe ser dd/mm/aaaa. -->
+                    <!-- El monto debe ser numérico, no debe exceder de: 999,999,999.99, ni puede tener más de dos decimales -->
+                    <!-- La cantidad de movimientos consultados excede los 2,500 registros permitidos, favor intenta un rango de fecha menor al consultado. -->
+                </div>
+
+                <div class="col-12">
+                    <adf-button [value]="'label.statements.search' | translate" (onClick)="search()"
+                        [isLoading]="isLoading"></adf-button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

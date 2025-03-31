@@ -1,0 +1,117 @@
+@use '../../../../../../../../assets/styles/responsive.scss' as *;
+
+
+.stoken-bisv-membership-modal {
+  text-align: center;
+}
+
+.stoken-bisv-membership-modal .modal__header {
+  margin: 0 auto;
+  text-align: end;
+  padding: 18px 16px 4px 0;
+
+  @include from(m) {
+    padding: 18px 16px 0 0;
+  }
+
+  @include from(x) {
+    padding: 18px 16px 9px 0;
+  }
+
+  .hidden-text{
+    display: none;
+  }
+
+}
+
+.stoken-bisv-membership-modal .modal__header-close {
+  color: #676A6C;
+  font-size: 16px !important;
+}
+
+.stoken-bisv-membership-modal .modal-body {
+  margin-bottom: 16px;
+
+  @include from(m) {
+    padding: 0 16px 16px 16px;
+  }
+}
+
+.stoken-bisv-membership-modal .modal-body__icon {
+  outline: 2px #FFD800 solid;
+  width: 37px;
+  margin: 0 auto;
+  border-radius: 100%;
+  height: 37px;
+  display: grid;
+
+  i {
+    align-self: center;
+    justify-self: center;
+    font-size: 24px;
+    color: #FFD800;
+  }
+}
+
+.stoken-bisv-membership-modal .modal-body .modal-body__title {
+  font-size: 27px !important;
+  margin: 5px 0 20px 0;
+  color: var(--primary-color);
+
+  @include from(m) {
+    margin: 8px 0;
+  }
+
+  @include from(x) {
+    margin: 12px 0 14px 0;
+  }
+}
+
+.stoken-bisv-membership-modal .modal-body__description {
+  width: 100%;
+  max-width: 287px;
+  margin: 0 auto;
+
+  @include from(m) {
+    max-width: 506px;
+    padding-top: 10px;
+  }
+
+  @include from(x) {
+    padding-top: 0;
+  }
+}
+
+.stoken-bisv-membership-modal .modal-body .message-modal {
+  font-size: 16px !important;
+  padding: 0 5px;
+  margin-bottom: 0;
+
+  @include from(m) {
+    padding: 0 9px;
+  }
+}
+
+
+.stoken-bisv-membership-modal .modal__buttons {
+
+  margin-bottom: 30px;
+
+  @include from(m){
+    margin-bottom: 40px;
+  }
+}
+
+::ng-deep.stoken-bisv-membership-modal .modal__buttons adf-button {
+  .btn {
+    width: 100%;
+    max-width: 287px;
+
+    @include from(m) {
+      max-width: 240px;
+    }
+
+  }
+}
+
+

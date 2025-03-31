@@ -1,0 +1,19 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.bt-main-content {
+  @include from(x) {
+    padding-bottom: 2rem;
+
+    .table-content {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.bulk__confirmation-transfer-container {
+  adf-table .main-container {
+    border-top: 1px solid var(--light-text-three);
+  }
+}
+
+

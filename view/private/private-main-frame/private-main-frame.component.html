@@ -1,0 +1,267 @@
+<div class="background-container" #scContainer>
+  <nav
+    [ngClass]="{ 'new-image-logout': imageNavigateLogout }"
+    class="navbar navbar-expand-lg justify-content-between information"
+    aria-labelledby="marco completo"
+    *ngIf="!this.preLoggedGuard()"
+  >
+    <div *ngIf="show" class="d-none d-lg-block">
+      <ng-container *ngIf="information">
+        <span
+          >{{ 'menu_user' | translate }}: <span class="highlight">{{ information?.username }}</span></span
+        >
+        <span style="margin-left: 10px"
+          >{{ 'welcome-header' | translate }}:
+          <span class="highlight" style="text-transform: capitalize">{{
+            information?.firstName + ' ' + information?.firstLastname
+          }}</span></span
+        >
+      </ng-container>
+    </div>
+    <div *ngIf="show" class="navbar-center d-none d-lg-block text-center">
+      <div class="d-inline-block">
+        <span
+          >{{ 'menu_last_connection' | translate }}: <span class="highlight"> {{ information?.lastConnectionDate }} </span>
+        </span>
+        <span class="separator"
+          >{{ 'menu_duration' | translate }}: <span class="highlight"> {{ information?.duration }} </span>
+        </span>
+        <span
+          >{{ 'menu_ip' | translate }}: <span class="highlight"> {{ information?.ip }} </span>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="!show" class="navbar-start d-lg-none">
+      <span (click)="isMenuInfoCollapsed = !isMenuInfoCollapsed">{{ 'menu_my_information' | translate }}</span>
+    </div>
+    <div *ngIf="show" class="navbar-start d-lg-none mt-2">
+      <span (click)="isMenuInfoCollapsedBI = !isMenuInfoCollapsedBI">{{ 'menu_my_information' | translate }}</span>
+    </div>
+    <div *ngIf="!show" class="navbar-start d-none d-lg-block">
+      <span *ngIf="buyAmount && this.profile === 'banpais'"
+        >{{ 'menu_buy_amount' | translate }}:
+        <span class="highlight">{{ this.currencySymbol | async }}.&nbsp;&nbsp;{{ buyAmount }}</span></span
+      >
+      <span *ngIf="sellAmount && this.profile === 'banpais'"
+        >{{ 'menu_sell_amount' | translate }}:
+        <span class="highlight">{{ this.currencySymbol | async }}.&nbsp;&nbsp;{{ sellAmount }}</span></span
+      >
+    </div>
+    <div *ngIf="!show" class="navbar-center d-none d-lg-block text-center">
+      <ng-container *ngIf="information">
+        <span
+          >{{ 'menu_user' | translate }}: <span class="highlight">{{ information?.username }}</span></span
+        >
+
+        <div ngbDropdown class="dropdown-select d-inline-block">
+          <span
+            >{{ 'welcome-header' | translate }}:
+            <a id="dropdownBasic" ngbDropdownToggle class="highlight" style="text-transform: capitalize">{{
+              information?.firstName + ' ' + information?.firstLastname
+            }}</a></span
+          >
+
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic" class="information-margin">
+            <p>
+              <em>{{ 'menu_last_connection' | translate }}: </em> {{ information?.lastConnectionDate }}
+            </p>
+            <p>
+              <em>{{ 'menu_duration' | translate }}: </em> {{ information?.duration }}
+            </p>
+            <p>
+              <em>{{ 'menu_ip' | translate }}: </em> {{ information?.ip }}
+            </p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="navbar-end text-right">
+      <adf-language-selector mode="select"></adf-language-selector>
+      <a [href]="'mailto:' + settings.contactsInfo.email" ngbTooltip="{{ 'menu_suggestions_mailbox' | translate }}">
+        <i aria-hidden="true" class="banca-regional-messages" placement="bottom-right"> </i>
+      </a>
+      <a (click)="navigate('security-profile')" ngbTooltip="{{ 'menu_security-profile' | translate }}">
+        <i aria-hidden="true" class="banca-regional-persona"></i>
+      </a>
+      <a (click)="navigate('private-help')" ngbTooltip="{{ 'help' | translate }}">
+        <i aria-hidden="true" class="banca-regional-pregunta"></i>
+      </a>
+      <i aria-hidden="true" class="banca-regional-off" (click)="logout()" ngbTooltip="{{ 'logout' | translate }}"></i>
+    </div>
+    <div class="d-lg-none navbar-detail" [ngbCollapse]="isMenuInfoCollapsed">
+      <div class="row mt-3">
+        <div class="col-6 col-md-4 col-lg-4" style="padding-right: 0px">
+          <span *ngIf="buyAmount && this.profile === 'banpais'"
+            >{{ 'menu_buy_amount' | translate }}:
+            <span class="highlight">{{ this.currencySymbol | async }}.&nbsp;&nbsp;{{ buyAmount }}</span></span
+          >
+        </div>
+        <div class="col-6 col-md-8 col-lg-8" style="padding-left: 0px">
+          <span *ngIf="sellAmount && this.profile === 'banpais'"
+            >{{ 'menu_sell_amount' | translate }}:
+            <span class="highlight">{{ this.currencySymbol | async }}.&nbsp;&nbsp;{{ sellAmount }}</span></span
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-4 col-lg-4" style="padding-right: 0px">
+          <span
+            >{{ 'menu_user' | translate }}: <span class="highlight">{{ information?.username }}</span></span
+          >
+        </div>
+        <div class="col-6 col-md-8 col-lg-8" style="padding-left: 0px">
+          <span
+            >{{ 'welcome-header' | translate }}:
+            <span class="highlight" style="text-transform: capitalize">{{
+              information?.firstName + ' ' + information?.firstLastname
+            }}</span></span
+          >
+        </div>
+      </div>
+      <div>
+        <span
+          ><em>{{ 'menu_last_connection' | translate }}: </em> {{ information?.lastConnectionDate }}</span
+        >
+      </div>
+      <div>
+        <span
+          ><em>{{ 'menu_duration' | translate }}: </em> {{ information?.duration }}</span
+        >
+      </div>
+      <div class="mb-3">
+        <span
+          ><em>{{ 'menu_ip' | translate }}: </em> {{ information?.ip }}</span
+        >
+      </div>
+    </div>
+    <!-- Para BISV -->
+    <div class="d-lg-none navbar-detail span" [ngbCollapse]="isMenuInfoCollapsedBI" *ngIf="show">
+      <div class="row mt-2">
+        <div class="col-6 col-md-4 col-lg-4" style="padding-right: 0px">
+          <span *ngIf="buyAmount && this.profile === 'banpais'"
+            >{{ 'menu_buy_amount' | translate }}:
+            <span class="highlight">{{ this.currencySymbol | async }}.&nbsp;&nbsp;{{ buyAmount }}</span></span
+          >
+        </div>
+        <div class="col-6 col-md-8 col-lg-8" style="padding-left: 0px">
+          <span *ngIf="sellAmount && this.profile === 'banpais'"
+            >{{ 'menu_sell_amount' | translate }}:
+            <span class="highlight">{{ this.currencySymbol | async }}.&nbsp;&nbsp;{{ sellAmount }}</span></span
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-4 col-lg-4" style="padding-right: 0px">
+          <span
+            >{{ 'menu_user' | translate }}: <span class="highlight">{{ information?.username }}</span></span
+          >
+        </div>
+        <div class="col-6 col-md-8 col-lg-8" style="padding-left: 0px">
+          <span
+            >{{ 'welcome-header' | translate }}:
+            <span class="highlight" style="text-transform: capitalize">{{
+              information?.firstName + ' ' + information?.firstLastname
+            }}</span></span
+          >
+        </div>
+      </div>
+      <div>
+        <span
+          ><em>{{ 'menu_last_connection' | translate }}: </em> <span class="highlight">{{ information?.lastConnectionDate }}</span></span
+        >
+      </div>
+      <div>
+        <span
+          ><em>{{ 'menu_duration' | translate }}: </em> <span class="highlight">{{ information?.duration }}</span></span
+        >
+      </div>
+      <div class="mb-3">
+        <span
+          ><em>{{ 'menu_ip' | translate }}: </em> <span class="highlight">{{ information?.ip }}</span></span
+        >
+      </div>
+    </div>
+  </nav>
+
+  <nav
+    class="navbar navbar-expand-lg default"
+    [ngClass]="{ 'd-none d-lg-flex': !this.preLoggedGuard(), 'light-navbar': getUrlLogoPublic(), 'navbar-logout-logo': navbarLogoutLogo() }"
+    aria-labelledby="marco simple"
+  >
+    <a class="navbar-brand" (click)="imageNavigate()" [ngClass]="{ 'cursor-img': this.imageNavigateLogout }">
+      <img
+        alt="{{ profile }}_logo_{{ versionAssets }}"
+        [ngClass]="{ 'cursor-img': this.imageNavigateLogout }"
+        src="{{ getUrlLogoPublic() ? publicLogo : privateLogo }}"
+      />
+    </a>
+
+    <i
+      aria-hidden="true"
+      class="navbar-toggler icon banca-regional-menu"
+      (click)="isMenuCollapsed = !isMenuCollapsed"
+      *ngIf="!this.preLoggedGuard()"
+    ></i>
+
+    <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed" *ngIf="!this.preLoggedGuard()">
+      <ul class="navbar-nav">
+        <ul class="navbar-nav hover-menu">
+          <li *ngIf="showUpdateData" class="nav-item" (click)="goUpdateData()">
+            <i aria-hidden="true" class="icon icon-udp-1-add-document icono-menu"></i>
+            <a class="nav-link">{{ 'data_update' | translate }}</a>
+          </li>
+          <li class="nav-item" *ngIf="!handleRegionalConnection">
+            <a [href]="getUrlRegionalConnection" #regionalConnectionIcon target="_blank" (click)="validateNavigate()">
+                <i aria-hidden="true" class="banca-regional-conexion-regional"></i>
+                <a class="nav-link">{{ 'footer_links_regional_connection' | translate }}</a>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="handleRegionalConnection" (click)="executeRegionalConnection()">
+            <a target="_blank">
+              <i aria-hidden="true" class="banca-regional-conexion-regional"></i>
+              <a class="nav-link">{{ 'footer_links_regional_connection' | translate }}</a>
+            </a>
+          </li>
+          <li class="nav-item" (click)="goToHome()">
+            <i aria-hidden="true" class="banca-regional-banco"></i>
+            <a class="nav-link">{{ 'menu_my_accounts' | translate }}</a>
+          </li>
+          <li class="nav-item" (click)="goToTransfer()">
+            <i aria-hidden="true" class="banca-regional-transferencia"></i>
+            <a class="nav-link">{{ 'menu_transferences' | translate }}</a>
+          </li>
+          <li class="nav-item" (click)="goToUtilitiesPay()">
+            <i aria-hidden="true" class="banca-regional-pagos"></i>
+            <a class="nav-link">{{ 'menu_services_payments' | translate }}</a>
+          </li>
+          <li class="nav-item" (click)="goToSTokenMigrate()" *ngIf="showIconSToken" >
+            <i aria-hidden="true" class="icon-soft-token-contrasenas"></i>
+            <a class="nav-link">{{ 'Soft Token' | translate }}</a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </nav>
+
+  <div ngxSticky classWhenSticky="my-sticky-class" [triggerOn]="'text-content'" [scrollContainer]="scContainer">
+    <byte-menu [receiverMenu]="this.menu" *ngIf="!this.preLoggedGuard()" (logoutEvent)="logout()"></byte-menu>
+  </div>
+
+  <ngx-spinner name="main-spinner-logout" [template]="gifLogout" bdColor="#fbfbfb"
+    ><h1 class="spinner-text text-center" *ngIf="profile == 'banpais'">{{ 'close_session_message' | translate }}</h1></ngx-spinner
+  >
+  <ngx-spinner name="main-spinner" [template]="gif" bdColor="#fbfbfb"></ngx-spinner>
+
+  <div *ngIf="timeoutLogout">
+    <iframe title="embedder logout" hidden id="frame" [src]="logoutUrl" class="frame">
+      <p>Iframe no soportado.</p>
+    </iframe>
+  </div>
+
+  <div [ngClass]="{'tester1':softToken(), 'text-content':!softToken()}">
+    <router-outlet></router-outlet>
+  </div>
+
+  <byte-footer *ngIf="!this.preLoggedGuard()" [settings]="settings"></byte-footer>
+</div>
+<adf-snack-bar></adf-snack-bar>

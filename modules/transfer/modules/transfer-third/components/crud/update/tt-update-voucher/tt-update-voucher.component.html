@@ -1,0 +1,13 @@
+<div [ngClass]="[customShow, 'container-own-transfer byte-container transfers']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert"
+             [receiverMessage]="messageAlert | translate"></adf-alert>
+
+  <adf-reading [ngClass]="['transfer-reading', classNameReadings]" [data]="voucherLayout"></adf-reading>
+  <byte-favorites [isFavorite]="isFavorite" [account]="accountToSendFavorite"
+                  (changeInfo)="changeInfoAndShowAlert($event)"></byte-favorites>
+
+  <div [ngClass]="['byte-container__button', classNameButtons]">
+    <adf-button id="prev" class="secondary" [type]="typePrevButton" value="{{ 'toReturn' | translate }}"
+                (click)="prevStep()"></adf-button>
+  </div>
+</div>

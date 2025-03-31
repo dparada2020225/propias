@@ -1,0 +1,28 @@
+{
+  "date": "11032023000000",
+  "credits": 3,
+  "amount": "1000.00",
+  "registers": [
+    {
+      "account": "11032023000000",
+      "name": "CRUZ ROMERO ALEJANDRO NATALY",
+      "status": "error",
+      "email": "correo@ejemplo.com",
+      "amount": "1000.00"
+    },
+    {
+      "account": "11032023000001",
+      "name": "CRUZ ROMERO ALEJANDRO NATALY",
+      "status": "active",
+      "email": "correo@ejemplo.com",
+      "amount": "1000.00"
+    },
+    {
+      "account": "11032023000001",
+      "name": "CRUZ ROMERO ALEJANDRO NATALY",
+      "status": "active",
+      "email": "correo@ejemplo.com",
+      "amount": "1000.00"
+    }
+  ]
+}

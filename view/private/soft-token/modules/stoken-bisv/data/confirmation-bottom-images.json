@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "name" : "inferior-mobile",
+      "path" : "assets/images/private/stkn-bisv/banco-salida.png",
+      "idName" : "IMobile"
+    },
+    {
+      "id": 2,
+      "name" : "inferior-tablet",
+      "path" : "assets/images/private/stkn-bisv/banco-salida.png",
+      "idName" : "ITablet"
+    },
+    {
+      "id": 3,
+      "name" : "inferior-web",
+      "path" : "assets/images/private/stkn-bisv/banco-salida.png",
+      "idName" : "IWeb"
+    }
+  ]
+  

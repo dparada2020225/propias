@@ -1,0 +1,32 @@
+.wrap {
+  width: 80%;
+  height: 75vh;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.frame {
+  overflow: scroll !important;
+  width: 80%;
+  height: 60vh;
+  border: 0;
+  padding-bottom: 20px;
+
+  //  -ms-zoom: var(--embedded-ms-zoom);
+  -ms-transform: var(--embedded-scale);
+  -moz-transform: var(--embedded-scale);
+  -o-transform: var(--embedded-scale);
+  -webkit-transform: var(--embedded-scale);
+  transform: var(--embedded-scale);
+
+  -ms-transform-origin: center 0;
+  -moz-transform-origin: center 0;
+  -o-transform-origin: center 0;
+  -webkit-transform-origin: center 0;
+  transform-origin: center 0;
+}
+
+

@@ -1,0 +1,12 @@
+<article [ngClass]='[customShow, "byte-container", "spp-container confirmation_pp"]'>
+  <adf-alert *ngIf='message && typeMessage' [receiverType]='typeMessage' [receiverMessage]='message'></adf-alert>
+  <adf-reading [data]='voucherLayout'></adf-reading>
+  <div class='confirm-payment-content'>
+    <hr/>
+    <adf-table [structure]='tableLayout' [isScrolled]='true'></adf-table>
+  </div>
+  <div class='payroll-buttons-container payment-home'>
+    <adf-button data-testid="next" [value]='"t.confirm" | translate' (click)='next()'></adf-button>
+    <adf-button data-testid="return" type='secondary' [value]='"btn.back" | translate' (click)='previous()' ></adf-button>
+  </div>
+</article>

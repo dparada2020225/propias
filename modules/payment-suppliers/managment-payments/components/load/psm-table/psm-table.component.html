@@ -1,0 +1,99 @@
+<div role='table' *ngIf='!isMobile'>
+  <div [ngClass]='[gridClassName, "payroll-headers"]' role='rowgroup'>
+    <div class='header-column' role='row' *ngFor='let header of tableHeaderList'>
+      <div role='columnheader'>
+        <div class='payroll-widget' *ngIf='!header.label && header.icon'>
+          <span class='payroll-tooltip'> {{ 'action.grid.delete' | translate }} </span>
+          <i [ngClass]='[header.icon]' (click)='deleteRegisters()'></i>
+        </div>
+        <span *ngIf='header.label'> {{ header.label | translate }} </span>
+      </div>
+    </div>
+  </div>
+  <div class='payroll-body' role='rowgroup'>
+    <div [ngClass]='[gridClassName, "payroll-rowgroup"]'  role='row' *ngFor='let register of registers; let i = index'>
+      <div role='cell' *ngFor='let header of tableHeaderList'>
+        <ng-container *ngIf='header.name === "check"'>
+          <adf-checkbox
+          [ngClass]="{'checkbox-disabled': !isSelectedEnabled}" 
+          [checkedState]='register["isChecked"]'
+            [type]='checkType'
+            (onChecked)="onCheckChange($event, register, i)"
+            >
+          </adf-checkbox>
+        </ng-container>
+        <span [ngClass]='[header.name]' *ngIf='register[header.name]'> {{ register[header.name] }} </span>
+      </div>
+    </div>
+  </div>
+
+  <div class='table-footer' role='rowgroup'>
+    <div class='payroll-table__amount'>
+      <span> {{ 'payroll:total-amount' | translate }} </span>
+      <span class='value'> {{ totalAmount }} </span>
+    </div>
+    <div class='payroll-table__registers'>
+      <span> {{ 'payroll:table:label_quantity' | translate  }} </span>
+      <span class='value'> {{ registersQuantity }} </span>
+    </div>
+  </div>
+</div>
+
+<div *ngIf='isMobile'>
+  <div class='payroll-table__mobile-headers' role='rowgroup' *ngIf='isSelectedEnabled'>
+    <span> {{ 'action.grid.delete' | translate }} </span>
+    <i (click)='deleteRegisters()' [ngClass]='["sprint2-icon-trash"]'></i>
+  </div>
+  <div role='rowgroup'>
+    <div [ngClass]='[gridClassName, stylesColorResponsive, !isMobileTwo ? "payroll-table__tablet-item payroll-table__tablet-checkbox" : "payroll-table__mobile-item"]'  role='row' *ngFor='let register of registers; let i = index'>
+      <div [ngClass]='[header.name, "mobile-cell"]'  *ngFor='let header of tableHeaderList' role='cell'>
+        <ng-container *ngIf='header.name === "check" && isSelectedEnabled'>
+          <span> {{ 'label:select' | translate }} </span>
+          <adf-checkbox
+            [ngClass]="{'checkbox-disabled': !isSelectedEnabled}" 
+            [checkedState]='register["isChecked"]'
+            [type]='checkType'
+            (onChecked)="onCheckChange($event, register, i)">
+          </adf-checkbox>
+        </ng-container>
+        <ng-container>
+          <span class='table-label' *ngIf='header.label'> {{ header.label | translate }} </span>
+          <span class='table-value' [ngClass]='[header.name]' *ngIf='register[header.name]'> {{ register[header.name] }} </span>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <ng-container #footers>
+    <div class='table-footer' role='rowgroup' *ngIf='!isMobileTwo; else footer_mobile'>
+      <div class='payroll-table__amount'>
+        <span> {{ 'payroll:total-amount' | translate }} </span>
+        <span class='value'> {{ totalAmount }} </span>
+      </div>
+      <div class='payroll-table__registers'>
+        <span> {{ 'payroll:table:label_quantity' | translate }} </span>
+        <span class='value'> {{ registersQuantity }} </span>
+      </div>
+    </div>
+
+    <ng-template #footer_mobile>
+      <div class='payroll-table__mobile-footer'>
+        <div  class='box-value quantity'>
+          <span class='table-footer-label'> {{ 'total-amount' | translate }} </span>
+          <span>{{ currency }} {{rawTotalAmount}}</span>
+        </div>
+       
+        <div class='box-value amount'>
+      <span>
+        <span> {{ 'table:label_quantity' | translate }} </span>
+        <span>  </span>
+      </span>
+          <span class='value'> {{ registersQuantity }} </span>
+        </div>
+        <div class='box-value quantity'>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+
+</div>

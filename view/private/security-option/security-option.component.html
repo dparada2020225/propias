@@ -1,0 +1,63 @@
+<ng-container *ngIf='isShowMainScreen'>
+  <byte-sp-home-dashboard [isAllowedShowLimits]="validateIsShowMainScreen" (hiddenMainScreen)='getValueFromHomeMainScreen($event)' ></byte-sp-home-dashboard>
+</ng-container>
+
+<ng-container *ngIf='!isShowMainScreen'>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="row" >
+        <div class="col-lg-1"></div>
+        <div class="col-lg-9">
+          <div class="left-sector">
+            <div class="text-title" [ngClass]="{'title-corporate': corporateImageApplication()}">
+              {{'my_security_options'| translate}}
+              <i aria-hidden="true" class="icon banca-regional-pregunta icon-tablet" style="font-size: 19px;" (click)="openModal()"></i>
+            </div>
+            <div class="example-button-row button-password">
+              <button data-testid="changePassword" mat-flat-button class="button-tab text-button nav-item button-mobile" *ngIf="this.configurationType == 2 || this.configurationType == 3"
+                      (click)="changeTab('changePassword')" [ngClass]="{'active': this.tab === 'changePassword', 'text-button-corporate': corporateImageApplication()}">
+                <i aria-hidden="true" class="banca-regional-contrasenas icon-size" style="font-size: 27px;padding-right: 15px;"></i>
+                {{'sp.password'| translate}}
+              </button>
+            </div>
+            <div class="example-button-row" style="margin-top: 19px;">
+              <button data-testid="passwordPeriod" mat-flat-button class="button-tab text-button button-mobile" *ngIf="this.configurationType == 1 || this.configurationType == 3"
+                      (click)="changeTab('passwordPeriod')" [ngClass]="{'active': this.tab === 'passwordPeriod', 'text-button-corporate': corporateImageApplication()}">
+                <i aria-hidden="true" class="icon banca-regional-periodo-contrasena" style="font-size: 28px; padding-right: 10px;"></i>
+                {{'password_periods'| translate}}
+              </button>
+            </div>
+            <div class="example-button-row" style="margin-top: 19px;">
+              <button data-testid="personalInfo" mat-flat-button class="button-tab text-button nav-item button-mobile" *ngIf="this.configurationType == 1 || this.configurationType == 3"
+                      (click)="changeTab('personalInfo')" [ngClass]="{'active': this.tab === 'personalInfo', 'text-button-corporate': corporateImageApplication()}">
+                <i aria-hidden="true" class="banca-regional-informacion-personal icon-size" style="font-size: 27px;padding-right: 15px;"></i>
+                {{'personal_information'| translate}}
+              </button>
+            </div>
+            <div *ngIf="showUpdateData" class="example-button-row" style="margin-top: 19px;">
+              <button data-testid="updateData" mat-flat-button class="button-tab text-button nav-item button-mobile" *ngIf="this.configurationType == 1 || this.configurationType == 3"
+                      (click)="goUpdateData()" [ngClass]="{'active': this.tab === 'updateData', 'text-button-corporate': corporateImageApplication()}">
+                <i aria-hidden="true" class="icon-udp-1-add-document icon-size" style="font-size: 27px;padding-right: 15px;"></i>
+                {{'data_update'| translate}}
+              </button>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="separator"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+        <byte-change-password *ngIf="this.tab === 'changePassword'">
+        </byte-change-password>
+        <byte-password-period [configurationType]="this.configurationType" [passwordPeriod]="this.passwordPeriod" [profile]="this.profile" (changeTab)="this.changeTab($event)" (newperiodCode)="onDataUpdate($event)" *ngIf="this.tab === 'passwordPeriod'">
+        </byte-password-period>
+        <byte-personal-information [configurationType]="this.configurationType" [passwordPeriod]="this.passwordPeriod"  [phoneCompanies]="this.phoneCompanies" [profile]="this.profile" (dataUpdate)="onDataUpdate($event)" *ngIf="this.tab === 'personalInfo'">
+        </byte-personal-information>
+    </div>
+  </div>
+
+</ng-container>
+

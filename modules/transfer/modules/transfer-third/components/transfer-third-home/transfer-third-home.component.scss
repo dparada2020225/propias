@@ -1,0 +1,99 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.filter-buttons {
+  border-block-end: 0;
+  border-block-start: 1px solid var(--light-text-three);
+  padding-block: 40px 30px;
+
+  @media only screen and (max-width: 834px) {
+    border-top: 0 !important;
+    border-bottom: 1px solid var(--light-text-three) !important;
+    padding: 0 0 2rem !important;
+  }
+}
+
+.table-contents {
+  @include from(x) {
+    padding-inline-start: 6.25rem;
+  }
+}
+
+
+::ng-deep.third .content {
+  padding-block: 0 !important;
+  margin-block-start: calc(40px - 24px);
+  padding-block-end: calc(40px - 1px);
+}
+
+
+::ng-deep adf-reading {
+  .icon-check.checkbox:checked + .icon-widget {
+    background-color: unset !important;
+  }
+
+  .icon-check.checkbox:checked + label::before {
+    color: var(--primary-color);
+  }
+
+  .widget-content,
+  .widget-content label {
+    cursor: pointer;
+  }
+
+  .is_favorite {
+    label::before {
+      color: var(--primary-color);
+    }
+
+    .icon-check.checkbox:checked + label::before {
+      background-color: transparent !important;
+      color: rgb(155, 155, 155) !important;
+    }
+
+    .icon-widget:checked {
+      background-color: transparent !important;
+      color: transparent !important;
+    }
+  }
+}
+
+::ng-deep.byte-container__button.filter-buttons {
+  align-items: flex-end;
+
+  adf-button#add {
+    inline-size: 100%;
+  }
+
+  @include from(m) {
+    adf-button#add {
+      inline-size: 15rem;
+    }
+  }
+
+  @include from(768px) {
+    justify-content: flex-end;
+  }
+}
+
+
+.third-container {
+  .table_line {
+    border-color: var(--light-text-three);
+    margin: 40px 0;
+  }
+}
+
+
+::ng-deep.third-container {
+  adf-table {
+    .table-body-row__mobile td.currency span {
+      color: #fff;
+    }
+
+    .table-body-row__mobile td.account {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
+

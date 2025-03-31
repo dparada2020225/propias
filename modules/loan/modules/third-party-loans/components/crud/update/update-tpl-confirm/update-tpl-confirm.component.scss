@@ -1,0 +1,8 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+::ng-deep.list-data {
+  @include from(m) {
+    display: grid !important;
+    grid-template-columns: 200px 200px !important;
+  }
+}

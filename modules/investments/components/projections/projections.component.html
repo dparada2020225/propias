@@ -1,0 +1,225 @@
+<div class="container-fluid container-private">
+  <div class="sub-container">
+
+    <h1 class="title">{{ 'projections.label.investment' | translate }}</h1>
+    <h2 class="subtitle">{{ 'projections.label.projections' | translate}}</h2>
+
+    <hr />
+
+    <div class="general-info">
+      <div class="row">
+        <div class="col-12">
+          <h2>{{'projections.label.account.detail' | translate}}</h2>
+          <hr />
+        </div>
+        <div class="col-12">
+          <div class="selector">
+            <account-selector [entryType]="entryType" [product]="product" [service]="service"
+                              [returnOriginal]="true" [control]="accountControl" [account]="account"
+                              (onChangeAccount)="onChangeAccount($event)">
+            </account-selector>
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngIf="!isLoading && !empty">
+        <div class="row">
+          <div class="col-12 display" *ngFor="let data of information.accountDetail?.toList">
+            <label class="key">{{ 'projections.label.' + data.key | translate}}</label>
+            <span class="value">{{data.value | translate}}</span>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="row">
+        <div class="col-12" *ngIf="!isLoading && empty">
+          <adf-alert [receiverType]="'warning'" [receiverMessage]="'projections.label.account-no-information'">
+          </adf-alert>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <hr />
+      </div>
+
+      <ng-container *ngIf="!isLoading && !empty">
+        <div class="col-12 options">
+          <h4>{{'label.statements.export' | translate}}</h4>
+          <i  aria-hidden="true" (click)="exportAs('csv')" class="icon banca-regional-csv"></i>
+          <i  aria-hidden="true" (click)="exportAs('xlsx')" class="icon banca-regional-xls"></i>
+          <a (click)="exportAs('pdf')"><i  aria-hidden="true" class="icon banca-regional-printer"></i></a>
+        </div>
+
+        <div class="col-12">
+          <h2>{{ 'projections.label.projections-detail' | translate}}</h2>
+        </div>
+
+        <!-- information mobile -->
+        <div class="col-12 d-lg-none" *ngIf="isMobile">
+          <table aria-describedby="table1" class="table custom-table">
+            <ng-container *ngFor="let detail of information?.movements; let index = index">
+              <thead>
+              <tr>
+                <th id="payment-date" class="text-uppercase">{{'projections.label.payment-date' | translate}}
+                </th>
+                <th id="date" class="text-uppercase">{{detail.date}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="payment-date" class="text-uppercase">{{'projections.label.days' | translate}}</td>
+                <td headers="date" class="text-uppercase">{{detail.days | customNumber: '1.0'}}</td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="payment-date" class="text-uppercase">{{'projections.label.interest-amount' | translate}}</td>
+                <td headers="date" class="text-uppercase amount">{{detail.currency}} <span>{{detail.interest |
+                  customNumber}}</span>
+                </td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="payment-date" class="text-uppercase">{{'projections.label.isr-amount' | translate}}</td>
+                <td headers="date" class="text-uppercase amount">{{detail.currency}} <span>{{detail.isr |
+                  customNumber}}</span>
+                </td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="payment-date" class="text-uppercase">{{'projections.label.net-amount' | translate}}</td>
+                <td headers="date" class="text-uppercase amount">{{detail.currency}} <span>{{detail.netInterest |
+                  customNumber}}</span>
+                </td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="payment-date" class="text-uppercase">{{'projections.label.total-amount' | translate}}</td>
+                <td headers="date" class="text-uppercase amount">{{detail.currency}} <span>{{detail.accumulated |
+                  customNumber}}</span></td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="payment-date" class="text-uppercase">{{'projections.label.status' | translate}}</td>
+                <td headers="date" style="text-transform: capitalize;">{{'projections.label.account.status.' + detail.status | translate}}</td>
+              </tr>
+              </tbody>
+            </ng-container>
+          </table>
+        </div>
+        <!-- information default -->
+        <div class="col-12 mb-3 d-none d-lg-block" *ngIf="!isMobile">
+          <table aria-describedby="table2" class="table custom-table table-striped">
+            <thead>
+            <tr>
+              <th id="payment-date-default" class="text-uppercase">{{'projections.label.payment-date' | translate}}</th>
+              <th id="days" class="text-uppercase">{{'projections.label.days' | translate}}</th>
+              <th id="interest-amount" class="text-uppercase">{{'projections.label.interest-amount' | translate}}</th>
+              <th id="isr-amount" class="text-uppercase">{{'projections.label.isr-amount' | translate}}</th>
+              <th id="net-amount" class="text-uppercase">{{'projections.label.net-amount' | translate}}</th>
+              <th id="total-amount" class="text-uppercase">{{'projections.label.total-amount' | translate}}</th>
+              <th id="status" class="text-uppercase">{{'projections.label.status' | translate}}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let detail of information?.movements">
+              <td class="text-uppercase">
+                {{detail.date}}
+              </td>
+              <td headers="days" class="text-uppercase">{{detail.days | customNumber: '1.0'}}</td>
+              <td headers="interest-amount" class="text-uppercase amount">{{detail.currency}} <span>{{detail.interest |
+                customNumber}}</span></td>
+              <td headers="isr-amount" class="text-uppercase amount">{{detail.currency}} <span>{{detail.isr |
+                customNumber}}</span></td>
+              <td headers="net-amount" class="text-uppercase amount">{{detail.currency}} <span>{{detail.netInterest |
+                customNumber}}</span></td>
+              <td headers="total-amount" class="text-uppercase amount">{{detail.currency}} <span>{{detail.accumulated |
+                customNumber}}</span></td>
+              <td headers="status" style="text-transform: capitalize;">{{'projections.label.account.status.' + detail.status | translate}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-12">
+          <h2>{{ 'projections.label.total-summary' | translate}}</h2>
+        </div>
+
+        <!-- summary mobile -->
+        <div class="col-12 d-lg-none" *ngIf="isMobile">
+          <table aria-describedby="table3" class="table custom-table">
+            <thead>
+            <tr>
+              <th id="days-mobile2" class="text-uppercase">{{'projections.label.days' | translate}}
+              </th>
+              <th id="total-days" class="text-uppercase">
+                {{information.total?.days | customNumber: '1.0'}}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="even">
+              <td class="text-uppercase">{{'projections.label.interest-amount' | translate}}</td>
+              <td headers="total-days" class="text-uppercase amount">{{information.total?.currency}}
+                {{information.total?.interest |
+                  customNumber}}</td>
+            </tr>
+            <tr class="even">
+              <td  class="text-uppercase">{{'projections.label.isr-amount' | translate}}</td>
+              <td headers="total-days" class="text-uppercase amount">{{information.total?.currency}}
+                {{information.total?.isr | customNumber}}
+              </td>
+            </tr>
+            <tr class="even">
+              <td  class="text-uppercase">{{'projections.label.net-amount' | translate}}</td>
+              <td headers="total-days" class="text-uppercase amount">{{information.total?.currency}}
+                {{information.total?.net | customNumber}}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- summary default -->
+        <div class="col-12 mb-3 d-none d-lg-block" *ngIf="!isMobile">
+          <table aria-describedby="table4" class="table custom-table table-striped">
+            <thead>
+            <tr>
+              <th id="days-mobile" class="text-uppercase">{{'projections.label.days' | translate}}</th>
+              <th id="interest-amount-mobile" class="text-uppercase">{{'projections.label.interest-amount' | translate}}</th>
+              <th id="isr-amount-mobile" class="text-uppercase">{{'projections.label.isr-amount' | translate}}</th>
+              <th id="net-amount-mobile" class="text-uppercase">{{'projections.label.net-amount' | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td  class="text-uppercase">{{information.total?.days | customNumber: '1.0'}}</td>
+              <td  class="text-uppercase amount">{{information.total?.currency}}
+                <span>{{information.total?.interest |
+                  customNumber}}</span>
+              </td>
+              <td  class="text-uppercase amount">{{information.total?.currency}}
+                <span>{{information.total?.isr |
+                  customNumber}}</span>
+              </td>
+              <td  class="text-uppercase amount">{{information.total?.currency}}
+                <span>{{information.total?.netInterest |
+                  customNumber}}</span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-12">
+          <hr />
+        </div>
+      </ng-container>
+
+      <div class="col-12 buttons" [ngClass]="{'mt-3': empty}">
+        <adf-button [value]="'btn.back' | translate" type="secondary" (onClick)="goBack()"></adf-button>
+      </div>
+      <div class="col-12">
+        <byte-transaction-footer [id]="information?.reference"></byte-transaction-footer>
+      </div>
+    </div>
+
+  </div>
+</div>

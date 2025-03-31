@@ -1,0 +1,77 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.sp-title {
+  border-bottom: 1px solid #5a5a5a;
+  line-height: 2 !important;
+}
+
+.sp-item {
+  display: flex;
+  flex-direction: column;
+
+  i {
+    font-size: 5rem;
+    font-weight: bold;
+    align-self: center;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #5a5a5a;
+    line-height: 2.5;
+    margin-top: 12px;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.sp-content {
+  i, h3 {
+    color: var(--default-background-color);
+  }
+  @include from(m) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "sp-home-description sp-home-description"
+  "admon limit";
+    padding: 0 50px;
+    margin-top: 2rem;
+    column-gap: 50px;
+  }
+
+  @include from(x) {
+    column-gap: 50px;
+    padding: 0 200px;
+  }
+}
+
+.admon {
+  grid-area: admon;
+}
+
+.limit {
+  grid-area: limit;
+  margin-top: 2.5rem;
+
+  @include from(m) {
+    margin: 0;
+  }
+}
+
+.sp-home-description {
+  grid-area: sp-home-description;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+::ng-deep.sp-item {
+  adf-button button {
+    width: 100% !important;
+    margin: 0;
+  }
+}

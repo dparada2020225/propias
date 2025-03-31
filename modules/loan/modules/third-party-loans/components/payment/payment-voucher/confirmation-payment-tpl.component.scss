@@ -1,0 +1,65 @@
+@use '../../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.title-confirmation {
+  .input-form-layout {
+    gap: 0 !important;
+  }
+}
+
+::ng-deep.distance-input {
+  .input-form-layout {
+    margin-block-end: 1.5rem;
+  }
+}
+
+//title input disabled
+::ng-deep.disabled-title {
+  .input-title {
+    display: none !important;
+    @include from(692px) {
+      display: block !important;
+      visibility: hidden;
+    }
+  }
+}
+
+::ng-deep.confirmPayment {
+  .container-form {
+    border-top: none !important;
+    margin-top: 0 !important;
+  }
+  .container-form,
+  .grid-container {
+    padding-top: 0 !important;
+  }
+  .content-fields {
+    padding-bottom: 0 !important;
+  }
+}
+
+::ng-deep.text-color-tpl adf-input {
+  input:-webkit-autofill {
+    -webkit-text-fill-color: var(--primary-color) !important;
+  }
+}
+
+::ng-deep.confirmPayment adf-reading {
+  .confirmation_payment .row {
+    display: grid;
+    @include from(x) {
+      display: flex;
+    }
+  }
+}
+
+::ng-deep.tpl-payment-confirm adf-form-layout {
+  adf-textarea  {
+    div.error>div {
+      padding: 5px 10px;
+    }
+
+    .error {
+      bottom: -3px;
+    }
+  }
+}

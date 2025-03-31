@@ -1,0 +1,33 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+::ng-deep.confirmReading adf-reading {
+  .padding-side {
+    @include from(m) {
+      .field-item {
+        padding-right: 24px;
+      }
+    }
+  }
+}
+
+
+::ng-deep.consulting-box{
+  .button-divider{
+    border-block-start: none;
+    padding-block-start: 0;
+    border-block-end: 1px solid var(--light-text-three);
+    padding-block-end: 1.875rem;
+    padding-bottom: 39px;
+    @include from(m){
+      padding-bottom: 40px;
+    }
+  }
+
+
+}
+
+::ng-deep.consulting-box adf-confirmation-headband {
+  .headband{
+    padding-top: 40px !important;
+  }
+}

@@ -1,0 +1,306 @@
+<ngx-spinner></ngx-spinner>
+<div class="container-fluid container-private">
+    <div class="sub-container">
+
+        <h1 class="title">{{title | translate}}</h1>
+        <h2 class="subtitle" *ngIf="filters?.type === 'day'">{{ 'label.statements.title-by-day' | translate}}</h2>
+        <h2 class="subtitle" *ngIf="filters?.type === 'month'">{{'label.statements.title-by-month' | translate}}:
+            <span>{{filters?.filtersValueInView | titlecase}}</span>
+        </h2>
+        <h2 class="subtitle" *ngIf="filters?.type === 'custom'">{{ 'label.statements' | translate}}: <span>
+                {{filters?.filtersValueInView }}</span></h2>
+
+        <hr />
+
+        <div class="general-info" *ngIf="!!information">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.account' | translate}}</label>
+                            <span class="value">{{information?.alias}}</span>
+                        </div>
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.account-number' | translate}}</label>
+                            <span class="value">{{information?.account}}</span>
+                        </div>
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.product' | translate}}</label>
+                            <span class="value">{{information?.product}}</span>
+                        </div>
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.currency' | translate}}</label>
+                            <span class="value">{{information?.currency}}</span>
+                        </div>
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.account-name' | translate }}</label>
+                            <span class="value">{{information?.accountName}}</span>
+                        </div>
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.start-date' | translate }}</label>
+                            <span class="value">{{information?.initialDate}}</span>
+                        </div>
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.final-date' | translate }}</label>
+                            <span class="value">{{information?.finalDate}}</span>
+                        </div>
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.start-balance' | translate }}</label>
+                            <span class="value">{{information?.initialBalance | customNumber}}</span>
+                        </div>
+                        <div class="col-12">
+                            <label class="key">{{ 'label.statements.final-balance' | translate }}</label>
+                            <span class="value">{{information?.finalBalance | customNumber}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class=" form-group-search">
+                        <div class="form-group">
+                            <adf-select [label]="'label.statements.searching' | translate" [options]="options"
+                                (onChangeValue)="onChangeSearch($event)" [(ngModel)]="search"></adf-select>
+                        </div>
+
+                        <div *ngIf="search === 'transaction'">
+                            <div class="form-group">
+                                <adf-select [options]="transactionsInOperations" [(ngModel)]="transaction"></adf-select>
+                            </div>
+                        </div>
+
+                        <div *ngIf="search === 'reference'">
+                            <div class="form-group">
+                                <adf-input [type]="typeText" [(ngModel)]="reference"
+                                    [placeholder]="'label.statements.search-for' | translate"
+                                    [imaskOptions]="imaskOptionsForReference"></adf-input>
+                            </div>
+                        </div>
+
+                        <div *ngIf="search === 'value'">
+                            <div class="form-group">
+                                <adf-select [options]="values" [(ngModel)]="valueOption"></adf-select>
+                            </div>
+                            <div class="form-group">
+                                <adf-input [type]="typeText" [(ngModel)]="valueSearch" [imaskOptions]="imaskOptionsForValue"
+                                    [placeholder]="'label.statements.search-for' | translate"></adf-input>
+                            </div>
+                        </div>
+
+                        <div *ngIf=" search !== 'default'">
+                            <adf-button [value]="'btn.search' | translate"
+                                (onClick)="filter()"></adf-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr *ngIf="!!information" />
+
+        <div class="row">
+            <div class="col-12 options text-right" *ngIf="!emptyResult">
+                <h4>{{'label.statements.export' | translate}}</h4>
+                <i  aria-hidden="true" (click)="exportAs('csv')" class="icon icon-corporate banca-regional-csv"></i>
+                <i  aria-hidden="true" (click)="exportAs('xlsx')" class="icon icon-corporate banca-regional-xls"></i>
+                <a (click)="exportAs('pdf')"><i  aria-hidden="true" class="icon icon-corporate banca-regional-printer"></i></a>
+            </div>
+
+
+            <!-- CUANDO NO HAY MOVIMIENTOS -->
+            <div class="col-12 options text-right" *ngIf="emptyResult && profile === 'bipa'">
+                <h4>{{'label.statements.export' | translate}}</h4>
+                <a (click)="exportAs('pdf')"><i  aria-hidden="true" class="icon banca-regional-printer"></i></a>
+            </div>
+
+            <div class="col-12 mb-1 d-none d-lg-block" *ngIf="emptyResult && profile === 'bipa'">
+                <table aria-describedby="table1" class="table custom-table table-striped">
+                    <thead>
+                        <tr>
+                            <th id="REF" class="text-uppercase">REF</th>
+                            <th id="operation-date" class="text-uppercase">{{'label.statements.operation-date' | translate}}</th>
+                            <th id="transaction" class="text-uppercase">{{'label.statements.transaction' | translate}}</th>
+                            <th id="description" class="text-uppercase">{{'label.statements.description' | translate}}</th>
+                            <th id="debit" class="text-uppercase">{{'label.statements.debit' | translate}}</th>
+                            <th id="credit" class="text-uppercase">{{'label.statements.credit' | translate}}</th>
+                            <th id="balance" class="text-uppercase">{{'label.statements.balance' | translate}}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <ng-container *ngIf="emptyResult">
+                <div class="col-12" *ngIf="filters?.type !== 'custom'">
+                    <adf-alert [receiverType]="'warning'"
+                        [receiverMessage]="'label.statements.account-no-records' | translate">
+                    </adf-alert>
+                </div>
+                <div class="col-12" *ngIf="filters?.type === 'custom'">
+                    <adf-alert [receiverType]="'warning'"
+                        [receiverMessage]="'label.statements.account-no-records-custom' | translate">
+                    </adf-alert>
+                </div>
+            </ng-container>
+
+            <div class="col-12 d-none mt-5 d-lg-block" *ngIf="emptyResult  && profile === 'bipa'">
+                <h2 class="subtitle">{{'transaction-summary' | translate}}</h2>
+                <table aria-describedby="table2" class="table custom-table table-striped">
+                    <thead>
+                        <tr>
+                            <th id="description1" class="text-uppercase">{{'label.statements.description' | translate}}</th>
+                            <th id="short" class="text-uppercase">{{'label.statements.transactions-amount.short' | translate}}
+                            </th>
+                            <th id="amount" class="text-uppercase">{{'label.statements.amount' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let amount of amounts | keyvalue">
+                            <td>{{amount.value.description | translate}}</td>
+                            <td headers="short" >{{amount.value.transactionAmount}}</td>
+                            <td headers="amount" class="amount">{{amount.value.amount | customNumber }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FIN DE - CUANDO NO HAY MOVIMIENTOS -->
+
+
+
+            <ng-container *ngIf="!emptyResult">
+                <!-- detail mobile -->
+                <div class="col-12 d-lg-none">
+                    <table aria-describedby="table3" class="table custom-table">
+                        <ng-container *ngFor="let operation of operations; let index = index">
+                            <thead>
+                                <tr>
+                                    <th id="ref-ref" class="text-uppercase">REF</th>
+                                    <th id="operation-ref" class="text-uppercase">
+                                        <a (click)="openDetail(operation)"
+                                            *ngIf="!operation.disabledDetails">{{operation.ref}}</a>
+                                        <span *ngIf="operation.disabledDetails">{{operation.ref}}</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                  <td id="ref-bisv" class="text-uppercase" *ngIf="this.profile !== 'bisv'">{{'label.statements.operation-date' | translate}}</td>
+                                  <td id="ref-all" class="text-uppercase" *ngIf="this.profile === 'bisv'">{{'label.statements.operation-date-time' | translate}}</td>
+                                  <td id="operation-ref-date" class="text-uppercase">{{operation.dateTime}}</td>
+                                </tr>
+                                <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                    <td id="ref-label2" class="text-uppercase">{{'label.statements.transaction' | translate}}</td>
+                                    <td id="operation-ref-transaction" class="text-uppercase">{{operation.transaction}}</td>
+                                </tr>
+                                <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                    <td id="ref-label3" class="text-uppercase">{{'label.statements.description' | translate}}</td>
+                                    <td id="operation-ref-datPrint" class="text-uppercase">{{operation.descToPrint}}</td>
+                                </tr>
+                                <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                    <td id="ref-label4" class="text-uppercase">{{'label.statements.debit' | translate}}</td>
+                                    <td id="operation-ref-debit" class="text-uppercase">{{operation.debit | customNumber }}</td>
+                                </tr>
+                                <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                    <td id="ref-label5" class="text-uppercase">{{'label.statements.credit' | translate}}</td>
+                                    <td id="operation-ref-credit" class="text-uppercase amount">{{operation.credit | customNumber }}</td>
+                                </tr>
+                                <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                    <td id="ref-label6" class="text-uppercase">{{'label.statements.balance' | translate}}</td>
+                                    <td id="operation-ref-balance" class="text-uppercase amount">{{operation.balance | customNumber }}</td>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                    </table>
+                </div>
+                <!-- detail default -->
+                <div class="col-12 mb-3 d-none d-lg-block">
+                    <table aria-describedby="table4" class="table custom-table table-striped">
+                        <thead>
+                            <tr>
+                                <th id="ref-default" class="text-uppercase">REF</th>
+                                <th id="operation-date-default" class="text-uppercase" *ngIf="this.profile !== 'bisv'">{{'label.statements.operation-date' | translate}}</th>
+                                <th id="operation-date-default2" class="text-uppercase" *ngIf="this.profile === 'bisv'">{{'label.statements.operation-date-time' | translate}}</th>
+                                <th id="transaction-default" class="text-uppercase">{{'label.statements.transaction' | translate}}</th>
+                                <th id="description-default3" class="text-uppercase">{{'label.statements.description' | translate}}</th>
+                                <th id="debit-default" class="text-uppercase">{{'label.statements.debit' | translate}}</th>
+                                <th id="credit-default" class="text-uppercase">{{'label.statements.credit' | translate}}</th>
+                                <th id="balance-default" class="text-uppercase">{{'label.statements.balance' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let operation of operations">
+                                <td class="text-uppercase">
+                                    <a (click)="openDetail(operation)"
+                                        *ngIf="!operation.disabledDetails">{{operation.ref}}</a>
+                                    <span *ngIf="operation.disabledDetails">{{operation.ref}}</span>
+                                </td>
+                                <td  class="text-uppercase">{{profile === 'bisv' && operation.operationTime !== '' ?
+                                    operation.operationDate + ' ' + operation.operationTime : operation.operationDate}}</td>
+                                <td  class="text-uppercase">{{operation.transaction}}</td>
+                                <td  class="text-uppercase">{{operation.beneficiary !== '' &&  profile === 'bipa'?
+                                    operation.beneficiary : (operation.channel !== '' && profile == 'bisv')
+                                    ? operation.description + ' ' + operation.channel : operation.description}}</td>
+                                <td  class="text-uppercase amount">{{operation.debit | customNumber }}</td>
+                                <td  class="text-uppercase amount">{{operation.credit | customNumber }}</td>
+                                <td  class="text-uppercase amount">{{operation.balance | customNumber }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- amounts mobile -->
+                <div class="col-12 d-lg-none">
+                    <table aria-describedby="table5" class="table custom-table">
+                        <ng-container *ngFor="let amount of amounts | keyvalue ; let index = index">
+                            <thead>
+                                <tr>
+                                    <th id="statements-description" class="text-uppercase">{{'label.statements.description' | translate}}</th>
+                                    <th id="value-description" class="text-uppercase">{{amount.value.description | translate}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                    <td headers="statements-description" class="text-uppercase">
+                                        {{'label.statements.transactions-amount.short' | translate}}</td>
+                                    <td headers="value-description" >{{amount.value.transactionAmount}}</td>
+                                </tr>
+                                <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                    <td headers="statements-description" class="text-uppercase">{{'label.statements.amount' | translate}}</td>
+                                    <td headers="value-description" class="amount">{{amount.value.amount | customNumber }}</td>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                    </table>
+                </div>
+                <!-- amounts default -->
+                <div class="col-12 d-none d-lg-block">
+                    <h2 class="subtitle">{{'transaction-summary' | translate}}</h2>
+                    <table aria-describedby="table6" class="table custom-table table-striped">
+                        <thead>
+                            <tr>
+                                <th id="description-default" class="text-uppercase">{{'label.statements.description' | translate}}</th>
+                                <th id="short-default" class="text-uppercase">{{'label.statements.transactions-amount.short' | translate}}
+                                </th>
+                                <th id="amount-default" class="text-uppercase">{{'label.statements.amount' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let amount of amounts | keyvalue">
+                                <td>{{amount.value.description | translate}}</td>
+                                <td>{{amount.value.transactionAmount}}</td>
+                                <td class="amount">{{amount.value.amount | customNumber }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </ng-container>
+
+            <div class="col-12 buttons">
+                <adf-button [value]="'btn.back' | translate" type="secondary" (onClick)="goBack()"></adf-button>
+            </div>
+
+            <div class="col-12">
+                <byte-transaction-footer [id]="information?.authorizationNumber"></byte-transaction-footer>
+            </div>
+        </div>
+
+    </div>
+</div>

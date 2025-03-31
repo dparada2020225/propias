@@ -1,0 +1,268 @@
+$statement-container-padding-side: 140px;
+
+hr {
+  border-color: #5a5a5a;
+}
+
+h1 {
+  margin-bottom: 7px;
+}
+
+h2 span {
+  color: var(--primary-color);
+}
+
+h2:not(.subtitle) {
+  font: normal normal bold 18px/27px var(--font-family) !important;
+  color: var(--light-text-two);
+}
+
+.title {
+  font: normal normal bold var(--size-h2) var(--font-family) !important;
+  margin-bottom: 9px;
+}
+
+.subtitle {
+  font: normal normal bold 18px/27px var(--font-family) !important;
+  margin-bottom: 9px;
+}
+
+.subtitle + hr {
+  margin-top: 0px;
+}
+
+.currency {
+  margin-right: 25px;
+}
+
+.sub-container {
+  padding: 69px $statement-container-padding-side;
+  max-width: calc(1606px + 2 * #{$statement-container-padding-side});
+  margin: 0 auto;
+}
+
+.general-info {
+  margin: 40px 0px 40px 157px;
+}
+
+label.key {
+  text-align: left;
+  font: normal normal normal 14px/17px var(--font-family);
+  letter-spacing: 0px;
+  color: #5a5a5a;
+  margin-bottom: 20px;
+  min-width: 250px;
+}
+
+.value {
+  text-align: left;
+  font: normal normal normal 14px/17px var(--font-family);
+  letter-spacing: 0px;
+  color: var(--primary-light-two);
+  text-transform: uppercase;
+  margin-left: 30px;
+}
+
+.buttons {
+  text-align: end;
+  margin: 10px 0px 48px;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.amount {
+  color: var(--primary-light-two) !important;
+}
+
+:host ::ng-deep adf-alert > div {
+  margin: 0 !important;
+  border-radius: 3px;
+
+  .alert-body,
+  .alert-icon {
+    // font: normal normal 600 20px/24px var(--font-family);
+    // letter-spacing: 0px;
+    color: var(--primary-color) !important;
+  }
+}
+
+.options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px 0px 60px;
+
+  i {
+    cursor: pointer;
+    color: #163567;
+    font-size: 17px;
+    margin: 0px 7px;
+  }
+
+  h4 {
+    display: inline-block;
+    font: normal normal bold 14px/17px var(--font-family);
+    letter-spacing: 0px;
+    color: #5a5a5a;
+    opacity: 1;
+    margin-bottom: 5px;
+  }
+}
+
+table tbody td.amount {
+  span {
+    display: inline-block;
+    min-width: 90px;
+    text-align: right;
+  }
+}
+
+.selector {
+  width: 100%;
+  max-width: 628px;
+  margin-bottom: 40px;
+}
+
+.display {
+  display: flex;
+}
+
+/*small desktops*/
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .sub-container {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+
+/*tablets*/
+
+@media only screen and (max-width: 991px) {
+  .sub-container {
+    padding: 42px 20px;
+  }
+
+  .title {
+    font: normal normal bold 25px/30px var(--font-family) !important;
+    margin-bottom: 0px;
+  }
+
+  .subtitle {
+    font: normal normal bold 20px/27px var(--font-family) !important;
+    margin-bottom: 8px;
+  }
+
+  .general-info {
+    margin: 20px 0;
+  }
+
+  .form-group-search {
+    margin: 1rem 130px;
+  }
+
+  :host ::ng-deep .custom-modal .modal-dialog {
+    max-width: 762px;
+  }
+
+  .selector {
+    max-width: 503px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+  }
+
+  .options {
+    i {
+      font-size: 30px;
+      margin: 0px 10px;
+    }
+
+    h4 {
+      font: normal normal bold 15px/18px var(--font-family);
+    }
+  }
+
+  label.key,
+  span.value {
+    font: normal normal normal 15px/18px var(--font-family);
+  }
+
+  h2:not(.subtitle) {
+    font: normal normal bold 20px/27px var(--font-family) !important;
+  }
+}
+
+/*mobile*/
+
+@media only screen and (max-width: 576px) {
+  .sub-container {
+    padding: 19px 10px;
+  }
+
+  h2:not(.subtitle){
+    font: normal normal bold 15px/18px var(--font-family)!important;
+  }
+
+  .subtitle{
+    font: normal normal bold 15px/18px var(--font-family)!important;
+  }
+
+  .title{
+    font: normal normal bold 20px/27px var(--font-family)!important;
+  }
+
+  h2 {
+
+    color: #9b9b9b;
+    margin-bottom: 0px;
+  }
+
+  .row h2 {
+    margin-top: 10px;
+  }
+
+  hr {
+    margin-top: 0.25rem;
+  }
+
+  .general-info {
+    margin: 10px 0 20px;
+  }
+
+  label {
+    width: 100%;
+    margin: 10px 0px;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .value {
+    margin-left: 0px !important;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .currency {
+    margin-right: 15px;
+  }
+
+  .buttons {
+    margin: 10px 0px 48px;
+  }
+
+  :host ::ng-deep adf-button button {
+    width: 100% !important;
+  }
+
+  .form-group-search {
+    margin: 1rem 0;
+  }
+
+  .display {
+    display: block;
+  }
+
+}

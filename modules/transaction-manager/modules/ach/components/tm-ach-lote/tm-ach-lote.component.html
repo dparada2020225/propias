@@ -1,0 +1,48 @@
+<ngx-spinner></ngx-spinner>
+<article [ngClass]="[customShow, containerClassName, 'transfers tm-ach-lote']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    [subtitle]='subTitile'
+    label='tm:ach:title_home'>
+  </adf-header>
+  <section class='content'>
+    <div class='table-content'>
+      <adf-reading [data]='voucherLayout'></adf-reading>
+      <adf-table
+        [ngClass]='tableClassName'
+        (onLoadAccount)="getTableActions($event)"
+        [structure]="tableLayout"
+        [isShowMessageByEmptyRegisters]='true'
+        [emptyMessageHandler]="'message'"
+        [isShowHeaders]='true'
+        [useOptionsWithVirtualScroll]="userVirtualScrollInTableMultiple"
+        [useVirtualScroll]="userVirtualScrollInTableMultiple"
+      >
+      </adf-table>
+      <byte-tm365-footer
+        label1='tm365:label_total_amount'
+        label2='tm365:label_total_credits'
+        label3='tm365:label_total'
+        [value1]='total'
+        [value2]='credits'
+        [currency]='currency'
+      ></byte-tm365-footer>
+    </div>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      *ngIf='isShowPrintButton'
+      id="next"
+      class="primary"
+      value="{{ 'print' | translate }}"
+      (click)="print()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

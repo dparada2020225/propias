@@ -1,0 +1,117 @@
+<div style="background: white">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row container-icon">
+                <div class="col-lg-1"></div>
+                <div class="col-12 col-lg-9 container-left" [ngClass]="{'container-left-corporate': corporateImageApplication()}">
+                    <i aria-hidden="true" class="icon banca-regional-ingreso-token token-icon"></i>
+                    <h1>{{'t.login'| translate}}</h1>
+                    <h5>{{'t.what-token'| translate}}</h5>
+                    <p>{{'t.description'| translate}}</p>
+                </div>
+                <div class="col-lg-1">
+                    <div class="separator"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 container-right">
+            <h5>
+                {{'t.security'| translate}}
+            </h5>
+            <div [hidden]="!show"  [ngClass]="{'token-padding': this.tokenType !== 'S', 'token': this.tokenType === 'S'}">
+                <form [formGroup]="tokenForm">
+                    <label class="label-token">
+                        {{'t.token-number'| translate}}
+                    </label>
+                    <adf-input placeholder="Token" id="token" formControlName="token" [autoFocus]='true'
+                        [control]="tokenControl"  [maxlength]="maxLength"
+                        [imaskOptions]="imaskOptions">
+                        <div error>
+                            <span *ngIf="tokenForm.controls['token'].errors?.['required']">
+                                {{'t.required'| translate}}
+                            </span>
+                            <span *ngIf="tokenForm.controls['token'].errors?.['minlength']">
+                                {{'t.min'| translate : {minLength: this.minLength} }}
+                            </span>
+                        </div>
+                    </adf-input>
+                    <div class="buttons">
+                        <adf-button data-testid="backToLogin" value="{{'t.return'| translate}}" class="button-clock" (click)="backToLogin()"
+                            [isLoading]="isDisabled" type="secondary" action="button">
+                        </adf-button>
+                        <adf-button data-testid="clock" value="{{'t.continue'| translate}}" class="button-clock" (click)="clock()"
+                            [isLoading]="isDisabled">
+                        </adf-button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="clocks" [hidden]="show">
+                <form [formGroup]="vclockForm">
+                    <label class="clock-label">{{'t.enter'| translate}} V CLOCK 1</label>
+                    <div class="clock-input"
+                        [ngClass]="{'clock-input-error': vclockForm.controls['vclock'].errors && vclockForm.controls['vclock'].touched}">
+                        <adf-input placeholder="V CLOCK 1" class="clock" formControlName="vclock"
+                            [imaskOptions]="imaskOptionsClock" [control]="vclockControl">
+                            <div error>
+                                <span *ngIf="vclockForm.controls['vclock'].errors?.['required']">
+                                    {{'t.vclock-1'| translate}}
+                                </span>
+                                <span *ngIf="vclockForm.controls['vclock'].errors?.['minlength']">
+                                    {{'t.min-5'| translate}}
+                                </span>
+                                <span *ngIf="vclockForm.controls['vclock'].errors?.['maxlength']">
+                                    {{'t.max-5'| translate}}
+                                </span>
+                            </div>
+                        </adf-input>
+                    </div>
+
+                    <label class="clock-label">{{'t.enter'| translate}} V CLOCK 2</label>
+                    <div class="clock-input"
+                        [ngClass]="{'clock-input-error': vclockForm.controls['vclockDos'].errors && vclockForm.controls['vclockDos'].touched}">
+                        <adf-input placeholder="V CLOCK 2" class="clock" formControlName="vclockDos"
+                            [imaskOptions]="imaskOptionsClock" [control]="vclockDosControl">
+                            <div error>
+                                <span *ngIf="vclockForm.controls['vclockDos'].errors?.['required']">
+                                    {{'t.vclock-2'| translate}}
+                                </span>
+                                <span *ngIf="vclockForm.controls['vclockDos'].errors?.['minlength']">
+                                    {{'t.min-5'| translate}}
+                                </span>
+                                <span *ngIf="vclockForm.controls['vclockDos'].errors?.['maxlength']">
+                                    {{'t.max-5'| translate}}
+                                </span>
+                            </div>
+                        </adf-input>
+                    </div>
+                    <div class="buttons">
+                        <adf-button value="{{'t.return'| translate}}" class="button-clock" (click)="backToLogin()"
+                            [isLoading]="isDisabled" type="secondary" action="button">
+                        </adf-button>
+                        <adf-button value="{{'t.continue'| translate}}" class="button-clock" (click)="clock()"
+                            [isLoading]="isDisabled">
+                        </adf-button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <adf-button class="new-token" *ngIf="this.tokenType === 'S'" value="{{'t.generate'| translate}}"
+                    type="secondary" (click)="tokenGenerate()">
+                </adf-button>
+            </div>
+            <adf-alert [receiverType]="this.exceededAttempt() ? 'warning' : 'success'"
+                [receiverMessage]="(this.exceededAttempt() ? 'your_token_needs_synced' : 'your_token_was_updated')| translate"
+                *ngIf="this.exceededAttempt() || this.autoSync">
+            </adf-alert>
+
+            <adf-alert *ngIf="showMessage" [receiverType]="this.errors === true ? 'error' : 'success'" [receiverMessage]="this.message | translate">
+            </adf-alert>
+
+            <adf-alert *ngIf="showAlert" receiverType="warning" [receiverMessage]="this.messageAlert"></adf-alert>
+
+        </div>
+    </div>
+</div>
+
+

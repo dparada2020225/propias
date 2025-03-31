@@ -1,0 +1,109 @@
+@use '../../../../../../../../assets/styles/responsive' as *;
+
+.container {
+
+  display: flex;
+  flex-direction: column;
+  gap: 85px;
+  margin-bottom: 80px;
+  padding-left: 0;
+  padding-right: 0;
+
+  /* TABLET */
+  @include from(834px) {
+    gap: 112px;
+  }
+
+  /* DESKTOP */
+  @include from(1200px) {
+    gap: 84px;
+    width: 844px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &-accordion {
+    @include from(1200px) {
+      width: 780px;
+    }
+  }
+
+
+  &-image {
+    position: relative;
+    overflow: hidden;
+
+    picture {
+      z-index: 1;
+      display: block;
+
+      .navigate {
+        @include to(834px) {
+          width: 100%;
+        }
+
+        @include from(x) {
+          width: 100%
+        }
+
+      }
+
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+
+      .image_btn {
+
+        width: 250px;
+        height: 50px;
+        border-radius: 3px;
+        border: 2px solid var(--default-color);
+        background-color: var(--primary-color);
+        color: var(--default-color);
+        font-size: 1rem;
+
+        margin-bottom: 27px;
+
+        /* TABLET */
+        @include from(834px) {
+          width: 184px;
+          margin-bottom: 0px;
+          margin-right: 20px;
+        }
+
+        /* DESKTOP */
+        @include from(1200px) {
+          margin-right: 30px;
+          width: 240px;
+        }
+
+
+        &:hover {
+          border: 2px solid var(--primary-color);
+          background-color: var(--default-color);
+          color: var(--primary-color);
+        }
+
+      }
+
+      /* TABLET */
+      @include from(834px) {
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+    }
+
+  }
+
+}

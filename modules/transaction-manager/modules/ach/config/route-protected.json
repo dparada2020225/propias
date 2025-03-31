@@ -1,0 +1,34 @@
+[
+  {
+    "name": "CONSULTA TRANSFERENCIA ACH BISV",
+    "path": "/transaction-manager/ach",
+    "parameter": null,
+    "children": [
+      {
+        "path": "consult/atomic",
+        "parameter": "consult_ach:look_up_atomic",
+        "children": []
+      },
+      {
+        "path": "consult/multiple",
+        "parameter": "consult_ach:look_up_multiple",
+        "children": []
+      },
+      {
+        "path": "detail",
+        "parameter": "consult_ach:detail",
+        "children": []
+      },
+      {
+        "path": "signatures",
+        "parameter": "consult_ach:signatures",
+        "children": []
+      },
+      {
+        "path": "lote",
+        "parameter": "consult_ach:lote",
+        "children": []
+      }
+    ]
+  }
+]

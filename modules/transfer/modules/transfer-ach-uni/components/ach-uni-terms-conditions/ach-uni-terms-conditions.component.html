@@ -1,0 +1,48 @@
+<ngx-spinner></ngx-spinner>
+
+<article class= "byte-container">
+
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+
+  <adf-header
+    label='ach-uni:terms-conditions-title'
+    subtitle='subtitle-transfer-other-banks-accept-services'
+    [logoUrl]="urlUni"
+    width="61.82px"
+    height="40px">
+  </adf-header>
+
+  <div class="container" style="margin-top: 40px;">
+    <div class="row">
+      <div class="col-md-6 colt-1">
+        <p class="fs-14">{{ "ach-uni:terms-conditions-p1" | translate }}</p>
+        <p class="fs-14">{{ "ach-uni:terms-conditions-p2" | translate }}</p>
+        <h3 class="title font-weight-bold">{{ "ach-uni:terms-conditions-title2" | translate }}</h3>
+        <p class="fs-14"><strong>{{ "ach-uni:terms-conditions-p3-bold" | translate}}</strong>{{ "ach-uni:terms-conditions-p3" | translate}}</p>
+      </div>
+
+      <div class="col-md-6 colt-2">
+        <h3 class="title3 fs-16 title font-weight-bold">{{ "ach-uni:terms-conditions-title3" | translate}}</h3>
+        <ul class="list">
+          <li class="fs-14 item_list"><b class="fs-14">{{ "ach-uni:terms-conditions-li1-bold" | translate}}</b>{{ "ach-uni:terms-conditions-li1" | translate}}</li>
+          <li class="fs-14 item_list"><b class="fs-14">{{ "ach-uni:terms-conditions-li2-bold" | translate}}</b>{{ "ach-uni:terms-conditions-li2" | translate}}</li>
+          <li class="fs-14 item_list"><b class="fs-14">{{ "ach-uni:terms-conditions-li3-bold" | translate}}</b> {{ "ach-uni:terms-conditions-li3" | translate}}</li>
+          <li class="fs-14 item_list"><b class="fs-14">{{ "ach-uni:terms-conditions-li4-bold" | translate}}</b> {{ "ach-uni:terms-conditions-li4" | translate}}
+            <ul>
+              <li class="fs-14 item_list">{{ "ach-uni:terms-conditions-li41" | translate}}</li>
+              <li class="fs-14 item_list">{{ "ach-uni:terms-conditions-li42" | translate}}</li>
+            </ul>
+          </li>
+          <li><strong>{{ "ach-uni:terms-conditions-li5-bold" | translate}}</strong> {{ "ach-uni:terms-conditions-li5" | translate}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="byte-container-ci__button_uni_home">
+    <adf-button class="primary" [value]="labelButton | translate" (click)="nextStep()"></adf-button>
+    <adf-button class="secondary" type="secondary" [value]="'toReturn' | translate" (click)="lastStep()"> </adf-button>
+  </div>
+
+</article>

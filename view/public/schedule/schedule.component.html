@@ -1,0 +1,276 @@
+<main [ngClass]="['container-fluid container-public', corporateImageApplication, classNameContainerBP]">
+    <div class="box1" *ngIf="horario === 'banpais'">
+        <div class="card-body">
+            <table aria-describedby="table1" class="table1">
+                <thead>
+                    <tr class="tr">
+                        <th id="services-1" class="th titulo">{{ "Services" | translate }}</th>
+                        <th id="day-1" class="titulo" style="text-align: center;">{{ "Day" | translate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="padding: 20px;">
+                        <td class="textOpciones th" style="padding-top: 10px;">{{ "Option1" | translate }}</td>
+                        <td class="textHorario" rowspan="13">{{ "Time1" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option2" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option3" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option4" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option5" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option6" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option7" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option8" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option9" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option10" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option11" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option12" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option13" |
+                            translate }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="box2" *ngIf="horario === 'banpais'">
+        <div class="card-body">
+            <table aria-describedby="table2" class="table2">
+                <thead>
+                    <tr class="tr">
+                        <th id="services-2" class="titulo th">{{ "Services" | translate }}</th>
+                        <th id="day2" class="titulo" style="text-align: center;">{{ "Day2" | translate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="textOpciones th margin-text">{{ "Option14" |
+                            translate }}</td>
+                        <td class="textHorario" style="padding: 0;">{{ "Time2" | translate}}</td>
+                    </tr>
+                    <tr class="tr">
+                        <td class="textOpciones th">{{ "Option15" |
+                            translate }}</td>
+                        <td class="textHorario" style="padding: 0;">{{ "Time3" | translate}}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th" style="padding-top: 8px;">{{ "Option16" | translate }}</td>
+                        <td class="textHorario" rowspan="4">{{ "Time4" | translate}}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option17" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option18" |
+                            translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option19" |
+                            translate }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Box SV -->
+    <div class="box3" *ngIf="horario === 'bisv'">
+        <div class="card-body">
+            <table aria-describedby="table3" class="table1">
+                <thead>
+                    <tr class="tr">
+                        <th id="services-sv" class="th titulo">{{ "Services" | translate }}</th>
+                        <th id="day-sv" class="titulo" style="text-align: center;">{{ "Day" | translate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="padding: 20px;">
+                        <td class="textOpciones th" style="padding-top: 10px;">{{ "Option1SV" | translate }}</td>
+                        <td class="textHorario tr" rowspan="15">{{ "Time1SV" | translate }} <br>
+                            {{"Time1.5SV" | translate}}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option2SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option3SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option4SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option5SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option6SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option19SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option7SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option8SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option9SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option10SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option11SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option12SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option13SV" | translate }}</td>
+                    </tr>
+                    <tr class="tr">
+                        <td class="textOpciones th" style="padding-bottom: 10px;">{{ "Option13aSV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th" style="padding-top: 10px;">{{ "Option14SV" | translate }}</td>
+                        <td class="textHorario" rowspan="5">{{ "Time2SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option15SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option16SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option17SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option20SV" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th">{{ "Option18SV" | translate }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- BOX PANAMA -->
+    <div class="box4" *ngIf="horario === 'bipa' || horario === 'byte'">
+        <div class="card-body">
+            <table aria-describedby="table4" class="table1">
+                <thead>
+                    <tr class="tr">
+                        <th id="services-bipa" class="th titulo space">{{ "Services1P" | translate }}</th>
+                        <th id="day-bipa" class="titulo" style="text-align: center;">{{ "Day" | translate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="padding: 20px;">
+                        <td class="textOpciones th space" style="padding-top: 10px;">{{ "Option1Pa" | translate }}</td>
+                        <td class="textHorario" rowspan="13">{{ "Time1Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option2Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option3Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option4Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option5Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option6Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option7Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option8Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option9Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option10Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option11Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option12Pa" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="textOpciones th space">{{ "Option13Pa" | translate }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="box5" *ngIf="horario === 'bipa'" style="margin-top: 10px;">
+        <div class="card-body">
+            <table aria-describedby="table5" class="table2">
+                <thead>
+                    <tr class="tr">
+                        <th id="services" class="titulo th space">{{ "Services2P" | translate }}</th>
+                        <th id="day" class="titulo" style="text-align: center;">{{ "Day2" | translate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr" style="padding: 20px;">
+                        <td style="padding-top: 10px; padding-bottom: 10px;" class="textOpciones th space">{{
+                            "Option14Pa" | translate }}</td>
+                        <td class="textHorario">{{ "Time2Pa" | translate }}</td>
+                    </tr>
+                    <tr class="tr" style="padding: 20px;">
+                        <td style="padding-top: 10px; padding-bottom: 10px;" class="textOpciones th space">{{
+                            "Option15Pa" | translate }}</td>
+                        <td class="textHorario">{{ "Time3Pa" | translate }}</td>
+                    </tr>
+                    <tr style="padding: 20px;">
+                        <td style="padding-top: 10px; padding-bottom: 10px;" class="textOpciones th space">{{ "Option19"
+                            | translate }}</td>
+                        <td class="textHorario">{{ "Time4Pa" | translate }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</main>

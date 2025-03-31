@@ -1,0 +1,212 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+.stkn-bisv-info-modal .modal__header {
+  margin: 0 auto;
+  text-align: end;
+  padding: 18px 16px 0 0;
+  @include from(m) {
+    //display: none;
+    padding: 18px 16px 3px 0;
+  }
+
+  @include from(x) {
+    padding: 18px 16px 5px 0;
+  }
+
+  a {
+    color: #676A6C;
+    font-size: 12px;
+
+    @include from(m) {
+      font-size: 13px;
+    }
+  
+    @include from(x) {
+      font-size: 13px;
+    }
+  }
+  .hidden-text {
+    display: none;
+  }
+}
+
+.stkn-bisv-info-modal .modal-body {
+  padding-top: 0;
+
+  @include from(m) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @include from(x) {
+        padding-right: 40px;
+  }
+}
+
+.stkn-bisv-info-modal .info-container {
+  position: relative;
+  padding: 55px 0 24px 0;
+  border-bottom: 1px solid #E9E9E9;
+
+  h1 {
+    font-size: 20px !important;
+    line-height: 35px !important;
+  }
+
+  p {
+    font-size: 15px !important;
+  }
+
+  @include from(m) {
+    h1 {
+      font-size: 25px !important;
+      line-height: 35px !important;
+    }
+    border-bottom: 0;
+    border-right: 1px solid #E9E9E9;
+
+  }
+
+  @include from(x) {
+    h1 {
+      font-size: 27px !important;
+      line-height: 35px !important;
+    }
+    padding: 55px 60px 24px 24px;
+
+    p {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.stkn-bisv-info-modal .info-container__icon {
+  font-size: 110px !important;
+  color: var(--primary-light-two) !important;
+  position: absolute;
+  bottom: 67%;
+
+  @include from(m) {
+    bottom: 82%;
+  }
+}
+
+.stkn-bisv-info-modal .steps-container {
+  padding-top: 40px;
+
+  @include from(m) {
+    padding: 0 0 0 21px;
+  }
+
+  @include from(x){
+    padding-left: 37px;
+  }
+}
+
+.stkn-bisv-info-modal .steps-container__step {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 16px;
+}
+
+.stkn-bisv-info-modal .steps-container__title {
+  font-size: 15px !important;
+  font-weight: bold;
+
+  @include from(x){
+    font-size: 18px !important;
+  }
+  
+}
+
+.stkn-bisv-info-modal .steps-container__descrip {
+  margin-bottom: 25px;
+  font-size: 15px !important;
+
+  @include from(x){
+    font-size: 16px !important;
+  }
+}
+
+.stkn-bisv-info-modal .steps-container__step-icon-container {
+  grid-area: 1 / 1 / 3 / 2;
+  position: relative;
+  font-size: 40px;
+  color: var(--primary-light-two) !important;
+
+  @include from(x){
+    padding-top: 5px;
+  }
+}
+
+.stkn-bisv-info-modal .steps-container__step-icon-container__icon {
+  font-size: 36px;
+  position: absolute;
+  top: 10%;
+}
+
+.stkn-bisv-info-modal .steps-container__step-title {
+  color: var(--primary-light-two) !important;
+  font-weight: bold;
+  font-size: 15px !important;
+  margin-bottom: 6px;
+
+  @include from(x){
+    font-size: 16px !important;
+  }
+}
+
+.stkn-bisv-info-modal .steps-container__step-title-step3 {
+  margin-bottom: 8px;
+}
+
+.stkn-bisv-info-modal .steps-container__step-descrip{
+  font-size: 15px !important;
+
+  @include from(x){
+    font-size: 16px !important;
+    margin-bottom: 22px;
+  }
+}
+
+.stkn-bisv-info-modal .steps-container__step-descrip-blue {
+  color: var(--primary-light-two) !important;
+  font-weight: bold;
+
+  @include from(m){
+    padding-top: 7px;
+  }
+}
+
+::ng-deep.stkn-bisv-info-modal .two-buttons {
+  margin-top: 63px;
+  border-bottom: 0px;
+  gap: 20px;
+
+  @include from(m) {
+    grid-area: 2 / 1 / 3 / 3;
+    margin: 46px 0 0 228px;
+    gap: 32px;
+  }
+
+
+}
+
+.stkn-bisv-info-modal .only-afiliate-btn{
+  margin-top: 63px;
+  border-bottom: 0px;
+
+  @include from(m) {
+    grid-area: 2 / 1 / 3 / 3;
+    margin: 46px 0 0 488px;
+    gap: 32px;
+    text-align: center;
+    padding-bottom: 23px;
+  }
+
+  @include from(x) {
+    padding-bottom: 34px;
+  }
+}

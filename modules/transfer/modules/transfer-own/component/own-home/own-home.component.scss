@@ -1,0 +1,227 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+.container_pa {
+  @include from(m) {
+    padding: 35px 44px 0px 43px;
+  }
+  @include from(x) {
+    padding: 85px 44px 0px 93px;
+    max-width: 79.2rem;
+
+  }
+  ::ng-deep adf-form-layout {
+    @include from(x) {
+      .container-form {
+        margin-top: 9px !important;
+        padding-left: 88px !important;
+      }
+    }
+
+    adf-input input {
+      @include from(s) {
+        height: 55px !important;
+      }
+      @include from(m) {
+        height: 50px !important;
+      }
+      @include from(x) {
+        height: 40px !important;
+      }
+}
+
+    adf-select {
+      select.custom-select {
+        @include from(s){
+          height: 55px;
+        }
+        @include from(m){
+          height: 50px;
+        }
+        @include from(x){
+          height: 40px;
+        }
+      }
+    }
+
+    .form-heading h2.main-title {
+      @include from(s) {
+        font-size: 20px !important;
+      }
+      @include from(m) {
+        font-size: 25px !important;
+      }
+      @include from(x) {
+        font-size: 27px !important;
+      }
+    }
+
+    @include from(m) {
+      .container-form {
+
+        @include from(m){
+          padding-left: 76px !important;
+          padding-right: 74px !important;
+        }
+        @include from(x){
+          padding-left: 88px !important;
+          padding-right: 0px !important;
+        }
+
+        adf-select-form-layout {
+          .attribute-label {
+            font-size: 16px !important;
+          }
+          .attribute-value {
+            font-size: 16px !important;
+          }
+        }
+      }
+    }
+  }
+  article .form-layout {
+    ::ng-deep div.padding-left {
+      padding-left: 88px !important;
+    }
+  }
+
+}
+
+.line {
+  border-bottom: 0px;
+}
+
+::ng-deep.transfers adf-form-layout {
+  .text-counter {
+    font-size: 12px !important;
+  }
+  adf-tooltip {
+    .label {
+      background-color: var(--total-table-corporate);
+      color: var(--color-navbar);
+      font-size: 0.75rem !important;
+      font-weight: normal;
+      min-width: 150px;
+      white-space: normal;
+      z-index: 10;
+      pointer-events: none;
+      .triangle {
+        background-color: var(--total-table-corporate);
+      }
+    }
+
+    .icon::before,
+    [class*=' banca-regional-']:before {
+      color: var(--label-color-login);
+      font-weight: bold !important;
+    }
+
+    @include from(400px) {
+      .label {
+        min-width: max-content;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  adf-textarea-form-layout div textarea {
+    color: var(--label-color-login) !important;
+    @include from(s) {
+      height: 93px !important;
+    }
+    @include from(m) {
+      height: 119px !important;
+    }
+    @include from(x) {
+      height: 80px !important;
+    }
+  }
+}
+
+
+::ng-deep.container-own-corporate {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-end-x: 35px !important;
+    }
+    .container-form {
+      margin-top: 9px !important;
+    }
+
+    adf-textarea-form-layout {
+      p.input__label {
+        margin-bottom: 10px !important;
+      }
+
+      div.text-counter {
+        font-size: 12px !important;
+        color: var(--light-text-two);
+      }
+    }
+  }
+
+  .select,
+  .input-form-layout,
+  .date-picker-form-layout {
+    gap: 0.625rem !important;
+  }
+}
+
+::ng-deep.byte-container__button-pa {
+  ::ng-deep adf-button > button.btn-default:hover {
+    background-color: var(--secondary-button-background-color) !important;
+    color: var(--color-navbar) !important;
+    border-color: var(--secondary-button-background-color);
+  }
+
+  @include from(m) {
+    margin-left: 166px !important;
+    margin-right: 75px !important;
+  }
+
+  @include from(x) {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  adf-button {
+    button {
+      @include from(m) {
+        height: 50px !important;
+      }
+    }
+  }
+}
+
+::ng-deep.text-area_sv {
+  adf-textarea-form-layout textarea{
+    position: relative;
+    z-index: 1;
+    height: 97px !important;
+  }
+
+  .custom-input {
+      height: 40px !important;
+  }
+
+  .custom-select {
+    height: 40px !important;
+  }
+}
+::ng-deep.byte-container__button-sv {
+  ::ng-deep adf-button > button.btn-default:hover {
+    background-color: var(--secondary-button-background-color) !important;
+    color: var(--color-navbar) !important;
+    border-color: var(--secondary-button-background-color);
+  }
+
+  @include from(m) {
+    margin-left: 166px !important;
+  }
+
+  adf-button {
+    button {
+      @include from(m) {
+        height: 50px !important;
+      }
+    }
+  }
+}

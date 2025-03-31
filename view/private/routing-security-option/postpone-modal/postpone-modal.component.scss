@@ -1,0 +1,118 @@
+.security-icon {
+  font-size: 80px !important;
+  color: var(--primary-color);
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  top: -45px;
+  left: 0;
+  right: 0;
+}
+
+.modal-body {
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-top: 72px;
+  padding-bottom: 27px;
+}
+
+.button-modal {
+  width: 100%;
+  padding-bottom: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content {
+  border-radius: 20px !important;
+}
+
+:host ::ng-deep {
+  .modal-content {
+    width: 720px;
+    height: 398px;
+  }
+
+  adf-button > button {
+    width: 275px !important;
+  }
+}
+
+.modal-footer {
+  padding-top: 0px;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 0px;
+  margin-bottom: 50px;
+}
+
+p {
+  font: normal normal normal 16px var(--font-family);
+  letter-spacing: 0px;
+  color: var(--light-text-two) !important;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+h1 {
+  font: normal normal bold 30px var(--font-family);
+  letter-spacing: 0px;
+  color: var(--primary-color) !important;
+  text-align: center;
+}
+
+.modal-body h1 {
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+@media only screen and (max-width: 576px) {
+  .modal-body h1 {
+    margin-top: 5px;
+    font-size: 25px;
+  }
+
+  .modal-footer {
+    margin-bottom: 35px;
+  }
+
+  .modal-body {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  :host ::ng-deep {
+    adf-button > button {
+      width: 100% !important;
+    }
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    font: normal normal normal 16.5px var(--font-family);
+  }
+
+  .security-icon {
+    position: absolute;
+    margin-left: 18px;
+    text-align: center;
+    top: -55px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .button-modal {
+    display: block;
+  }
+
+  :host ::ng-deep {
+    adf-button > button {
+      height: 50px !important;
+      width: 100% !important;
+    }
+  }
+}

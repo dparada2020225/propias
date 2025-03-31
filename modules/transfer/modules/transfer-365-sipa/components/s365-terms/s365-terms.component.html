@@ -1,0 +1,50 @@
+<article [ngClass]="[customShow, 'byte-container transfers s365-terms']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    logoUrl='assets/images/private/ach/logo_365card.svg'
+    subtitle='subtitle-transfer-other-banks-accept-services'
+    label='s365:label_home'
+  ></adf-header>
+  <section class='content'>
+    <div class='terms'>
+      <div>
+        <h3> {{ 's365:terms_title' | translate }} </h3>
+        <p> {{ 's365:terms_text_1' | translate }} </p>
+        <p> {{ 's365:terms_text_2' | translate }} </p>
+        <p> {{ 's365:terms_text_3' | translate }} </p>
+        <ul>
+          <li *ngFor='let value of terms1'>
+            {{ value | translate }}
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li *ngFor='let value of terms'>
+            {{ value | translate }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <adf-form-layout
+      [setLayoutJson]="formLayout"
+      [form]="form">
+    </adf-form-layout>
+    <hr />
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="next"
+      class="primary"
+      value="{{ 't.continue' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

@@ -1,0 +1,13 @@
+<div [ngClass]="[typeTransferACH, 'card']"  (click)="onCardClick()">
+  <div class="card-header">
+        <img class="image" [src]="imageName" alt="Card image">
+    <!-- <h1 class="text-white">ImageTransfer365</h1> -->
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ title | translate }}</h5>
+    <p class="card-text">
+      {{ description | translate }} <br>
+      <b>{{ descriptionEnd | translate }}</b>
+    </p>
+  </div>
+</div>

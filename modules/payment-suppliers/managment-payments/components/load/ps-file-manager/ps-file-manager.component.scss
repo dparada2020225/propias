@@ -1,0 +1,367 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.pp-upload__header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--light-text-three);
+
+  h1{
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font: normal normal bold 18px/22px Lato, sans-serif;
+
+    font-size: 0.938rem;
+    @include from(m){
+      font-size: 1.25rem;
+    }
+    @include from(x){
+      font-size: 1.125rem;
+    }
+    color: var(--light-text-two);
+  }
+}
+
+.pp-upload__voucher {
+  @include from(x) {
+    padding-left: 100px;
+  }
+}
+
+::ng-deep.upload-section {
+  @media only screen and (max-width: 600px) {
+    width: 100% !important;
+
+  }
+  @media only screen and (min-width: 892px) {
+    max-width: 100% !important;
+
+  }
+  @include helperUploadSection;
+}
+
+::ng-deep.sppl-upload-container {
+  adf-upload {
+    width: 100%;
+
+    .dropzone-container {
+      min-block-size: 0 !important;
+    }
+  }
+
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-sm: 0;
+      --padding-block-start-md: 0;
+      --padding-block-start-x: 0;
+    }
+
+    .container-form {
+      border: none;
+      margin: 0;
+    }
+
+    .custom-grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media only screen and (max-width: 500px) {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+
+    }
+
+    @media only screen and (min-width: 893px) {
+      display: grid;
+
+    }
+     @include from(x) {
+      .custom-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @include from(m) {
+      .custom-grid {
+        grid-template-columns: 1fr 1fr;
+        display: grid;
+      }
+    }
+  }
+}
+
+::ng-deep.sppl-upload-container  ngx-dropzone {
+  background-image: repeating-linear-gradient(1deg, #003158, #003158 6px, transparent 6px, transparent 10px, #003158 10px), repeating-linear-gradient(91deg, #003158, #003158 6px, transparent 6px, transparent 10px, #003158 10px), repeating-linear-gradient(181deg, #003158, #003158 6px, transparent 6px, transparent 10px, #003158 10px), repeating-linear-gradient(271deg, #003158, #003158 6px, transparent 6px, transparent 10px, #003158 10px);
+  background-size: 1px 100%, 100% 1px, 1px 100% , 100% 1px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
+
+  --upload-section-bg: hsla(0, 0%, 96%, 1.00);
+  block-size: 100px !important;
+  border: none !important;
+  background-color: var(--upload-section-bg);
+  width: 100% !important;
+
+  @include from(x) {
+    min-width: 420px !important;
+    max-width: 100% !important;
+    block-size: 80px !important;
+  }
+}
+
+
+::ng-deep.sppl-upload-container  ngx-dropzone.expandable {
+  min-height: 80px !important;
+
+  p {
+    margin: 0!important;
+  }
+
+}
+
+.messages-section {
+  margin: 0;
+  @include from(s) {
+    margin-top: 5%;
+    justify-content: center;
+
+  }
+  @include from(m) {
+    margin-top: 5%;
+    justify-content: center;
+
+  }
+  @include from(x) {
+    margin-top: 0;
+    justify-content: center;
+
+  }
+  &.error {
+    color: var(--warn-darker-color);
+  }
+
+  &.success {
+    color: var(--primary-alternative-color);
+  }
+
+  .strong {
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.sppl-upload-container .ps-buttons-container {
+  padding-left: 0% !important;
+
+
+  p {
+    @include from(x) {
+      max-inline-size: 464px !important;
+    }
+
+    @include from(m) {
+      max-inline-size: 338px;
+    }
+    max-inline-size: 356px;
+
+  }
+
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+
+  @include from(m) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    &.success-file {
+      justify-content: flex-end;
+    }
+
+    &.failed-file {
+      justify-content: space-between;
+    }
+  }
+  .btn_success {
+    margin-right: 32px;
+  }
+  .buttons {
+    //display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include from(m) {
+      flex-direction: row;
+      gap: 32px;
+      .btn_success {
+        margin-right: 32px;
+      }
+    }
+
+    adf-button {
+      height: 50px;
+      gap: 32px;
+
+      @include from(m) {
+        width: 218px;
+      }
+
+      @include from(x) {
+        width: 240px;
+      }
+
+     
+      .btn {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+
+  }
+}
+
+
+.file-uploaded {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #C4C4C4;
+  width: 100%;
+  padding: 12px 14px;
+  color: var(--primary-color);
+  border-radius: 4px;
+  height: 45px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+    background-color: transparent;
+
+    i {
+      &:before {
+        color: var(--primary-color);
+      }
+
+      img{
+        width: 25px;
+        height: 25px;
+
+        @include from(x){
+          width: 22px;
+          height: 22px;
+        }
+
+      }
+    }
+  }
+}
+
+.txt-desktop {
+  display: none;
+
+  @include from(m) {
+    display: block;
+  }
+}
+
+.txt-mobile {
+  @include from(m) {
+    display: none;
+  }
+}
+
+::ng-deep.upload-section adf-button {
+  height: 50px;
+  align-items: flex-end;
+
+
+  @include from(x) {
+    width: 240px;
+  }
+
+  @media only screen and (min-width: 501px) {
+    button.btn {
+      //width: 100% !important;
+    }
+  }
+@media only screen and (max-width: 500px) {
+  width: 100% !important;
+  button.btn {
+    width: 100% !important;
+  }
+}
+
+}
+
+::ng-deep.pp-upload__voucher {
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+    .main-subtitle {
+      margin: 0 !important;
+      color: var(--color-subtitle-sppl) !important;
+      font-size: 1rem !important;
+      padding-bottom: 0.5rem;
+
+      @include from(x){
+        font-size: 1.125rem !important;
+      }
+
+    }
+  }
+  ::ng-deep .ps-buttons-container adf-button button.btn {
+    @media only screen and (max-width: 500px) {
+      margin-top: 2%;
+      width: 100% !important; 
+      height: 60px !important;
+      .btn_success {
+        margin-right: 32px;
+      }
+    }
+  }
+  
+  ::ng-deep .ps-buttons-container {
+    @include from(m) {
+      margin-top: 3%;
+      display: flex;
+      justify-content: flex-end;
+      gap: 32px;
+
+   
+    }
+  
+    @include to(s) {
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column; 
+      gap: 16px; 
+      width: 100%; 
+  
+      adf-button[data-testid="next"] {
+        order: 1; 
+      }
+  
+      adf-button[data-testid="back"] {
+        order: 2;
+      }
+  
+      adf-button {
+        width: 100%; 
+  
+        button.btn {
+          height: 60px;
+          width: 100% !important;
+        }
+       
+      }
+    }
+  }
+  
+}

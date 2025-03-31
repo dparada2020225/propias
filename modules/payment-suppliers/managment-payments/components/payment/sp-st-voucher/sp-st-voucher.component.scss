@@ -1,0 +1,122 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.spp-container {
+  .pp-upload__header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--light-text-three);
+  
+    p {
+      font-size: 18px;
+      color: var(--light-text-two);
+    }
+  }
+  .reading-st {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+  adf-reading {
+    .reading-st {
+      @include from(x) {
+        padding-left: 100px;
+      }
+    }
+  }
+    adf-table {
+        .statusCuenta {
+        }
+    
+        .statusCuenta.error,
+        .statusCuenta.inactive,
+        .statusCuenta.inactiva,
+        .statusCuenta.blocked,
+        .statusCuenta.bloqueada,
+        .statusCuenta.cancelled,
+        .statusCuenta.cancelada {
+          color: var(--warn-color) !important;
+          text-transform: uppercase;
+        }
+    
+        .statusCuenta.Activa,
+        .statusCuenta.activa,
+        .statusCuenta.active {
+          color: var(--alert-success-color) !important;
+          text-transform: uppercase;
+        }
+    
+        .correo{
+          word-break: break-all;
+          overflow: initial;
+        }
+
+        .detalle{
+            word-break: break-all;
+            overflow: initial;
+          }
+      
+    
+        .scrolled-table{
+          max-block-size: 650px !important;
+        }
+    
+      }
+
+
+
+  .table-container {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+.ps-buttons-container.payment-home {
+  justify-content: flex-end;
+  margin: 64px 0;
+}
+
+hr {
+  margin-top: -10px;
+  border-color: var(--light-text-three);
+}
+::ng-deep .ps-buttons-container adf-button button.btn {
+  @media only screen and (max-width: 500px) {
+    width: 100% !important;
+    height: 60px !important; 
+  }
+}
+
+::ng-deep .ps-buttons-container {
+  margin-top: 8% !important;
+
+  @include from(m) {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 100px;
+    gap: 32px;
+  }
+
+  @include to(sm) {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px; 
+    width: 100%; 
+
+    adf-button[data-testid="next"] {
+      order: 1; 
+    }
+
+    adf-button[data-testid="secondary"] {
+      order: 2; 
+    }
+
+    adf-button {
+      width: 100%; 
+
+      button.btn {
+        height: 60px;
+        width: 100% !important;
+      }
+    }
+  }
+}

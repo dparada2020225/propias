@@ -1,0 +1,87 @@
+<ngx-spinner></ngx-spinner>
+<div [ngClass]="['byte-container tpl-payment transfers']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <div class="consulting-box">
+    <div *ngIf='view === DefaultView'  class="titleContainer">
+      <h2 id="titlePaymentTPL">{{ 'payment_tpl' | translate }}</h2>
+    </div>
+
+    <div *ngIf='view === signatureTrackingView'  class="titleContainer">
+      <h2 id="titlePaymentTPL1">{{ 'signature_tracking' | translate }}</h2>
+      <h3> {{ 'edit_transaction' | translate}} </h3>
+    </div>
+
+    <div class="detail-content">
+      <h3 class="sub-title">{{ 'label_payment_detail_tpl' | translate }}</h3>
+      <adf-reading [data]="paymentDetailLayout"></adf-reading>
+      <div id="notePaymentTPL">
+        <label [innerHTML]="'note_paymentTPL-dashboard' | translate"></label>
+      </div>
+    </div>
+    <div class="payment-form">
+      <adf-form-layout [form]="form" [setLayoutJson]="formLayout" [setDataSelectList]="options">
+        <div *ngIf="currentMethodSelected === quotaPaymentMethod" customLayoutType>
+          <div class="counter">
+            <label> {{ 'quotas_paymentTPL' | translate }} </label>
+            <adf-counter
+              (getCurrentValue)="getCounterValue($event)"
+              [initialValue]="initialValue"
+              [setMin]="minQuota"
+              [setMax]="maxQuota"
+              [isLoading]="isLoading"
+              [loaderManagment]="isLoading"
+              (keyup)="handleLoaderBYInputCounterChange()"
+            >
+            </adf-counter>
+            <div class="tooltip-counter">
+              <label> {{ 'mount_paymentTPL' | translate }} </label>
+              <div class="tooltip-counter-container">
+                <adf-tooltip icon="banca-regional-pregunta" label="mount_paymentTPL_tooltip"></adf-tooltip>
+              </div>
+            </div>
+            <div class="label-amountToPay">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+            </div>
+            <label
+              class="label-amountToPay"
+              [class.active]="isActiveClass"
+              *ngIf="!isLoading"
+              >
+              {{ quotaToPay }}
+            </label>
+          </div>
+        </div>
+        <div *ngIf="currentMethodSelected === partialPaymentMethod" customLayoutType>
+          <div class="amount">
+            <div class="tooltip-amount">
+              <label> {{ 'mount_paymentTPL' | translate }} </label>
+              <div class="tooltip-amount-container">
+                <adf-tooltip icon="banca-regional-pregunta" label="mount_paymentTPL_tooltip"></adf-tooltip>
+              </div>
+            </div>
+            <form [formGroup]="partialAmountForm">
+              <adf-input
+                [placeholder]="getCurrentLabelForPartialPaymentInput"
+                [imaskOptions]="amountMask"
+                [id]="'OldPassword'"
+                formControlName="inputAmount"
+                [control]="controlForInputAmount"
+              >
+                <div error>
+                  <span *ngIf="isErrorInInputAmountField">
+                    {{ 'required_amount' | translate }}
+                  </span>
+                  <span *ngIf="errorPaymentPartial">{{ 'error_partialValue' | translate }}</span>
+                </div>
+              </adf-input>
+            </form>
+          </div>
+        </div>
+      </adf-form-layout>
+    </div>
+  </div>
+  <div class="byte-container__button button-divider">
+    <adf-button (click)="next()" class="primary" id="primary" value="{{ 't.continue' | translate }}" ></adf-button>
+    <adf-button (click)="back()" class="secondary" id="prev" type="secondary" [value]="'toReturn' | translate"> </adf-button>
+  </div>
+</div>

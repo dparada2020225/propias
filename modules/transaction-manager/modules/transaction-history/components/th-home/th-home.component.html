@@ -1,0 +1,33 @@
+<ngx-spinner></ngx-spinner>
+<div  [@slideInOut] [ngClass]="[customShow, consultViewClassName, 'transaction-history-container byte-container transfers']">
+  <adf-alert *ngIf='typeAlert && messageAlert' [receiverMessage]='messageAlert' [receiverType]='typeAlert' ></adf-alert>
+  <adf-form-layout [setLayoutJson]="formLayout" [form]="form" [setDataSelectList]="options">
+  </adf-form-layout>
+
+  <div [ngClass]='[buttonsContainerClassName]'>
+    <adf-button class="secondary" [value]='"consult" | translate'  (click)="goToConsultHistoryTransactions()"></adf-button>
+  </div>
+
+
+  <section *ngIf='currentView === consultView'>
+    <div class='table-content'>
+      <div *ngIf='isShowPrintWidgets' class="widgets">
+        <span>{{ 'export' | translate }}</span>
+        <div>
+          <i (click)='exportCsv()' title='CSV' aria-hidden="true" class="icon banca-regional-csv"></i>
+          <i (click)='exportExcel()' title='excel' aria-hidden="true" class="icon banca-regional-xls"></i>
+          <a (click)='exportPdf()' ><i aria-hidden="true" class="icon banca-regional-printer"></i></a>
+        </div>
+      </div>
+      <adf-table
+        (onLoadAccount)='getActionsTable($event)'
+        [isScrolled]='true'
+        [structure]='tableLayout'
+        [setIsLoading]='isLoadingTable'>
+      </adf-table>
+    </div>
+    <div class="full-buttons-content">
+      <adf-button class="secondary" [value]='"toReturn" | translate'  (click)="goBack()"></adf-button>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,54 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.tm365-consult {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.tm365-consult {
+  adf-table {
+    .td-empty {
+      color: var(--primary-color);
+    }
+
+    .main-headers .table-td {
+      height: 100%;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .grid-8 {
+    adf-table.atomic {
+      #table-container {
+        --row-size: 80px 70px 90px 1fr 1fr 80px 110px 90px;
+      }
+    }
+
+    adf-table.multiple365 {
+      #table-container {
+        --row-size: 80px 70px 90px 1fr 1fr 80px 110px 90px;
+      }
+    }
+  }
+
+  .grid-full {
+    adf-table.atomic {
+      #table-container {
+        --row-size: 80px 70px 90px 1fr 1fr 1fr 80px 110px 90px;
+      }
+    }
+
+    adf-table.multiple365 {
+      #table-container {
+        --row-size: 80px 70px 90px 1fr 1fr 80px 110px 90px;
+      }
+    }
+  }
+
+
+}

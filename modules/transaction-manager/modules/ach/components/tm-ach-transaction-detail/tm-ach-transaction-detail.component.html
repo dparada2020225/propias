@@ -1,0 +1,35 @@
+<ngx-spinner></ngx-spinner>
+<article [ngClass]="[customShow, 'byte-container transfers tm-ach-detail']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    [subtitle]='title'
+    label='tm:ach:title_home'>
+  </adf-header>
+  <section class='content'>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+  </section>
+
+  <section class='under_section'>
+    <div>
+
+      <button *ngIf='isShowSignatureBtn' class='sing-btn' (click)='getSignatureDetail()'>
+        <svg width='24px' xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 36 32"><defs><style>.cls-1{fill:#003865;stroke-width:0}</style></defs><g id="SVG_-_BI_DOCUMENT_SIGN" data-name="SVG - BI DOCUMENT SIGN"><path id="Path_17906" d="M25.22 11.17v1.56l1.17-1.16-1.17-.4Z" class="cls-1" data-name="Path 17906"/><path id="Path_17907" d="m23.56 16.12-1.39.52.52-1.39 1.18-1.17v-1.95l-2.36 2.36-.53 3.36 2.89-.48v-1.56l-.31.31Z" class="cls-1" data-name="Path 17907"/><path id="Path_17908" d="M25.22 14.47v1.94l3.91-3.88-1.44-.5-2.47 2.45Z" class="cls-1" data-name="Path 17908"/><path id="Path_17909" d="m26.39 11.58.66-.66h-1.83v.25l1.17.4Z" class="cls-1" data-name="Path 17909"/><path id="Path_17910" d="M34.93 3.88c-.77-.76-1.99-.77-2.78-.03-.37-.34-.85-.53-1.36-.52a1.931 1.931 0 0 0-1.39.59l-3.36 3.36c-.27.26-.28.68-.02.95l.02.02c.25.27.68.27.94.02l.02-.02 3.36-3.36a.55.55 0 0 1 .42-.17c.06 0 .13 0 .19.03.06.02.11.06.16.11l-5.92 5.93v.14h1.83l2.09-2.08.87.87-1.22 1.21h1.95l-1.61 1.6 5.84-5.83c.35-.38.55-.87.56-1.39 0-.53-.21-1.04-.59-1.42h.01Zm-.94 1.8-3.02 3.01-.87-.87 2.56-2.56.45-.42c.24-.24.62-.24.86 0a.59.59 0 0 1 0 .83Z" class="cls-1" data-name="Path 17910"/><path id="Path_17911" d="m28.79 10.92-1.11 1.1 1.44.5 1.61-1.6h-1.94Z" class="cls-1" data-name="Path 17911"/><path id="Path_17912" d="M.49 2.72v26.57c0 .75.61 1.36 1.36 1.36V1.36C1.1 1.36.5 1.97.49 2.72Z" class="cls-1" data-name="Path 17912"/><path id="Path_17913" d="M3.2 32h19.3c.75 0 1.36-.61 1.36-1.36H1.85c0 .75.61 1.35 1.35 1.36Z" class="cls-1" data-name="Path 17913"/><path id="Path_17914" d="M23.87 17.38v13.27c.75 0 1.36-.61 1.36-1.36V16.41l-.9.9-.45.07Z" class="cls-1" data-name="Path 17914"/><path id="Path_17915" d="m25.08 10.92.14-.14v-.93c0-.75-.61-1.36-1.36-1.36v3.65l1.22-1.22Z" class="cls-1" data-name="Path 17915"/><path id="Path_17916" d="M23.86 15.81v1.56l.45-.07.9-.9v-1.94l-1.36 1.35Z" class="cls-1" data-name="Path 17916"/><path id="Path_17917" d="M25.22 12.74v-1.56l-.29-.1.15-.15-1.22 1.22v1.95l1.35-1.35Z" class="cls-1" data-name="Path 17917"/><path id="Path_17918" d="m24.93 11.07.29.1v-.25h-.14l-.15.15Z" class="cls-1" data-name="Path 17918"/><path id="Path_17919" d="M25.22 10.92v-.14l-.14.14h.14Z" class="cls-1" data-name="Path 17919"/><path id="Path_17920" d="M23.87 8.48c.55-.51.57-1.37.06-1.92l-4.84-5.15c-.51-.55-1.37-.57-1.92-.06l5.43 5.78h1.27v1.35Z" class="cls-1" data-name="Path 17920"/><path id="Path_17921" d="M17.17 1.35C17.17.6 16.56 0 15.81 0H3.19c-.75 0-1.36.61-1.36 1.36h15.34Z" class="cls-1" data-name="Path 17921"/><path id="Path_17922" d="M16.49 1.35h-.67l.05 7.13h8.01l-1.27-1.35h-5.39l-.05-5.79h-.68Z" class="cls-1" data-name="Path 17922"/><path id="Path_17923" d="M23.87 8.48V7.13H22.6l1.27 1.35Z" class="cls-1" data-name="Path 17923"/><path id="Path_17925" d="M4.67 2.8v5.47h8.32V2.8H4.67Zm6.96 4.12h-5.6V4.15h5.6v2.77Z" class="cls-1" data-name="Path 17925"/><path id="Path_17926" d="M21.48 12.49H4.67v1.36h16.82v-1.36Z" class="cls-1" data-name="Path 17926"/><path id="Path_17927" d="M21.48 26.9h-7.34v1.36h7.34V26.9Z" class="cls-1" data-name="Path 17927"/><path id="Path_17928" d="M21.48 18.08H4.67v1.36h16.82v-1.36Z" class="cls-1" data-name="Path 17928"/><path id="Path_17929" d="M16.9 15.32H4.67v1.36H16.9v-1.36Z" class="cls-1" data-name="Path 17929"/><path id="Path_17930" d="M16.9 20.87H4.67v1.36H16.9v-1.36Z" class="cls-1" data-name="Path 17930"/></g></svg>
+        <span> {{ 'view_signature' | translate }}  </span>
+      </button>
+    </div>
+    <div [ngClass]="['button_container']">
+      <adf-button
+        id="next"
+        class="primary"
+        value="{{ 'print' | translate }}"
+        (click)="print()">
+      </adf-button>
+      <adf-button
+        id="prev"
+        class="secondary"
+        type="secondary"
+        value="{{ 'toReturn' | translate }}"
+        (click)="previous()"> </adf-button>
+    </div>
+  </section>
+</article>

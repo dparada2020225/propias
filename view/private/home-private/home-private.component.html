@@ -1,0 +1,188 @@
+<div class="container-fluid container-private">
+    <div class="sub-container">
+
+        <!-- MAIN SECTION -->
+        <section class="carousel-section" [hidden]="activeProduct || isSummary">
+            <ngb-carousel class="carousel">
+                <ng-template *ngFor="let imagen of imagenes" ngbSlide>
+                    <div class="picsum-img-wrapper">
+
+                        <img src="{{ imagen.img.img }}?ngsw-bypass=true" alt="Random first slide" http-equiv="Content-Security-Policy" content="default-src *;
+                        img-src  'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' ;
+                        style-src  'self' 'unsafe-inline' *" (click)="carouselNavigation(imagen.img.link)">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </section>
+
+        <section class="main-section" *ngIf="!(activeProduct || isSummary)">
+            <div class="row text-center text-sm-left">
+                <div class="col-sm-10">
+                    <h1 class="d-none d-sm-block color-title h1-desk">{{ 'menu_welcome' | translate }},
+                        <span class="highlight" style="text-transform: capitalize;">
+                            {{first_letter_uppercase_word(user?.firstName)}} {{first_letter_uppercase_word(user?.secondName)}}
+                            {{first_letter_uppercase_word(user?.firstLastname)}} {{first_letter_uppercase_word(user?.secondLastname)}}
+                        </span>
+                    </h1>
+                    <h2 class="d-sm-none color-title">{{ 'menu_welcome' | translate }},
+                        <span class="highlight" style="text-transform: capitalize;">{{first_letter_uppercase_word(user?.firstName)}}
+                            {{first_letter_uppercase_word(user?.firstLastname)}}</span>
+                    </h2>
+                </div>
+            </div>
+            <hr [ngClass]="{'hr-header-corporate': corporateImageApplication()}">
+            <div class="refresh-amounts" *ngIf="showAccounts">
+                <a (click)="refresh()">
+                    <i aria-hidden="true" class="icon banca-regional-actualizar"></i> {{ 'label.home.refresh-balance' | translate }}
+                </a>
+            </div>
+        </section>
+
+        <section class="summary-section-title" *ngIf="isSummary">
+            <h1 class="title">{{'cm-resumen-cuentas' | translate}}</h1>
+            <hr>
+        </section>
+
+        <!-- INFORMATION SECTION-->
+        <div class="row information-section" *ngIf="showAccounts">
+            <div class="col-12" *ngIf="activeProduct" >
+                <div class="information-section__title">
+                    <h1 class="title" *ngIf="activeProduct !== ProductEnum.FIX_TERM">
+                        {{getProductEquivalencesForTranslate(activeProduct) | translate}}
+                    </h1>
+                    <h1 class="title-investment" *ngIf="activeProduct === ProductEnum.FIX_TERM">
+                      {{'label.home.fix-term-investment' | translate}}
+                    </h1>
+                    <h2 class="subtitle" *ngIf="activeProduct === ProductEnum.FIX_TERM">{{'label.home.subtitle-fix-term' | translate}}</h2>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="col-12" *ngIf="!isMobile">
+
+                <ng-container *ngFor="let product of products">
+
+                    <section class="accounts-section"
+                        *ngIf="product.visible && (product.product === ProductEnum.CHECK || product.product === ProductEnum.SAVINGS)">
+                        <default-product-section [product]="product" [profile]="this.profile" [singleProduct]="!!activeProduct" [alert]="false">
+                        </default-product-section>
+                    </section>
+
+                    <section class="accounts-section"
+                             *ngIf="product.visible && product.product === ProductEnum.FIX_TERM">
+                      <byte-fix-term-section [product]="product" [profile]="this.profile" [singleProduct]="!!activeProduct" [alert]="false">
+                      </byte-fix-term-section>
+                    </section>
+
+                    <section class="accounts-section"
+                        *ngIf="product.visible && product.product === ProductEnum.CREDIT_CARD">
+                        <credit-card-section [product]="product" [singleProduct]="!!activeProduct" [alert]="false">
+                        </credit-card-section>
+                    </section>
+
+                    <section class="accounts-section" *ngIf="product.visible && product.product === ProductEnum.LOANS">
+                        <loan-section [product]="product" [profile]="this.profile" [singleProduct]="!!activeProduct" [alert]="false"></loan-section>
+                    </section>
+                </ng-container>
+
+            </div>
+
+            <div class="col-12" *ngIf="isMobile">
+
+                <ng-container *ngFor="let product of products">
+                  <section class="accounts-section"
+                           *ngIf="product.visible && (product.product === ProductEnum.CHECK || product.product === ProductEnum.SAVINGS)">
+                    <default-product-section [product]="product" [profile]="this.profile" [singleProduct]="!!activeProduct" [alert]="false">
+                    </default-product-section>
+                  </section>
+                  <section class="accounts-section"
+                           *ngIf="product.visible && product.product === ProductEnum.FIX_TERM">
+                    <byte-fix-term-section [product]="product" [profile]="this.profile" [singleProduct]="!!activeProduct" [alert]="false">
+                    </byte-fix-term-section>
+                  </section>
+                    <section class="accounts-section"
+                        *ngIf="product.visible && product.product === ProductEnum.CREDIT_CARD">
+                        <credit-card-section [product]="product" [singleProduct]="!!activeProduct" [alert]="false">
+                        </credit-card-section>
+                    </section>
+                    <section class="accounts-section" *ngIf="product.visible && product.product === ProductEnum.LOANS">
+                        <loan-section [product]="product" [profile]="this.profile" [singleProduct]="!!activeProduct" [alert]="false"></loan-section>
+                    </section>
+                </ng-container>
+
+            </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="row summary-section" *ngIf="isSummary">
+            <h2>
+                <span class="highlight">{{ 'label.home.summary-account-title' | translate }}</span>
+            </h2>
+
+            <div class="col-12">
+
+                <table aria-describedby="summary table" class="table custom-table table-striped" *ngIf="!isMobile">
+                    <thead>
+                        <tr>
+                            <th id="currency" class="text-uppercase">{{ 'label.home.currency' | translate }}</th>
+                            <th id="deposits" class="text-uppercase">{{ 'label.home.deposits' | translate }}</th>
+                            <th id="loans" class="text-uppercase">{{ 'label.home.loans' | translate }}</th>
+                            <th id="position" class="text-uppercase">{{ 'label.home.net-position' | translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let summary of summaries">
+                            <td headers="currency" style="text-transform: capitalize;">
+                                {{'currency_' + summary.currency | translate}}
+                            </td>
+                            <td headers="deposits" class="text-uppercase amount">
+                                <span>{{summary.deposits | customNumber }}</span>
+                            </td>
+                            <td headers="loans" class="text-uppercase amount">
+                                <span>{{summary.loans | customNumber }}</span>
+                            </td>
+                            <td headers="position" class="text-uppercase amount"
+                                [ngClass]="{'amount': summary.netPosition >= 0, 'text-danger': summary.netPosition < 0}">
+                                <span>{{summary.netPosition | customNumber }}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- mobile -->
+
+                <table aria-describedby="summary table mobile" class="table custom-table" *ngIf="isMobile">
+                    <ng-container *ngFor="let summary of summaries; let index = index">
+                        <thead>
+                            <tr>
+                                <th id="currency" class="text-uppercase">{{ 'label.home.currency' | translate }}</th>
+                                <th id="value" style="text-transform: capitalize;">{{'currency_' + summary.currency | translate}}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                <td headers="currency" class="text-uppercase">{{ 'label.home.deposits' | translate }}</td>
+                                <td headers="value" class="amount">
+                                    <span class="float-right">{{summary.deposits | customNumber }}</span>
+                                </td>
+                            </tr>
+                            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                <td headers="currency" class="text-uppercase">{{ 'label.home.loans' | translate }}</td>
+                                <td headers="value" class="amount">
+                                    <span class="float-right">{{summary.loans | customNumber }}</span>
+                                </td>
+                            </tr>
+                            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                                <td headers="currency" class="text-uppercase">{{ 'label.home.net-position' | translate }}</td>
+                                <td headers="value" class="amount">
+                                    <span class="float-right">{{summary.netPosition | customNumber }}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </ng-container>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

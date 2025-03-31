@@ -1,0 +1,199 @@
+<div id="mmenu_screen" [ngClass]='["container-fluid main_container text-white d-flex main-corporate-image"]'   *ngIf="isCorporateImageApplication">
+    <div class="row flex-fill">
+      <div class="col-12 col-lg-6 p-0 main-carousel  flex-fill" *ngIf='isCorporateImageApplication'>
+        <section class='public-carousel-container'>
+          <ngb-carousel  class="carousel">
+              <ng-template *ngFor="let image of !isMobile ? imageDesktopList : imageTabletList" ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img src="{{ image.img }}?ngsw-bypass=true" alt="Random first slide" http-equiv="Content-Security-Policy" content="default-src *;
+                                img-src  'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' ;
+                                style-src  'self' 'unsafe-inline' *" (click)="href(image.link ?? '')" >
+                </div>
+              </ng-template>
+          </ngb-carousel>
+        </section>
+      </div>
+
+      <div class="col-12 col-lg-6 flex-fill">
+        <section class='card-login-container'>
+          <div class='form-card'>
+            <div *ngIf="showAlert" class="alertMessage">
+              <adf-alert receiverType="warning" [receiverMessage]="this.messageAlert"></adf-alert>
+            </div>
+            <div class='login-container'>
+              <div *ngIf="countryLogin" class="title-profile">
+                <span [ngClass]="{'text-title-bipa': profile === 'bipa', 'text-title-bisv': profile === 'bisv'}">{{ countryLogin | translate }}</span>
+              </div>
+              <form class='card-login' [formGroup]="loginForm" (ngSubmit)="buttonClicked()">
+                <div class="form-group fixed">
+                  <adf-input
+                    label="{{ 'label.username' | translate }}"
+                    id="username"
+                    [imaskOptions]="this.mask"
+                    [autoFocus]="true"
+                    [minlength]="this.usernameMinLenght"
+                    [maxlength]="24"
+                    placeholder="{{ 'label.username' | translate }}"
+                    [type]= this.typeUserName
+                    formControlName="username"
+                    [control]="formUserName"
+                    [ngClass]="{'placeholder-corporate': corporateImageApplication()}"
+                  >
+                    <i aria-hidden="true" prefix [ngClass]="{'icon-corporate': corporateImageApplication()}" class="icon banca-regional-usuario-42"></i>
+                    <div error>
+                      <span *ngIf="loginForm.controls['username'].errors?.['minlength']">{{
+                        'min-length' | translate: { number: this.usernameMinLenght }
+                      }}</span>
+                      <span *ngIf="loginForm.controls['username'].errors?.['required']">{{ 'required' | translate }}</span>
+                      <span *ngIf="loginForm.controls['username'].errors?.['notfound']">{{ 'user_does_not_exist' | translate }}</span>
+                    </div>
+                  </adf-input>
+                </div>
+                <div class="form-group">
+                  <adf-input
+                    label="{{ 'label.password' | translate }}"
+                    id="password"
+                    [minlength]="1"
+                    [imaskOptions]="maskPass"
+                    [maxlength]="this.maxLengthPassword"
+                    placeholder="{{ 'label.password' | translate }}"
+                    [type]= this.typePassword
+                    formControlName="password"
+                    [control]="formPassword"
+                  >
+                    <i aria-hidden="true" prefix [ngClass]="{'icon-corporate': corporateImageApplication()}" class="icon banca-regional-contrasena"></i>
+                    <div error>
+                      <span *ngIf="loginForm.controls['password'].errors?.['minlength']">{{
+                        'min-length' | translate: { number: this.minLengthPassword }
+                      }}</span>
+                      <span *ngIf="loginForm.controls['password'].errors?.['required']">{{ 'required' | translate }}</span>
+                      <span *ngIf="loginForm.controls['password'].errors?.['notfound']">{{ 'password_does_not_exist' | translate }}</span>
+                    </div>
+                  </adf-input>
+                </div>
+                <adf-button value="{{ 'label.login' | translate }}" icon="banca-regional-login" [isLoading]="loading"> </adf-button>
+                <div class="forgot-password-section">
+                  <a class="animated-border" [ngClass]="{'animated-border-corporate': corporateImageApplication()}" (click)="recoverPassword()">{{ 'i_forgot_my_password' | translate }}</a>
+                </div>
+              </form>
+            </div>
+            <div class='card-network'>
+              <i aria-hidden="true" class="icon banca-regional-callcenter"></i>
+              <a [href]="'tel:' + settingsData.contactsInfo.phone" style="margin-top: 3px">
+                <span class="footer-login" style="margin-left: -5px">
+                  {{ settingsData.contactsInfo.phone | customPhone }}&nbsp;&nbsp;&nbsp;&nbsp;|
+                </span>
+              </a>
+              <i aria-hidden="true" class="icon banca-regional-pais" (click)="stateManager()" *ngIf="encryptionTest || blockingTimeTest"></i>
+              <i aria-hidden="true" class="icon banca-regional-pais" *ngIf="!encryptionTest && !blockingTimeTest"></i>
+              <a [href]="this.linkList.webPage" target="_blank" style="margin-top: 2px">
+                <span class="footer-login" style="margin-left: -5px">
+                  {{ settingsData.contactsInfo.web_page || settingsData.contactsInfo.web_page }}
+                </span>
+              </a>
+              <a class='a-tips-content' [href]='urlTips' target="_blank"  *ngIf="profile === 'bipa'">
+              <div class='tips-content' >
+
+                <i aria-hidden="true" class="icon banca-regional-politica icono-menu" *ngIf="!encryptionTest && !blockingTimeTest"></i>
+                <span class="footer-login-tips" style="margin-left: -5px">
+                  {{"safety-tips" | translate }}
+                </span><br>
+                <span class="login-tips" style="margin-left: -5px">
+                  {{"Enter-bipa-security" | translate}}
+                </span>
+              </div>
+            </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+      <adf-snack-bar></adf-snack-bar>
+  </div>
+  <div class="container-fluid container-public bp-container-public"   *ngIf="!isCorporateImageApplication">
+    <div class="sub-container content-bp">
+      <div *ngIf="showAlert" class="sub-container-bp">
+
+      <div *ngIf="showAlert" class="alertMessage">
+        <adf-alert receiverType="warning" [receiverMessage]="this.messageAlert"></adf-alert>
+      </div>
+    </div>
+      <div class="form-parent" [ngClass]="{ 'login-opacity login-bp-opacity': profile !== 'bipa', 'login-bipa-opacity': profile === 'bipa' }">
+        <div class="card card-bp login">
+          <div class="card-body card-body-bp">
+            <form [formGroup]="loginForm" (ngSubmit)="buttonClicked()">
+              <div class="form-group">
+                <adf-input
+                  label="{{ 'label.username' | translate }}"
+                  id="usernameBP"
+                  [imaskOptions]="this.mask"
+                  [autoFocus]="true"
+                  [minlength]="this.usernameMinLenght"
+                  [maxlength]="24"
+                  placeholder="{{ 'label.username' | translate }}"
+                  [type]= this.typeUserName
+                  formControlName="username"
+                  [control]="formUserName"
+                >
+                  <i aria-hidden="true" prefix class="icon banca-regional-usuario-42"></i>
+                  <div error>
+                    <span *ngIf="loginForm.controls['username'].errors?.['minlength']">{{
+                      'min-length' | translate: { number: this.usernameMinLenght }
+                    }}</span>
+                    <span *ngIf="loginForm.controls['username'].errors?.['required']">{{ 'required' | translate }}</span>
+                    <span *ngIf="loginForm.controls['username'].errors?.['notfound']">{{ 'user_does_not_exist' | translate }}</span>
+                  </div>
+                </adf-input>
+              </div>
+              <div class="form-group">
+                <adf-input
+                  label="{{ 'label.password' | translate }}"
+                  id="passwordBP"
+                  [minlength]="1"
+                  [imaskOptions]="maskPass"
+                  [maxlength]="this.maxLengthPassword"
+                  placeholder="{{ 'label.password' | translate }}"
+                  [type]= this.typePassword
+                  formControlName="password"
+                  [control]="formPassword"
+                >
+                  <i aria-hidden="true" prefix class="icon banca-regional-contrasena"></i>
+                  <div error>
+                    <span *ngIf="loginForm.controls['password'].errors?.['minlength']">{{
+                      'min-length' | translate: { number: this.minLengthPassword }
+                    }}</span>
+                    <span *ngIf="loginForm.controls['password'].errors?.['required']">{{ 'required' | translate }}</span>
+                    <span *ngIf="loginForm.controls['password'].errors?.['notfound']">{{ 'password_does_not_exist' | translate }}</span>
+                  </div>
+                </adf-input>
+              </div>
+              <adf-button value="{{ 'label.login' | translate }}" icon="banca-regional-login" [isLoading]="loading"> </adf-button>
+              <div class="forgot-password-section">
+                <a class="animated-border" (click)="recoverPassword()">{{ 'i_forgot_my_password' | translate }}</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card  card-bp  networks" style="margin-top: 10px">
+          <div class="card-body sub-card-bp">
+            <div>
+              <i aria-hidden="true" class="icon banca-regional-callcenter"></i>
+              <a [href]="'tel:' + settingsData.contactsInfo.phone" style="margin-top: 3px">
+                <span class="footer-login phone-content" style="margin-left: -5px">
+                  {{ settingsData.contactsInfo.phone | customPhone }}&nbsp;&nbsp;&nbsp;&nbsp;|
+                </span>
+              </a>
+              <i aria-hidden="true" class="icon banca-regional-pais" (click)="stateManager()" *ngIf="encryptionTest || blockingTimeTest"></i>
+              <i aria-hidden="true" class="icon banca-regional-pais" *ngIf="!encryptionTest && !blockingTimeTest"></i>
+              <a [href]="this.linkList.webPage" target="_blank" style="margin-top: 2px">
+                <span class="footer-login" style="margin-left: -5px">
+                  {{ settingsData.contactsInfo.web_page || settingsData.contactsInfo.web_page }}
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <adf-snack-bar></adf-snack-bar>
+  </div>

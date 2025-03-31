@@ -1,0 +1,167 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+::ng-deep adf-form-layout .third-edit-layout,
+::ng-deep adf-form-layout .third-crate-layout {
+  @include from(m) {
+    .input-form-layout {
+      display: grid;
+      grid-template-columns: 200px 19.375rem;
+    }
+  }
+}
+
+/* --- Estilos para el salvador ---*/
+
+.layout-bisv::ng-deep {
+  .form-heading {
+
+    .form-subtitle {
+      margin: 8px 0 13px 0;
+
+      @include from(m) {
+        margin: 2px 0 -2px 0;
+      }
+
+      @include from(x) {
+        margin: 10px 0 -1px 0;
+      }
+
+    }
+
+  }
+
+  .container-form {
+
+    form {
+      padding: 14px 0 40px 0;
+      gap: 18px;
+
+      @include from(m) {
+        padding-top: 32px;
+        padding-bottom: 90px;
+        gap: 22px;
+      }
+
+      @include from(x) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        gap: 16px;
+      }
+
+      .alias-sv, .email-sv {
+
+        .input-form-layout {
+
+          @include from(m) {
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 200px auto;
+            gap: 10px;
+          }
+
+          @include from(x) {
+            grid-template-columns: 200px 19.375rem;
+          }
+
+
+          .input-title {
+
+            @include from(m) {
+              padding-top: 2px;
+            }
+
+            @include from(x) {
+              padding-top: 0;
+            }
+
+          }
+
+          adf-input {
+
+            height: 55px;
+
+            @include from(m) {
+              width: 100%;
+              grid-row: 2 / 3;
+              grid-column: 1 / -1;
+            }
+
+            @include from(x) {
+              height: 40px;
+              grid-row: 1 / 2;
+              grid-column: 2;
+            }
+
+
+            .input-wrapper, .custom-input, input {
+              height: 100% !important;
+              width: 100% !important;
+
+            }
+
+
+          }
+
+        }
+
+      }
+
+      .third-layout {
+        .form_label {
+
+          @include from(m) {
+            flex-direction: row;
+
+            label {
+              width: 120px;
+            }
+
+          }
+
+          @include from(x) {
+
+
+            label {
+              width: 200px;
+            }
+
+          }
+
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.buttons-sv::ng-deep {
+  gap: 12px;
+
+  adf-button {
+
+    height: 50px;
+    @include from(m) {
+      width: 218px;
+    }
+
+    .btn {
+      height: 100% !important;
+      width: 100% !important;
+
+      /*Estilos para boton desabilitado*/
+      &:disabled {
+        background-color: #909090;
+        border-color: #909090;
+        cursor: default;
+      }
+
+      &:disabled:hover {
+        background-color: #909090 !important;
+      }
+
+    }
+
+  }
+
+}

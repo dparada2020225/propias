@@ -1,0 +1,21 @@
+::ng-deep.dynamic-table {
+  adf-reading {
+    hrr {
+      display: none;
+    }
+  }
+
+  adf-table {
+    #table-container {
+      --row-size: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .content {
+      padding-block: 0;
+    }
+
+    .email span {
+      word-break: break-all;
+    }
+  }
+}

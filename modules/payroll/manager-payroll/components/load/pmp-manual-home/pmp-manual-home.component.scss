@@ -1,0 +1,177 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.pp-upload__header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--light-text-three);
+
+  p {
+    font: normal normal bold 18px/22px Lato, sans-serif;
+    font-size: 18px;
+    color: var(--light-text-two);
+  }
+}
+
+.spplm-upload__content::ng-deep {
+  @include from(x) {
+    padding-left: 100px;
+  }
+
+  adf-reading{
+    .main-subtitle{
+
+      font: normal normal bold 18px/22px Lato, sans-serif !important;
+      font-size: 1rem !important;
+      @include from(x){
+        font-size: 1.125rem !important;
+      }
+      color: var(--color-subtitle-sppl) !important;
+    }
+  }
+
+}
+
+.form-section {
+  border-top: 1px solid var(--light-text-three);
+  padding-top: 40px;
+
+  h3 {
+    font: normal normal bold 20px/28px Lato, sans-serif;
+    font-size: 20px;
+    color: var(--primary-color);
+    margin: 0;
+  }
+
+  p {
+    font: normal normal normal 14px/28px Lato, sans-serif;
+    font-size: 14px;
+    color: var(--primary-alternative-color);
+  }
+}
+
+::ng-deep.spplm-upload-container {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-sm: 0;
+      --padding-block-start-md: 0;
+      --padding-block-start-x: 0;
+    }
+
+    .grid-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .custom-grid {
+      order: 3;
+
+      adf-button {
+        button.btn {
+          width: 100%;
+        }
+
+        @include from(480px) {
+          align-self: flex-end;
+          max-width: 240px;
+          min-width: 240px;
+
+          button.btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .required adf-input-form-layout {
+      .input__label:after {
+        content: '*';
+        color: var(--primary-alternative-color)
+      }
+    }
+
+    .container-form {
+      margin: 0;
+      border: none;
+    }
+
+    @include from(m) {
+      form {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      .custom-grid {
+        align-self: flex-end;
+        justify-self: flex-end;
+      }
+
+      .grid-item-12 {
+        grid-column: span 1;
+      }
+
+      .account {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .amount {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .email {
+        grid-column: 1;
+        grid-row: 2;
+      }
+    }
+  }
+}
+
+.spplm-upload-container .payroll-buttons-container {
+  p {
+    max-inline-size: 356px;
+  }
+
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+
+  @include from(m) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    &.success-file {
+      justify-content: flex-end;
+    }
+
+    &.failed-file {
+      justify-content: space-between;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include from(m) {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+}
+
+.payroll-table-container {
+  margin-top: 64px;
+}
+
+::ng-deep.ach-form-container{
+  adf-tooltip {
+    i.icon {
+      color: var(--primary-alternative-color);
+    }
+
+    i.icon:before {
+      color: var(--primary-alternative-color);
+    }
+  }
+}

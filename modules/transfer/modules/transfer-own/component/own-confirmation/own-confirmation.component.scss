@@ -1,0 +1,267 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.line {
+  border-bottom: 0px;
+}
+
+::ng-deep.byte-container__button-pa-confirm {
+  ::ng-deep adf-button > button.btn-default:hover {
+    background-color: var(--secondary-button-background-color) !important;
+    color: var(--color-navbar) !important;
+    border-color: var(--secondary-button-background-color);
+  }
+
+  @include from(m) {
+    margin-left: 166px !important;
+    padding-block-end: 2rem !important;
+    padding-block-start: 1.125rem !important;
+    margin-top: -80px !important;
+    margin-right: 0 !important;
+    gap: 0 !important;
+    ::ng-deep adf-button {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  @include from(x) {
+    gap: 1rem !important;
+  }
+
+  @include from(692px) {
+    ::ng-deep adf-button {
+      width: 240px !important;
+    }
+
+    ::ng-deep adf-button button.btn {
+      max-width: 100% !important;
+      @include from(m) {
+        width: 218px !important;
+      }
+      @include from(x) {
+        width: 240px !important;
+      }
+    }
+  }
+
+  @include to(x) {
+    margin-top: 0px !important;
+  }
+  @include to(m) {
+    margin-top: -12px !important;
+  }
+
+  adf-button {
+    button {
+      @include from(m) {
+        height: 50px !important;
+      }
+    }
+  }
+}
+
+::ng-deep.byte-container__button-sv-confirm {
+  ::ng-deep adf-button > button.btn-default:hover {
+    background-color: var(--secondary-button-background-color) !important;
+    color: var(--color-navbar) !important;
+    border-color: var(--secondary-button-background-color);
+  }
+
+  @include from(m) {
+    margin-left: 166px !important;
+    padding-right: 2rem !important;
+    padding-top: 3.75rem !important;
+    margin-top: -80px !important;
+
+    ::ng-deep adf-button button.btn {
+      width: 218px !important;
+    }
+
+    ::ng-deep adf-button {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  @include from(790px) {
+    ::ng-deep adf-button button.btn {
+      width: 218px !important;
+    }
+  }
+
+  @include from(692px) {
+    ::ng-deep adf-button {
+      width: 218px !important;
+    }
+
+    ::ng-deep adf-button button.btn {
+      width: 100% !important;
+    }
+  }
+
+  @include from(x) {
+    ::ng-deep adf-button {
+      width: 240px !important;
+    }
+  }
+
+  @include to(x) {
+    margin-top: 0px !important;
+  }
+  @include to(m) {
+    margin-top: -12px !important;
+  }
+
+  adf-button {
+    button {
+      @include from(m) {
+        height: 50px !important;
+      }
+    }
+  }
+}
+
+::ng-deep.corporate-image-sv {
+  ::ng-deep adf-reading {
+    .content-fields {
+      @include from(x) {
+        padding-bottom: 2.5rem !important;
+      }
+      @include from(m) {
+        font-size: 15px !important;
+      }
+      @include from(s) {
+        font-size: 15px !important;
+      }
+    }
+
+    .field-item {
+      @include from(x) {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px !important;
+        gap: 0rem !important;
+        .field-title, .field-description{
+          font-size: 14px !important;
+        }
+      }
+    }
+
+   @include to(834px) {
+    .content-fields {
+      padding-left: 0 !important;
+
+      }
+    }
+
+    @include from(m) {
+      .content-fields {
+        font-size: 15px !important;
+      }
+      .field-item {
+        font-size: 15px !important;
+      }
+    }
+
+    @include from(s) {
+      .content-fields {
+        font-size: 15px !important;
+      }
+      .field-item {
+        font-size: 15px !important;
+      }
+    }
+  }
+}
+
+.corporate-image-pa {
+  @include from(m) {
+    padding: 2.5rem 2.75rem 4.625rem 2.75rem !important;
+    max-width: 79.2rem;
+  }
+  @include from(x) {
+    padding: 2.5rem 5.625rem 4.625rem 5.8125rem !important;
+    max-width: 79.2rem;
+  }
+}
+
+::ng-deep.corporate-image-pa {
+  ::ng-deep adf-reading {
+    .confirmation-voucher .heading-voucher {
+      h2.main-title {
+        @include from(s) {
+          font-size: 20px !important;
+        }
+        @include from(m) {
+          font-size: 25px !important;
+        }
+        @include from(x) {
+          font-size: 27px !important;
+        }
+      }
+      h4.main-subtitle {
+        @include from(s) {
+          font-size: 15px !important;
+        }
+        @include from(m) {
+          font-size: 20px !important;
+        }
+        @include from(x) {
+          font-size: 18px !important;
+        }
+      }
+    }
+    .group {
+      @include from(s) {
+        row-gap: 0rem !important;
+      }
+      @include from(m) {
+        row-gap: 0rem !important;
+      }
+      @include from(x) {
+        row-gap: 0rem !important;
+      }
+    }
+
+    @include from(x) {
+      .content-fields {
+        padding-bottom: 2.5rem !important;
+        padding-top: 1.25rem !important;
+        padding-left: 86px !important;
+        font-size: 14px !important;
+      }
+    }
+    .field-item {
+      font-size: 14px !important;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px !important;
+      gap: 0rem !important;
+       @include from(m){
+        flex-direction: row;
+
+       }
+    }
+  }
+
+  @include from(m) {
+    .content-fields {
+      font-size: 15px !important;
+      padding-left: 0px !important;
+    }
+    .field-item {
+      font-size: 15px !important;
+      margin-bottom: 24px !important;
+    }
+  }
+
+  @include from(s) {
+    .content-fields {
+      font-size: 15px !important;
+    }
+    .field-item {
+      font-size: 15px !important;
+      margin-bottom: 14px !important;
+    }
+  }
+}

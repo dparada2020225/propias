@@ -1,0 +1,6 @@
+<adf-select label="{{'label.selected-account' | translate}}" [placeholder]="'label.selected-account' | translate"
+    [options]="accounts" [formControl]="control" [control]="control" (onChangeValue)="onChange($event)">
+    <div error>
+        <span *ngIf="control.errors?.['required']">{{'required'| translate}}</span>
+    </div>
+</adf-select>

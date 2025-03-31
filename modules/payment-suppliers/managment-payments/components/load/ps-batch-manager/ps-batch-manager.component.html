@@ -1,0 +1,67 @@
+
+<article [ngClass]='["byte-container ps-load-main"]'>
+  <adf-form-layout [setLayoutJson]='formLayout' [form]='form'>
+    <ng-container customLayout>
+      <form class='radio-form' [formGroup]='form'>
+        <fieldset>
+          <legend> {{ 'ps:method_load' | translate }} </legend>
+          <div class='radio-control__upload'>
+            <adf-ps-radio-button
+              [control]='typeUploadControl'
+              label='ps:upload_file'
+              formControlName='load'
+              name='load' value='file'
+              id=':radio1'></adf-ps-radio-button>
+            <adf-ps-radio-button
+              [control]='typeUploadControl'
+              label='ps:upload_manual'
+              formControlName='load'
+              name='load'
+              value='manually'
+              id=':radio2'></adf-ps-radio-button>
+          </div>
+          <div class="section-helper">
+
+            <p  [innerHTML]='"ps:helper_load_file" | translate' *ngIf='isFileSelected && !isMobile'></p>
+            <p  [innerHTML]='"ps:helper_load_file_mobil" | translate' *ngIf='isFileSelected && isMobile && isMobileTwo && !isMobileExtraSmall' ></p>
+            <p  [innerHTML]='"ps:helper_load_file_tablet" | translate' *ngIf='isFileSelected && isMobile && !isMobileTwo' ></p>
+            <p [innerHTML]='"ps:helper_load_file_" | translate' *ngIf='isFileSelected && isMobileExtraSmall'></p>
+
+          </div>
+        </fieldset>
+        <div class='ps-buttons-container'>
+          <adf-button data-testid="secondary" type='secondary' [value]='"ps:btn.back" | translate' (click)='previous()' ></adf-button>
+          <adf-button data-testid="next" [value]='"btn.next" | translate' (click)='next()'></adf-button>
+        </div>
+        <div class='ps-sub-title' *ngIf='isFileSelected'>
+          <h4> {{ 'ps:label_import_file' | translate }} </h4>
+        </div>
+        <div class='content-type-file' *ngIf='isFileSelected'>
+          <span> {{ 'ps:type_file' | translate }} </span>
+          <div class='radio-control__file'>
+            <adf-ps-radio-button
+              [control]='typeFileControl'
+              label='ps:csv_file'
+              formControlName='file'
+              name='file'
+              value='csv'
+              id=':radio3'>
+            </adf-ps-radio-button>
+            <adf-ps-radio-button
+              [control]='typeFileControl'
+              label='ps:excel_file'
+              formControlName='file'
+              name='file'
+              value='excel'
+              id=':radio4'>
+            </adf-ps-radio-button>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </adf-form-layout>
+  <div *ngIf='isFileSelected' class='ps-table-content'>
+    <adf-table [structure]='tableLayout'></adf-table>
+  </div>
+
+</article>

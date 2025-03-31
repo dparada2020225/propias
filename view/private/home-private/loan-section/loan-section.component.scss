@@ -1,0 +1,29 @@
+table.table.custom-table td.amount.with-currency {
+  padding: 8px;
+  text-align: right;
+  max-width: 280px;
+
+  span {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  div {
+    width: 65%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+table.table.custom-table tfoot td {
+  color: var(--primary-color-menu) !important;
+}
+
+@media only screen and (min-width: 992px) {
+  .subtitle {
+    font-size: 18px !important;
+  }
+}

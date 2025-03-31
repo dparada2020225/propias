@@ -1,0 +1,137 @@
+.regional-connection {
+  background-color: #003865;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__wifi-gif {
+    width: 32px;
+    position: absolute;
+    margin-top: -33px;
+    @media screen and (max-width: 991px) {
+      margin-top: -20px;
+    }
+    @media screen and (max-width: 576px) {
+      margin-top: -6px;
+    }
+  }
+
+  &__nav {
+    background-color: #003865;
+    width: 100%;
+    height: 112px;
+    box-shadow: 0px 3px 6px #00000029;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+  }
+
+  &__logo img {
+    margin: auto;
+    width: 182px;
+    height: auto;
+  }
+
+  &__message-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 576px) {
+      font-size: 34px;
+      text-align: center;
+      max-width: 447px;
+    }
+
+    &__title span {
+      font-family: NeoIndustrial, sans-serif;
+      font-weight: bold;
+      color: #fff;
+      font-size: 48px;
+      letter-spacing: 0.68px;
+      @media screen and (max-width: 991px) {
+        font-size: 34px;
+      }
+      @media screen and (max-width: 576px) {
+        font-size: 34px;
+        line-height: 46px;
+      }
+    }
+
+    &__text {
+      font-family: AndesNeue, sans-serif;
+      font-weight: 400;
+      font-size: 21px;
+      margin: 20px 0 60px 0;
+      color: #fdd26e;
+      letter-spacing: 1px;
+
+      br {
+        display: none;
+        @media screen and (max-width: 576px) {
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 991px) {
+        font-size: 18px;
+      }
+      @media screen and (max-width: 576px) {
+        line-height: 32px;
+        margin: 20px 0 20px 0;
+      }
+    }
+
+    &__text-blue {
+      color: #00c1d4 !important;
+      @media screen and (max-width: 991px) {
+        display: inline-block;
+        padding-top: 9px !important;
+      }
+    }
+  }
+
+  &__button {
+    height: 49px;
+    width: 160px;
+    color: #00c1d4;
+    background: #063865;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #28c1d4;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button:hover {
+    background: #2c8b9e 0% 0% no-repeat padding-box;
+    color: #f7f7f7;
+  }
+}
+
+.error-page-background {
+  background-image: url('^assets/images/public/conexion-regional-pleca-aqua.png'),
+  url('^assets/images/public/conexion-regional-pleca-blanca.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: -6% 90%, 108% 20%;
+  background-size: 292px auto;
+  @media screen and (max-width: 1220px) {
+    background-position: -16px 90%, 116% 20%;
+    background-size: 256px auto;
+  }
+  @media screen and (max-width: 991px) {
+    background-position: -46px 90%, 106% 20%;
+    background-size: 181px auto;
+  }
+  @media screen and (max-width: 576px) {
+    background-position: -46px 90%, 120% 20%;
+    background-size: 181px auto;
+  }
+}

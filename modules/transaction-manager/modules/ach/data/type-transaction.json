@@ -1,0 +1,22 @@
+[
+  {
+    "name": "label_select_and_option",
+    "value": ""
+  },
+  {
+    "name": "tm:ach:label_uni",
+    "value": "UNI"
+  },
+  {
+    "name": "tm:ach:label_365",
+    "value": "SPM"
+  },
+  {
+    "name": "tm:ach:label_365m",
+    "value": "TRM"
+  },
+  {
+    "name": "tm:ach:label_365sipa",
+    "value": "LBTR"
+  }
+]

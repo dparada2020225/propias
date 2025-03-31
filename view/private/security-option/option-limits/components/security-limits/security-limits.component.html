@@ -1,0 +1,17 @@
+<main [ngClass]='[customShow, "byte-container sp-no-limits-container"]'>
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <div class='sp-heading'>
+    <h1> {{'title:settings_amounts_limit' | translate}} </h1>
+    <p> {{ 'text:settings_amounts_limit' | translate }} </p>
+  </div>
+  <section class='sp-form-container'>
+    <h2> {{ 'transfers_other_banks' | translate}} </h2>
+    <adf-form-layout [form]='form' [setLayoutJson]='formLayout' ></adf-form-layout>
+  </section>
+
+  <div class="byte-container-ci__button">
+    <adf-button *ngIf="isDisabledNextButton" (click)='setConfigurationLimits()' class="primary" [value]='"title:config" | translate'> </adf-button>
+    <adf-button (click)='back()' class="secondary"  type="secondary" value="{{ 'toReturn' | translate }}">
+    </adf-button>
+  </div>
+</main>

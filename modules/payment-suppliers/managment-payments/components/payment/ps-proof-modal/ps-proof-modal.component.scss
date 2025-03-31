@@ -1,0 +1,86 @@
+::ng-deep.payroll-modal {
+  adf-table {
+    .estadoCuenta.error,
+    .estadoCuenta.inactive,
+    .estadoCuenta.inactiva,
+    .estadoCuenta.blocked,
+    .estadoCuenta.bloqueada,
+    .estadoCuenta.cancelled,
+    .estadoCuenta.cancelada {
+      color: var(--warn-color) !important;
+      text-transform: uppercase;
+
+    }
+
+    .estadoCuenta.Activa,
+    .estadoCuenta.active,
+    .estadoCuenta.activa {
+      color: var(--alert-success-color) !important;
+      text-transform: uppercase;
+    }
+
+    .estadoCuenta.Active{
+      color: var(--alert-success-color) !important;
+      text-transform: uppercase;
+    }
+
+    .correo{
+      word-break: break-all;
+      overflow: initial;
+    }
+
+    .detalle{
+        //word-break: break-all;
+        overflow: initial;
+      }
+  
+
+    .scrolled-table{
+      max-block-size: 650px !important;
+    }
+
+  }
+
+  hr:last-child {
+    display: none;
+  }
+  adf-reading {
+    .list-grid .field-title {
+      min-width: 130px !important;
+    }
+    .content-fields > div {
+      border: none !important;
+    }
+
+    .field-item {
+      .field-title {
+        max-width: 100px !important;
+      }
+      .field-description {
+        max-width: 100px !important;
+
+        @media only screen and (min-width: 769px) {
+          margin-left: 15% !important;
+
+        }
+      }
+      gap: 1rem;
+    }
+  
+    .heading-voucher {
+      padding-bottom: 3rem;
+    }
+  }
+
+  adf-table {
+    .main-container {
+      border-top: 1px solid var(--light-text-three);
+      padding-bottom: 3rem;
+    }
+  }
+}
+
+::ng-deep .list-grid.credits .field-title {
+  white-space: normal; 
+  word-break: break-word; 
+}

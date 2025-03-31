@@ -1,0 +1,17 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.acm-ach-detail {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.acm-ach-detail {
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+}

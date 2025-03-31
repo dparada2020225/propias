@@ -1,0 +1,18 @@
+[
+    {
+      "id" : 1,
+      "name" : "device-mobile",
+      "path" : "assets/images/private/soft-token/HID-modal/device-mobile.png",
+      "idName" : "deviceMobile",
+      "width" : "280",
+      "height" : "658.91"
+    },
+    {
+      "id" : 2,
+      "name" : "device-tablet",
+      "path" : "assets/images/private/soft-token/HID-modal/device-tablet.png",
+      "idName" : "deviceTablet",
+      "width" : "280",
+      "height" : "452"
+    }
+  ]

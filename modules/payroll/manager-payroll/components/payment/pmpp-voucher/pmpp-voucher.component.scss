@@ -1,0 +1,86 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.pp-upload__header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--light-text-three);
+
+  p {
+    font-size: 18px;
+    color: var(--light-text-two);
+  }
+}
+
+::ng-deep.reading-default {
+  adf-reading {
+    .content-fields {
+      @include from(x) {
+        padding-left: 100px;
+      }
+    }
+  }
+}
+
+.reading-st {
+  @include from(x) {
+    padding-left: 100px;
+  }
+}
+
+
+::ng-deep.spp-container {
+  adf-table {
+    .status {
+      text-transform: uppercase;
+    }
+
+    .status.error,
+    .status.inactive,
+    .status.inactiva,
+    .status.blocked,
+    .status.bloqueada,
+    .status.cancelled,
+    .status.cancelada {
+      color: var(--warn-color) !important;
+    }
+
+    .status.activa,
+    .status.active {
+      color: var(--alert-success-color) !important;
+    }
+
+    .email{
+      word-break: break-all;
+      overflow: initial;
+    }
+
+    .scrolled-table{
+      max-block-size: 650px !important;
+    }
+  }
+
+  adf-confirmation-headband .headband {
+    margin: 64px 0 40px 0;
+  }
+}
+
+.payroll-buttons-container.payment-home {
+  justify-content: flex-end;
+  margin: 64px 0;
+}
+
+hr {
+  border-color: var(--light-text-three);
+}
+
+.headband-container hr {
+  @include from(x) {
+    margin-left: 100px;
+  }
+}
+
+
+.confirm-payment-content {
+  @include from(x) {
+    padding-left: 100px;
+  }
+}

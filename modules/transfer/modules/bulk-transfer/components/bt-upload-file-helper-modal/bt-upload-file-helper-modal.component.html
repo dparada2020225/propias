@@ -1,0 +1,31 @@
+<article class="modal-body">
+    <a (click)="close()" ngbAutofocus class="float-right icon">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+    <h2 class="modal__title">{{ title | translate }}</h2>
+    <figure class="grid-content">
+      <img *ngIf="!isMobile" class="picture" height="254" src="assets/img/imagen-modal.png" alt="file upload example" />
+      <img *ngIf="isMobile" class="picture picture__mobile" src="assets/img/imagen-modal-mobile.png" alt="file upload example" />
+      <ul class="heading">
+        <li *ngFor="let heading of dataHeading.data" class="heading-item">
+          <span> {{ heading.value | translate }} </span>
+        </li>
+      </ul>
+      <ul class="detail">
+        <li *ngFor="let detail of dataDetail.data" class="detail-item">
+          <span> {{ detail.value | translate }} </span>
+        </li>
+      </ul>
+      <div class="formats">
+        <p> {{ 'label:valid_format_files' | translate }} </p>
+        <i class="banca-regional-csv"></i>
+        <i class="banca-regional-xls"></i>
+      </div>
+    </figure>
+    <ul class="modal__footer">
+      <li> {{'label:requirements_valid_file1' | translate}} </li>
+      <li> {{'label:requirements_valid_file2' | translate}} </li>
+      <li> {{'label:requirements_valid_file3' | translate}} </li>
+    </ul>
+  </article>
+  

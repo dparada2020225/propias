@@ -1,0 +1,30 @@
+<div class="stoken-bisv-membership-modal">
+    <div class="modal__header">
+      <a class="modal__header-close" (click)="close()">
+        <span aria-hidden="true" class="fa fa-times"></span>
+        <span class="hidden-text">Close</span>
+      </a>
+    </div>
+    <div class="modal-body">
+      <div class="stoken-bisv-qr-alert">
+        <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+      </div>
+      <div class="modal-body__icon">
+        <i class="icon-soft-token-warning"></i>
+      </div>
+      <h2 class="modal-body__title">{{ 'stoken-bisv-membership-title' | translate }}</h2>
+      <div class="modal-body__description">
+        <p class="message-modal">{{ 'stoken-bisv-membership-descrip' | translate }}</p>
+      </div>
+    </div>
+    <div class="modal__buttons">
+      <adf-button
+        class="primary modal__buttons-registry"
+        id="primary"
+        [value]="'stoken-bisv-membership-btn' | translate"
+        (click)="next()"
+        (keydown.enter)="next()"
+      ></adf-button>
+    </div>
+  </div>
+  

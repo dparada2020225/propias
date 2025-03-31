@@ -1,0 +1,283 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+$maxInlineSize: 1274px;
+
+
+
+.file-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding:  0 0 2rem 0;
+}
+
+
+.file-name {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid #c4c4c4;
+  color: var(--primary-color);
+  margin: 0;
+  border-radius: 4px;
+
+  i {
+    font-size: 1.2rem;
+  }
+}
+
+.btn-delete-file {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  border: 1px solid #c4c4c4;
+  color: #c4c4c4;
+  align-self: normal;
+  background-color: transparent;
+   i {
+     font-size: 1.2rem;
+   }
+}
+
+.description {
+  text-align: center;
+  max-inline-size: 14.0625rem;
+  span {
+    text-decoration: underline;
+  }
+  i {
+    font-size: 2rem;
+  }
+  p {
+    margin: 1.25rem 0;
+    font-size: 14px;
+    font-family: inherit;
+  }
+}
+
+
+.tooltip-modal__content {
+  display: flex;
+  align-items: center;
+  max-width: max-content;
+  gap: .5rem;
+  margin: 1rem 0;
+}
+
+
+::ng-deep.container-bulk-transfer {
+
+  adf-upload {
+    .upload-button {
+      @include from(m) {
+        margin-right: -35px;
+      }
+
+      @include from(x) {
+        margin: 0;
+      }
+    }
+  }
+
+  adf-form-layout .grid-container {
+    .upload-item {
+      grid-column: span 12;
+    }
+
+    grid-template-areas:
+      'upload . . . . . . . . . . .'
+      'schedule . . . . . . . . . . .'
+      'date . . . . . . . . . . .'
+      'hour . . . . . . . . . . .';
+
+
+
+    .check-attribute {
+      grid-area: schedule;
+      grid-column: span 12;
+      height: 100%;
+    }
+
+    .check-attribute .input__label {
+      color: var(--primary-color);
+    }
+
+    .datepicker-attribute {
+      grid-area: date;
+      grid-column: span 12;
+    }
+
+    .select_hour-attribute {
+      grid-area: hour;
+      grid-column: span 12;
+    }
+
+    @include from(x) {
+      grid-template-areas:
+      'upload . . . . . . . . . . .'
+      'schedule date hour . . . . . . . . .';
+
+      .account-debit {
+        grid-area: select;
+        grid-column: span 12;
+      }
+
+      .total-amount {
+        grid-area: amount;
+        grid-column: span 6;
+      }
+
+      .total-accounts {
+        grid-area: accounts;
+        grid-column: span 6;
+      }
+
+      .check-attribute {
+        grid-area: schedule;
+        grid-column: span 1;
+      }
+
+      .datepicker-attribute {
+        grid-area: date;
+        grid-column: span 5;
+      }
+
+      .select_hour-attribute {
+        grid-area: hour;
+        grid-column: span 5;
+      }
+
+
+      .upload-item .upload-content {
+        border-bottom: 1px solid var(--light-text-three) !important;
+        padding-bottom: 40px !important;
+        padding-top: 0 !important;
+        border-top: 0 solid var(--light-text-three) !important;
+        margin: 12px 0 24px  0;
+        grid-area: upload;
+        grid-column: span 12;
+      }
+    }
+  }
+
+  adf-form-layout {
+    adf-select .select-wrapper,
+    adf-input .input-wrapper,
+    adf-datepicker .input-wrapper {
+      margin: 0 !important;
+    }
+    @include from(x) {
+      #form-layout-container {
+        --gutter-grid-container: 1.25rem;
+        --padding-block-start-x: calc(40px - 24px);
+      }
+      .check-attribute {
+        position: relative;
+        text-align: end;
+        padding-inline-start: 4rem;
+        padding-inline-end: 1.25rem;
+        align-self: center;
+      }
+      .check-attribute::before {
+        position: absolute;
+        content: '';
+        block-size: 2.625rem;
+        inline-size: 1px;
+        background-color: #c4c4c4;
+        inset-inline-end: 0;
+        inset-block-start: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  adf-datepicker-form-layout .disabled-input {
+    input {
+      cursor: not-allowed;
+      border: 1px solid #ccd0d5 !important;
+      color: #ccd0d5 !important;
+      background-color: #f8f8f8 !important;
+    }
+    input::placeholder,
+    .icon {
+      color: #ccd0d5 !important;
+    }
+    .icon {
+      cursor: default !important;
+    }
+  }
+
+  adf-select {
+    select:disabled {
+      cursor: not-allowed;
+      border: 1px solid #ccd0d5 !important;
+      color: #ccd0d5 !important;
+      background-color: #f8f8f8 !important;
+    }
+    select:disabled::placeholder {
+      color: #ccd0d5 !important;
+    }
+  }
+
+  adf-checkbox-form-layout .checkbox-form-layout {
+    .input-title {
+      align-self: start;
+      margin-left: 5px;
+    }
+
+    adf-checkbox {
+      justify-content: start;
+    }
+
+    @include from(m) {
+      .input-title {
+        margin-left: 0;
+      }
+    }
+  }
+
+  adf-table #table-container {
+    @include from(m) {
+      padding-inline-start: 4rem;
+    }
+  }
+}
+
+
+::ng-deep.upload-item {
+  byte-upload-file {
+    > div {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+::ng-deep.container-bulk-transfer .widgets-container.skeleton-loader {
+    border-radius: 4px;
+    background-color: #e2e5e7;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    background-size: 40px 100%;
+    background-repeat: no-repeat;
+    background-position: left -40px top 0;
+    -webkit-animation: shine 1s ease infinite;
+    animation: shine 1s ease infinite;
+    min-height: 287px;
+
+    byte-upload-file .upload-content {
+      visibility: hidden;
+    }
+
+    ngx-dropzone {
+      visibility: hidden;
+    }
+  }
+
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+

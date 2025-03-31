@@ -1,0 +1,33 @@
+<div class="modal-header" style="border: none">
+  <button type="button" class="close" aria-label="Close" (click)="skip(1)"><i aria-hidden="true" class="fas fa-times" style="color: #9B9B9B;"></i></button>
+</div>
+<div class="modal-body" style="border: none">
+  <i aria-hidden="true" [ngClass]="{'icon-corporate': corporateImageApplication()}" class="icon banca-regional-configuracion-seguridad security-icon"></i>
+  <h1 [ngClass]="{'icon-corporate': corporateImageApplication()}">{{'title-terms-conditions'| translate}}</h1>
+  <!-- <p [ngClass]="{'text-error-profile': this.descriptionError}">{{ this.descriptionError ? this.descriptionError :
+      'body-terms-conditions'| translate}}</p> -->
+
+<p [ngClass]="{'text-error-profile': this.descriptionError}">
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec faucibus justo, vel scelerisque quam. Curabitur et justo quis lacus convallis tempor. Nam bibendum, orci sit amet varius finibus, velit dui tincidunt lacus, non pretium ligula dui sed eros. Nulla lacinia, mauris nec pulvinar laoreet, nulla felis vulputate justo, ut suscipit lectus nulla eget nisl. Integer posuere dapibus augue. Nulla auctor felis non dolor blandit feugiat. Nulla facilisi. Suspendisse potenti. Nulla facilisi. Donec posuere, erat id consectetur pretium, neque ligula faucibus ex, ac efficitur libero mauris at ligula. Curabitur faucibus, velit ut scelerisque interdum, lectus est dictum elit, eu tristique justo erat sed quam. Vivamus maximus quam vel felis lacinia, id pharetra urna auctor.
+
+Suspendisse potenti. Quisque ut purus neque. Proin viverra ultrices fermentum. Suspendisse potenti. Suspendisse ut libero in nisl pharetra lacinia id a nisl. Mauris at tincidunt lorem. Vestibulum fermentum leo a tortor cursus hendrerit. Vestibulum dictum nunc sit amet sagittis accumsan. Nam luctus scelerisque augue, vel vehicula leo bibendum eu. Nulla facilisi. In hac habitasse platea dictumst. Vestibulum dignissim sit amet libero ac efficitur. Curabitur nec augue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus ultricies tincidunt dolor sed cursus. Nullam malesuada, mauris sit amet faucibus pharetra, ex odio viverra purus, sit amet vulputate metus tortor ut nunc.
+
+Etiam vulputate felis sit amet sem fringilla vehicula. Cras scelerisque ultricies augue, a egestas orci aliquam id. Sed at nisi sit amet eros finibus dignissim at in velit. Donec nec turpis a erat interdum sodales. Nulla viverra lectus et quam consectetur fringilla. Suspendisse potenti. Ut vel varius velit. Donec fermentum urna lacus, non facilisis velit scelerisque non. Nam quis nisl non mi suscipit mollis. Nulla nec nisl a lorem consectetur bibendum. Nam convallis lacinia tincidunt. Duis finibus venenatis orci, id efficitur nunc sodales quis. Suspendisse auctor efficitur justo non tincidunt. Cras gravida interdum tortor ut blandit. Integer a tristique justo.
+
+Ut pharetra justo et fringilla feugiat. Aenean eu ex sit amet sapien rhoncus ultrices non quis nisl. Aliquam scelerisque, libero sit amet auctor cursus, velit velit sodales enim, id facilisis turpis eros et mi. Nullam sagittis, nulla vel dictum facilisis, mauris leo aliquet enim, id posuere eros lorem ac elit. Aliquam quis nibh eu arcu vehicula sagittis. Morbi varius ex non augue fermentum, non rhoncus turpis efficitur. Mauris venenatis felis nulla, id fringilla tortor sodales eu. Ut facilisis, eros in dignissim suscipit, mi felis rutrum risus, vel fermentum sapien felis nec augue. Pellentesque suscipit, turpis non malesuada auctor, arcu turpis blandit velit, eget efficitur purus erat et dui. In a justo sed nisi varius venenatis. Mauris congue neque sed massa ullamcorper, id fermentum purus tincidunt.
+
+</p>
+
+</div>
+<div class="alert-show">
+  <adf-alert *ngIf="showAlert" receiverType="error" [receiverMessage]="this.messageAlert | translate"></adf-alert>
+</div>
+<div class="modal-footer" style="border: none">
+  <div class="button-modal" *ngIf="!this.descriptionError">
+      <adf-button value="{{'cancel'| translate}}" (onClick)="skip(1)" type="secondary">
+      </adf-button>
+      <adf-button value="{{'agree'| translate}}" (onClick)="skip(2)">
+      </adf-button>
+  </div>
+</div>

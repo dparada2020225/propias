@@ -1,0 +1,61 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.am365-home {
+  hr {
+    border-color: var(--light-text-three);
+  }
+
+  .add-content {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2.5rem;
+  }
+
+  .table-content {
+    margin-top: 12px;
+  }
+
+  @include from(x) {
+    .content {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.am365-home {
+  adf-table {
+    #table-container {
+      --row-size: 130px 1fr 1fr 90px 100px;
+      --mobile-table-maxBloSize: 380px;
+    }
+
+    .td-empty {
+      color: var(--primary-color);
+    }
+
+    .iconInTable span.loading {
+      animation: pulse 1s infinite alternate !important;
+    }
+
+    .iconInTable span.active {
+      color: var(--primary-color) !important;
+    }
+
+    .statusParsed.a {
+      color: #38c172;
+    }
+
+    .statusParsed.i {
+      color: #c91b1b;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    color: var(--light-text-three);
+  }
+  50% {
+    color: var(--primary-color);
+  }
+}

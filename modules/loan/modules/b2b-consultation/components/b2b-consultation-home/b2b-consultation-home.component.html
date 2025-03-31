@@ -1,0 +1,98 @@
+<div [ngClass]="[customShow, 'container-b2b-consultation byte-container b2b-container']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <adf-form-layout [setLayoutJson]="formLayout" [setDataSelectList]="optionsList" [form]="form"> </adf-form-layout>
+
+  <ng-container *ngIf='!hasDetailAccountError'>
+    <div class="b2b-consultation-reading">
+      <adf-reading [data]="voucherLayout"> </adf-reading>
+    </div>
+
+    <div class="consultation-detail">
+      <h2>{{ 'balance-detail' | translate }}</h2>
+    </div>
+    <div class="d-none d-lg-block">
+      <!-- desktop  -->
+      <table id="b2b__table" class="table custom-table table-striped" aria-describedby='b2b consultation table' style="margin-top: 15px">
+        <thead>
+        <tr>
+          <th class="text-uppercase" style="width: 50%">{{ 'detail' | translate }}</th>
+          <th class="text-uppercase" style="width: 50%">{{ 'value' | translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let element of informationBalance">
+          <ng-container *ngIf="element.name !== 'totalCancellationBalance'">
+            <td>
+              {{ element.name | translate }}
+            </td>
+            <td class="text-uppercase amount with-currency notranslate">
+              <span>{{ currency }}</span> <span>{{ element.value | customNumber }}</span>
+            </td>
+          </ng-container>
+        </tr>
+        </tbody>
+        <ng-container *ngFor="let element of informationBalance">
+          <tfoot *ngIf="element.name === 'totalCancellationBalance'">
+          <tr>
+            <td>
+                <span>
+                  {{ 'totalCancellationBalance' | translate }}
+                </span>
+            </td>
+            <td class="amount notranslate">
+              <div class="content-total-desktop">
+                <span> {{ currency }}</span> <span>{{ element.value | customNumber }}</span>
+              </div>
+            </td>
+          </tr>
+          </tfoot>
+        </ng-container>
+      </table>
+    </div>
+
+    <div class="d-lg-none">
+      <!-- mobile -->
+      <table aria-describedby='mobile b2b consultation table' class="table custom-table table-striped" style="margin-top: 15px">
+        <thead>
+        <tr>
+          <th class="text-uppercase text-md-center" style="width: 50%">{{ 'detail' | translate }}</th>
+          <th class="text-uppercase text-md-center" style="width: 50%">{{ 'value' | translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let element of informationBalance; let index = index">
+          <ng-container *ngIf="element.name !== 'totalCancellationBalance'">
+            <td>
+              {{ element.name | translate }}
+            </td>
+            <td class="text-uppercase amount with-currency notranslate">
+              <div>
+                {{ currency }} <span>{{ element.value | customNumber }}</span>
+              </div>
+            </td>
+          </ng-container>
+        </tr>
+        </tbody>
+        <ng-container *ngFor="let element of informationBalance">
+          <tfoot *ngIf="element.name === 'totalCancellationBalance'">
+          <tr class="table-mobile">
+            <td colspan="2">
+              <span class="total">{{ element.name | translate }}</span>
+              <div class="content-total">
+                <span class="text-uppercase total-amount">{{ currency }}</span>
+                <span class="float-right total-amount">{{ element.value | customNumber }}</span>
+              </div>
+            </td>
+          </tr>
+          </tfoot>
+        </ng-container>
+      </table>
+    </div>
+  </ng-container>
+
+  <div class="byte-container__button">
+    <adf-button class="primary" id="next" value="{{ 'print' | translate }}" (click)="nextStep()"> </adf-button>
+    <adf-button class="secondary" id="prev" type="secondary" value="{{ 'toReturn' | translate }}" (click)="lastStep()"> </adf-button>
+  </div>
+</div>

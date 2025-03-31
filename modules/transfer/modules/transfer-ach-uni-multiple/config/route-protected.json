@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Multiple UNI",
+    "path": "/transfer/ach-uni-multiple",
+    "parameter": "365:home",
+    "children": [
+      {
+        "path": "st/operation",
+        "parameter": "uniMultiple:st_operation",
+        "children": []
+      },
+      {
+        "path": "st/detail",
+        "parameter": "uniMultiple:st_detail",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "cover": {
+      "tablet": "assets/images/private/signature-tracking/onboarding/st-step1-tablet.gif",
+      "mobile": "assets/images/private/signature-tracking/onboarding/st-step1-mobile.gif",
+      "desktop": "assets/images/private/signature-tracking/onboarding/st-step1-desktop.gif"
+    },
+    "description": "label:st_onboarding_step1_description",
+    "title": "label:st_onboarding_step1_title",
+    "step": 0
+  },
+  {
+    "cover": {
+      "tablet": "assets/images/private/signature-tracking/onboarding/st-step2-tablet.gif",
+      "mobile": "assets/images/private/signature-tracking/onboarding/st-step2-mobile.gif",
+      "desktop": "assets/images/private/signature-tracking/onboarding/st-step2-desktop.gif"
+    },
+    "description": "label:st_onboarding_step2_description",
+    "title": "label:st_onboarding_step2_title",
+    "step": 1
+  },
+  {
+    "cover": {
+      "tablet": "assets/images/private/signature-tracking/onboarding/st-step3-tablet.gif",
+      "mobile": "assets/images/private/signature-tracking/onboarding/st-step3-mobile.gif",
+      "desktop": "assets/images/private/signature-tracking/onboarding/st-step3-desktop.gif"
+    },
+    "description": "label:st_onboarding_step3_description",
+    "title": "label:st_onboarding_step3_title",
+    "step": 2
+  }
+]
+
+

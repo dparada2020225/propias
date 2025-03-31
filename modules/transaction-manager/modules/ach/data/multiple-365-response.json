@@ -1,0 +1,102 @@
+[
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3131",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3132",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3133",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3134",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3135",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3136",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3137",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3138",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3139",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  },
+  {
+    "date": "01012024000000",
+    "typeOperation": "SEND",
+    "lote": "3110",
+    "account": "0100100110618",
+    "accountName": "GARCIA CARDONA MACEL ODETTE",
+    "currency": "USD",
+    "amount": "100.00",
+    "status": "DONE"
+  }
+]

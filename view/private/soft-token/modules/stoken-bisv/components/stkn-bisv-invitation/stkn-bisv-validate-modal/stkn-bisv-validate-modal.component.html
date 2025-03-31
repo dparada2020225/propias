@@ -1,0 +1,54 @@
+<ngx-spinner></ngx-spinner>
+<div class="stkn-bisv-validate-token-modal stoken-bisv-invitation-modal">
+  <div class="modal__header">
+    <a class="modal__header-close" (click)="close()" id="btn-X-method-stoken-bisv"
+      ><span aria-hidden="true" class="fa fa-times"></span>
+      <span class="hidden-text">Close</span>
+    </a>
+  </div>
+  <div class="modal-body">
+    <div class="alert-container" *ngIf="typeAlert && messageAlert">
+      <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+      </div>
+    <div class="info-container">
+      <div class="info-container__icon">
+        <i aria-hidden="true" class="icon banca-regional-ingreso-token token-icon"></i>
+      </div>
+      <div class="info-container__steps">
+        <byte-stkn-bisv-step-vertical [secondStepOn]="true"></byte-stkn-bisv-step-vertical>
+      </div>
+      <div class="info-container__descrip">
+        <h1>{{ 'stoken-method' | translate }}</h1>
+        <p class="info-container__descrip-p">{{ 'stoken-successful' | translate }}</p>
+        <p class="info-container__descrip-p2">{{ 'stkn-bisv-step2' | translate }}</p>
+      </div>
+    </div>
+    <div class="input-token-container">
+      <div class="input-container__label">
+        <p>
+          {{ 'stoken-generate-SLV' | translate }}
+        </p>
+      </div>
+      <div class="input-token-container__form">
+        <form [formGroup]="inputTokenForm" (ngSubmit)="next()">
+          <adf-input
+            [placeholder]="'stoken-input' | translate"
+            formControlName="inputToken"
+            [control]="controlForInputToken"
+            [imaskOptions]="maskToken"
+          >
+            <div error>
+              <span *ngIf="inputHasError">{{ 'stkn-bisv-input-error' | translate }}</span>
+              <span *ngIf="inputHasMinLength">{{ 'stkn-bisv-input-error2' | translate }}</span>
+            </div>
+          </adf-input>
+        </form>
+      </div>
+    </div>
+    <div class="byte-container__button">
+      <adf-button value="{{ 't.continue' | translate }}" id="information-stoken-btn" class="primary" (click)="next()" (keydown.enter)="next()"> </adf-button>
+      <adf-button value="{{ 'stoken-logout' | translate }}" type="secondary" action="button" id="backBtn-info-stoken" class="secondary" (click)="handlerBackLogout()" (keydown.esc)="handlerBackLogout()"></adf-button>
+    </div>
+  </div>
+</div>
+

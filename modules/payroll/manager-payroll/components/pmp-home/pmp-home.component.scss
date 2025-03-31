@@ -1,0 +1,55 @@
+@use '../../../../../../assets/styles/responsive.scss' as *;
+
+.payroll-title {
+  border-bottom: 1px solid var(--light-text-three);
+}
+
+.payroll-buttons-container--home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 64px;
+
+  @include from(m) {
+    justify-content: space-between;
+    padding: 64px 0 164px 0;
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  @include from(x) {
+    justify-content: flex-end;
+    gap: 56px;
+  }
+}
+
+::ng-deep.spp-home .payroll-buttons-container--home {
+  adf-button {
+
+    height: 50px;
+
+    @include from(m) {
+      width: 356px;
+    }
+
+    @include from(x) {
+      width: 446px;
+    }
+
+    .btn {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+  }
+
+  adf-button:first-child {
+    order: 2;
+  }
+
+  @include from(m) {
+    adf-button:first-child {
+      order: 0;
+    }
+  }
+}

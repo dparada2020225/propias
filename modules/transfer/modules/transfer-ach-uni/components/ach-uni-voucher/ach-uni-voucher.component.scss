@@ -1,0 +1,67 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.ach-uni-voucher {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.ach-uni-voucher {
+  #reading-container {
+    --padding-block-start-sm: 1rem;
+    --padding-block-end-sm: 1.5rem;
+    --padding-block-start-md: 1rem;
+    --padding-block-end-md: 2rem;
+    --padding-block-start-x: 1.8rem;
+    --padding-block-end-x: 2.5rem;
+  }
+
+  adf-reading {
+    .heading-voucher {
+      display: none;
+    }
+  }
+}
+
+  .footer {
+    padding-bottom: 25px;
+
+    @include from(m) {
+      padding-bottom: 33px;
+      padding-left: 0;
+    }
+
+    @include from(x) {
+      padding-bottom: 24px;
+      padding-left: 100px;
+    }
+  }
+
+  .transfer_banks_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: -15px;
+
+    .text-container {
+      flex: 1;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      font: normal normal bold 18px/22px Lato, sans-serif;
+      font-size: 18px;
+      color: var(--light-text-two);
+    }
+
+    .img-uni {
+      width: 70px;
+      margin-bottom: 10px;
+    }
+  }

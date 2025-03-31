@@ -1,0 +1,22 @@
+<div class="container-qrModal">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true" class="fa fa-times">
+      </span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h1 class="modal-title">{{'stoken-scanQR-modal' | translate}}</h1>
+    <div class="img-qr-modal">
+      <img [src]="qrCode" alt="QR Code" id="img-qr">
+    </div>
+  </div>
+  <div class="modal-footer-zoom">
+    <adf-button value="{{ 'btn.close' | translate }}" type="primary" action="button" class="btn-qr-stoken return-btn" (click)="close()"> </adf-button>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,24 @@
+<div [ngClass]="['crud-container byte-container transfers']">
+    <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+    <div class="consulting-box">
+      <div class="confirmReading">
+        <adf-reading [data]="layoutJsonConfirmation"></adf-reading>
+      </div>
+      <div class="byte-container__button button-divider">
+        <adf-button
+          class="primary"
+          value="{{ 'label.payment' | translate }}"
+          *ngIf="showPaymentButton"
+          (click)="goToPayment()"
+        ></adf-button>
+        <adf-button
+          class="primary"
+          value="{{ 'print' | translate }}"
+          *ngIf="showPrintButton"
+          (click)="getDataVoucherModal()"
+        ></adf-button>
+        <adf-button class="secondary" id="prev" type="{{ typeButton }}" [value]="'toReturn' | translate" (click)="backTo()"> </adf-button>
+      </div>
+      <adf-confirmation-headband [headbandLayout]="headBand"></adf-confirmation-headband>
+    </div>
+  </div>

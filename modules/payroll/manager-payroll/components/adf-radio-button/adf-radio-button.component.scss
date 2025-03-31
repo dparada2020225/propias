@@ -1,0 +1,43 @@
+.adf-radio {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  input {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  input + label {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-color);
+  }
+
+  input + label:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    transition: .3s;
+  }
+
+  input:checked + label:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+label {
+  margin: 0;
+}

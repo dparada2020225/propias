@@ -1,0 +1,9 @@
+<div [ngClass]="[isSmall ? 'alert-box-small' : 'alert-box-big', 'alert-box bisv', 'no-tooltip']">
+  <div class='alert-box-head no-tooltip'>
+    <i [ngClass]='icon'></i>
+    <span> {{ title | translate }} </span>
+  </div>
+
+  <p *ngIf='descriptionEl' [innerHTML]='descriptionEl | translate'></p>
+  <p *ngIf='description'> {{ description | translate }} </p>
+</div>

@@ -1,0 +1,15 @@
+export enum ACAchCreateFromControl {
+  TYPE_CUSTOMER = 'typeCustomer',
+  BANK = 'bank',
+  TYPE_ACCOUNT = 'typeAccount',
+  CURRENCY = 'currency',
+  ACCOUNT = 'account',
+  NAME = 'name',
+  EMAIL = 'email',
+  TYPE_IDENTIFIER = 'typeIdentifier',
+  NO_IDENTIFY = 'noIdentifier',
+  REASON = 'reason',
+  OWN_ACCOUNT = 'ownAccount',
+  ADD_TO_FAVORITES = 'isAddToFavorites',
+  STATUS = 'status',
+}

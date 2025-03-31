@@ -1,0 +1,378 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.payroll-rowgroup.full-grid,
+.payroll-headers.full-grid {
+  display: grid;
+  grid-template-columns: 80px repeat(5, 1fr);
+}
+
+.payroll-rowgroup.default-grid,
+.payroll-headers.default-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.payroll-headers {
+  background-color: var(--light-text-two);
+  color: var(--white-rows);
+  text-transform: uppercase !important;
+  border-radius: 3px 3px 0 0;
+
+  .header-column:not(:last-child) {
+    border-right: 1px solid var(--white-rows);
+  }
+
+  .header-column > div {
+    height: 100%;
+  }
+
+  i {
+    height: 100%;
+    font-size: 17px;
+    position: relative;
+    top: 2px;
+  }
+
+  i, span {
+    width: 100%;
+    display: inline-block;
+    padding: 12px 0;
+    text-align: center;
+  }
+
+  i:before {
+    color: var(--white-rows);
+  }
+}
+
+.payroll-body {
+  .payroll-rowgroup {
+    min-height: 53px;
+    background-color: var(--clear-table-rows);
+  }
+
+  .payroll-rowgroup:nth-child(even) {
+    background-color: var(--light-table-rows);
+  }
+
+  .account {
+    color: var(--primary-color);
+  }
+
+  .payroll-rowgroup > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  span {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .accountNumber {
+      color: var(--color-accountNumber-table)
+  }
+
+}
+
+.table-footer {
+  display: flex;
+  border-bottom: 1px solid var(--light-text-three);
+}
+
+.payroll-table__amount,
+.payroll-table__registers {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  padding: 9px 0;
+  width: 100%;
+
+  span:first-child {
+    font: normal normal bold 14px/20px Lato, sans-serif;
+    color: var(--light-text-three);
+  }
+
+  .value {
+    font: normal normal bold 14px/20px Lato, sans-serif;
+    color: var(--primary-alternative-color);
+  }
+}
+
+.payroll-table__amount {
+  border-right: 1px solid var(--light-text-three);
+}
+
+/* Mobile */
+
+.mobile-cell {
+  padding: 10px 10px;
+}
+
+.payroll-table__mobile-item {
+  background-color: var(--clear-table-rows);
+
+  &:nth-child(even) {
+    background-color: var(--light-table-rows);
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 35px;
+  }
+
+  .account span:last-child {
+    color: var(--primary-color);
+  }
+
+  .table-label{
+    text-transform: uppercase;
+  }
+  > div span, adf-checkbox {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.payroll-table__mobile-footer {
+  padding: 8px 13px;
+  background-color: var(--light-text-three);
+  color: var(--white-rows);
+  border-radius: 0 0 3px 3px;
+}
+
+.payroll-table__mobile-headers {
+  background-color: var(--light-text-two);
+  color: var(--white-rows);
+  text-transform: uppercase;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 3px 3px 0 0;
+
+  span, i {
+    padding: 12px 10px;
+  }
+
+  i {
+    position: relative;
+    top: 2px;
+    font-size: 18px;
+  }
+
+  i:before {
+    color: var(--white-rows);
+  }
+}
+
+.payroll-table__mobile-footer .box-value {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+
+  &.amount {
+    margin-top: 12px;
+    padding: 15px 20px;
+    background-color: var(--light-text-two);
+    border-radius: 3px;
+  }
+
+  &.amount span {
+    font-size: 15px;
+  }
+
+  &.amount > span {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.amount .value {
+    align-self: center;
+  }
+
+  &.quantity {
+    padding: 10px 20px 6px 0px;
+  }
+  &.quantity span{
+    font-size: 18px;
+  }
+
+  &.quantity span:first-child {
+  }
+}
+
+.table-footer-label {
+  width: 100%;
+  display: inline-block;
+  padding-left: 12px;
+  padding-top: 5px;
+  font-size: 1rem;
+}
+
+
+.payroll-widget {
+  position: relative;
+
+  &:hover {
+    .payroll-tooltip {
+      transition: opacity .3s ease-in-out;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.payroll-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  display: inline-block;
+  position: absolute;
+  padding: 10px 12px !important;
+  background-color: var(--primary-alternative-color);
+  color: var(--white-rows);
+  top: -45px;
+  left: 25px;
+  text-transform: capitalize;
+  border-radius: 3px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-top: 10px solid var(--primary-alternative-color);
+    border-bottom: 0;
+    border-radius: 3px;
+    left: 10px;
+    bottom: -8px;
+  }
+}
+
+.payroll-table__mobile-item.default-grid {
+  div:first-child {
+    background-color: var(--light-text-two);
+  }
+
+  .account {
+    color: var(--white-rows) !important;
+  }
+}
+
+
+.header-column {
+  span {
+    font-size: 11px;
+  }
+}
+
+
+/* Tablet */
+
+.payroll-table__tablet-item {
+  background-color: var(--clear-table-rows);
+
+  &:nth-child(even) {
+    background-color: var(--light-table-rows);
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 35px;
+    padding: 0 10px 16px 10px;
+    gap: 22px;
+  }
+
+  .account span:last-child {
+    color: var(--primary-color);
+  }
+
+  > div span, adf-checkbox {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+}
+
+.payroll-table__tablet-checkbox ::ng-deep {
+  adf-checkbox {
+    .check_type-default {
+      padding: 0;
+    }
+  }
+}
+
+.payroll-table__tablet-item.default-grid {
+  div:first-child {
+    background-color: var(--light-text-two);
+  }
+
+  div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .account {
+    color: var(--white-rows) !important;
+  }
+}
+
+.default-grid {
+  .accountNumber.mobile-cell {
+    color: var(--white-rows);
+  }
+}
+
+.email{
+  word-break: break-all;
+  overflow: initial;
+}
+.description{
+  word-break: break-all;
+  overflow: initial;
+}
+
+.detail{
+  word-break: break-all;
+  overflow: initial;
+}
+
+
+.color-blue {
+  .accountNumber {
+    .table-value {
+      color: var(--color-accountNumber-table)
+    }
+  }
+}
+
+.color-white{
+  .accountNumber {
+    .table-value {
+      color: var(--white-rows);
+    }
+  }
+}
+
+::ng-deep adf-checkbox .checkbox-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+::ng-deep adf-checkbox .checkbox-disabled .check_type-default {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.checkbox-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+

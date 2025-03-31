@@ -1,0 +1,15 @@
+<main [ngClass]="[customShow, 'container_voucher-bulk-transfer byte-container transfers']">
+    <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+    <section class="transfer-flow-container">
+      <adf-reading [data]="voucherLayout"></adf-reading>
+      <div class='table-content'>
+        <adf-table [isScrolled]='true' [structure]="tableLayout"></adf-table>
+      </div>
+    </section>
+    <div [ngClass]="['byte-container-ci__button buttons']">
+      <adf-button *ngIf='!isSignatureTransaction && !this.isFatalError' (click)="nextStep()" class="primary" [value]="nextButtonMessage | translate"> </adf-button>
+      <adf-button (click)="back()" class="secondary" [type]='typeButton' [value]="'toReturn' | translate"> </adf-button>
+    </div>
+    <adf-confirmation-headband *ngIf='!this.isSignatureTransaction' [headbandLayout]="headBandLayout"></adf-confirmation-headband>
+  </main>
+

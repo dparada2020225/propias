@@ -1,0 +1,22 @@
+<article [ngClass]="[customShow, 'byte-container transfers acm365-voucher']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    title='ach:bisv:label_home'
+    [label]='subtitle'
+    logoUrl='assets/images/private/ach/logo_transfer_m365.svg'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content'>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

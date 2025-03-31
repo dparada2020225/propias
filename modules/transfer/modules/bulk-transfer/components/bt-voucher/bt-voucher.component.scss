@@ -1,0 +1,17 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.container_voucher-bulk-transfer  {
+  @include from(x) {
+    .table-content {
+      padding-left: 100px;
+      padding-bottom: 2rem;
+    }
+  }
+}
+
+
+::ng-deep.container_voucher-bulk-transfer {
+  adf-table .main-container {
+    border-top: 1px solid var(--light-text-three);
+  }
+}

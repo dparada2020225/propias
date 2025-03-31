@@ -1,0 +1,47 @@
+[
+  {
+    "numberPhone": "72633229",
+    "name": "EDGAR PAUL RABANALES",
+    "bank": 5,
+    "bankName": "BANCO DE AMÉRICA CENTRAL S.A.",
+    "status": "A",
+    "email": "prueba@email.com",
+    "favorite": true
+  },
+  {
+    "numberPhone": "82633229",
+    "name": "RABANLES PAUL EDGAR",
+    "bank": 5,
+    "bankName": "BANCO DE AMÉRICA CENTRAL S.A.",
+    "status": "I",
+    "email": "prueba@email.com",
+    "favorite": true
+  },
+  {
+    "numberPhone": "72733229",
+    "name": "EDGAR PAUL RABANALES",
+    "bank": 5,
+    "bankName": "BANCO DE AMÉRICA CENTRAL S.A.",
+    "status": "A",
+    "email": "prueba@email.com",
+    "favorite": false
+  },
+  {
+    "numberPhone": "82833229",
+    "name": "RABANLES PAUL EDGAR",
+    "bank": 5,
+    "bankName": "BANCO DE AMÉRICA CENTRAL S.A.",
+    "status": "I",
+    "email": "prueba@email.com",
+    "favorite": false
+  },
+  {
+    "numberPhone": "72033229",
+    "name": "EDGAR PAUL RABANALES",
+    "bank": 5,
+    "bankName": "BANCO DE AMÉRICA CENTRAL S.A.",
+    "status": "A",
+    "email": "prueba@email.com",
+    "favorite": false
+  }
+]

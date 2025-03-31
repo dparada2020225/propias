@@ -1,0 +1,17 @@
+<div [ngClass]="[customShow, 'crud-container byte-container transfers', classContainer]">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert"
+             [receiverMessage]="messageAlert | translate"></adf-alert>
+  <adf-form-layout
+    [form]="consultingForm"
+    [setDataSelectList]="consultingSelectOptions"
+    [setLayoutJson]="layoutConsulting"
+    [ngClass]="classFormLayout"
+  ></adf-form-layout>
+
+  <div [ngClass]="['byte-container__button', classButtonContainer]">
+    <adf-button class="primary" id="primary" value="{{ 'consulting-ttrbisv' | translate }}"
+                (click)="nextStep()"></adf-button>
+    <adf-button class="secondary" id="prev" type="secondary" [value]="'toReturn' | translate"
+                (click)="backStep()"></adf-button>
+  </div>
+</div>

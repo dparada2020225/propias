@@ -1,0 +1,45 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.payment-container adf-form-layout {
+  .disable .input-form-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-block-end: 3px;
+    input {
+      font-size: 15px;
+    }
+  }
+
+  .input-enabled:first-child {
+    padding-block-end: 1.25rem !important;
+  }
+
+  .input-enabled:last-child input {
+    max-inline-size: 474px !important;
+  }
+
+  .input-enabled:last-child .input-title {
+    align-self: baseline;
+  }
+
+  .attribute-title {
+    color: var(--light-text-two);
+    border-block-end: 1px solid var(--light-text-three);
+    label {
+      font-weight: bold !important;
+    }
+  }
+
+  .disable span {
+    color: var(--primary-light-two);
+  }
+
+  @include from(m) {
+    .v-inline .form_label {
+      display: grid !important;
+      column-gap: 100px !important;
+      grid-template-columns: 15rem 1fr;
+    }
+  }
+}

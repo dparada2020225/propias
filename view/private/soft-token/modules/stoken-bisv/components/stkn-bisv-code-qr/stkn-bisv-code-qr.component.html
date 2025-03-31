@@ -1,0 +1,17 @@
+<div class="code-qr-container">
+    <div class="stoken-qr-container__shadow" *ngIf="showShadowControl"></div>
+    <div class="code-qr-success" *ngIf="!qrCodeErrorLoading">
+      <img [src]="qrCode" alt="QR Code" id="img-qr" (load)="hideShadow($event)" />
+      <div class="code-qr-zoom" (click)="openModalZoom()" (keydown.enter)="openModalZoom()">
+        <i class="icon-soft-token-zoom"></i>
+      </div>
+    </div>
+    <div class="code-qr-error" *ngIf="qrCodeErrorLoading">
+      <img [src]="qrCodeError" alt="Qr code error" (load)="hideShadow($event)" />
+      <div class="code-qr-error__descrip" (click)="clickOnRetryMessage()" (keydown.space)="clickOnRetryMessage()">
+        <i class="icon-soft-token-actualizar icon-update"></i>
+        <p class="reload-qr">Haz click para actualizar el código QR</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,74 @@
+@use '../../../../assets/styles/responsive.scss' as *;
+
+.container-logout {
+  align-items: center;
+  background: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 85px);
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 242px;
+  height: auto;
+}
+
+frame {
+  background-color: aqua;
+  width: 250px;
+  height: 250px;
+}
+
+.text-logout {
+  font: normal normal bold 27px/33px var(--font-family);
+  letter-spacing: 0px;
+  color: var(--label-color-login);
+  opacity: 1;
+  top: -30px;
+  position: relative;
+  @include from(s) {
+    text-align: center;
+  }
+
+}
+
+.text-login {
+  color: var(--label-color-login);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.secondary-image {
+  width: 250px;
+  height: 215px;
+}
+
+.new-image {
+  .text-logout {
+    position: inherit !important;
+    margin-top: 38px;
+  }
+
+  .text-routin {
+    position: relative;
+    bottom: -25px;
+    font: normal normal bold 16px var(--font-family);
+    .text-login {
+      color: var(--label-color-login);
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .text-logout {
+    font: normal normal bold 17px/33px var(--font-family);
+    top: 0px;
+  }
+}

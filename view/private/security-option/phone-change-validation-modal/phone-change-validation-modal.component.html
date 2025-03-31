@@ -1,0 +1,48 @@
+<div class="modal-header" style="border: none">
+    <button style="display: none;" type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"><i aria-hidden="true" class="fas fa-times" style="color: #9B9B9B;"></i></button>
+</div>
+<div class="body-modal">
+
+    <span class="icon-modal icon banca-regional-success">  
+    </span>
+    
+    <div class="title-modal">
+        {{'so_verification_code'| translate}}
+    </div>
+    <div class="text-modal" *ngIf="!showConfirmation && this.areaCode !== 'Otro'">
+        {{'so_verification_code_text'| translate}}
+    </div>
+    <div class="text-modal" *ngIf="!showConfirmation && this.areaCode === 'Otro'">
+        {{'so_verification_code_email'| translate}}
+    </div>
+    <div class="text-modal" *ngIf="showConfirmation && this.responseCode === '0' && this.areaCode !== 'Otro'">
+        {{'the_number'| translate }} <u>{{this.phone}}</u> {{'has_been_verified'| translate }}
+    </div>
+    <div class="text-modal" *ngIf="showConfirmation && this.responseCode === '0' && this.areaCode === 'Otro'">
+        {{'profile_been_verified'| translate }}
+    </div>
+    
+    <div class="input-code" [formGroup]="phoneChangeForm" *ngIf="!showConfirmation">
+        <adf-input  formControlName="code" [id]="'code'" [imaskOptions]="this.regexImask" 
+        [control]="codeControl">
+           <div error *ngIf="phoneChangeForm.controls['code']?.errors">
+                <span>
+                   {{ this.errorToShow(phoneChangeForm.controls['code'].errors) | translate}}
+                </span>
+           </div>
+        </adf-input>
+    </div>
+    
+    <div class="alerta mt-3" *ngIf="this.errorMessage">
+        <adf-alert class="" [receiverType]="'error'"  [receiverMessage]="this.errorMessage | translate"></adf-alert>
+    </div>
+
+
+    <div class="button-code tamano mb-5" *ngIf="!showConfirmation">
+        <adf-button value="{{ 'configure_information' | translate}}" (click)="sendCode()" [isLoading]="loading"></adf-button>
+    </div>
+
+    <div class="button-code tamano" style="margin-top: 25px;" *ngIf="showConfirmation">
+        <adf-button value="{{ (this.errorMessage ? 'so_close' : 'so_confirmation') | translate}}" (click)="sendCode()"></adf-button>
+    </div>
+</div>

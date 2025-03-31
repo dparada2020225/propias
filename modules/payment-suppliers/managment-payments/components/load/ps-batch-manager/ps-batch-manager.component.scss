@@ -1,0 +1,213 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.ps-load-container {
+  @include from(m) {
+    padding-left: 100px;
+  }
+}
+
+.radio-form {
+  margin-top: 18px;
+  inline-size: 100%;
+
+  legend {
+    font: normal normal bold 16px/19px Lato, sans-serif;
+  }
+}
+
+::ng-deep.ps-load-main {
+  .section-helper {
+    margin-top: 50px;
+    max-width: 470px !important;
+  }
+
+  adf-table {
+    .content.field {
+      text-transform: uppercase;
+    }
+
+    .field{
+      text-transform: uppercase !important;
+
+    }
+  }
+
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-end-sm: 0;
+      --padding-block-end-md: 0;
+      --padding-block-end-x: 0;
+    }
+
+    .container-form {
+      @include from(x) {
+        padding-left: 100px;
+      }
+    }
+
+    .custom-grid {
+      display: flex;
+      grid-row: 3;
+
+      @include from(m) {
+        grid-row: 3;
+      }
+
+      @include from(x) {
+        grid-row: 2;
+      }
+    }
+
+    .quantity-credits, .total-amount {
+      @include to(sm) {
+        adf-input {
+          height: 55px !important;
+
+          .input-wrapper {
+            height: 100% !important;
+            width: 100% !important;
+
+            input {
+              height: 100% !important;
+              width: 100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.ps-table-content {
+  @include from(x) {
+    padding-left: 100px;
+  }
+}
+
+.ps-load-main {
+  fieldset legend {
+    font-size: 0.938rem;
+
+    @include from(x) {
+      font-size: 1rem;
+    }
+
+    color: var(--light-text-three);
+    margin: 0;
+  }
+
+  .radio-control__upload {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    gap: 27px;
+
+    @include from(m) {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+}
+
+.ps-sub-title {
+  margin-top: 40px;
+
+  h4 {
+    color: var(--color-subtitle-sppl);
+    border-bottom: 1px solid var(--light-text-three);
+    font: normal normal bold 18px/22px Lato, sans-serif;
+    padding-bottom: 8px;
+  }
+
+  p {
+    margin-top: 1.5rem;
+
+    @include from(m) {
+      margin-top: 1.125rem;
+    }
+
+    @include from(x) {
+      margin-top: 1.5rem;
+    }
+
+    color: var(--primary-alternative-color);
+    font-size: 14px;
+  }
+}
+
+
+.content-type-file {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font: normal normal bold 16px/19px Lato, sans-serif;
+    font-size: 1rem;
+    color: var(--light-text-three);
+  }
+
+  @include from(m) {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 96px;
+  }
+
+  @include from(x){
+    gap: 88px;
+  }
+}
+
+.radio-control__file {
+  display: flex;
+  margin-top: 1.5rem;
+  gap: 52px;
+
+  @include from(m) {
+    margin-top: 0;
+    flex-direction: row;
+    gap: 60px;
+  }
+}
+::ng-deep .ps-buttons-container adf-button button.btn {
+  @media only screen and (max-width: 600px) {
+    width: 100% !important; /* Ajustamos el ancho */
+    height: 60px !important; /* Ajustamos la altura */
+  }
+}
+
+::ng-deep .ps-buttons-container {
+  @include from(m) {
+    margin-top: 5%;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 100px;
+    gap: 32px;
+  }
+
+  @include to(sm) {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column; /* Botones en vertical */
+    gap: 16px; /* Espacio entre los botones */
+    width: 100%; /* Los botones abarcan el 100% del ancho */
+
+    /* Invertir el orden de los botones */
+    adf-button[data-testid="next"] {
+      order: 1; /* El botón "next" va primero */
+    }
+
+    adf-button[data-testid="secondary"] {
+      order: 2; /* El botón "back" va después */
+    }
+
+    adf-button {
+      width: 100%; /* Cada botón se ajusta al 100% del contenedor */
+
+      button.btn {
+        height: 60px;
+        width: 100% !important;
+      }
+    }
+  }
+}

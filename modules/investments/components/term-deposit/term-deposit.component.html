@@ -1,0 +1,178 @@
+<div class="container-fluid container-private">
+  <div class="sub-container">
+
+    <h1 class="title">{{ 'label.term-deposit.investment' | translate }}</h1>
+    <h2 class="subtitle">{{ 'label.term-deposit.account-balance' | translate}}</h2>
+
+    <hr />
+
+    <div class="general-info">
+      <div class="row">
+        <div class="col-12">
+          <h2>{{'label.term-deposit.account.detail' | translate}}</h2>
+          <hr />
+        </div>
+        <div class="col-12">
+          <div class="selector">
+            <account-selector [entryType]="entryType" [product]="product" [service]="service"
+                              [control]="accountControl" [account]="account" (onChangeAccount)="onChangeAccount($event)">
+            </account-selector>
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngIf="!isLoading && !empty">
+        <div class="row" *ngFor="let data of information.accountDetail?.toList">
+          <div class="col-12 display">
+            <label class="key">{{ 'label.term-deposit.' + data.key | translate}}</label>
+            <span class="value">{{data.value}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h2 class="subtitle-two">{{'label.term-deposit.general-information' | translate}}</h2>
+            <hr />
+          </div>
+          <ng-container *ngFor="let data of information.generalInformation?.toList">
+            <div class="col-12 container-value" *ngIf="data.key !== 'netInterest' && data.key !== 'pendingInterest'">
+              <label class="key key-temp">{{ 'label.term-deposit.' + data.key | translate}}</label>
+              <span class="value value-test">
+                                <span class="currency">
+                                    {{information.currencySymbol}}
+                                </span>
+                                <span class="amount">
+                                    {{data.value | customNumber}}
+                                </span>
+                            </span>
+            </div>
+          </ng-container>
+          <div class="col-12 container-value hr">
+            <label class="key key-temp">
+              <b>
+                {{ 'label.term-deposit.net-interest' | translate}}
+              </b>
+            </label>
+            <span class="value value-test total-value">
+                            <span class="currency">
+                                {{information.currencySymbol}}
+                            </span>
+                            <span class="amount">
+                                {{information.generalInformation?.pendingInterest | customNumber }}
+                            </span>
+                        </span>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="row">
+        <div class="col-12" *ngIf="!isLoading && empty">
+          <adf-alert [receiverType]="'warning'" [receiverMessage]="'label.term-deposit.account-no-information'">
+          </adf-alert>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <ng-container *ngIf="!isLoading && !empty">
+        <div class="col-12">
+          <h2>{{ 'label.term-deposit.account.information' | translate}}</h2>
+          <hr />
+        </div>
+
+        <!-- information mobile -->
+        <div class="col-12 d-lg-none" *ngIf="isMobile">
+          <table aria-describedby="table1" class="table custom-table">
+            <ng-container *ngFor="let balance of information?.balance; let index = index">
+              <thead>
+              <tr>
+                <th id="certificate-number" class="text-uppercase">{{'label.term-deposit.certificate-number' | translate}}
+                </th>
+                <th id="certificateNumber" class="text-uppercase">{{balance.certificateNumber}}
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="certificate-number" class="text-uppercase">{{'label.term-deposit.term-in-days' | translate}}</td>
+                <td headers="certificateNumber" class="text-uppercase">{{balance.termInDays}}</td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="certificate-number" class="text-uppercase">{{'label.term-deposit.issue-date' | translate}}</td>
+                <td headers="certificateNumber" class="text-uppercase">{{balance.issueDate}}</td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="certificate-number" class="text-uppercase">{{'label.term-deposit.expiration-date' | translate}}</td>
+                <td headers="certificateNumber" class="text-uppercase">{{balance.expirationDate}}</td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="certificate-number" class="text-uppercase">{{'label.term-deposit.interest-rate' | translate}}</td>
+                <td headers="certificateNumber" class="text-uppercase">{{balance.interestRate}}</td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="certificate-number" class="text-uppercase">{{'label.term-deposit.credit-interests' | translate}}
+                </td>
+                <td headers="certificateNumber" class="text-uppercase">{{balance.creditInterests}}
+                </td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="certificate-number" class="text-uppercase">{{'label.term-deposit.automatic-renewal' | translate}}
+                </td>
+                <td headers="certificateNumber" class="text-uppercase">{{('TRANS_' + balance.automaticRenewal)| translate}}</td>
+              </tr>
+              <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="certificate-number" class="text-uppercase">
+                  {{'label.term-deposit.last-interest-payment' | translate}}</td>
+                <td headers="certificateNumber" class="text-uppercase">{{balance.lastInterestPayment}}</td>
+              </tr>
+              </tbody>
+            </ng-container>
+          </table>
+        </div>
+        <!-- information default -->
+        <div class="col-12 mb-3 d-none d-lg-block" *ngIf="!isMobile">
+          <table  aria-describedby="table2" class="table custom-table table-striped">
+            <thead>
+            <tr>
+              <th id="certificate-number-mobile" class="text-uppercase">{{'label.term-deposit.certificate-number' | translate}}</th>
+              <th id="term-in-days" class="text-uppercase">{{'label.term-deposit.term-in-days' | translate}}</th>
+              <th id="issue-date" class="text-uppercase">{{'label.term-deposit.issue-date' | translate}}</th>
+              <th id="expiration-date" class="text-uppercase">{{'label.term-deposit.expiration-date' | translate}}</th>
+              <th id="interest-rate" class="text-uppercase">{{'label.term-deposit.interest-rate' | translate}}</th>
+              <th id="credit-interests" class="text-uppercase">{{'label.term-deposit.credit-interests' | translate}}</th>
+              <th id="automatic-renewal" class="text-uppercase">{{'label.term-deposit.automatic-renewal' | translate}}</th>
+              <th id="last-interest-payment" class="text-uppercase">{{'label.term-deposit.last-interest-payment' | translate}}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let balance of information?.balance">
+              <td class="text-uppercase">{{balance.certificateNumber}}</td>
+              <td headers="term-in-days" class="text-uppercase">{{balance.termInDays}}</td>
+              <td headers="issue-date" class="text-uppercase">{{balance.issueDate}}</td>
+              <td headers="expiration-date" class="text-uppercase">{{balance.expirationDate}}</td>
+              <td headers="interest-rate" class="text-uppercase amount">{{balance.interestRate}}</td>
+              <td headers="credit-interests" class="text-uppercase">{{balance.creditInterests}}</td>
+              <td headers="automatic-renewal" class="text-uppercase">{{('TRANS_' + balance.automaticRenewal)| translate}}</td>
+              <td headers="last-interest-payment" class="text-uppercase">{{balance.lastInterestPayment}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-12">
+          <hr />
+        </div>
+      </ng-container>
+
+      <div class="col-12 buttons" [ngClass]="{'mt-3': empty}">
+        <adf-button [value]="'btn.back' | translate" type="secondary" (onClick)="goBack()"></adf-button>
+      </div>
+
+      <div class="col-12">
+        <byte-transaction-footer [id]="this.information?.authorizationNumber"></byte-transaction-footer>
+      </div>
+    </div>
+
+  </div>
+</div>

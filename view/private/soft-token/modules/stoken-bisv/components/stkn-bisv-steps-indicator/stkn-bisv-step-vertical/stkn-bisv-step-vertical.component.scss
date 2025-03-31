@@ -1,0 +1,88 @@
+.stkn-bisv-step-y-container {
+    height: 272px;
+    width: 57px;
+    display: grid;
+    justify-items: center;
+    position: relative;
+  }
+  
+  .stkn-bisv-step-y-container__step1 {
+    grid-template-rows: 75px 85px 43px 1fr;
+  }
+  
+  .stkn-bisv-step-y-container__step2 {
+    grid-template-rows: 75px 95px 40px 1fr;
+  }
+  
+  .track-step-1 {
+    width: 0px;
+    height: 75px;
+    border: 0.5px solid #003865;
+  }
+  
+  .track-step-3 {
+    width: 43px;
+    height: 43px;
+  }
+  
+  
+  .step-icon-1-container {
+    position: absolute;
+    top: 25%;
+    color: var(--primary-light-two);
+  }
+  
+  .step-icon-1-active {
+    font-size: 56px;
+  }
+  
+  .step-icon-1-inactive {
+    font-size: 43px;
+  }
+  
+  .step-icon-2-container {
+    font-size: 43px;
+    position: absolute;
+    top: 59%;
+    color: var(--primary-light-two);
+  }
+  
+  .step-icon-2-active {
+    font-size: 56px;
+  }
+  
+  .step-icon-2-inactive {
+    font-size: 43px;
+  }
+  
+  .track-step-off {
+    border: 0.5px solid #E9E9E9;
+  }
+  
+  .track-step-on {
+    border: 0.5px solid #003865;
+  }
+  
+  .track-step-2-off {
+    border: 0.5px solid #E9E9E9;
+    width: 0px;
+    height: 85px;
+  }
+  
+  .track-step-2-on {
+    border: 0.5px solid #003865;
+    height: 95px;
+  }
+  
+  .track-step-4-off {
+    width: 0px;
+    height: 69px;
+    border: 0.5px solid #E9E9E9;
+  }
+  
+  .track-step-4-on {
+    width: 0px;
+    height: 61px;
+    border: 0.5px solid #003865;
+  }
+  

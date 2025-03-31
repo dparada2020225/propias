@@ -1,0 +1,97 @@
+<footer>
+    <div class="main-footer">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-xs-12 col-lg-4">
+                    <div class="section" *ngIf="this.linkList.links && this.linkList.links.length > 0">
+                        <h5 class="section-title d-none d-lg-block">
+                            {{"footer_links" | translate}}
+                        </h5>
+                        <div class="section-title d-lg-none" (click)="collapseLinks.toggle()"
+                            [attr.aria-expanded]="!isFooterCollapsed.links">{{"footer_links" | translate}}</div>
+                        <ul #collapseLinks="ngbCollapse" [(ngbCollapse)]="isFooterCollapsed.links" >
+                            <li *ngFor="let element of this.links">
+                                <a [href]="element.link" target="_blank">
+                                    {{ element.label | translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section" *ngIf="this.linkList.downloads && this.linkList.downloads.length > 0">
+                        <h5 class="section-title d-none d-lg-block">{{"footer_downloads" | translate}}</h5>
+                        <div class="section-title d-lg-none" (click)="collapseDownloads.toggle()" [attr.aria-expanded]="!isFooterCollapsed.downloads">
+                            {{"footer_downloads" | translate}}
+                        </div>
+                        <ul #collapseDownloads="ngbCollapse" [(ngbCollapse)]="isFooterCollapsed.downloads">
+                            <li *ngFor="let element of this.linkList.downloads">
+                                <a [href]="element.link" target="_blank">
+                                    {{ element.label | translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="section">
+                        <h5 class="section-title d-none d-lg-block">{{"footer_support" | translate}}</h5>
+                        <div class="section-title d-lg-none" (click)="collapseSupport.toggle()" [attr.aria-expanded]="!isFooterCollapsed.support">
+                            {{"footer_support" | translate}}
+                        </div>
+                        <ul #collapseSupport="ngbCollapse" [(ngbCollapse)]="isFooterCollapsed.support">
+                            <li>
+                                <a [href]="'mailto:' + settings?.contactsInfo.email">
+                                    {{settings?.contactsInfo.email}}
+                                </a>
+                            </li>
+                            <li>
+                                <a [href]="'https://api.whatsapp.com/send?phone=' + settings?.contactsInfo.whatsapp" target="_blank">
+                                    {{"footer_whatsapp" | translate}}: 
+                                    <span>
+                                        {{settings?.contactsInfo.whatsapp | customPhone}}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="marginInfo" [href]="'tel:' + settings?.contactsInfo.phone">
+                                    {{"footer_support_contact_center"| translate}}: 
+                                    <span>
+                                        {{settings?.contactsInfo.phone | customPhone}}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="section" *ngIf="this.linkList.about && this.linkList.about.length > 0">
+                        <h5 class="section-title d-none d-lg-block">
+                            {{ 'footer_about' | translate}}
+                        </h5>
+                        <div class="section-title d-lg-none" (click)="collapseAbout.toggle()" [attr.aria-expanded]="!isFooterCollapsed.about">
+                            {{ 'footer_about' | translate}}
+                        </div>
+                        <ul #collapseAbout="ngbCollapse" [(ngbCollapse)]="isFooterCollapsed.about">
+                            <li *ngFor="let element of this.linkList.about">
+                                <a [href]="element.link" target="_blank">
+                                    {{ element.label | translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section" *ngIf="this.linkList.socialNetworks && this.linkList.socialNetworks.length > 0">
+                        <h5 class="section-title d-none d-lg-block">
+                            {{"footer_social_network" | translate}}
+                        </h5>
+                        <ul class="social-footer2">
+                            <li *ngFor="let element of this.linkList.socialNetworks; let indice=index; let i = index;" [ngClass]="{'social-icons': i != 0}">
+                                <a [href]="element.link" target="_blank" title={{element.name}}>
+                                    <i aria-hidden="true" class={{element.icon}} ></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

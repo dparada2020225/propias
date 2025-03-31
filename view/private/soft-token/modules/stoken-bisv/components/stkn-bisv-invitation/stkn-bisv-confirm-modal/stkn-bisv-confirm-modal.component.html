@@ -1,0 +1,24 @@
+<div class="stkn-bisv-confirm-modal stoken-bisv-invitation-modal">
+    <div class="modal__header">
+      <a class="modal__header-close" (click)="close()" id="btn-X-method-stoken-bisv"
+        ><span aria-hidden="true" class="fa fa-times"></span>
+        <span class="hidden-text">Close</span>
+      </a>
+    </div>
+    <div class="modal-body">
+      <div class="information-container">
+        <div class="information-container__icon">
+          <i class="icon-soft-token-success"></i>
+        </div>
+        <div class="information-container__description">
+          <h1>{{ 'stoken-confirm-title' | translate }}</h1>
+          <p>{{ 'stoken-confirm-descrip' | translate }}</p>
+        </div>
+      </div>
+      <div class="byte-container__button">
+        <adf-button value="{{ 'agree' | translate }}" action="button" id="backBtn-info-stoken" class="secondary" (click)="openExitModal()" (keydown.enter)="openExitModal()">
+        </adf-button>
+      </div>
+    </div>
+  </div>
+  

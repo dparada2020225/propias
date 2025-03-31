@@ -1,0 +1,70 @@
+<div class="modal1">
+  <div class="modal-header" style="border: none">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <i aria-hidden="true" class="fas fa-times" style="color: #9b9b9b"></i>
+    </button>
+  </div>
+  <div class="modal-body" style="border: none">
+    <div class="text-center">
+      <i
+        aria-hidden="true"
+        prefix
+        [ngClass]="{ 'icon-corporate': corporateImageApplication() }"
+        class="icon banca-regional-token-contrasena icon-principal"
+      ></i>
+      <h1 [ngClass]="{ 'h1-corporate': corporateImageApplication() }">{{ 't.upgrade' | translate }}</h1>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 text-center">
+        <h4 [ngClass]="{ 'h4-corporate': corporateImageApplication() }">{{ 't.step' | translate }} 1</h4>
+        <i
+          aria-hidden="true"
+          prefix
+          [ngClass]="{ 'icon-corporate': corporateImageApplication() }"
+          class="icon banca-regional-token-numero icon-step"
+        ></i>
+        <p [ngClass]="{ 'p-corporate': corporateImageApplication() }">{{ 't.g-new-token' | translate }}</p>
+      </div>
+
+      <div class="col-12 col-md-6 text-center">
+        <h4 [ngClass]="{ 'h4-corporate': corporateImageApplication() }">{{ 't.step' | translate }} 2</h4>
+        <i
+          aria-hidden="true"
+          prefix
+          [ngClass]="{ 'icon-corporate': corporateImageApplication() }"
+          class="icon banca-regional-token-vsn icon-step"
+        ></i>
+        <p [ngClass]="{ 'p-corporate': corporateImageApplication() }">{{ 't.number-displayed' | translate }}</p>
+      </div>
+      <div class="col-12 col-md-6 text-center">
+        <h4 [ngClass]="{ 'h4-corporate': corporateImageApplication() }">{{ 't.step' | translate }} 3</h4>
+        <i
+          aria-hidden="true"
+          prefix
+          [ngClass]="{ 'icon-corporate': corporateImageApplication() }"
+          class="icon banca-regional-token-vclock icon-step"
+        ></i>
+        <p [ngClass]="{ 'p-corporate': corporateImageApplication() }">{{ 't.press-device' | translate }}</p>
+      </div>
+
+      <div class="col-12 col-md-6 text-center">
+        <h4 [ngClass]="{ 'h4-corporate': corporateImageApplication() }">{{ 't.step' | translate }} 4</h4>
+        <div class="">
+          <i
+            aria-hidden="true"
+            prefix
+            [ngClass]="{ 'icon-corporate': corporateImageApplication() }"
+            class="icon banca-regional-token-numero-1 icon-sec-one icon-step"
+          ></i>
+          <i
+            aria-hidden="true"
+            prefix
+            [ngClass]="{ 'icon-corporate': corporateImageApplication() }"
+            class="icon banca-regional-token-numero-2 icon-sec-two icon-step"
+          ></i>
+        </div>
+        <p [ngClass]="{ 'p-corporate': corporateImageApplication() }">{{ 't.write-down' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

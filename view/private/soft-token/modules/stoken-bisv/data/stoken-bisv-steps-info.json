@@ -1,0 +1,27 @@
+[
+    {
+      "id" : 1,
+      "icon" : "icon-stkn-bisv-icono1",
+      "title" : "step-title",
+      "description" : "stkn-bisv-step1-descrip"
+    },
+    {
+      "id" : 2,
+      "icon" : "icon-stkn-bisv-icono2",
+      "title" : "step-title",
+      "description" : "stkn-bisv-step2-descrip"
+    },
+    {
+      "id" : 3,
+      "icon" : "icon-stkn-bisv-icono3",
+      "title" : "step-title",
+      "description" : "stkn-bisv-step3-descrip"
+    },
+    {
+      "id" : 4,
+      "icon" : "icon-soft-token-success",
+      "title" : "step-title-listo",
+      "description" : "stkn-bisv-step5-descrip"
+    }
+  
+  ]

@@ -1,0 +1,36 @@
+@use '../../../../../../../../assets/styles/responsive' as *;
+::ng-deep.confirm-layout {
+  div.byte-container__button {
+    justify-content: center;
+
+    @include from(m) {
+      adf-button.primary {
+        width: 240px !important;
+      }
+      adf-button.secondary {
+        width: 240px !important;
+      }
+    }
+
+    @include from(x){
+      justify-content: flex-end;
+    }
+
+  }
+}
+
+::ng-deep.confirm-layout adf-reading {
+  .padding-side {
+    @include from(m) {
+      padding-left: var(--padding-side) !important;
+      padding-right: 0 !important;
+      .field-item {
+        padding-right: 6rem !important;
+      }
+    }
+    @include from(x) {
+      padding-left: var(--padding-side) !important;
+      padding-right: var(--padding-side) !important;
+    }
+  }
+}

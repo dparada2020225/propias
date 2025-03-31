@@ -1,0 +1,21 @@
+
+<div class="container-logout">
+    <iframe hidden title="embedded logout" id="frame" [src]="safeUrl" class="frame">
+      <p>Iframe no soportado.</p>
+    </iframe>
+    <div class="container" [ngClass]="{'new-image': secondaryImage !== undefined}">
+        <img alt="logo logout" src="{{mainImage}}">
+        <div class="text-logout">
+            {{'logout_close_session'| translate}}
+        </div>
+        <div class="text-routin">
+            {{'logout_route_login' | translate}}
+            <span class="text-login" (click)="login()">
+                {{'logout'| translate}}
+            </span>
+        </div>
+        <div *ngIf="secondaryImage">
+            <img class="secondary-image" alt="secondary image" src="{{secondaryImage}}">
+        </div>
+    </div>
+</div>

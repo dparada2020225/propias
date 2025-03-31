@@ -1,0 +1,366 @@
+<ngx-spinner></ngx-spinner>
+
+<div class="container-fluid container-private">
+    <div class="sub-container">
+        <div>
+            <h2 class="title">{{title | translate}}</h2>
+            <h2 class="subtitle">{{'accountBalance'| translate}}</h2>
+            <mat-divider></mat-divider>
+            <div class="row main-content">
+                <div class="col-lg-8">
+                    <div class="selector">
+                        <account-selector [account]="accountNumber" [entryType]="entryType" [product]="product"
+                            [service]="service" [control]="account"  (onChangeAccount)="getAccount($event)"></account-selector>
+                    </div>
+                </div>
+                <div class="col-12" *ngIf="show">
+                    <!----------------------------------------------- info para modo pc  -------------------------------------------->
+                    <div class="d-none d-md-block">
+
+                      <div class="subtitle" style="margin: 15px 0px 5px 0px;">
+                        {{'accountDetails'| translate}}
+                      </div>
+
+                      <mat-divider></mat-divider>
+                        <div class="row" style="padding-top: 15px;">
+                            <div class="col-12 display" *ngFor="let accountDetail of this.accountDetailList">
+                                <label class="key">
+                                    {{accountDetail.key | translate}}
+                                </label>
+                                <span *ngIf="accountDetail.key === 'coin'">
+                                    <span class="value" style="text-transform: uppercase;">{{'currency_' +
+                                        accountDetail.value | translate}} </span>
+                                </span>
+                                <span *ngIf="accountDetail.key != 'coin'">
+                                    <span class="value">{{accountDetail.value}}</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="subtitle" style="margin: 15px 0px 5px 0px;">
+                            {{'balance-title'| translate}}
+                        </div>
+
+                        <mat-divider></mat-divider>
+
+                        <div class="row" style="padding-top: 15px;">
+                            <div class="col-12" *ngFor="let balance of this.balanceList let last = last">
+                                <label class="key" [ngClass]="{'font-weight-bold':last}">{{balance.key |
+                                    translate}}</label>
+                                <span class="value" [ngClass]="{'font-weight-bold':last}">
+                                    <span style="padding-right: 10px;" [ngClass]="{'font-weight-bold':last}">
+                                        {{ this.currencySymbol }}
+                                    </span>
+                                    <span class="value-amount">{{balance.value}}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <mat-divider class="balance-divider"></mat-divider>
+                        <div class="row" style="padding-top: 15px;" *ngIf="this.limitsList && limitsList.length > 0">
+                            <div class="col-12" *ngFor="let limits of this.limitsList">
+                                <label class="key">
+                                    {{limits.key | translate}}
+                                </label>
+                                <span class="value">
+                                    <span style="padding-right: 10px;">
+                                        {{ this.currencySymbol }}
+                                    </span>
+                                    <span class="value-amount">{{limits.value}}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <mat-divider *ngIf="this.limitsList && this.limitsList.length > 0"></mat-divider>
+                    </div>
+
+                    <!----------------------------------------------- info para modo mobile  -------------------------------------------->
+                    <div class="d-md-none d-xxl-none">
+                        <div class="row">
+                            <div style="width: 100%; display: block;"
+                                *ngFor="let accountDetail of this.accountDetailList">
+                                <div class="col-12" style="display: flex;">
+                                    {{accountDetail.key | translate}}
+                                </div>
+                                <div class="col-12 value-text">
+                                    {{accountDetail.value}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subtitle" style="margin: 26px 0px 0px 0px;">
+                            {{'balance-title'| translate}}
+                        </div>
+                        <mat-divider class="divider-mobile"></mat-divider>
+
+                        <div class="table custom-table" style="margin-bottom: 0px;display: flex; flex-wrap: wrap">
+                            <div style="width: 100%; display: block;" *ngFor="let balance of this.balanceList">
+                                <div class="row total-table-rows" style="height: 45px; margin: auto;">
+                                    <div class="col-12 summary-header">
+                                        {{balance.key | translate}}
+                                    </div>
+                                </div>
+                                <div class="row white-rows" style="height: 45px; margin: auto;">
+                                    <div class="col-12 value-text summary-header">
+                                        <span style="float: right">
+                                            {{balance.value}}
+                                        </span>
+                                        <span style="padding-right: 10px;font-weight: bold;">
+                                            {{ this.currencySymbol }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <mat-divider style="margin-top: 6px; margin-bottom: 18px"></mat-divider>
+                        <div class="table custom-table" style="margin-bottom: 0px;display: flex; flex-wrap: wrap">
+                            <div style="width: 100%; display: block;" *ngIf="this.limitsList && limitsList.length > 0">
+                                <div style="width: 100%; display: block;" *ngFor="let limits of this.limitsList">
+                                    <div class="row total-table-rows" style="height: 45px; margin: auto;">
+                                        <div class="col-12 summary-header">
+                                            {{limits.key | translate}}
+                                        </div>
+                                    </div>
+                                    <div class="row white-rows" style="height: 45px; margin: auto;">
+                                        <div class="col-12 value-text summary-header">
+                                            <span style="float: right">
+                                                {{limits.value}}
+                                            </span>
+                                            <span style="padding-right: 10px;font-weight: bold;">
+                                                {{ this.currencySymbol }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <mat-divider *ngIf="this.limitsList && this.limitsList.length > 0" style="margin-top: 12px;">
+                        </mat-divider>
+                    </div>
+                </div>
+            </div>
+
+            <ng-container *ngIf="show">
+                <div class="subtitle bookings" style="margin: 65px 0px 10px 0px">
+                    {{'bookings'| translate}}
+                </div>
+
+                <!------------------------------------- Reservas  -------------------------------------------->
+                <div class="d-none d-lg-block">
+                    <!-- desktop  -->
+                    <table aria-describedby="Reservas" class="table custom-table table-striped" style="margin-top: 15px;">
+                        <thead>
+                            <tr>
+                                <th id="detail" class="text-uppercase" style="width: 50%;">{{ 'detail' | translate }}</th>
+                                <th id="value" class="text-uppercase" style="width: 50%;">{{ 'value' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let element of dataSourceReservation">
+                                <ng-container *ngIf="element.detail !== 'total'">
+                                    <td headers="detail" >
+                                        {{element.detail | translate}}
+                                    </td>
+                                    <td headers="value" class="text-uppercase amount with-currency notranslate">
+                                        <div>
+                                            {{ this.currencySymbol }}
+                                            <span [ngClass]="{'enlace': element.value !== 0.00}"
+                                                (click)="openReservation(element.detail, element.value)">
+                                                {{element.value |customNumber}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                            </tr>
+                        </tbody>
+                        <ng-container *ngFor="let element of dataSourceReservation">
+                            <tfoot *ngIf="element.detail === 'total'">
+                                <tr>
+                                    <td headers="detail" >{{element.detail | translate}}</td>
+                                    <td headers="value" class="amount with-currency notranslate">
+                                        <div>
+                                            {{ this.currencySymbol }} <span>{{element.value |customNumber}}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </ng-container>
+                    </table>
+                </div>
+
+                <div class="d-lg-none">
+                    <!-- mobile -->
+                    <table aria-describedby="Reservas-mobile" class="table custom-table">
+                        <ng-container *ngFor="let reservation of this.reservationList; let index = index">
+                            <ng-container *ngIf="reservation.detail !== 'total'">
+                                <thead>
+                                    <tr>
+                                        <th id="detail-51" class="text-uppercase" style="width: 50%;">{{'detail'| translate}}</th>
+                                        <th id="reservation-detail" class="text-uppercase underline" style="width: 50%;">
+                                            <span>{{reservation.detail| translate}}</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr [ngClass]=" {'even': index % 2===0, 'odd' : index % 2 !==0}">
+                                        <td class="text-uppercase">{{'value'| translate}}</td>
+                                        <td headers="reservation-detail" class="text-uppercase amount text-right">
+                                            <span style="float: left">
+                                                {{ this.currencySymbol }}
+                                            </span>
+                                            <span [ngClass]="{'enlace': reservation.value !== 0.00 }"
+                                                (click)="openReservation(reservation.detail, reservation.value)">
+                                                {{reservation.value}}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+                        </ng-container>
+                    </table>
+                    <table aria-describedby="table1" class="table custom-table">
+                        <ng-container *ngFor="let reservation of this.reservationList; let index = index">
+                            <tfoot *ngIf="reservation.detail === 'total'">
+                                <tr class="table-mobile">
+                                    <th id="reservation-detail-8" colspan="2">
+                                        <span class="total">{{reservation.detail| translate}}</span>
+                                        <div>
+                                            <span class="text-uppercase total-amount">{{this.currencySymbol}}</span>
+                                            <span class="float-right total-amount">{{reservation.value | customNumber
+                                                }}</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </ng-container>
+                    </table>
+                </div>
+
+                <div class="subtitle locks-detail" style="margin: 35px 0px 10px 0px">
+                    {{'locksDetail'| translate}}
+                </div>
+
+                <!------------------------------------- Detalle de bloqueos --------------------------------->
+                <div class="d-none d-lg-block">
+                    <!-- desktop  -->
+                    <table aria-describedby="Detalle de bloqueos" class="table custom-table table-striped" style="margin-top: 15px;">
+                        <thead>
+                            <tr>
+                                <th id="detail-5" class="text-uppercase" style="width: 50%;">{{ 'detail' | translate }}</th>
+                                <th id="value-0" class="text-uppercase" style="width: 50%;">{{ 'value' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let element of dataSourceLockDetailsWithoutTotal">
+                                <ng-container *ngIf="element.detail !== 'total'">
+                                    <td>
+                                        {{element.detail | translate}}
+                                    </td>
+                                    <td class="text-uppercase amount with-currency notranslate">
+                                        <div>
+                                            {{ this.currencySymbol }} <span>{{element.value |customNumber}}</span>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                            </tr>
+                        </tbody>
+                        <ng-container *ngFor="let element of dataSourceLockDetails">
+                            <tfoot *ngIf="element.detail === 'total'">
+                                <tr>
+                                    <td>{{element.detail | translate}}</td>
+                                    <td  class="amount with-currency notranslate">
+                                        <div>
+                                            {{ this.currencySymbol }} <span>{{element.value |customNumber}}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </ng-container>
+                    </table>
+                </div>
+
+                <div class="d-lg-none">
+                    <!-- mobile -->
+                    <table aria-describedby="Detalle de bloqueos Mobile" class="table custom-table">
+                        <ng-container *ngIf="dataSourceLockDetailsWithoutTotal.length === 0">
+                            <thead>
+                                <tr>
+                                    <th id="detail-1" class="text-uppercase">{{'detail'| translate}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr [ngClass]="'even'">
+                                    <td class="text-uppercase">{{'value'| translate}}</td>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                        <ng-container *ngFor="let lockDetails of dataSourceLockDetailsWithoutTotal; let index = index">
+                            <ng-container *ngIf="lockDetails.detail !== 'total'">
+                                <thead>
+                                    <tr>
+                                        <th id="detail-3" class="text-uppercase" style="width: 50%;">{{'detail'| translate}}</th>
+                                        <th id="lockDetails-detail" class="text-uppercase" style="width: 50%;">
+                                            <span>{{lockDetails.detail| translate}}</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr [ngClass]=" {'even': index % 2===0, 'odd' : index % 2 !==0}">
+                                        <td class="text-uppercase">{{'value'| translate}}</td>
+                                        <td headers="lockDetails-detail" class="text-uppercase amount text-right">
+                                            <span style="float: left">
+                                                {{ this.currencySymbol }}
+                                            </span>
+                                            {{lockDetails.value| customNumber}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+                        </ng-container>
+                    </table>
+                    <table aria-describedby="tabler2" class="table custom-table">
+                        <ng-container *ngFor="let lockDetails of dataSourceLockDetails; let index = index">
+                            <tfoot *ngIf="lockDetails.detail === 'total'">
+                                <tr class="table-mobile">
+                                    <th id="lockDetails-detail-2" colspan="2">
+                                        <span class="total">{{lockDetails.detail| translate}}</span>
+                                        <div>
+                                            <span class="text-uppercase total-amount">{{this.currencySymbol}}</span>
+                                            <span class="float-right total-amount">{{lockDetails.value | customNumber
+                                                }}</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </ng-container>
+                    </table>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="last-movement" style=" padding-top: 15px; padding-bottom: 15px;">
+                    {{'lastMovement'| translate}}
+                    <span class="value-text last-movement-value">
+                        {{this.lastMovement}}
+                    </span>
+                </div>
+
+                <mat-divider></mat-divider>
+            </ng-container>
+
+            <div *ngIf="!show">
+                <adf-alert [receiverType]="'error'" [receiverMessage]="this.errorMessage | translate"></adf-alert>
+            </div>
+
+            <div class="buttons">
+                <div class="space">
+                    <adf-button value="{{'toReturn'| translate}}" type="secondary" (onClick)="return()">
+                    </adf-button>
+                </div>
+                <div class="space">
+                    <adf-button class="txt-btn-yellow" value="{{'averageBalances'| translate}}" (onClick)="open()">
+                    </adf-button>
+                </div>
+            </div>
+
+            <byte-transaction-footer [id]="this.reference"></byte-transaction-footer>
+        </div>
+
+    </div>
+</div>

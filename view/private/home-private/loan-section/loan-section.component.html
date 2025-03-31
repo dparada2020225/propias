@@ -1,0 +1,131 @@
+<h2  *ngIf="product.accounts.length > 0 || this.url === '04'"><span class="highlight"
+    *ngIf="!singleProduct">{{product.name | translate}}<span class="highlight" *ngIf="this.profile === 'banpais'">: </span></span>
+    <span class="color-title subtitle" *ngIf="this.profile === 'banpais'">{{ 'currency_' + product.currency | translate }}</span></h2>
+
+<!-- dekstop -->
+<div *ngIf="product.accounts.length > 0 || this.url === '04'">
+<table aria-describedby="loan section" class="table custom-table table-striped" *ngIf="!isMobile">
+    <thead>
+        <tr>
+            <th id="account-or-alias" class="text-uppercase">{{ 'label.home.account-or-alias' | translate }}</th>
+            <th id="name" class="text-uppercase">{{ 'label.home.name' | translate }}</th>
+            <th id="currency" class="text-uppercase">{{ 'label.home.currency' | translate }}</th>
+            <th id="total-debt" class="text-uppercase">{{ 'label.home.total-debt' | translate }}</th>
+            <th id="options" class="text-uppercase">{{ 'label.home.options' | translate }}</th>
+        </tr>
+    </thead>
+    <td colspan="5" style="padding: 24px 0px 12px 0px;" *ngIf="product.accounts.length === 0">
+        <adf-alert [receiverType]="'info'"
+            [receiverMessage]="emptyMessage | translate : {currency: this.translate.instant('currency_' + this.product.currency)}">
+        </adf-alert>
+    </td>
+    <tbody>
+        <tr *ngFor="let account of product.accounts">
+            <td headers="account-or-alias" class="text-uppercase">
+                <a *ngIf="this.profile !== 'bipa'"  (click)="goToBalance(account)">{{account.alias}}</a>
+                <a *ngIf="this.profile === 'bipa'" (click)="goToBalance(account)">{{account.mask}}</a>
+            </td>
+            <td [ngClass]="{'text-danger': account.status !== 'Activa'}">{{account.name}}</td>
+            <td [ngClass]="{'text-danger': account.availableAmount < 0}" class="text-uppercase amount">
+                {{account.currency}}</td>
+            <td [ngClass]="{'text-danger': account.availableAmount < 0}" class="text-uppercase amount with-currency">
+                <div class="">
+                    <span>{{account.availableAmount | customNumber }}</span>
+                </div>
+            </td>
+            <td headers="options" class="overflow-hidden">
+                <div ngbDropdown container="body" placement="left-top">
+                    <span ngbDropdownToggle style="cursor: pointer;"><i aria-hidden="true"
+                            class="icon banca-regional-opciones"></i></span>
+                    <ul ngbDropdownMenu class="account-options">
+                        <li>{{ 'label.home.options' | translate }}</li>
+                        <li ngbDropdownItem (click)="goToPayment(account)">
+                            {{ 'label.home.payment' | translate }}</li>
+                        <li ngbDropdownItem (click)="goToStatements(account)">
+                            {{ 'label.home.account-statement' | translate }}</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr *ngIf="product.accounts.length === 0" style="height: 12px;">
+        </tr>
+        <tr *ngIf="product.accounts.length > 0">
+            <td>{{ 'label.home.total' | translate }}</td>
+            <td></td>
+            <td [ngClass]="{'text-danger': product.totalAvailable < 0}">{{ product.currency }}</td>
+            <td [ngClass]="{'text-danger': product.totalAvailable < 0}" class="text-uppercase amount with-currency">
+                <div class="">
+                    <span>{{product.totalAvailable | customNumber}}</span>
+                </div>
+            </td>
+            <td headers="options" ></td>
+        </tr>
+    </tfoot>
+</table>
+</div>
+
+<!-- mobile -->
+
+<div *ngIf="product.accounts.length > 0 || this.url === '04'">
+<table aria-describedby="loan section mobile"  class="table custom-table" *ngIf="isMobile">
+    <ng-container *ngFor="let account of product.accounts; let index = index">
+        <thead>
+            <tr>
+                <th id="account-or-alias" class="text-uppercase">{{ 'label.home.account-or-alias' | translate }}</th>
+                <th id="value" *ngIf="this.profile !== 'bipa'"  class="text-uppercase"><a (click)="goToBalance(account)">{{account.alias}}</a></th>
+                <th id="value" *ngIf="this.profile === 'bipa'" class="text-uppercase"><a (click)="goToBalance(account)">{{account.alias}}</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="account-or-alias" class="text-uppercase">{{ 'label.home.name' | translate }}</td>
+                <td headers="value" [ngClass]="{'text-danger': account.status !== 'Activa'}">{{account.name}}</td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td class="text-uppercase">{{ 'label.home.currency' | translate }}</td>
+                <td [ngClass]="{'text-danger': account.availableAmount < 0}">{{account.currency}}
+                </td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td class="text-uppercase">{{ 'label.home.total-debt' | translate }}</td>
+                <td [ngClass]="{'text-danger': account.availableAmount < 0}">{{account.availableAmount | customNumber }}
+                </td>
+            </tr>
+            <tr [ngClass]="{'even': index % 2 === 0, 'odd': index % 2 !== 0}">
+                <td headers="account-or-alias" class="text-uppercase">{{ 'label.home.options' | translate }}</td>
+                <td headers="value" class="overflow-hidden text-right">
+                    <div ngbDropdown container="body" placement="left-top">
+                        <span ngbDropdownToggle style="cursor: pointer;"><i aria-hidden="true"
+                                class="icon banca-regional-opciones"></i></span>
+                        <ul ngbDropdownMenu class="account-options">
+                            <li>{{ 'label.home.options' | translate }}</li>
+                            <li ngbDropdownItem (click)="goToPayment(account)">
+                                {{ 'label.home.payment' | translate }}</li>
+                            <li ngbDropdownItem (click)="goToStatements(account)">
+                                {{ 'label.home.account-statement' | translate }}</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+
+    </ng-container>
+
+    <tfoot>
+        <tr class="table-mobile" *ngIf="product.accounts.length > 0">
+            <td colspan="2">
+                <div>
+                    <span class="type-amount">{{ 'label.home.total' | translate }}</span>
+                    <span [ngClass]="{'text-danger': product.totalAvailable < 0}">{{ product.currency }}</span>
+                    <span [ngClass]="{'text-danger': product.totalAvailable < 0}"
+                        class="float-right">{{product.totalAvailable
+                        | customNumber}}</span>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+
+</table>
+</div>

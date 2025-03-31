@@ -1,0 +1,47 @@
+<ngx-spinner></ngx-spinner>
+
+<main [ngClass]="[customShow, 'byte-container transfers ach-form-container']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <adf-header
+    [label]='title'
+    [subtitle]='subTitle'
+  [logoUrl]="urlUni"
+  width="61.82px"
+  height="40px"
+  >
+</adf-header>
+
+<section class='content tooltip-sv'>
+  <adf-form-layout class="tooltip-sv" [setLayoutJson]="transferFormLayout" [setDataSelectList]="optionList" [form]="transferForm">
+    <div *ngIf="isShowPurpose" [formGroup]='transferForm' customLayout >
+      <adf-select
+        [control]='getControlPurpose'
+        [label]="'ach-uni:purpose' | translate"
+        formControlName='purpose'
+        [options]="purposeOptions">
+        <div class='error' error>
+        <span>
+          {{ 'payroll:field_required' | translate }}
+        </span>
+        </div>
+      </adf-select>
+    </div>
+
+  </adf-form-layout>
+  <div class="footer">
+    <byte-adf-transfer-footer
+    [title]="'ach-uni:transfer-info-title' | translate"
+    [description]="'ach-uni:transfer-info' | translate"
+    descriptionEl="">
+  </byte-adf-transfer-footer>
+  </div>
+</section>
+
+
+
+  <div class="byte-container-ci__button_uni_home">
+    <adf-button *ngIf="transferForm.valid" class="primary" [value]="'t.continue' | translate" (click)="nextStep()"></adf-button>
+    <adf-button class="secondary" type="secondary" [value]="'toReturn' | translate" (click)="lastStep()"> </adf-button>
+  </div>
+</main>

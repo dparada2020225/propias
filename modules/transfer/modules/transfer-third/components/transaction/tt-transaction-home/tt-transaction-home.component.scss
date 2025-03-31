@@ -1,0 +1,212 @@
+@use '../../../../../../../../assets/styles/responsive.scss' as *;
+
+::ng-deep adf-form-layout .third-transfer-form {
+  .modify-mode div.select {
+    display: flex;
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  .has-border {
+    margin: 0 !important;
+  }
+
+  .disable .form_label {
+    gap: 0.5625rem !important;
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  @include from(x) {
+    .has-border {
+      margin-block: calc(40px - 15px) 0 !important;
+      padding-block-start: 2.5rem;
+    }
+  }
+}
+
+::ng-deep adf-form-layout {
+  .select-attributes {
+    margin-block-start: 3px !important;
+  }
+
+  .attribute-value {
+    color: var(--primary-color) !important;
+  }
+
+  .text-counter {
+    margin: 0 !important;
+  }
+}
+
+/*======Estilos para Salvador=========*/
+
+.form-ly-sv::ng-deep {
+  /*Formulario Margin con el titulo*/
+  .container-form {
+    margin-top: 14px;
+
+    @include from(m) {
+      margin-top: 9px;
+      padding: 0;
+    }
+
+
+    @include from(x) {
+      padding-left: 100px;
+    }
+
+    /*Contenido del formulario*/
+
+    form {
+      padding-top: 19px;
+      padding-bottom: 40px;
+
+      @include from(m) {
+        padding-top: 32px;
+        padding-bottom: 90px;
+      }
+
+      @include from(x) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        row-gap: 20px;
+      }
+
+      /*Estilos cuenta a creditar*/
+      .credit-sv {
+        padding-bottom: 2px;
+
+        @include from(m) {
+          padding-bottom: 16px;
+        }
+
+        @include from(x) {
+          padding-bottom: 24px;
+        }
+
+        adf-custom-select {
+          .select-label {
+            color: #909090;
+          }
+        }
+
+      }
+
+      .debit-sv {
+        border-top: 1px solid var(--properties-form);
+        padding-top: 18px;
+
+        @include from(x) {
+          padding-top: 39px;
+        }
+
+
+        adf-custom-select {
+          .select-label {
+            color: #909090;
+          }
+        }
+
+      }
+
+      /*Estilos los dos inputs*/
+      .amount-sv, .email-sv {
+        adf-input {
+          height: 55px;
+          @include from(x) {
+            height: 40px;
+          }
+
+          .input-wrapper, input {
+            width: 100% !important;
+            height: 100% !important;
+          }
+        }
+      }
+
+      .amount-sv {
+        @include from(m) {
+          grid-column: 1/7;
+          margin-right: 3.5px;
+        }
+
+        @include from(x) {
+          margin-right: 5.5px;
+        }
+
+      }
+
+      .email-sv {
+        @include from(m) {
+          grid-column: 7/13;
+          margin-left: 3.5px;
+        }
+
+        @include from(x) {
+          margin-left: 5.5px;
+        }
+      }
+
+      /*Estilos para el comentario*/
+
+      .comment-sv {
+        textarea {
+          height: 93px;
+
+          @include from(x) {
+            height: 73px;
+          }
+
+        }
+
+        .input__label {
+          color: #676a6c !important;
+        }
+      }
+
+    }
+
+
+  }
+}
+
+.btn-transfer-home::ng-deep {
+
+  gap: 12px;
+
+  @include from(m) {
+    gap: 22px;
+    margin-right: 0;
+  }
+
+  adf-button {
+
+    height: 50px;
+
+    @include from(m) {
+      width: 218px;
+    }
+
+    @include from(x) {
+      width: 240px;
+    }
+
+    .btn {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+  }
+
+}
+
+.grid-item {
+  grid-column: span 12;
+}

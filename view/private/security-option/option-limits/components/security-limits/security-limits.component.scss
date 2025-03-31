@@ -1,0 +1,82 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.sp-no-limits-container {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-start-md: 0;
+      --padding-block-start-sm: 0;
+      --padding-block-start-x: 0;
+    }
+
+    .form-heading {
+      display: none;
+    }
+
+    .container-form {
+      border: none;
+    }
+  }
+}
+
+::ng-deep.sp-success-modal {
+  adf-alert-modal {
+    .icon {
+      outline: none;
+      i {
+        color: var(--alert-success-color) !important;
+      }
+    }
+
+    #modal__container {
+      --icon-font-size: 2.5rem;
+      --icon-inline-size: 50px;
+      --icon-block-size: 50px;
+    }
+  }
+}
+
+
+::ng-deep.sp-last-modal {
+  adf-alert-modal {
+    .icon {
+      outline: none;
+      i {
+        color: var(--primary-alternative-color) !important;
+      }
+    }
+
+
+    #modal__container {
+      --icon-font-size: 2.5rem;
+      --icon-inline-size: 50px;
+      --icon-block-size: 50px;
+      @include from(m) {
+        padding-left: 150px;
+        padding-right: 150px;
+      }
+    }
+  }
+}
+
+.sp-form-container {
+  @include from(m) {
+    padding: 0 100px 0 100px;
+  }
+
+  @include from(x) {
+    padding: 0 0 0 100px;
+  }
+}
+
+.sp-heading {
+  margin-bottom: 2.5rem;
+  h1 {
+    border-bottom: 1px solid #5a5a5a;
+    line-height: 2 !important;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+}

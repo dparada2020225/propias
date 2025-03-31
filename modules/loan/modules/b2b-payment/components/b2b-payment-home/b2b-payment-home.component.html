@@ -1,0 +1,41 @@
+<main [ngClass]="[customShow, 'payment-container byte-container b2b-container']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <section class="main-content">
+    <div class="heading">
+      <h1 class="heading__title">
+        {{ 'b2b-request-title-forms' | translate }}
+      </h1>
+    </div>
+    <section class="table-content">
+      <adf-table
+        (onLoadAccount)="getActionTable($event)"
+        [structure]="paymentTable"
+        [isOptions]="true"
+      ></adf-table>
+
+      <div *ngIf="b2bAccounts && b2bAccounts.accounts.length > 0" class="widget-price">
+        <div class="bordered">
+          <div class="total-content--mobile">
+            <span class="mobile-mainLabel"> {{ 'total' | translate }} </span>
+            <div class="total-balance">
+              <div class="total-balance__label">
+                <span> {{ currency }} </span>
+              </div>
+              <span class="amount"> {{ totalBalance | number: '1.2-2' }} </span>
+            </div>
+          </div>
+        </div>
+        <div class="total-content--desktop">
+          <span class="total__label">
+            {{ 'total' | translate }}
+          </span>
+          <div class="amount">
+            <span> {{ currency }} </span>
+            <span> {{ totalBalance | number: '1.2-2' }} </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>

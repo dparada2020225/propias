@@ -1,0 +1,52 @@
+<article [ngClass]="[customShow, 'byte-container transfers m365-home']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    label='ach:bisv:label_home'
+    subtitle='cam365:label_subtitle'
+    logoUrl='assets/images/private/ach/logo_transfer_m365.svg'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content'>
+    <div class='instructions'>
+      <h4> {{ 'cam365:text_helper_process_to_add_membership' | translate }} </h4>
+      <ul>
+        <li> {{ 'cam365:txt_process_1' | translate }} </li>
+        <li> {{ 'cam365:txt_process_2' | translate }} </li>
+        <li> {{ 'cam365:txt_process_3' | translate }} </li>
+      </ul>
+    </div>
+    <div class='base-form'>
+      <adf-form-layout
+        [setLayoutJson]="formLayout"
+        [setDataSelectList]="selectOptions"
+        [form]="form">
+      </adf-form-layout>
+    </div>
+  </section>
+
+  <section [ngClass]="[disaffiliationButtonClassName, 'button-section']">
+    <div *ngIf='isShowDisaffiliateButton'>
+      <button class='remove-btn' (click)='navigateToDisaffiliateFlow()'>
+        <svg width='24px' xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 32 32">
+          <defs><style>.cls-1{fill:#003865;stroke-width:0}</style></defs><g id="SVG_-_BI_NO_PHONE" data-name="SVG - BI NO PHONE"><path id="Path_18209" d="M23.42 1.61H8.72c0-.21.04-.42.12-.62.08-.19.2-.37.35-.52a1.69 1.69 0 0 1 1.16-.48h11.42c.22 0 .43.04.63.12.2.08.38.2.53.35.15.15.27.33.36.52.08.2.13.41.13.62Z" class="cls-1" data-name="Path 18209"/><path id="Path_18210" d="M23.42 30.39H8.72c0 .21.04.42.12.62.08.2.2.37.36.52.15.15.33.27.53.35.2.08.41.12.63.12h11.42c.22 0 .43-.04.63-.12.2-.08.38-.2.53-.35.15-.15.27-.33.36-.52.08-.2.12-.41.12-.62Z" class="cls-1" data-name="Path 18210"/><path id="Path_18211" d="M18.6 3.2h-5.06c-.4 0-.79-.15-1.08-.43-.29-.28-.45-.66-.45-1.06V1.6h8.11v.11c0 .4-.16.78-.45 1.06-.29.28-.68.43-1.08.43Z" class="cls-1" data-name="Path 18211"/><path id="Path_18212" d="M8.73 30.4c-.43 0-.85-.17-1.16-.48-.31-.3-.48-.71-.48-1.14V3.21c0-.43.17-.84.48-1.14.31-.3.73-.47 1.16-.47v28.79Z" class="cls-1" data-name="Path 18212"/><path id="Path_18213" d="M23.41 30.4c.21 0 .43-.04.63-.12.2-.08.38-.2.53-.35.15-.15.27-.33.36-.52.08-.19.12-.4.12-.61V3.21c0-.21-.04-.42-.12-.61-.08-.2-.2-.37-.36-.52a1.58 1.58 0 0 0-.53-.35c-.2-.08-.41-.12-.63-.12V30.4Z" class="cls-1" data-name="Path 18213"/><path id="Path_18214" d="M16.07 28.73c.87-.02 1.55-.73 1.54-1.6s-.73-1.55-1.6-1.54c-.85.02-1.54.71-1.54 1.57 0 .87.72 1.58 1.6 1.57Z" class="cls-1" data-name="Path 18214"/><path id="Path_18215" d="m3.28 29.96-1.2-1.11L28.72 2.16l1.2 1.1-26.64 26.7Z" class="cls-1" data-name="Path 18215"/></g></svg>
+        <span> {{ 'ac:365membership:label_disaffiliate' | translate }}  </span>
+      </button>
+    </div>
+    <div [ngClass]="['btn_container']">
+      <adf-button
+        id="next"
+        class="primary"
+        value="{{ nextButtonMessage | translate }}"
+        (click)="nextStep()">
+      </adf-button>
+      <adf-button
+        id="prev"
+        class="secondary"
+        type="secondary"
+        value="{{ 'toReturn' | translate }}"
+        (click)="previous()"> </adf-button>
+    </div>
+  </section>
+
+</article>

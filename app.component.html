@@ -1,0 +1,5 @@
+<ng-container *ngIf="block">
+  <byte-internet-explorer-block></byte-internet-explorer-block>
+</ng-container>
+<ngx-spinner name="main-spinner" [template]="gif" bdColor="#fbfbfb"></ngx-spinner>
+<router-outlet *ngIf="!block"></router-outlet>

@@ -1,0 +1,34 @@
+<ngx-spinner></ngx-spinner>
+
+<article [ngClass]='[customShow, "byte-container", "spplm-upload-container"]'>
+  <adf-alert *ngIf='messageAlert && typeAlert' [receiverMessage]='messageAlert' [receiverType]='typeAlert'></adf-alert>
+  <header class='pp-upload__header'>
+    <h1>{{ "payroll:title" | translate }}</h1>
+    <p>{{ "payroll:load_subtitle" | translate }}</p>
+  </header>
+
+  <section class='spplm-upload__content tooltip-sv'>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+    <div class='form-section'>
+      <div>
+        <h3>{{"payroll:title_form-manual" | translate}}</h3>
+        <p> {{"payroll:subtitle_form-manual" | translate}} </p>
+      </div>
+    </div>
+    <adf-form-layout  [form]='form' [setLayoutJson]='formLayout'>
+      <ng-container customLayout>
+        <adf-button data-testid="addRegister" (click)='addRegister()' [value]='"add" | translate'></adf-button>
+      </ng-container>
+    </adf-form-layout>
+    <div class='payroll-table-container'>
+      <byte-pmp-table [isSelectedEnabled]='true' (onLoadListItems)='getRegisters($event)' [tableHeaders]='tableHeaders' [registers]='registers'></byte-pmp-table>
+    </div>
+    <div [ngClass]='[buttonContainerClassName, "payroll-buttons-container"]'>
+      <p [innerHTML]='"payroll:label_requirement_success_registers" | translate' *ngIf='!isEnabledNextButton'></p>
+      <div class='buttons'>
+        <adf-button data-testid="next" *ngIf='isEnabledNextButton' [value]='"btn.next" | translate' (click)='next()'></adf-button>
+        <adf-button data-testid="secondary" type='secondary' [value]='"btn.back" | translate' (click)='previous()' ></adf-button>
+      </div>
+    </div>
+  </section>
+</article>

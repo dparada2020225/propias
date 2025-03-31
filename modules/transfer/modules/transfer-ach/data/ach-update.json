@@ -1,0 +1,15 @@
+[
+  {
+    "controlName": "status",
+    "data": [
+      {
+        "name": "active",
+        "value": "A"
+      },
+      {
+        "name": "disabled",
+        "value": "I"
+      }
+    ]
+  }
+]

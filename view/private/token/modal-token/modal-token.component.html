@@ -1,0 +1,59 @@
+<ngx-spinner></ngx-spinner>
+<div class="modal__body">
+    <div class="float-right">
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+            <i class="fas fa-times" aria-hidden="true" style="color: #9b9b9b"></i>
+        </button>
+    </div>
+    <h2 class="modal__title">
+        {{ 't.security' | translate }}
+    </h2>
+    <hr/>
+
+    <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert"
+               [receiverMessage]="messageAlert | translate"></adf-alert>
+
+    <p class="modal__description">
+        {{ descriptionRegional | translate }}
+    </p>
+
+    <div>
+        <form (ngSubmit)="onSubmit()" [formGroup]="tokenModalTransfer" autocomplete="off">
+            <label class="label-token">
+                {{ 't.token-number' | translate }}
+            </label>
+
+            <adf-input
+                    [autoFocus]="true"
+                    placeholder="Token"
+                    id="token"
+                    [imaskOptions]="regexImask"
+                    formControlName="token"
+                    [control]="controlName"
+                    [maxlength]="maxLength"
+            ></adf-input>
+
+            <span *ngIf="validCamp('token')">
+        {{ 'required-modal-label' | translate }}
+      </span>
+            <br/>
+        </form>
+        <div class="token-buttons">
+            <adf-button data-testid="close" value="{{ 't.return' | translate }}" class="button-clock" type="secondary"
+                        (click)="close()"></adf-button>
+
+            <adf-button data-testid="send" value="{{ messageBtnMessage | translate }}" class="button-clock"
+                        type="primary" (click)="sendToken()"></adf-button>
+        </div>
+        <div class="third-button">
+            <adf-button
+                    *ngIf="tokenType === sms"
+                    class="new-token"
+                    value="{{ 't.generate' | translate }}"
+                    type="secondary"
+                    (click)="generateToken()"
+            >
+            </adf-button>
+        </div>
+    </div>
+</div>

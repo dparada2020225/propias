@@ -1,0 +1,159 @@
+.text-modal-container {
+  padding: 0px 39px 40px 39px;
+}
+
+::ng-deep {
+  .text-modal-two .modal-content {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.modal-logo {
+  img {
+    width: 170px !important;
+    height: auto;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.icon {
+  font-size: 72px;
+}
+
+h5 {
+  font-size: 27px;
+  color: var(--warn-darker-color);
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+ul {
+  padding-left: 20px;
+  margin-bottom: 0px;
+}
+
+li {
+  font-size: 16px;
+  color: var(--light-text-two);
+}
+
+.li-bisv {
+  color: var(--light-text-three);
+}
+
+.information-text {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center !important;
+  color: var(--light-text-three);
+}
+.subtitle-password {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--light-text-three);
+  padding-bottom: 7px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--light-text-three) !important;
+  padding-top: 17px;
+  padding-bottom: 7px;
+}
+
+@media only screen and (max-width: 485px) {
+  .text-modal-container {
+    padding: 19px 36px 45px 36px;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .icon {
+    font-size: 82px;
+  }
+
+  h5 {
+    font-size: 25px;
+    color: var(--warn-darker-color);
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  ul {
+    padding-left: 18px;
+    margin-bottom: 0px;
+  }
+
+  li {
+    font-size: 15px;
+    color: var(--light-text-two);
+  }
+
+  .subtitle-password {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--light-text-three);
+    padding-bottom: 7px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--light-text-three);
+    padding-top: 6px;
+    padding-bottom: 7px;
+  }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 486px) {
+  .text-modal-container {
+    padding: 19px 36px 45px 36px;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .icon {
+    font-size: 82px;
+  }
+
+  h5 {
+    font-size: 25px;
+    color: var(--warn-darker-color);
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  ul {
+    padding-left: 18px;
+    margin-bottom: 0px;
+  }
+
+  li {
+    font-size: 18px;
+    color: var(--light-text-two);
+  }
+
+  .subtitle-password {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--light-text-three);
+    padding-bottom: 7px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--light-text-three);
+    padding-top: 6px;
+    padding-bottom: 7px;
+  }
+}

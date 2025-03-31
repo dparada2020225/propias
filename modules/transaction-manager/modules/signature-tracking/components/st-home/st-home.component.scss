@@ -1,0 +1,286 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+$barWidth: calc(100% / 3);
+
+.content {
+  @include from(m) {
+    padding-inline-start: 5.75rem;
+    margin-block-start: 2.5rem;
+  }
+}
+
+.heading {
+  border-block-end: 1px solid #5a5a5a;
+  padding-block-end: 0.5625rem;
+  .main-title {
+    color: var(--primary-color);
+  }
+
+  @include from(m) {
+    .subtitle,
+    .main-title {
+      font-weight: bold;
+    }
+    .subtitle {
+      font-size: 1.125rem !important;
+      margin-block-start: 12px;
+    }
+    .main-title {
+      font-size: 20px !important;
+    }
+  }
+}
+
+.table-content {
+  margin-block-start: 0;
+}
+
+
+h2,
+h3 {
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-block-start: 1.875rem;
+  margin-block-start: calc(30px - 1rem);
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-block-start: calc(40px - 1rem);
+    padding-block-start: 3.75rem;
+    margin-inline-start: 6.25rem;
+
+    adf-button.primary {
+      order: 2;
+    }
+
+    adf-button.secondary {
+      order: 1;
+    }
+  }
+}
+
+
+::ng-deep.main-container adf-button button.btn {
+  inline-size: 100%;
+  margin: 0;
+  @media screen and (min-width: 768px) {
+    inline-size: 240px;
+  }
+}
+
+
+::ng-deep.banpais #adf-tab {
+  --bar-color: var(--accent-color);
+}
+
+::ng-deep.bisv #adf-tab {
+  --bar-color: var(--primary-color-select);
+  --active-tab: var(--value-text);
+
+  .tab h3 {
+    text-transform: initial !important;
+  }
+}
+
+::ng-deep.bisv.st-active #adf-tab {
+  --bar-color: var(--primary-color);
+  --active-tab: var(--primary-color);
+}
+
+
+::ng-deep.bipa #adf-tab {
+  --bar-color: var(--login-button-background-color);
+  --active-tab: var(--default-background-color);
+
+  h3 {
+    font-size: 14px !important;
+  }
+
+  .tab {
+    gap: 5px;
+  }
+}
+
+
+
+.box {
+  @include from(m) {
+    max-inline-size: 36.875rem;
+    adf-button {
+      margin-block-start: 1rem;
+    }
+  }
+}
+
+::ng-deep.signature-tracking-flow adf-table {
+  #table-container {
+    --third-rows: 95px 1fr 70px;
+    --row-size: 120px 1fr 120px 70px 120px 1fr;
+    --mobile-table-maxBloSize: 380px;
+  }
+
+  .table-content__mobile .table-content.empty,
+  .table-content.empty {
+    //background-color: #ffff !important;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+
+  .td-empty {
+    color: var(--primary-color);
+  }
+}
+
+::ng-deep.box adf-form-layout {
+  #form-layout-container {
+    --padding-block-start-x: 0;
+  }
+}
+
+
+::ng-deep byte-signature-tracking-tab {
+  .tab:not(:nth-child(2)) {
+    gap: .5rem;
+  }
+  .tab:nth-child(2) {
+    i {
+      margin-left: .5rem;
+    }
+
+    h3 {
+      line-height: 17.6px;
+    }
+    text-align: center;
+  }
+
+  @include from(m) {
+    .tab:nth-child(2) {
+      i {
+        margin-left: 0;
+      }
+
+      h3 {
+        line-height: 28px;
+      }
+    }
+  }
+}
+
+.signature-tracking-important-block {
+  margin-top: 2rem;
+  padding-top: 32px;
+  border-top: 1px solid var(--light-text-three);
+
+  @include from(m) {
+    margin-left: 100px;
+  }
+}
+
+.signature-tracking-important {
+  border: solid 1px;
+  border-color: var(--default-background-color);
+  border-radius: 24px 0 24px 0;
+  padding: 28px 34px;
+
+  &__title {
+    color: var(--default-background-color);
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 1px solid var(--default-background-color);
+      border-radius: 50%;
+      padding: 4px;
+    }
+
+    i {
+      font-size: 12px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    span {
+      //color: var(--default-background-color);
+    }
+  }
+}
+
+.heading_title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #d3dde4;
+    border-color: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: var(--primary-color);
+
+      i {
+        color: #fff;
+      }
+    }
+
+    i {
+      color: var(--primary-color);
+      font-size: 12px;
+      margin-left: 2px;
+    }
+  }
+}
+
+.signature-tracking-important__text button {
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 14px;
+  color: var(--primary-color);
+  text-decoration: underline;
+  margin-left: -5px;
+}
+
+::ng-deep.st-onboarding adf-adf-onboarding {
+  .onboarding-detail {
+    padding-bottom: 0 !important;
+    gap: 2rem !important;
+    grid-template-columns: 1fr 300px !important;
+  }
+
+  .st-onboarding__description {
+    padding-right: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem !important;
+  }
+}

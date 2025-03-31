@@ -1,0 +1,137 @@
+@use '../../../../../../../../../../../assets/styles/responsive.scss' as *;
+
+.container-stoken {
+  padding-bottom: 13px;
+  padding-right: 13px;
+  padding-left: 18px;
+  @include from (s){
+    padding-bottom: 35px;
+  }
+  @include from (m){
+    padding-bottom: 48px;
+    padding-right: 65px;
+    padding-left: 65px;
+  }
+}
+
+.modal-body {
+  padding-top: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  text-align: center;
+  @include from (m) {
+    margin-top: 29px;
+  }
+}
+
+.description {
+  color: var(--text-color);
+  margin-bottom: 23px;
+  @include from (m) {
+  margin-bottom: 28.5px;
+  }
+}
+
+.modal-title {
+  font-size: 26px !important;
+}
+
+.icon-modal {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 17px;
+  @include from (m){
+  margin-bottom: 19px;
+  }
+}
+
+.icon-container {
+  width: 39px;
+  height: 39px;
+  font-size: 40px;
+  color: var(--primary-light-two);
+  @include from (m){
+    width: 51px;
+    height: 51px;
+    font-size: 52px;
+  }
+}
+
+.modal-header {
+  padding-bottom: 0px;
+  border-bottom: 0;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  @include from (m){
+    right: 20px;
+    top: 5px;
+  }
+}
+
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1.5rem -2.2rem -1rem auto;
+  font-size: 15px;
+}
+
+.input-token {
+  width: 323.21px;
+  height: 40px;
+  @include from (m) {
+    margin-bottom: 16px;
+    width: auto;
+    height: 40px;
+  }
+}
+
+#iToken {
+  width: 323.21px;
+  height: 40px;
+  border: 1px solid #C4C4C4;
+  border-radius: 3px;
+  padding-left: 10px;
+  @include from (m) {
+    width: 374px;
+    height: 40px;
+  }
+}
+
+.modal-footer {
+  justify-content: center;
+  border-top-width: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  width: 323.25px;
+  height: 60px;
+  @include from (m) {
+    width: auto;
+    height: 50px;
+  }
+}
+
+::ng-deep.modal-footer adf-button{
+@include from(s){
+  margin: 10px;
+}
+
+@include from(m){
+  margin: 10px;
+}
+
+@include from(x){
+  margin: 0px;
+}
+
+
+  margin: 0px;
+  .btn{
+    width: 323.25px;
+    height: 60px;
+    @include from (m) {
+      width: 275px;
+      height: 50px;
+    }
+  }
+}

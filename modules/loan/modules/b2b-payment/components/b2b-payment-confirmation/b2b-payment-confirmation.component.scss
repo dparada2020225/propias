@@ -1,0 +1,22 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+
+::ng-deep.payment-container adf-reading {
+  .group:first-child {
+    padding-block-end: 0;
+    .field-item > div {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  .group:nth-child(2) {
+    padding-block-start: 0;
+  }
+
+  @include from(m) {
+    .group:nth-child(2) {
+      padding-block-start: 1.75rem;
+    }
+  }
+}

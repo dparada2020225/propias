@@ -1,0 +1,83 @@
+<div class="modal-header" style="border: none">
+    <div class="datos">
+      <div class="caja">
+        <p>{{"account" | translate}}: <span>{{accountNo}}</span></p>
+        <div class="style-title margin-eje-y" style="display: flex">
+          <p class="">{{"subProduct" | translate}}:</p>&nbsp;<span style="line-height: 20px;">{{sub}}</span>
+        </div>
+        <p>{{"coin" | translate}}: <span style="text-transform: uppercase;">{{'currency_' + currencySymbol | translate}}
+          </span></p>
+      </div>
+      <div class="caja">
+        <p>{{"accountName" | translate}}: <span>{{accountName}}</span></p>
+        <p class="margin-eje-y">{{"state" | translate}}: <span>{{state}}</span></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="d-none d-lg-block">
+    <div class="modal-body" style="border: none">
+      <div class="saldo">
+        <p>{{"average" |translate}}</p>
+        <table aria-describedby="average" class="table custom-table">
+          <thead>
+            <tr>
+              <th id="mounth" class="td">{{"mounth" | translate}}</th>
+              <th id="balance2" >{{"balance2" | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tr" *ngFor="let balance of proof" style="position: relative; text-align:center !important;">
+              <td headers="mounth" >{{balance.month | intToMonth | translate}} {{balance.year}}</td>
+              <td headers="balance2" style="color: var(--label-color-login); text-align: right;">
+                <div class="" style="position: relative;  right: 43%;">
+                  {{balance.amount}}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="d-lg-none">
+    <div class="modal-body saldo">
+      <p>{{"average" |translate}}</p>
+      <!-- mobile -->
+      <table aria-describedby="average mobile" class="table custom-table">
+        <ng-container *ngFor="let balance of proof">
+          <ng-container>
+            <thead>
+              <tr>
+                <th id="mounth" class="text-uppercase" style="width: 50%;">{{"mounth" | translate}}</th>
+                <th id="balance2" class="text-uppercase padding-second" style="width: 50%;">
+                  <span>{{balance.month | intToMonth | translate}} {{balance.year}}</span>
+                </th>
+  
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td headers="mounth" class="text-uppercase text-value" style="width: 50%;">{{'value'| translate}}</td>
+                <td headers="balance2" class="text-uppercase padding-second amount text-right" style="width: 50%;">
+                  <span style="float: left " class="text-amount">
+                    {{balance.amount}}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </ng-container>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+  
+  <div class="modal-footer" style="border: none">
+    <div class="botones">
+      <adf-button value="{{'toReturn'| translate}}" type="secondary" (onClick)="activeModal.close('Close click')">
+      </adf-button>
+      <adf-button class="txt-btn-yellow" (click)="downloadPdf()" value="{{'print'| translate}}">
+      </adf-button>
+    </div>
+  </div>
+  

@@ -1,0 +1,58 @@
+<article [ngClass]='["byte-container payroll-load-main"]'>
+  <adf-form-layout [setLayoutJson]='formLayout' [form]='form'>
+    <ng-container customLayout>
+      <form class='radio-form' [formGroup]='form'>
+        <fieldset>
+          <legend> {{ 'payroll:method_load' | translate }} </legend>
+          <div class='radio-control__upload'>
+            <adf-radio-button
+              [control]='typeUploadControl'
+              label='payroll:upload_file'
+              formControlName='load'
+              name='load' value='file'
+              id=':radio1'></adf-radio-button>
+            <adf-radio-button
+              [control]='typeUploadControl'
+              label='payroll:upload_manual'
+              formControlName='load'
+              name='load'
+              value='manually'
+              id=':radio2'></adf-radio-button>
+          </div>
+        </fieldset>
+        <div class='payroll-sub-title' *ngIf='isFileSelected'>
+          <h4> {{ 'payroll:label_import_file' | translate }} </h4>
+          <p> {{ 'payroll:helper_load_file' | translate }} </p>
+        </div>
+        <div class='content-type-file' *ngIf='isFileSelected'>
+          <span> {{ 'payroll:type_file' | translate }} </span>
+          <div class='radio-control__file'>
+            <adf-radio-button
+              [control]='typeFileControl'
+              label='payroll:csv_file'
+              formControlName='file'
+              name='file'
+              value='csv'
+              id=':radio3'>
+            </adf-radio-button>
+            <adf-radio-button
+              [control]='typeFileControl'
+              label='payroll:excel_file'
+              formControlName='file'
+              name='file'
+              value='excel'
+              id=':radio4'>
+            </adf-radio-button>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </adf-form-layout>
+  <div *ngIf='isFileSelected' class='payroll-table-content'>
+    <adf-table [structure]='tableLayout'></adf-table>
+  </div>
+  <div class='payroll-buttons-container'>
+    <adf-button data-testid="next" [value]='"btn.next" | translate' (click)='next()'></adf-button>
+    <adf-button data-testid="secondary" type='secondary' [value]='"btn.back" | translate' (click)='previous()' ></adf-button>
+  </div>
+</article>

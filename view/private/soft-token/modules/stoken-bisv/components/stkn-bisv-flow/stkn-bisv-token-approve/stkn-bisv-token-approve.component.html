@@ -1,0 +1,52 @@
+<div [ngClass]="['byte-container container-ndevice-softToken']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <div class="ndevice-title-container">
+    <h2 id="ndevice-title">{{ 'stkn-bisv-new-device-assig' | translate }}</h2>
+  </div>
+  <div class="ndevice-container-body">
+    <div class="container-left">
+      <div class="steps-ndevice-container steps-icon">
+        <byte-stkn-bisv-step-horizontal [secondStepOn]="true"></byte-stkn-bisv-step-horizontal>
+      </div>
+      <div class="steps-ndevice-container2 steps-icon">
+        <byte-stkn-bisv-step-vertical [secondStepOn]="true" ></byte-stkn-bisv-step-vertical>
+      </div>
+      <div class="ndevice-subtitle-container">
+        <div class="icon-container">
+          <i class="icon-soft-token-ingreso-token icon-security"></i>
+        </div>
+        <h1 id="ndevice-subt" class="title-ndevice">{{ 'stoken-new-device' | translate }}</h1>
+      </div>
+      <div class="ndevice-descrip-container description">
+        <p class="info-container__descrip-subt">{{ 'stoken-successful' | translate }}</p>
+        <p class="info-container__descrip-subt2">{{ 'stkn-bisv-step2' | translate }}</p>
+      </div>
+    </div>
+    <div class="inputToken-container">
+      <p id="title-input-stoken">
+        {{ 'stoken-generate-SLV' | translate }}
+      </p>
+      <div class="inputToken">
+        <form [formGroup]="inputTokenForm" (ngSubmit)="onSubmit()">
+         <adf-input
+         [placeholder]="placeHolder"
+         formControlName="inputToken"
+         [control]="controlForInputToken"
+         [imaskOptions]="maskToken"
+         >
+         <div error>
+          <span *ngIf="inputHasError">{{'stkn-bisv-input-error' | translate}}</span>
+          <span *ngIf="inputHasMinLength">{{ 'stkn-bisv-input-error2' | translate }}</span>
+        </div>
+        </adf-input>
+       </form>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <adf-button value="{{ 'stoken-logout' | translate }}" type="secondary" action="button" class="btn-ndevice-stoken" (click)="back()" id="back-btn">
+    </adf-button>
+    <adf-button value="{{ 't.continue' | translate }}" class="btn-ndevice-stoken" id="btn-ndevice-continue" (click)="onSubmit()"> </adf-button>
+  </div>
+</div>

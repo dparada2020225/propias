@@ -1,0 +1,35 @@
+<div class="stkn-bisv-step-y-container" [ngClass]="{
+    'stkn-bisv-step-y-container__step1': !secondStepOn,
+    'stkn-bisv-step-y-container__step2': secondStepOn
+  }">
+    <div class="track-step-1"></div>
+    <div class="step-icon-1-container" [ngClass]="{
+      'step-icon-1-active': !secondStepOn,
+      'step-icon-1-inactive': secondStepOn
+    }">
+      <i class="icon-soft-token-Paso1-Activado" *ngIf="!secondStepOn" ></i>
+      <i class="icon-soft-token-Paso1-Realizado" *ngIf="secondStepOn"></i>
+    </div>
+    <div
+      [ngClass]="{
+        'track-step-2-off': !secondStepOn,
+        'track-step-2-on': secondStepOn
+      }"
+    ></div>
+    <div class="step-icon-2-container" [ngClass]="{
+      'step-icon-2-inactive': !secondStepOn,
+      'step-icon-2-active': secondStepOn
+    }">
+      <i class="icon-soft-token-Paso2-Desactivado" *ngIf="!secondStepOn"></i>
+      <i class="icon-soft-token-Paso2-Activado" *ngIf="secondStepOn"></i>
+    </div>
+    <div class="track-step-3"></div>
+    <div
+      class="track-step-4"
+      [ngClass]="{
+        'track-step-4-off': !secondStepOn,
+        'track-step-4-on': secondStepOn
+      }"
+    ></div>
+  </div>
+  

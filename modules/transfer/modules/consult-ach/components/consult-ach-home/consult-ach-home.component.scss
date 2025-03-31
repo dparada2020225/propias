@@ -1,0 +1,53 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+
+.label-filter-value {
+  font-size: 1rem !important;
+  margin-bottom: 0.75rem !important;
+  display: flex;
+}
+
+::ng-deep.ach-consult-container adf-form-layout {
+  .hidden-label {
+    p {
+      visibility: hidden;
+    }
+  }
+
+  .filter-item {
+    grid-column: 7 / span 6;
+  }
+
+}
+
+::ng-deep.ach-consult-container adf-table {
+  #table-container {
+    --row-size: 87px 1fr 84px 130px 1fr 80px 80px 95px;
+    --mobile-table-maxBloSize: 500px;
+  }
+
+
+  .table-head__mobile th, .table-body-row__mobile td:not(.beneficiary) {
+    padding: .7rem 0 .7rem 0;
+  }
+
+  .main-container {
+    padding-bottom: 2.5rem;
+  }
+
+  @include from(x) {
+    .main-container {
+      padding-bottom: 4rem;
+    }
+  }
+}
+
+.ach-consult-container {
+  .table-contents {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+

@@ -1,0 +1,98 @@
+<article class='tm365-modal'>
+  <button (click)='closeModal()' class='button-close'>
+    <i class='fa fa-close'></i>
+  </button>
+  <adf-header
+    subtitle='tm365:label_subtitle_home'
+    label='ach:bisv:label_home'
+    logoUrl='assets/images/private/ach/logo_transfer_365.svg'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <main>
+    <p class='text-helper'> {{ 'tm365:text_load_file_helper_modal' | translate }} </p>
+    <div class='table-content'>
+      <div class='tm365-table'>
+        <div class='tm365-table-head'>
+          <span> {{ 'tm365:label_theader_bank_code' | translate }} </span>
+          <span> {{ 'tm365:label_theader_name' | translate }} </span>
+          <span> {{ 'tm365:label_theader_short_name' | translate }} </span>
+        </div>
+        <div class='tm365-table-body'>
+          <div *ngFor='let register of registers'>
+            <span> {{ register.code }} </span>
+            <span> {{ register.name }} </span>
+            <span> {{ register.shortName }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class='text-helper'> {{ 'tm365:text2_load_file_helper_modal' | translate }} </p>
+    <section class='helper'>
+      <ul>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_a' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_a' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_b' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_b' | translate }} </span>
+          <span class='helper-detail'> {{ 'tm365:label_description_text_helper_b2' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_c' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_c' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_d' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_d' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_e' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_e' | translate }} </span>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_f' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_f' | translate }} </span>
+          <span class='helper-detail'> {{ 'tm365:label_description_text_helper_f2' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_g' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_g' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_h' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_h' | translate }} </span>
+        </li>
+        <li>
+          <span> {{ 'tm365:label_title_text_helper_i' | translate }} </span>
+          <span> {{ 'tm365:label_description_text_helper_i' | translate }} </span>
+        </li>
+      </ul>
+    </section>
+    <section class='images'>
+      <div>
+        <h3> {{ 'tm365:label_example_xls' | translate }} </h3>
+        <img src='assets/images/private/ach/ach365_excel.png' alt='excel section with config file'>
+      </div>
+      <div>
+        <h3> {{ 'tm365:label_example_csv' | translate }} </h3>
+        <img src='assets/images/private/ach/ach365_csv.png' alt='csv section with config file'>
+      </div>
+    </section>
+    <section class='extended'>
+      <h3> {{ 'tm365:label_considerations' | translate }} </h3>
+      <div>
+        <ul>
+          <li> {{ 'tm365:label_considerations_1' | translate }} </li>
+          <li> {{ 'tm365:label_considerations_2' | translate }} </li>
+        </ul>
+        <ul>
+          <li [innerHTML]="'tm365:label_considerations_3' | translate" ></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</article>

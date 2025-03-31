@@ -1,0 +1,24 @@
+<article [ngClass]='[customShow, "byte-container", "spp-container"]'>
+    <adf-alert *ngIf='message && typeMessage' [receiverType]='typeMessage' [receiverMessage]='message'></adf-alert>
+    <div>
+      <adf-form-layout *ngIf='paymentDetail' [form]='form' [setLayoutJson]='formLayout' [setDataSelectList]='formSelectOptions' ></adf-form-layout>
+      <div class='table-container'>
+        <hr *ngIf='paymentDetail'>
+        <adf-table
+          [isShowMessageByEmptyRegisters]='true'
+          [emptyMessageHandler]='"message"'
+          [isShowHeaders]='true'
+          [structure]='tableLayout'
+          [isScrolled]='true'></adf-table>
+          <hr>
+      </div>
+    </div>
+  
+  
+    <div class='ps-buttons-container'>
+      <adf-button data-testid="secondary" type='secondary' [value]='"ps:btn.back" | translate' (click)='previous()' ></adf-button>
+      <adf-button data-testid="primary" *ngIf='sourceAccountSelected' [value]='"t.continue" | translate' (click)='execute()'></adf-button>
+
+    </div>
+  </article>
+  

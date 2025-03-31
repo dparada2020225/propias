@@ -1,0 +1,139 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+::ng-deep adf-reading .content-fields div.row .update-transfer {
+  margin-inline-start: 1rem;
+  font-family: Lato, sans-serif;
+
+  &::before {
+    position: absolute;
+    top: 12px;
+  }
+
+  &.banca-regional-success span:first-child {
+    margin-inline-start: 1.5rem;
+  }
+
+  &:not(.banca-regional-success) span {
+    margin-left: 1.5rem;
+  }
+
+  @include from(m) {
+    position: relative;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    p,
+    span {
+      margin: 0;
+      align-self: center;
+    }
+
+    &::before {
+      display: block;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-block-start: 2px;
+      color: var(--alert-success-color);
+    }
+  }
+}
+
+/* ------------- Estilos el salvador ----------------*/
+
+.reading-sv::ng-deep {
+
+  /*Titulos*/
+
+  .heading-voucher {
+
+    padding-bottom: 10px;
+
+    .main-subtitle {
+      display: none;
+    }
+
+  }
+
+  /*Contenidos */
+
+  .content-fields {
+
+    padding: 14px 0 19px 0;
+
+    @include from(m) {
+      padding: 32px 0 33px 0;
+    }
+    @include from(x) {
+      padding: 40px 100px 40px 100px;
+    }
+
+    .group {
+      padding: 0;
+      gap: 18px;
+
+      @include from(m) {
+        gap: 26px;
+      }
+
+      @include from(x) {
+        gap: 40px;
+      }
+
+      .field-item {
+        margin: 0;
+        padding: 0;
+        gap: 12px;
+
+        /*Icono de checked*/
+        &::before {
+          top: auto;
+          color: #27C671;
+
+          @include from(m) {
+            top: 50%;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.button-sv::ng-deep {
+
+  padding-top: 43px;
+
+  @include from(m) {
+    padding-top: 90px;
+    margin-right: 0;
+  }
+
+  @include from(x) {
+    padding-top: 42px;
+  }
+
+
+  adf-button {
+
+    height: 50px;
+
+    @include from(m) {
+      width: 218px;
+    }
+    @include from(m) {
+      width: 240px;
+    }
+
+    .btn {
+      height: 100% !important;
+      width: 100% !important;
+    }
+
+
+  }
+
+}

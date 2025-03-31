@@ -1,0 +1,27 @@
+<article [ngClass]="[customShow, 'byte-container transfers acm-ach-create']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    subtitle='ac:ach_subtitle_create'
+    label='ach:bisv:label_home'></adf-header>
+  <section class='content'>
+    <adf-form-layout
+      [setLayoutJson]="formLayout"
+      [setDataSelectList]="selectOptions"
+      [form]="form"> </adf-form-layout>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="next"
+      class="primary"
+      value="{{ 't.continue' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

@@ -1,0 +1,13 @@
+<adf-confirmation-modal [data]="data">
+  <div class='dynamic-table' dynamicContent>
+    <adf-table [useVirtualScroll]='userVirtualScrollInTable' [structure]="uploadedAccountsLayout"></adf-table>
+    <byte-tm-ach-uni-footer
+      label1='tm-ach-uni:confirmation_amount_total'
+      label2='tm-ach-uni:confirmation_credits_number'
+      label3='tm-ach-uni:confirmation_amount_total'
+      [value1]='total'
+      [value2]='credits'
+      [currency]='currency'
+    ></byte-tm-ach-uni-footer>
+  </div>
+</adf-confirmation-modal>

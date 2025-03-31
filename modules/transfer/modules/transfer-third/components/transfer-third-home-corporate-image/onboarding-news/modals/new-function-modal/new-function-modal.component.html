@@ -1,0 +1,17 @@
+<section class="container-new">
+
+  <article class="container-new__img">
+    <picture>
+      <source media="(min-width: 992px)" [srcset]="imgDesktop">
+      <source media="(min-width: 692px)" [srcset]="imgTablet">
+      <img [src]="imgMobile" alt="Ejemplo">
+    </picture>
+  </article>
+  <article class="container-new__info">
+
+    <h2 class="title"> {{'new_function-ttr' | translate}}</h2>
+    <p class="description"> {{'new_function_desc-ttr' | translate}} </p>
+
+  </article>
+
+</section>

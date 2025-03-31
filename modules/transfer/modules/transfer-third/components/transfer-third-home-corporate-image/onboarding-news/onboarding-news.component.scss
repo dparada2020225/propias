@@ -1,0 +1,61 @@
+@use '../../../../../../../../assets/styles/responsive' as *;
+
+
+.container-onboarding {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0;
+
+
+  &-news {
+    align-items: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+    &__rows {
+
+      margin: 0 14px 0 14px;
+      padding: 0;
+
+      .icon {
+        color: #003865;
+        font-size: .9375rem;
+      }
+
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      button:disabled {
+        opacity: 0.32;
+      }
+    }
+  }
+
+  &-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+
+    span {
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border-radius: 50%;
+      background-color: #C4C4C4
+    }
+
+    span.active {
+      background-color: #5A5A5A
+    }
+  }
+
+}

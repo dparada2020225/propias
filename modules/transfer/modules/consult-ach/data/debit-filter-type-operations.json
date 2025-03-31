@@ -1,0 +1,45 @@
+[
+  {
+    "name": "without_filter",
+    "value": "",
+    "isSelected": false,
+    "filterValues": []
+  },
+  {
+    "name": "to_sent",
+    "value": "E",
+    "isSelected": false,
+    "filterValues": [
+      {
+        "name": "",
+        "value": "ENVIADA"
+      }
+    ]
+  },
+  {
+    "name": "to_received",
+    "value": "R",
+    "isSelected": false,
+    "filterValues": [
+      {
+        "name": "",
+        "value": "RECIBIDA"
+      }
+    ]
+  },
+  {
+    "name": "to_currency",
+    "value": "MONEDA",
+    "isSelected": true,
+    "filterValues": [
+      {
+        "name": "L",
+        "value": "L"
+      },
+      {
+        "name": "US$",
+        "value": "US$"
+      }
+    ]
+  }
+]

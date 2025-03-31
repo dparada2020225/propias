@@ -1,0 +1,150 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+.stkn-bisv-qr-modal .modal-body{
+
+  @include from(m){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 0;
+  }
+
+}
+
+.stkn-bisv-qr-modal .alert-container{
+  @include from(m){
+    grid-area: 1 / 1 / 2 / 3;
+    margin-top: 10px;
+  }
+}
+
+.stkn-bisv-qr-modal .info-container{
+  display: grid;
+  grid-template-columns: 57px 1fr;
+  grid-template-rows: 65px 1fr;
+  column-gap: 10px;
+  border-bottom: 1px solid #E9E9E9;
+  padding-bottom: 16px;
+  margin-bottom: 38px;
+
+  @include from(m){
+    border-bottom: 0;
+    border-right: 1px solid #E9E9E9;
+    margin-bottom: 22px;
+    padding: 98px 0 39px 0;
+    column-gap: 41px;
+  }
+
+  @include from(x){
+    margin-bottom: 28px;
+  }
+}
+
+
+
+.stkn-bisv-qr-modal .info-container__icon {
+  font-size: 110px !important;
+  color: var(--primary-light-two) !important;
+  position: relative;
+  bottom: 50%;
+
+  @include from(m){
+    padding-top: 5px;
+    bottom: 0;
+  }
+
+  @include from(x){
+    bottom: 20%;
+    padding-top: 0;
+  }
+}
+
+.stkn-bisv-qr-modal .info-container__steps{
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.stkn-bisv-qr-modal .info-container__descrip{
+
+  @include from(m){
+  padding: 30px 26px 0 0;
+  }
+
+  @include from(x){
+  padding: 13px 26px 0 0;
+  }
+
+  h1{
+    font-size: 20px !important;
+    line-height: 35px !important;
+    margin-bottom: 24px;
+
+    @include from(m){
+      font-size: 25px !important;
+      margin-bottom: 16px;
+    }
+    @include from(x){
+      font-size: 27px !important;
+    }
+  }
+
+  .info-container__descrip-subt{
+    font-size: 15px !important;
+    font-weight: bold;
+    p {
+      font-size: 15px !important;
+    }
+    @include from(x){
+      font-size: 16px !important;
+      p {
+        font-size: 16px !important;
+      }
+    }
+  }
+
+  .info-container__descrip-subt2{
+    font-size: 15px !important;
+    @include from(x){
+      font-size: 16px !important;
+    }
+  }
+
+}
+
+.stkn-bisv-qr-modal .qr-container{
+  @include from(m){
+    padding-top: 145px;
+  }
+}
+
+::ng-deep.stkn-bisv-qr-modal .qr-container {
+
+  .code-qr-container{
+    @include from(m){
+      max-width: 180px;
+    }
+  }
+
+  .code-qr-container .code-qr-zoom{
+    @include from(x){
+      width: 34px;
+      height: 34px;
+      font-size: 17px;
+      background-color: rgb(90 90 90 / 86%);
+    }
+  }
+}
+
+.stkn-bisv-qr-modal .byte-container__button{
+  margin-top: 76px;
+  border-bottom: 0;
+  padding-bottom: 47px;
+  gap: 20px;
+
+
+  @include from(m){
+    grid-area: 3 / 1 / 4 / 3;
+    margin: 0 0 0 232px;
+    gap: 32px;
+    padding-bottom: 24px;
+  }
+}
+

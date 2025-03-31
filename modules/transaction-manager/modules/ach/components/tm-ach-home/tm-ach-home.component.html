@@ -1,0 +1,75 @@
+<article [ngClass]="[customShow, 'byte-container transfers tm-ach']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    label='tm:ach:title_home'>
+  </adf-header>
+  <section class='content'>
+    <adf-form-layout
+      [setLayoutJson]="formLayout"
+      [setDataSelectList]="selectOptions"
+      [form]="form">
+      <div class='form-extended' customLayout>
+        <form class='select-content' [formGroup]='form'>
+          <div>
+            <adf-select
+              [control]='serviceControl'
+              [label]="'label:service' | translate"
+              formControlName='service'
+              [options]="serviceFormOptions"
+              [(ngModel)]="serviceValueSelected" >
+              <div class='error' error>
+            <span>
+              {{ 'payroll:field_required' | translate }}
+            </span>
+              </div>
+            </adf-select>
+          </div>
+          <div *ngIf='isShowExtendedSelectForm'>
+            <adf-select
+              [control]='typeServiceControl'
+              [label]="'tm:ach:label_type_service' | translate"
+              formControlName='typeService'
+              [options]="typeServiceFormOptions"
+              [(ngModel)]="typeServiceValueSelected" >
+              <div class='error' error>
+            <span>
+              {{ 'payroll:field_required' | translate }}
+            </span>
+              </div>
+            </adf-select>
+          </div>
+          <div *ngIf='isShowExtendedSelectForm'>
+            <adf-select
+              [control]='transactionTypeControl'
+              [label]="'transaction_type' | translate"
+              formControlName='typeTransaction'
+              [options]="typeTransactionFormOptions"
+              [(ngModel)]="typeTransactionValueSelected" >
+              <div class='error' error>
+            <span>
+              {{ 'payroll:field_required' | translate }}
+            </span>
+              </div>
+            </adf-select>
+          </div>
+        </form>
+        <p class='helper-txt'> {{ 'tm:ach:txt_select_date_range' | translate }} </p>
+      </div>
+    </adf-form-layout>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="next"
+      class="primary"
+      value="{{ 't.continue' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

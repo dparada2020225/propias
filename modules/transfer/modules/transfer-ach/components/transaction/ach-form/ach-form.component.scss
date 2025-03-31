@@ -1,0 +1,110 @@
+@use '../../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.ach-form-container adf-form-layout {
+  @include from(m) {
+    .checkbox-form-layout {
+      position: relative;
+    }
+
+    .checkbox-form-layout::before {
+      position: absolute;
+      right: -3px;
+      top: 2px;
+      content: '';
+      display: block;
+      height: 50px;
+      width: 1px;
+      background-color: #ccd0d5;
+      margin: 1rem 0;
+    }
+  }
+
+  @include from(x) {
+    .checkbox-form-layout::before {
+      right: 10px;
+    }
+  }
+
+  adf-datepicker-form-layout .disabled-input {
+    input {
+      cursor: not-allowed;
+      border: 1px solid #ccd0d5 !important;
+      color: #ccd0d5 !important;
+      background-color: #f8f8f8 !important;
+    }
+    input::placeholder,
+    .icon {
+      color: #ccd0d5 !important;
+    }
+    .icon {
+      cursor: default !important;
+    }
+  }
+
+  adf-select {
+    select:disabled {
+      cursor: not-allowed;
+      border: 1px solid #ccd0d5 !important;
+      color: #ccd0d5 !important;
+      background-color: #f8f8f8 !important;
+    }
+    select:disabled::placeholder {
+      color: #ccd0d5 !important;
+    }
+  }
+
+  adf-checkbox-form-layout .checkbox-form-layout {
+    .input-title {
+      align-self: start;
+      margin-left: 5px;
+      color: var(--primary-color);
+    }
+
+
+
+    adf-checkbox {
+      justify-content: start;
+    }
+
+    @include from(m) {
+      adf-checkbox {
+        justify-content: center;
+      }
+
+      .input-title {
+        align-self: center;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+::ng-deep adf-form-layout .transfers-ach {
+  .modify-mode div.select {
+    display: flex;
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  .has-border {
+    margin: 0 !important;
+  }
+  .disable .form_label {
+    gap: 0.5625rem !important;
+    @include from(m) {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  @include from(x) {
+    .has-border {
+      margin-block: calc(40px - 15px) 0 !important;
+      padding-block-start: 2.5rem;
+    }
+  }
+}

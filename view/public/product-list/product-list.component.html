@@ -1,0 +1,49 @@
+<!-- desktop -->
+<ul class='product-options' >
+    <li class="nav-item d-none d-xs-none d-sm-none d-md-none d-lg-block">
+      <a class="nav-link" [ngClass]="{'collapsed': menuTrigger.menuOpen}" [matMenuTriggerFor]="menu"
+        #menuTrigger="matMenuTrigger" (menuOpened)="this.menuOpend()" (menuClosed)="menuClosed()">
+        {{'online_banking_products'| translate}}
+        <i aria-hidden="true" class="banca-regional-flecha-derecha" [ngClass]="{'down': !arrow, 'up': arrow}"></i>
+      </a>
+    </li>
+  </ul>
+  
+  <mat-menu class="product-list menu-overflow-hidden d-none d-xs-none d-sm-none d-md-none d-lg-block" xPosition="after" yPosition="below"
+    #menu="matMenu" >
+    <div [ngClass]="{'container-product-list': profile === 'bisv'}">
+      <div *ngFor="let product of this.productList">
+        <div>
+          <button mat-menu-item class="product" (click)="href(product.link)">
+            <span class="product-detail animated-border">
+              {{product.label | translate}}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-menu>
+  
+  <!-- mobile -->
+  <ul>
+    <li class="nav-item d-lg-none">
+      <a class="nav-link" [ngClass]="{'collapsed': !isCollapsed}" (click)="collapse.toggle()"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        {{'online_banking_products'| translate}}
+        <i aria-hidden="true" class="banca-regional-flecha-derecha" [ngClass]="{'down': isCollapsed, 'up': !isCollapsed}"></i>
+      </a>
+    </li>
+  </ul>
+  
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="d-lg-none" >
+    <ul>
+      <li *ngFor="let product of this.productList" class="nav-item sub">
+        <a class="nav-link" (click)="href(product.link)">
+          <span class="product-detail animated-border-mobile animated-border">
+            {{product.label | translate}}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  

@@ -1,0 +1,95 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.content_voucher_upd {
+  @include from(s) {
+    margin-inline: 26px;
+    margin-top: 20px;
+  }
+  @include from(m) {
+    margin-inline: 36px;
+    margin-top: 50px;
+  }
+  @include from(x) {
+    margin-inline: 140px;
+    margin-top: 71px;
+  }
+
+  .upd_confirmation{
+    font: normal normal bold 18px/22px Lato;
+letter-spacing: 0px;
+color: #9B9B9B
+  }
+}
+
+.title_upd_voucher{
+  border-bottom: 1px solid var(--title-modal-corporate) !important;
+
+}
+
+.icon_class_upd{
+  font-size: 79px;
+  color: var(--alert-success-color);
+}
+
+.text_content_upd{
+  text-align: center;
+  @include from(s) {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  @include from(m) {
+    margin-top: 40px;
+    margin-bottom: 60px;
+
+  }
+  @include from(x) {
+    margin-top: 40px;
+    margin-bottom: 60px;
+
+  }
+
+  .upd_sucess{
+    margin-bottom: 0px;
+  }
+
+  .upd_leyend{
+    font: normal normal bold 18px/22px Lato;
+    letter-spacing: 0px;
+    color: #9B9B9B;
+  }
+}
+
+.icon_div_upd{
+  margin-bottom: 32px;
+}
+
+::ng-deep.byte-container_button_upd{
+  display: flex;
+  padding-bottom: 1.875rem;
+  align-items: flex-end !important;
+  justify-content: flex-end;
+
+  @include from(m) {
+    padding-block-end: 3.75rem;
+    margin-left: 100px;
+    margin-right: 0px;
+    align-items: flex-end !important;
+  }
+
+  adf-button {
+    width: 100%;
+
+    button.btn.d-width {
+      width: 100% !important;
+
+      @include from(400px) {
+        width: 240px !important;
+      }
+    }
+
+    @include from(400px) {
+      width: 240px;
+    }
+  }
+
+}

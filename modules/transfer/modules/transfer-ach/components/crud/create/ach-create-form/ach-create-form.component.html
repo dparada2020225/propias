@@ -1,0 +1,10 @@
+<main [ngClass]="[customShow, 'byte-container transfers ach-form-container']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+  <adf-form-layout [setLayoutJson]="formLayout" [setDataSelectList]="optionsList" [form]="form"> </adf-form-layout>
+
+  <div class="byte-container-ci__button">
+    <adf-button class="primary" [value]="'add' | translate" (click)="nextStep()"> </adf-button>
+    <adf-button class="secondary" type="secondary" [value]="'toReturn' | translate" (click)="lastStep()"> </adf-button>
+  </div>
+</main>

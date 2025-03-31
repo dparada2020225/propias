@@ -1,0 +1,39 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.ach-detail-container adf-table {
+  #table-container {
+    --row-size: 87px 1fr 84px 1fr 1fr 80px 87px 115px
+  }
+}
+
+::ng-deep.ach-detail-container adf-reading {
+  .bankName {
+    outline: 1px solid red;
+  }
+}
+
+.ach-detail-container {
+  .table-contents {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+::ng-deep.ach-detail-container {
+  .byte-container__button {
+    @include from(500px) {
+      align-items: flex-end;
+
+      adf-button {
+          width: 240px;
+        button.btn {
+          width: 240px;
+        }
+      }
+    }
+    @include from(m) {
+      margin-right: 0;
+    }
+  }
+}

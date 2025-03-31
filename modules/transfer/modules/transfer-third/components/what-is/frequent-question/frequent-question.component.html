@@ -1,0 +1,19 @@
+<main class="container">
+  <article class="container-accordion">
+    <adf-accordion [panels]="panels"></adf-accordion>
+  </article>
+
+  <article class="container-image">
+    <picture>
+      <source [srcset]="desImage" media="(min-width: 1200px)">
+      <source [srcset]="tabletImage" media="(min-width: 834px)">
+      <img class="navigate" [src]="mobileImage"
+           alt="Background go to transfer">
+    </picture>
+
+    <div class="button-container">
+      <button *ngIf="showButton" class="image_btn"
+              (click)="navigateToTransferThird()">{{ 'Go-to-ttr' | translate }}</button>
+    </div>
+  </article>
+</main>

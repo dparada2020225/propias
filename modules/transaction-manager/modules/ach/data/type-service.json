@@ -1,0 +1,14 @@
+[
+  {
+    "name": "label_select_and_option",
+    "value": ""
+  },
+  {
+    "name": "tm:ach:label_sent_transference",
+    "value": "SEND"
+  },
+  {
+    "name": "tm:ach:label_receive_transference",
+    "value": "RECEIVE"
+  }
+]

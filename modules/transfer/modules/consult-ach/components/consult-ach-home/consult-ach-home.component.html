@@ -1,0 +1,37 @@
+<ngx-spinner></ngx-spinner>
+<div [ngClass]="[customShow, 'ach-consult-container byte-container transfers']">
+  <adf-alert *ngIf='typeAlert && messageAlert' [receiverMessage]='messageAlert' [receiverType]='typeAlert' ></adf-alert>
+  <adf-form-layout [setLayoutJson]="formLayout" [form]="form" [setDataSelectList]="options">
+    <div [formGroup]='form' *ngIf="showFilterValue" customLayoutType>
+      <span class="label-filter-value">
+        {{ 'label:filter' | translate }}
+      </span>
+      <adf-select [control]='filterValueControl' formControlName='filterValue'  [options]="filterValueOptions" [(ngModel)]="filterValueSelect" >
+      </adf-select>
+    </div>
+  </adf-form-layout>
+
+
+  <div *ngIf='isShowTable' class="table-contents">
+    <div *ngIf='isShowExport' class="achc-widgets">
+      <span>{{ 'export' | translate }}</span>
+      <div>
+        <span (click)='generateCsvFile()'><i title='CSV' aria-hidden="true" class="icon banca-regional-csv"></i></span>
+        <span (click)='generateXlsFile()'><i title='excel' aria-hidden="true" class="icon banca-regional-xls"></i></span>
+        <span (click)='exportGeneralFile()'><i aria-hidden="true" class="icon banca-regional-printer"></i></span>
+      </div>
+    </div>
+    <adf-table
+      [setIsLoading]='isLoadingTable'
+      [structure]="tableLayout"
+      (onLoadAccount)="getActionTable($event)">
+    </adf-table>
+  </div>
+
+
+
+  <div class="byte-container-ci__button">
+    <adf-button *ngIf='isShowNextButton' class="primary" type="primary" value="{{ 'consult' | translate }}" (click)="send()"></adf-button>
+    <adf-button *ngIf='isShowPrevButton' class="secondary" [type]="typeToReturn"  value="{{ 'toReturn' | translate }}" (click)="backStep()"></adf-button>
+  </div>
+</div>

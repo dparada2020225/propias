@@ -1,0 +1,120 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+
+.tt-create-home {
+  font-family: inherit;
+}
+
+/* ----------------- Estilos EL SALVADOR ----------------- */
+$medium-breakpoint: 834px;
+$large-breakpoint: 1366px;
+
+.layout-bisv::ng-deep {
+  .form-heading {
+    .form-subtitle {
+      margin: 8px 0 13px 0;
+
+      @include from($medium-breakpoint) {
+        margin: 2px 0 0 0;
+      }
+
+      @include from(x) {
+        margin: 10px 0 0 0;
+      }
+    }
+  }
+
+  .container-form {
+    padding: 0px 0 30px 0;
+
+    @include from($medium-breakpoint) {
+      padding: 35px 140px 60px 140px;
+    }
+
+    @include from(x) {
+      padding: 0 0 1px 100px;
+    }
+
+    form {
+      /*====SELECT======*/
+      adf-select-form-layout {
+        adf-select {
+          height: 55px;
+
+          @include from(x) {
+            height: 40px;
+          }
+
+          .select-wrapper, select {
+            width: 100% !important;
+            height: 100% !important;
+          }
+        }
+      }
+
+      /*=====INPUT======*/
+
+      adf-input-form-layout {
+
+        adf-input {
+
+          height: 55px;
+
+          @include from(x) {
+            height: 40px;
+          }
+
+          .input-wrapper, input {
+            width: 100% !important;
+            height: 100% !important;
+          }
+
+        }
+
+      }
+
+
+    }
+
+
+  }
+}
+
+.button-bisv ::ng-deep {
+
+  gap: 12px;
+
+  @include from($medium-breakpoint) {
+    gap: 22px;
+  }
+
+  @include from(x) {
+    gap: 27px;
+  }
+
+  @include from($medium-breakpoint) {
+    margin-right: 140px;
+  }
+
+  @include from(x) {
+    margin-right: 0;
+  }
+
+  adf-button {
+
+    height: 50px;
+
+    @include from($medium-breakpoint) {
+      width: 218px;
+    }
+
+    @include from(x) {
+      width: 240px;
+    }
+
+    .btn {
+      height: 100% !important;
+      width: 100% !important;
+    }
+  }
+}

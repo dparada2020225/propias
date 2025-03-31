@@ -1,0 +1,17 @@
+export enum SPPMRoutes {
+  HOME = '/payroll/manager',
+  HOME_LOAD = '/payroll/manager/load',
+  HOME_LOAD_FILE = '/payroll/manager/load/upload',
+  CONFIRMATION_LOAD_FILE = '/payroll/manager/load/file/confirmation',
+  VOUCHER_LOAD_FILE = '/payroll/manager/load/file/voucher',
+  HOME_LOAD_MANUAL = '/payroll/manager/load/manual',
+  CONFIRMATION_LOAD_MANUAL = '/payroll/manager/load/manual/confirmation',
+  VOUCHER_LOAD_MANUAL = '/payroll/manager/load/manual/voucher',
+  HOME_PAYMENT = '/payroll/manager/payment',
+  CONFIRMATION_PAYMENT = '/payroll/manager/payment/confirmation',
+  VOUCHER_PAYMENT = '/payroll/manager/payment/voucher',
+  ST_PAYMENT_VOUCHER = '/payroll/manager/payment/st-voucher',
+  ST_PAYMENT_OPERATION = '/payroll/manager/payment/st-operation',
+  ST_PAYMENT_DETAIL = '/payroll/manager/payment/st-detail',
+  ST_PAYMENT_DETAIL_HISTORY_TRANSACTION = '/payroll/manager/payment/history',
+}

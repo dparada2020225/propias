@@ -1,0 +1,167 @@
+@use '../../../../../../../../../../../assets/styles/responsive.scss' as *;
+
+.margin_error {
+  @include from(s) {
+    margin-top: 15px !important;
+  }
+  @include from(m) {
+    margin-top: 0px !important;
+  }
+  @include from(x) {
+    margin-top: 0px !important;
+  }
+}
+
+.container-stoken {
+  padding-bottom: 13px;
+  padding-right: 13px;
+  padding-left: 13px;
+  @include from(m) {
+    padding-bottom: 48px;
+    padding-right: 65px;
+    padding-left: 65px;
+  }
+}
+
+.modal-body {
+  padding-top: 25px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  text-align: center;
+  @include from(s) {
+    margin-top: 10px;
+  }
+  @include from(m) {
+    margin-top: 0px;
+  }
+  @include from(x) {
+    margin-top: 0px;
+  }
+}
+
+.description {
+  color: var(--text-color);
+  margin-bottom: 23px;
+  @include from(m) {
+    margin-bottom: 28.5px;
+    padding: 0px 40px 0px 40px;
+  }
+}
+
+.modal-title {
+  @include from(s) {
+    font-size: 26px !important;
+  }
+  @include from(m) {
+    font-size: 27px !important;
+  }
+  @include from(x) {
+    font-size: 27px !important;
+  }
+}
+
+.icon-modal {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 17px;
+  @include from(m) {
+    margin-bottom: 19px;
+  }
+}
+
+.icon-container {
+  width: 39px;
+  height: 39px;
+  font-size: 40px;
+  color: var(--primary-light-two);
+  @include from(m) {
+    width: 51px;
+    height: 51px;
+    font-size: 52px;
+  }
+}
+
+.modal-header {
+  padding-bottom: 0px;
+  border-bottom: 0;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  @include from(m) {
+    right: 20px;
+    top: 5px;
+  }
+}
+
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1.5rem -2.2rem -1rem auto;
+  font-size: 15px;
+}
+
+::ng-deep.input-token form {
+  width: 100%;
+
+  adf-input input {
+    @include from(s) {
+      height: 40px ;
+    }
+    @include from(m) {
+      max-width: 100%;
+      height: 40px;
+    }
+    @include from(x) {
+      height: 50px;
+      width: 100%;
+    }
+
+  }
+
+
+}
+
+#iToken {
+  width: 323.21px;
+  height: 40px;
+  border: 1px solid #c4c4c4;
+  border-radius: 3px;
+  padding-left: 10px;
+  @include from(m) {
+    width: 374px;
+    height: 40px;
+  }
+}
+
+.modal-footer {
+  justify-content: center;
+  border-top-width: 0px;
+  padding: 0;
+  width: 100%;
+  height: 60px;
+  @include from(s) {
+    display: block;
+  }
+  @include from(m) {
+    width: auto;
+    height: 50px;
+    display: flex;
+  }
+}
+
+::ng-deep.modal-footer adf-button {
+  button {
+    @include from(s) {
+      width: 100% !important;
+      margin-left: 0px !important;
+    }
+  }
+  margin: 0px;
+  .btn {
+    height: 60px;
+    @include from(m) {
+      width: 275px !important;
+      height: 50px !important;
+    }
+  }
+}

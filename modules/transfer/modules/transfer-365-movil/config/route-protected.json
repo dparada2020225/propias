@@ -1,0 +1,54 @@
+[
+  {
+    "name": "365 Móvil",
+    "path": "/transfer/365-movil",
+    "parameter": "365:home",
+    "children": [
+      {
+        "path": "365",
+        "parameter": "m365:home",
+        "children": []
+      },
+      {
+        "path": "confirmation",
+        "parameter": "m365:confirmation",
+        "children": []
+      },
+      {
+        "path": "voucher",
+        "parameter": "m365:voucher",
+        "children": []
+      },
+      {
+        "path": "st/modify",
+        "parameter": "m365:st_modify",
+        "children": []
+      },
+      {
+        "path": "st/confirmation",
+        "parameter": "m365:st_modify_confirm",
+        "children": []
+      },
+      {
+        "path": "st/voucher",
+        "parameter": "m365:st_modify_voucher",
+        "children": []
+      },
+      {
+        "path": "st/detail",
+        "parameter": "m365:st_detail",
+        "children": []
+      },
+      {
+        "path": "st/operation",
+        "parameter": "m365:st_operation",
+        "children": []
+      },
+      {
+        "path": "terms-condition",
+        "parameter": "m365:terms_condition",
+        "children": []
+      }
+    ]
+  }
+]

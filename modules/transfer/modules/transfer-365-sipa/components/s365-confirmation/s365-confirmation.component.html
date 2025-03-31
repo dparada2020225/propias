@@ -1,0 +1,34 @@
+<article [ngClass]="[customShow, 'byte-container transfers s365-confirmation']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    subtitle='ach:bisv:label_confirm_subtitle'
+    logoUrl='assets/images/private/ach/logo_365card.svg'
+    label='s365:label_home'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content'>
+    <p> {{ 'ach:bisv:label_text_confirm' | translate }} </p>
+    <adf-reading [data]='voucherLayout'></adf-reading>
+    <byte-adf-transfer-footer
+      title='ach:bisv:label_important'
+      descriptionEl='s365:label_footer_info'
+    ></byte-adf-transfer-footer>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      *ngIf='isShowNextButton'
+      id="next"
+      class="primary"
+      value="{{ 't.confirm' | translate }}"
+      (click)="nextStep()">
+    </adf-button>
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

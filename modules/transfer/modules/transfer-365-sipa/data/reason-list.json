@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Turismo, salud, educación",
+    "value": "1"
+  },
+  {
+    "name": "Remesas Familiares",
+    "value": "2"
+  },
+  {
+    "name": "Comisiones y cargos financieros",
+    "value": "3"
+  },
+  {
+    "name": "Telecomunicaciones, informáticos e información",
+    "value": "4"
+  },
+  {
+    "name": "Dividendos, préstamos y otros financieros",
+    "value": "5"
+  },
+  {
+    "name": "Otros, especificar en Comentario",
+    "value": "6"
+  }
+]

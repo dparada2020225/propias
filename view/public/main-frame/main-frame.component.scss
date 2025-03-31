@@ -1,0 +1,229 @@
+$main-frame-nav-font-size: 14px;
+$main-frame-nav-line-height: 17px;
+
+nav {
+  border-bottom: none !important;
+  padding: 0.5rem 1rem;
+  z-index: 1000 !important;
+  min-height: 80px;
+
+  a.navbar-brand {
+    & > img {
+      width: 170px !important;
+      height: auto;
+    }
+  }
+}
+
+
+
+::ng-deep.corporate-image {
+  nav.public-navbar {
+    border-bottom: none !important;
+    padding: 0.5rem 3rem;
+    z-index: 1000 !important;
+    min-height: 80px;
+    background-color: var(--primary-color) !important;
+    box-shadow: 0px 3px 6px #00000029;
+    a.navbar-brand {
+      & > img {
+        width: 170px !important;
+        height: auto;
+      }
+    }
+  }
+
+  .login li.nav-item .nav-link {
+    color: var(--color-navbar);
+    letter-spacing: 0px;
+    margin: 0 15px;
+    display: inline-block;
+
+    &:hover {
+      color: var(--color-navbar);
+    }
+  }
+}
+
+ul.navbar-nav {
+  margin-left: auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 96px);
+}
+
+:host ::ng-deep li.nav-item a.nav-link:hover {
+  box-shadow: inset 0 -3px 0 var(--accent-color) !important;
+}
+
+li.nav-item .nav-link {
+  letter-spacing: 0px;
+  margin: 0 15px;
+  display: inline-block;
+}
+
+li.nav-item.sub .nav-link {
+  font-weight: 400;
+}
+
+:host ::ng-deep byte-product-list li.nav-item .nav-link {
+  letter-spacing: 0px;
+  margin: 0 15px;
+  display: inline-block;
+}
+
+:host ::ng-deep byte-product-list li.nav-item.sub .nav-link {
+  font-weight: 400;
+}
+
+:host ::ng-deep .product-list {
+  margin-top: 35px;
+  box-shadow: none !important;
+}
+
+.navbar-toggler {
+  margin-right: 20px !important;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  nav {
+    img {
+      //width: 170px;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  nav {
+    img {
+      //width: 130px;
+      height: auto;
+    }
+  }
+
+  .corporate-image .login.banca-regional-menu:before {
+    color: var(--primary-color);
+  }
+}
+
+@media (min-width: 992px) {
+  ul.navbar-nav {
+    overflow-y: hidden;
+  }
+
+  li.nav-item .nav-link {
+    font-size: $main-frame-nav-font-size !important;
+    line-height: $main-frame-nav-line-height !important;
+    text-align: center !important;
+    margin: 0 25px;
+  }
+
+  :host ::ng-deep byte-product-list li.nav-item .nav-link {
+    font-size: $main-frame-nav-font-size !important;
+    line-height: $main-frame-nav-line-height !important;
+    text-align: center !important;
+    margin: 0 25px;
+    min-width: 102px;
+  }
+
+  nav {
+    height: 80px;
+    padding-left: 75px;
+    padding-right: 75px;
+    & a.navbar-brand {
+      & > img {
+        margin: 20px 0px 20px 30%;
+        width: 170px;
+        height: auto;
+      }
+    }
+  }
+
+  img {
+    height: 50px;
+    width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  nav {
+    padding-left: 157px;
+    padding-right: 157px;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar-toggler {
+    margin-right: 10px !important;
+  }
+
+  .login.banca-regional-menu:before {
+    //color: var(--primary-color) !important;
+  }
+}
+
+::ng-deep.bipa .navbar-brand {
+  img {
+    width: 130px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  nav img {
+    width: 170px;
+    height: auto;
+  }
+}
+@media (max-width: 767px) {
+  nav img {
+    width: 130px;
+    height: auto;
+  }
+}
+@media (min-width: 992px) {
+  ul.navbar-nav {
+    overflow-y: hidden;
+  }
+
+  li.nav-item .nav-link {
+    font-size: 14px !important;
+    line-height: 17px !important;
+    text-align: center !important;
+    margin: 0 25px;
+  }
+
+  :host ::ng-deep byte-product-list li.nav-item .nav-link {
+    font-size: 14px !important;
+    line-height: 17px !important;
+    text-align: center !important;
+    margin: 0 25px;
+    min-width: 102px;
+  }
+
+  nav {
+    height: 80px;
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+  nav a.navbar-brand > img {
+    margin: 20px 0px 20px 30%;
+    width: 170px;
+    height: auto;
+  }
+
+  img {
+    height: 50px;
+    width: auto;
+  }
+}
+@media (min-width: 1200px) {
+  nav {
+    padding-left: 157px;
+    padding-right: 157px;
+  }
+}
+@media (max-width: 375px) {
+  .navbar-toggler {
+    margin-right: 10px !important;
+  }
+}

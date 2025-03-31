@@ -1,0 +1,163 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+.pp-upload__header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--light-text-three);
+  
+    h1{
+      margin-bottom: 0.5rem;
+    }
+  
+    p {
+      font: normal normal bold 18px/22px Lato, sans-serif;
+      font-size: 0.938rem;
+      @include from(m){
+        font-size: 1.25rem;
+      }
+      @include from(x){
+        font-size: 1.125rem;
+      }
+      color: var(--light-text-two);
+    }
+    .buttons {
+      margin-top: 64px;
+      display: flex;
+      flex-direction: row;  
+      gap: 1rem;
+  
+      @include from(m) {
+        flex-direction: row;
+        gap: 1rem; 
+        justify-content: flex-end; 
+      }
+    }
+  }
+
+  ::ng-deep .ps-buttons-container adf-button button.btn {
+    @media only screen and (max-width: 500px) {
+      width: 100% !important;
+      height: 60px !important; 
+    }
+  }
+  
+  ::ng-deep .ps-buttons-container {
+    margin-top: 8% !important;
+
+    @include from(m) {
+      display: flex;
+      justify-content: flex-end;
+      padding-left: 100px;
+      gap: 32px;
+    }
+  
+    @include to(sm) {
+      display: flex;
+      flex-direction: column; /* Botones en vertical */
+      gap: 16px; /* Espacio entre los botones */
+      width: 100%; /* Los botones abarcan el 100% del ancho */
+  
+      /* Invertir el orden de los botones */
+      adf-button[data-testid="next"] {
+        order: 1; /* El botón "next" va primero */
+      }
+  
+      adf-button[data-testid="secondary"] {
+        order: 2; /* El botón "back" va después */
+      }
+  
+      adf-button {
+        width: 100%; /* Cada botón se ajusta al 100% del contenedor */
+  
+        button.btn {
+          height: 60px;
+          width: 100% !important;
+        }
+      }
+    }
+  }
+  
+  .sppl-items {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+  
+    @include from(m) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .sppl-confirm__content {
+    .title_content {
+      border-bottom: 1px solid var(--light-text-three);
+      margin-bottom: 40px;
+      h3{
+        font-size: 1rem !important;
+  
+        @include from(x){
+          font-size: 1.125rem !important;
+        }
+      }
+    }
+  
+    p {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--light-text-three);
+      margin-bottom: 1.5rem;
+    }
+  
+    h3 {
+      font-size: 18px;
+      color: #666666;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+  
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+  
+  .item-title {
+    color: var(--light-text-three);
+  }
+  
+  .item-value {
+    color: var(--primary-color);
+  }
+  
+  .manually-container::ng-deep {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  
+    adf-reading{
+      .main-subtitle{
+  
+        font: normal normal bold 18px/22px Lato, sans-serif !important;
+        font-size: 1rem !important;
+        @include from(x){
+          font-size: 1.125rem !important;
+        }
+        color: var(--color-subtitle-sppl) !important;
+      }
+    }
+  
+  }
+  
+  .table-subtitle {
+    border-top: 1px solid var(--light-text-three);
+    font-size: 20px;
+    padding: 40px 0 1.5rem 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin: 0;
+  }
+  

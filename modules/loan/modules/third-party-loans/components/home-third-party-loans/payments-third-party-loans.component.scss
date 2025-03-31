@@ -1,0 +1,135 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.dahsboard-admin-button-divider {
+  border-block-start: 0;
+  border-block-end: 1px solid var(--light-text-three);
+  padding-block: 0.875rem;
+  @include from(m) {
+    border-block-end: 1px solid var(--light-text-three);
+    padding-bottom: 1.875rem;
+    padding-top: 0;
+  }
+  adf-button.add_button {
+    @include from(m) {
+      width: 240px !important;
+    }
+  }
+}
+
+.title-terceros {
+  display: inline-flex;
+  color: var(--primary-color);
+  float: left;
+  margin-top: 55px;
+  @include from(x) {
+    display: inline-flex;
+    color: var(--primary-color);
+    float: left;
+    margin-top: 24px;
+  }
+}
+
+#title-third-party-loans {
+  font-size: 0.9375rem !important;
+  font-family: Lato, monospace, sans-serif !important;
+  font-weight: 700;
+  @include from(692px) {
+    font-size: 1.125rem !important;
+  }
+}
+
+::ng-deep.ttpl-transfer {
+  adf-table {
+    .table-heading {
+      display: inline-flex !important;
+    }
+    .table-name {
+      color: var(--light-text-two) !important;
+    }
+
+    .table__mobile thead th:first-child {
+      padding-top: 5px !important;
+    }
+  }
+}
+
+//Change width to table headers
+::ng-deep.table-third-party-loans adf-table {
+  #table-container {
+    --row-size: 200px 1fr 120px 1fr;
+    --mobile-table-maxBloSize: 500px;
+
+    .option-list {
+      transform: translate(0) !important;
+      position: initial !important;
+    }
+  }
+
+  .main-body .type {
+    color: var(--primary-light-two);
+  }
+
+  .table__mobile {
+    text-transform: uppercase;
+  }
+
+  .optionHeader {
+    padding-top: 0;
+  }
+}
+
+::ng-deep.ttpl-transfer adf-button {
+  @include from(m) {
+    width: 240px;
+  }
+}
+
+::ng-deep.byte-container__button.filter-buttons {
+  align-items: flex-end;
+
+  adf-button#add {
+    inline-size: 100%;
+  }
+
+  @include from(m) {
+    adf-button#add {
+      inline-size: 15rem;
+    }
+  }
+
+  @include from(768px) {
+    justify-content: flex-end;
+  }
+}
+
+::ng-deep adf-form-layout {
+  .padding-side {
+    @include from(m) {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+}
+
+::ng-deep adf-alert-modal {
+  .buttons {
+    @include from(m) {
+      flex-direction: row !important;
+    }
+  }
+}
+
+//Tables
+.table-third-party-loans {
+  @include from(x) {
+    padding-inline-start: 6.25rem;
+  }
+}
+
+.spacer {
+  width: 5px;
+  height: 20px;
+}
+
+
+

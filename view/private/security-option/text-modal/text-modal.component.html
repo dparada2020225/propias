@@ -1,0 +1,37 @@
+<div class="modal-header" style="border: none">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"><i aria-hidden="true" class="fas fa-times" style="color: #9B9B9B;"></i></button>
+  </div>
+    <div class="text-modal-container">
+      <div class="title">
+        <i aria-hidden="true" class="icon banca-regional-politica"></i>
+        <h5>{{'sp.policies' | translate}}
+        </h5>
+      </div>
+      <div clas="content-above">
+        <div class="subtitle-password">
+          {{'sp.passwords' | translate}}
+        </div>
+        <ul>
+          <li [ngClass]="{'li-bisv': profile === 'bisv'}" *ngFor="let element of this.labelList.passwordPolicies">
+              {{ element.label | translate}}
+          </li>
+        </ul>
+      </div>
+      <div class="remember-text" *ngIf="this.profile === 'bisv'">
+        <span class="subtitle">
+          {{'sp.remember' | translate}}
+        </span>
+        {{'sp.message-remember' | translate}}{{settingData.contactsInfo.whatsapp}}
+      </div>
+      <div clas="content-below">
+        <div class="subtitle">
+          {{'sp.policy-validity' | translate}}
+        </div>
+        <ul>
+          <li [ngClass]="{'li-bisv': profile === 'bisv'}" *ngFor="let element of this.labelList.policiesValidity">
+           {{ element.label | translate}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  

@@ -1,0 +1,309 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+
+.container-ndevice-softToken {
+  padding-left: 26px;
+  padding-right: 24px;
+
+  @include from (x) {
+    padding-right: 0;
+  }
+}
+.buttons{
+  @include from (x) {
+    margin-right: 41px;
+  }
+}
+
+.inputToken-container{
+  @include from (x) {
+    margin-left: 0px !important;
+  }
+}
+
+.container-left {
+  display: grid;
+  justify-items: center;
+  padding-bottom: 26px;
+
+  @include from (m) {
+    justify-items: left;
+    display: grid;
+    grid-template-columns: 60px 300px;
+    grid-template-rows: 1fr 1fr;
+    gap: 0 20px;
+    grid-template-areas:
+      "steps-icon title-ndevice"
+      "steps-icon description";
+  }
+
+  @include from (x) {
+    grid-template-columns: 110px 367px;
+    padding-left: 15px;
+    margin-left: 20px;
+    padding-bottom: 26px;
+    gap: 0 16px;
+  }
+}
+
+.steps-icon {
+  @include from (m) {
+    grid-area: steps-icon;
+  }
+}
+
+
+.title-ndevice {
+  font-size: 26px !important;
+
+  @include from (m) {
+    grid-area: title-ndevice;
+    margin-bottom: 15px;
+    font-size: 27px !important;
+  }
+}
+
+.description {
+  @include from (m) {
+    grid-area: description;
+  }
+}
+
+.ndevice-title-container {
+  padding-bottom: 9px;
+  border-bottom: 1px solid #5A5A5A;
+}
+
+#ndevice-title {
+  font-size: 20px !important;
+  margin: 0;
+  color: #003865;
+  @include from(m){
+    font-size: 25px !important;
+  }
+  @include from(x){
+    font-size: 27px !important;
+  }
+}
+
+#ndevice-subt {
+  width: 236px;
+  height: 33px;
+  margin-bottom: 22px;
+  text-align: center;
+
+  @include from (m) {
+    padding-top: 5px;
+    width: auto;
+    height: auto;
+  }
+  @include from (x) {
+    padding-top: 7px;
+    width: auto;
+    height: auto;
+  }
+}
+
+.steps-ndevice-container {
+  width: 250px;
+  padding-top: 39px;
+  padding-bottom: 31px;
+
+  @include from (m) {
+    display: none;
+  }
+}
+
+
+.descrip-text {
+  color: #5A5A5A;
+  max-width: 323px;
+
+  @include from (m) {
+    padding-right: 0;
+  }
+
+  @include from (x) {
+    padding-right: 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+
+  @include from (m) {
+    flex-direction: initial;
+    justify-content: end;
+    gap: 14px;
+  }
+}
+
+::ng-deep.buttons adf-button.btn-ndevice-stoken {
+  .btn {
+    width: 100%;
+    max-width: 323px;
+    margin-bottom: 10px;
+    margin-left: 0;
+
+    @include from (m) {
+      width: 240px;
+      height: 50px;
+    }
+  }
+}
+
+.steps-ndevice-container2 {
+  display: none;
+
+  @include from (m) {
+    display: block;
+    width: 54.6px;
+  }
+}
+
+.ndevice-container-body {
+  padding-top: 0;
+  display: block;
+
+  @include from (m) {
+    padding-top: 77px;
+    display: flex;
+  }
+
+  @include from (x) {
+    padding-top: 69px;
+    height: 325px;
+  }
+}
+
+
+.ndevice-subtitle-container {
+  padding-top: 0;
+
+  @include from (m) {
+    padding-top: 80px;
+    position: relative;
+  }
+
+  @include from (x) {
+    padding-top: 87px;
+  }
+}
+
+.icon-container {
+  display: none;
+
+  @include from (m) {
+    padding-top: 2px;
+    display: block;
+    width: 116.36px;
+    height: 48.68px;
+    position: absolute;
+    top: 8px;
+    font-size: 116.36px;
+    color: var(--primary-light-two);
+  }
+
+  @include from (x) {
+    padding-top: 0;
+    top: 3px;
+  }
+}
+
+.ndevice-descrip-container {
+  @include from (x) {
+    width: 301px;
+  }
+}
+
+
+.inputToken-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 323px;
+  width: 100%;
+  margin: 0 auto 56px auto;
+
+
+  @include from (m) {
+    margin-bottom: 0;
+    padding-top: 0;
+    height: fit-content;
+    margin-top: 130px;
+    align-items: start;
+    max-width: 328px;
+    width: 100%;
+  }
+
+  @include from (x) {
+    max-width: 374px;
+    width: 100%;
+    margin-right: 128px;
+    padding-left: 0;
+    margin-left: 41px;
+  }
+}
+
+
+#title-input-stoken {
+  font-size: 15px;
+  color: var(--text-color);
+  align-self: start;
+  margin-bottom: 2px;
+  @include from (x) {
+    font-size: 16px;
+  }
+}
+
+.modal-question {
+  padding-left: 6px;
+  font-size: 19px;
+  color: var(--primary-light-two);
+  cursor: pointer;
+}
+
+.icon-security {
+  @include from (m) {
+    position: absolute;
+    top: -13px;
+  }
+}
+
+.inputToken {
+  width: 100%;
+  max-width: 323px;
+
+  @include from (m) {
+    width: 100%;
+    max-width: 328px;
+  }
+
+  @include from (x) {
+    width: 120% !important;
+    max-width: 370px !important;
+  }
+}
+
+.info-container__descrip-subt{
+  font-size: 15px !important;
+  font-weight: bold;
+  p {
+    font-size: 15px !important;
+  }
+  @include from(x){
+    font-size: 16px !important;
+    p {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.info-container__descrip-subt2{
+  font-size: 15px !important;
+  @include from(x){
+    font-size: 16px !important;
+  }
+}

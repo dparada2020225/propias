@@ -1,0 +1,16 @@
+.routing-security-option {
+  font-family: inherit;
+}
+
+::ng-deep.update-data-modal adf-alert-modal{
+  .icon{
+    .banca-regional-error{
+      color: var(--danger-text-table) !important;
+    }
+    outline: white;
+    font-size: 37px;
+  }
+  .close__icon{
+    display: none;
+  }
+}

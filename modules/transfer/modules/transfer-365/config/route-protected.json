@@ -1,0 +1,39 @@
+[
+  {
+    "name": "365",
+    "path": "/transfer/365",
+    "parameter": "365:home",
+    "children": [
+      {
+        "path": "365",
+        "parameter": "365:home",
+        "children": []
+      },
+      {
+        "path": "terms-condition",
+        "parameter": "365:terms_condition",
+        "children": []
+      },
+      {
+        "path": "confirmation",
+        "parameter": "365:confirmation",
+        "children": []
+      },
+      {
+        "path": "voucher",
+        "parameter": "365:voucher",
+        "children": []
+      },
+      {
+        "path": "st/detail",
+        "parameter": "365:st_detail",
+        "children": []
+      },
+      {
+        "path": "st/operation",
+        "parameter": "365:st_operation",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true" class="fa fa-times"></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h2 class="modal-title">{{ title }}</h2>
+    <label class="description">{{ description }}</label>
+    <label class="label_link">{{ 'more_info' | translate }}
+      <a href="{{ url }}" rel="noreferrer noopener" target="_blank" class="link_description">{{ link }}</a>
+    </label>
+  </div>
+
+  <div class="modal-footer">
+    <adf-button class="modal-onboarding" id="prev" [value]="'ok_tpl' | translate" (click)="close()"> </adf-button>
+  </div>
+</div>

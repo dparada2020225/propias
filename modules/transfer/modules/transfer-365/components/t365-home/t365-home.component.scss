@@ -1,0 +1,37 @@
+@use '../../../../../../../assets/styles/responsive.scss' as *;
+
+.ach-365-home {
+  .content {
+    @include from(x) {
+      padding-left: 100px;
+    }
+  }
+}
+
+
+::ng-deep.ach-365-home {
+  adf-form-layout {
+    .form-heading {
+      display: none;
+    }
+
+    adf-select select.custom-select {
+      height: 40px !important;
+    }
+
+    .container-form {
+      border: none;
+    }
+
+    .checkbox-365 .checkbox-form-layout {
+      padding-block: 12px;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      justify-content: flex-end;
+
+      label {
+        margin: 0;
+      }
+    }
+  }
+}

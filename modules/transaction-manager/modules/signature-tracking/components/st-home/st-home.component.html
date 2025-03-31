@@ -1,0 +1,115 @@
+<ngx-spinner></ngx-spinner>
+<main [ngClass]="[tabColorForStMultipleClassName, profile, 'main-container transfers']">
+  <section [ngClass]="[customShow, 'byte-container']">
+    <adf-alert
+      *ngIf="typeAlert && messageAlert"
+      (onAlertRemoved)='mangeToRemoveAlert()'
+      [isManageRemoveAlert]='isManageAlertByManualRemoved'
+      [receiverType]="typeAlert"
+      [receiverMessage]="messageAlert | translate"> </adf-alert>
+
+    <div class="heading">
+      <div class='heading_title'>
+        <h2 class="main-title">{{ 'signature_tracking' | translate }}</h2>
+        <button *ngIf='isFeatureEnabledInBisv' (click)='openVideoTutorial()' class='icon'>
+          <i class="fa fa-play" aria-hidden="true"></i>
+        </button>
+      </div>
+      <h3 class="subtitle">{{ subtitleCurrentPosition | translate }}</h3>
+    </div>
+
+    <div class="content signature-tracking-flow">
+      <adf-tab
+        class='tab'
+        [currentTabPosition]="currentTabPosition"
+        [tabTitleList]="tabList"
+        (onTabSelected)="selectActiveTab($event)"
+        [isShowTabBar]='true'
+      ></adf-tab>
+      <div class="search-box" *ngIf='isShowSearchBox'>
+        <div class="box">
+          <adf-form-layout [form]="searchForm" [setLayoutJson]="searchLayout"></adf-form-layout>
+        </div>
+      </div>
+      <div class="table-content">
+        <div class="table-item" *ngIf="currentTabPosition === signaturePosition">
+          <adf-table
+            [isShowMessageByEmptyRegisters]='isTableManageEmptyRegistersWithoutAlert'
+            [emptyMessageHandler]='typeAlertToShowInTableWithoutRegisters'
+            [isShowHeaders]='isTableManageEmptyRegistersWithoutAlert'
+            [multipleCheckbookHeader]="showCheckbookInTableHeader"
+            [isSelected]="isSelectByCheckboxDisabled"
+            [isOptions]="true"
+            [isScrolled]='isTableManageByScrolled'
+            [setIsLoading]="isLoadingEnteredAccounts"
+            (onLoadListItems)="getCheckedAccounts($event, 'entered')"
+            (onLoadAccount)="getAccountFromEnteredTable($event)"
+            (onLoadOrderedAccounts)='orderRegisters($event, "entered")'
+            [structure]="enteredAccountsTable"
+          ></adf-table>
+        </div>
+        <div class="table-item" *ngIf="currentTabPosition === toAuthorizePosition">
+          <adf-table
+            [isShowMessageByEmptyRegisters]='isTableManageEmptyRegistersWithoutAlert'
+            [emptyMessageHandler]='typeAlertToShowInTableWithoutRegisters'
+            [isShowHeaders]='isTableManageEmptyRegistersWithoutAlert'
+            [multipleCheckbookHeader]="showCheckbookInTableHeader"
+            [isSelected]="isSelectByCheckboxDisabled"
+            [isOptions]="true"
+            [isScrolled]='isTableManageByScrolled'
+            [setIsLoading]="isLoadingToAuthorizeAccounts"
+            (onLoadListItems)="getCheckedAccounts($event, 'toAuthorize')"
+            (onLoadAccount)="getAccountFromToAuthorizedTable($event)"
+            (onLoadOrderedAccounts)='orderRegisters($event, "toAuthorize")'
+            [structure]="toAuthorizedAccountsTable && toAuthorizedAccountsTable"
+          ></adf-table>
+        </div>
+        <div class="table-item" *ngIf="currentTabPosition === authorizedPosition">
+          <adf-table
+            [isShowMessageByEmptyRegisters]='isTableManageEmptyRegistersWithoutAlert'
+            [emptyMessageHandler]='typeAlertToShowInTableWithoutRegisters'
+            [isShowHeaders]='isTableManageEmptyRegistersWithoutAlert'
+            [multipleCheckbookHeader]="showCheckbookInTableHeader"
+            [isSelected]="isSelectByCheckboxDisabled"
+            [isOptions]="true"
+            [isScrolled]='isTableManageByScrolled'
+            [setIsLoading]="isLoadingAuthorizedAccounts"
+            (onLoadListItems)="getCheckedAccounts($event, 'authorized')"
+            (onLoadAccount)="getAccountFromAuthorizedTable($event)"
+            [structure]="authorizedAccountsTable && authorizedAccountsTable"
+            (onLoadOrderedAccounts)='orderRegisters($event, "authorized")'
+          ></adf-table>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="signature-tracking-important-block" *ngIf="showImportantAlert">
+      <div class="signature-tracking-important">
+        <h2 class="signature-tracking-important__title">
+          <div>
+            <i aria-hidden="true" class="icon sprint2-icon-warning"></i>
+          </div>
+          <p>{{ 'info_remember_signature-tracking:title' | translate }}</p>
+        </h2>
+        <p class="signature-tracking-important__text"  *ngIf="currentTabPosition === signaturePosition">
+          <span [innerHTML]='currentInfoMessageByStep | translate'></span>
+          <button (click)='openOnboardingModal(true)'> {{ 'label:st_more_information' | translate }} </button>
+        </p>
+        <p class="signature-tracking-important__text"  *ngIf="currentTabPosition === toAuthorizePosition">
+          <span [innerHTML]='currentInfoMessageByStep | translate'></span>
+          <button (click)='openOnboardingModal(true)'> {{ 'label:st_more_information' | translate }} </button>
+        </p>
+        <p class="signature-tracking-important__text"  *ngIf="currentTabPosition === authorizedPosition">
+          <span [innerHTML]='currentInfoMessageByStep | translate'></span>
+          <button (click)='openOnboardingModal(true)'> {{ 'label:st_more_information' | translate }} </button>
+        </p>
+      </div>
+    </div>
+
+    <div class="buttons" *ngIf='isShowButtonActions'>
+      <adf-button id="primary" class="primary" (click)="nextStep()" [value]="nextButtonMessage | translate"></adf-button>
+      <adf-button (click)="prevStep()" id="prev" class="secondary" type="secondary" [value]="prevButtonMessage | translate"> </adf-button>
+    </div>
+  </section>
+</main>

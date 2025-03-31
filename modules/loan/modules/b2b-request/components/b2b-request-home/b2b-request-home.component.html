@@ -1,0 +1,21 @@
+<ngx-spinner></ngx-spinner>
+<div [ngClass]="[customShow, 'container-b2b-request byte-container b2b-container']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-form-layout  [setLayoutJson]="formLayout" [setDataSelectList]="optionsList" [form]="form">
+  </adf-form-layout>
+
+  <div class="byte-container__button">
+    <div *ngIf="alertFrequencies">
+      <span class="alert-frequencies-b2b">{{'alert-frequencies-b2b' | translate}}</span>
+    </div>
+    <adf-button
+      id="bPrimary"
+      class="primary"
+      value="{{ 'btn.confirm' | translate }}"
+      (click)="nextStep()"
+    >
+    </adf-button>
+    <adf-button class="secondary" id="secondary" type="secondary" value="{{ 'toReturn' | translate }}" (click)="lastStep()"> </adf-button>
+  </div>
+</div>
+

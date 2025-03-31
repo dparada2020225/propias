@@ -1,0 +1,59 @@
+[
+  {
+    "name": "365 Móvil",
+    "path": "/accounts-management/365-movil",
+    "parameter": null,
+    "children": [
+      {
+        "path": "detail",
+        "parameter": "m365:detail",
+        "children": []
+      },
+      {
+        "path": "create",
+        "parameter": "m365:create",
+        "children": []
+      },
+      {
+        "path": "create/confirmation",
+        "parameter": "m365:create_confirm",
+        "children": []
+      },
+      {
+        "path": "create/voucher",
+        "parameter": "m365:create_voucher",
+        "children": []
+      },
+      {
+        "path": "update",
+        "parameter": "m365:update",
+        "children": []
+      },
+      {
+        "path": "update/confirmation",
+        "parameter": "m365:update_confirm",
+        "children": []
+      },
+      {
+        "path": "update/voucher",
+        "parameter": "m365:update_voucher",
+        "children": []
+      },
+      {
+        "path": "delete",
+        "parameter": "m365:delete",
+        "children": []
+      },
+      {
+        "path": "delete/confirmation",
+        "parameter": "m365:delete_confirm",
+        "children": []
+      },
+      {
+        "path": "delete/voucher",
+        "parameter": "m365:delete_voucher",
+        "children": []
+      }
+    ]
+  }
+]

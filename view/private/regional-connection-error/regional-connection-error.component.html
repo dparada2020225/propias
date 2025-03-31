@@ -1,0 +1,23 @@
+<div class="regional-connection error-page-background">
+  <nav class="regional-connection__nav">
+    <a class="navbar-brand" routerLink=".">
+      <div class="regional-connection__logo">
+        <img src="assets/images/logo-conexion-regional-white.png" alt="logo-conexion-regional-white"/>
+      </div>
+    </a>
+  </nav>
+  <div class="regional-connection__message-content">
+    <div class="regional-connection__message-content__title">
+      <span>{{ 'title:regional_connection_error1' | translate }}</span>
+      <span
+        class="regional-connection__message-content__text-blue">{{ 'title:regional_connection_error2' | translate }}</span>
+      <img class="regional-connection__wifi-gif" src="assets/images/gif/wifi-no-bg.gif" alt="wifi-no-bg"/>
+    </div>
+    <div class="regional-connection__message-content__text">
+      {{ 'label:regional_connection_error' | translate }} <br/>
+      {{ 'label:regional_connection_error2' | translate }}
+    </div>
+  </div>
+  <a class="regional-connection__button"
+     (click)="goToLogin()">{{ 'label:regional_connection_error_button' | translate }}</a>
+</div>

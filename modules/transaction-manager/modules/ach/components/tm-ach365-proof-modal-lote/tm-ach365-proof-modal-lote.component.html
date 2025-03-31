@@ -1,0 +1,20 @@
+<adf-confirmation-modal [data]="data">
+  <div dynamicContent>
+    <adf-table
+      [isShowMessageByEmptyRegisters]='true'
+      [emptyMessageHandler]="'message'"
+      [isShowHeaders]='true'
+      [useOptionsWithVirtualScroll]="userVirtualScrollInTableMultiple"
+      [useVirtualScroll]="userVirtualScrollInTableMultiple"
+      [structure]="uploadedAccountsLayout"
+    ></adf-table>
+    <byte-tm365-footer
+      label1='tm365:label_total_amount'
+      label2='tm365:label_total_credits'
+      label3='tm365:label_total'
+      [value1]='total'
+      [value2]='credits'
+      [currency]='currency'
+    ></byte-tm365-footer>
+  </div>
+</adf-confirmation-modal>

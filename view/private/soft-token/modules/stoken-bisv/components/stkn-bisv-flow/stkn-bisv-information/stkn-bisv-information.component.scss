@@ -1,0 +1,270 @@
+@use '../../../../../../../../../assets/styles/responsive.scss' as *;
+
+.container-softToken {
+  display: grid;
+
+  @include from (x) {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+  }
+
+}
+
+
+.container-left {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #E9E9E9;
+
+  @include from (m) {
+    padding-bottom: 36px;
+    margin-bottom: 42px;
+  }
+
+  @include from (x) {
+    border-bottom: 0px;
+    border-right: 1px solid #E9E9E9;
+    padding: 0 58px 0 0;
+    position: relative;
+    height: 420px;
+  }
+}
+
+.container-softToken .container-left-icon-container {
+  font-size: 110px;
+  color: var(--primary-light-two);
+
+  @include from(x){
+    position: absolute;
+    top: -7%;
+  }
+}
+
+.container-softToken .container-left-descrip-container{
+  @include from(x){
+    margin-top: 65px;
+  }
+}
+
+
+.container-softToken .container-left__title {
+  font-size: 20px !important;
+  margin-bottom: 32px;
+
+  @include from(m) {
+    font-size: 25px !important;
+    margin-bottom: 28px;
+  }
+
+  @include from(x) {
+    font-size: 27px !important;
+    margin-bottom: 23px;
+  }
+
+}
+
+.container-softToken-p {
+  font-size: 15px !important;
+
+  @include from(x) {
+    font-size: 16px !important;
+  }
+}
+
+.container-softToken .container-left__subt {
+  font-size: 15px !important;
+  font-weight: bold;
+
+  @include from(m) {
+    margin-bottom: 14px;
+  }
+
+  @include from(x) {
+    font-size: 16px !important;
+  }
+}
+
+.container-softToken .container-left__subt2 {
+  font-weight: bold;
+  margin: 12px 0 8px 0;
+
+  @include from(m) {
+    margin: 28px 0 14px 0;
+  }
+
+  @include from(x){
+    margin: 23px 0 14px 0;
+  }
+}
+
+.container-right {
+  @include from (x) {
+    padding: 0 0 0 84px;
+  }
+}
+
+.container-softToken .container-right .container-right__sub {
+  font-size: 15px !important;
+  @include from(m) {
+    margin-bottom: 14px;
+  }
+  @include from(x) {
+    font-size: 16px !important;
+  }
+}
+
+.container-softToken .container-right__title {
+  font-size: 15px !important;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  font-weight: bold;
+
+  @include from(x) {
+    font-size: 16px !important;
+    margin-bottom: 14px;
+  }
+}
+
+.container-softToken .steps-container {
+  margin: 40px 0 85px 0;
+  display: grid;
+  row-gap: 15px;
+
+  @include from (m) {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 42px;
+    column-gap: 58px;
+    margin: 42px 0 48px 0;
+  }
+
+  @include from(x) {
+    grid-template-columns: 1fr;
+    margin: 20px 0 63px 0;
+    gap: 0;
+  }
+
+  #step-description-1{
+    font-size: 15px !important;
+    @include from(x){
+      font-size: 16px !important;
+      margin-bottom: 23px;
+    }
+  }
+
+  #step-description-2, #step-description-3, #step-description-4{
+    font-size: 15px !important;
+    @include from(x){
+      font-size: 16px !important;
+      margin-bottom: 29px;
+    }
+  }
+}
+
+.container-softToken .step-information {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  column-gap: 16px;
+
+  h1 {
+    font-size: 15px !important;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  @include from(m){
+    column-gap: 20px;
+  }
+
+  @include from(x){
+    column-gap: 11px;
+
+    h1 {
+      font-size: 16px !important;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+  }
+
+}
+
+
+.container-softToken .step-information__icon {
+  font-size: 40px;
+  display: grid;
+  place-content: start;
+  padding-top: 10px;
+  color: var(--primary-light-two) !important;
+
+}
+
+.container-softToken #step-information-id-1{
+
+  .step-information__icon{
+    @include from(m){
+      padding-top: 15px;
+    }
+
+    @include from(x){
+      padding-top: 10px;
+    }
+  }
+
+}
+
+.container-softToken #step-information-id-4{
+
+  .step-information__icon{
+    @include from(m){
+      padding-top: 15px;
+    }
+  }
+
+}
+
+.container-softToken #step-information-id-5{
+
+  .step-information__icon{
+    @include from(m){
+      padding-top: 0;
+    }
+  }
+
+}
+
+.container-softToken .step-description-5 {
+  color: var(--primary-light-two) !important;
+  font-weight: bold;
+}
+
+
+.container-softToken .byte-container__button {
+  border-bottom: 0;
+
+  @include from(m) {
+    margin: 0 0 0 289px;
+    padding-bottom: 45px;
+  }
+
+  @include from(x) {
+    grid-area: 2 / 1 / 3 / 3;
+  }
+
+}
+
+
+::ng-deep.stoken-information {
+  adf-alert-modal {
+    .icon {
+      outline: none;
+    }
+
+    .close__icon {
+      display: none;
+    }
+
+  }
+}
+
+.not-allowed {
+  height: 490px;
+}

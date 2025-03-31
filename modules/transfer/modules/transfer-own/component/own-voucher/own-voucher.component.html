@@ -1,0 +1,11 @@
+<div [ngClass]="[customShow, 'container-own-transfer byte-container transfers', typeProfile == profileSV ? 'corporate-image-sv-voucher' : '', typeProfile == profilePA ? 'corporate-image-pa-voucher' : '']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-reading class="transfer-reading" [data]="confirmationLayout"> </adf-reading>
+  <div [ngClass]="['byte-container__button', typeProfile == profileSV ? 'byte-container__button-sv-voucher' : '',typeProfile == profilePA ? 'byte-container__button-pa-voucher' : '']">
+    <adf-button *ngIf='isShowPrintButton'  id="next" class="primary" value="{{ nextButtonMessage | translate }}" (click)="nextStep()">
+    </adf-button>
+    <adf-button id="prev" class="secondary" [type]='typePrevButton'  value="{{ 'toReturn' | translate }}" (click)="lastStep()"> </adf-button>
+  </div>
+
+  <adf-confirmation-headband [ngClass]="[typeProfile == profileSV ? 'headband-sv-voucher' : '',typeProfile == profilePA ? 'headband-pa-voucher' : '']" *ngIf='isShowHeadband' [headbandLayout]="headBandLayout"></adf-confirmation-headband>
+</div>

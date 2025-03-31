@@ -1,0 +1,278 @@
+@use '../../../../../../../assets/styles/responsive' as *;
+
+::ng-deep.byte-container__button-sv-voucher {
+  ::ng-deep adf-button>button.btn-default:hover {
+    background-color: var(--secondary-button-background-color) !important;
+    color: var(--color-navbar) !important;
+    border-color: var(--secondary-button-background-color);
+  }
+
+  @include to(x) {
+    margin-left: 166px !important;
+    padding-block-end: 2rem !important;
+    padding-block-start: 3.75rem !important;
+    border-bottom: 0 !important;
+  }
+
+  @include to(691px) {
+    margin-left: 0 !important;
+    padding-block-end: 2rem !important;
+    padding-block-start: 0 !important;
+    border-bottom: 1px solid var(--light-text-three) !important;
+  }
+
+  adf-button {
+    button {
+      @include from(m) {
+        height: 50px !important;
+      }
+    }
+  }
+}
+
+::ng-deep.byte-container__button-pa-voucher {
+  ::ng-deep adf-button > button.btn-default:hover {
+    background-color: var(--secondary-button-background-color) !important;
+    color: var(--color-navbar) !important;
+    border-color: var(--secondary-button-background-color);
+  }
+
+
+
+  @include from(s) {
+    margin-left: 0px !important;
+    padding-block-end: 2rem !important;
+    padding-block-start: 1.75rem !important;
+    border-bottom: 0px !important;
+  }
+
+  @include from(m) {
+    margin-left: 166px !important;
+    padding-block-end: 2rem !important;
+    padding-block-start: 8.125rem !important;
+    margin-top: -80px !important;
+    margin-right: 0px !important;
+    gap: 0rem !important;
+    ::ng-deep adf-button {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @include from(x) {
+      margin-left: 85px !important;
+      padding-block-end: 2rem !important;
+      padding-block-start: 3.75rem !important;
+      border-bottom: 1px solid var(--light-text-three) !important;
+    }
+  }
+
+  @include from(x) {
+    gap: 1rem !important;
+    border-bottom: 1px solid var(--light-text-three) !important;
+  }
+
+  @include from(692px) {
+    ::ng-deep adf-button {
+      width: 240px !important;
+    }
+
+    ::ng-deep adf-button button.btn {
+      max-width: 100% !important;
+      @include from(m) {
+        width: 218px !important;
+      }
+      @include from(x) {
+        width: 240px !important;
+      }
+    }
+  }
+
+  adf-button {
+    button {
+      @include from(m) {
+        height: 50px !important;
+      }
+    }
+  }
+}
+.corporate-image-pa-voucher {
+  @include from(m) {
+    padding: 2.5rem 3rem 4.625rem 2.625rem;
+    max-width: 79.2rem !important;
+  }
+  @include from(x) {
+    padding: 2.5rem 5.6875rem 4.625rem 5.8125rem !important;
+    max-width: 79.2rem !important;
+  }
+}
+
+::ng-deep.corporate-image-pa-voucher {
+  ::ng-deep adf-reading {
+    h2.main-title {
+      @include from(s) {
+        margin-top: 28px !important;
+        font-size: 20px !important;
+      }
+      @include from(m) {
+        margin-top: 30px !important;
+        font-size: 25px !important;
+      }
+      @include from(x) {
+        margin-top: 52.2px !important;
+        font-size: 27px !important;
+      }
+    }
+    .content-fields {
+      @include from(s) {
+        font-size: 15px !important;
+      }
+      @include from(m) {
+        font-size: 15px !important;
+        padding-left: 0px;
+      }
+      @include from(x) {
+        padding-bottom: 2.5rem !important;
+        padding-left: 86px !important;
+        padding-top: 1.9rem;
+        font-size: 14px !important;
+      }
+    }
+
+    .field-item {
+
+
+      @include from(s) {
+        font-size: 15px !important;
+        margin-bottom: 14px !important;
+      }
+      @include from(m) {
+        font-size: 15px !important;
+        margin-bottom: 24px !important;
+      }
+      @include from(x) {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px !important;
+        gap: 0rem !important;
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+
+::ng-deep.corporate-image-sv-voucher {
+  ::ng-deep adf-reading {
+    @include from(x) {
+      .content-fields {
+        padding-bottom: 2.5rem !important;
+      }
+
+      .field-item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px !important;
+        gap: 0rem !important;
+
+        .field-title,
+        .field-description {
+          font-size: 14px;
+        }
+
+      }
+    }
+
+    @include to(x) {
+      .content-fields {
+        padding-left: 0;
+      }
+    }
+
+    @include from(m) {
+      .content-fields {
+        font-size: 15px !important;
+      }
+
+      .field-item {
+        font-size: 15px !important;
+      }
+    }
+
+    @include from(s) {
+      .content-fields {
+        font-size: 15px !important;
+      }
+
+      .field-item {
+        font-size: 15px !important;
+      }
+    }
+  }
+}
+
+::ng-deep.headband-sv-voucher {
+  @include to(x) {
+    .headband {
+      border-top: 1px solid var(--light-text-three);
+    }
+  }
+
+  @include to(m) {
+    .headband {
+      border-top: 0px;
+    }
+  }
+}
+
+
+::ng-deep.headband-pa-voucher .headband  div.list-items{
+  justify-content: space-between !important;
+}
+
+::ng-deep.headband-pa-voucher .headband  div.list-items div.headband-item {
+  gap: 0.2rem !important;
+  @include from(s){
+    flex-direction: column;
+  }
+  @include from(m){
+    flex-direction: column;
+  }
+  @include from(x){
+    flex-direction: row;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
+::ng-deep.headband-pa-voucher{
+  .headband{
+    @include from(s){
+      border-top: 1px solid var(--light-text-three) ;
+      padding-top: 1.5rem !important;
+    }
+    @include from(m){
+      border-top: 1px solid var(--light-text-three) ;
+      padding-top: 1.875rem !important;
+
+    }
+    @include from(x){
+      border-top: 0;
+      padding-top: 3.75rem !important;
+
+    }
+  }
+
+}
+
+
+
+::ng-deep.container-own-corporate {
+  adf-form-layout {
+    #form-layout-container {
+      --padding-block-end-x: 35px !important;
+    }
+  }
+}
+
+.bipa adf-confirmation-modal adf-reading .group {
+  gap: 0.625rem !important;
+}

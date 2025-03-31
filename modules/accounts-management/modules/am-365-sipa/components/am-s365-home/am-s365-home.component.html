@@ -1,0 +1,62 @@
+<ngx-spinner></ngx-spinner>
+<article [ngClass]="[customShow, 'byte-container transfers ams65-home']">
+  <adf-alert *ngIf="typeAlert && messageAlert" [receiverType]="typeAlert" [receiverMessage]="messageAlert | translate"> </adf-alert>
+  <adf-header
+    subtitle='cam:label_home'
+    logoUrl='assets/images/private/ach/logo_365card.svg'
+    label='s365:label_home'
+    width='140px'
+    height='40px'
+  ></adf-header>
+  <section class='content'>
+    <div class='add-content' *ngIf='isShowCreateButton'>
+      <adf-button
+        value="{{ 'add_account' | translate }}"
+        (click)="navigateToCreateAccount()"
+      ></adf-button>
+    </div>
+
+    <div class='table-content'>
+      <adf-table
+        *ngIf='isShowAssociatedTableAccounts && isShowFavoriteWidget'
+        class="favorite"
+        (onLoadAccount)="getTableActionFavoriteAccounts($event)"
+        [structure]="favoriteAccountTableLayout"
+        [isOptions]="true"
+        [isShowMessageByEmptyRegisters]='true'
+        [emptyMessageHandler]="'message'"
+        [isShowHeaders]='true'
+        [useOptionsWithVirtualScroll]="userVirtualScrollInTableFavorites"
+        [useVirtualScroll]="userVirtualScrollInTableFavorites"
+      >
+      </adf-table>
+      <hr *ngIf='isShowAssociatedTableAccounts && isShowFavoriteWidget'>
+      <adf-table
+        class="associate"
+        (onLoadAccount)="getTableActionAssociatedAccounts($event)"
+        [structure]="associatedAccountTableLayout"
+        [isOptions]="true"
+        [isShowMessageByEmptyRegisters]='true'
+        [emptyMessageHandler]="'message'"
+        [isShowHeaders]='true'
+        [useOptionsWithVirtualScroll]="userVirtualScrollInTableAssociated"
+        [useVirtualScroll]="userVirtualScrollInTableAssociated"
+      >
+      </adf-table>
+    </div>
+
+    <byte-adf-transfer-footer
+      title='ach:bisv:label_important'
+      descriptionEl='s365:label_footer_info'
+    ></byte-adf-transfer-footer>
+  </section>
+
+  <div [ngClass]="['byte-container__button_v2 no-border']">
+    <adf-button
+      id="prev"
+      class="secondary"
+      type="secondary"
+      value="{{ 'toReturn' | translate }}"
+      (click)="previous()"> </adf-button>
+  </div>
+</article>

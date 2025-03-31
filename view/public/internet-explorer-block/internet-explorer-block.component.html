@@ -1,0 +1,33 @@
+<div class="container-fluid {{profile}}">
+    <picture class="logo-section">
+        <img src="assets/images/logos/{{profile}}_bp_logo_{{versionAssets}}.png" alt="logo">
+    </picture>
+
+    <div class="description-section">
+        <span>{{ description1 }}</span>
+    </div>
+
+    <div class="advice-section">
+        <span>
+            {{ description2 }}
+        </span>
+    </div>
+
+    <section class="available-browsers-section">
+        <div class="browser" *ngFor="let browser of browsers">
+            <picture class="browser--logo">
+                <img [src]="browser.url" alt="browser">
+            </picture>
+            <span class="browser--title">{{browser.name}}</span>
+        </div>
+    </section>
+
+    <footer class="footer-block">
+        <span>
+            {{ helpText | translate }}
+            <a *ngIf="settingsData.contactsInfo" class="telf" [href]="'tel:' + settingsData.contactsInfo.phone">
+                {{settingsData.contactsInfo.phone | customPhone}}
+            </a>
+        </span>
+    </footer>
+</div>
